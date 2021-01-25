@@ -1,40 +1,46 @@
-const html = document.documentElement;
-const canvas = document.getElementById('hero-section');
-const context = canvas.getContext('2d');
+const intro = document.querySelector(".intro");
+const video = intro.querySelector("video");
+const text = intro.querySelector("h1");
+//END SECTION
+const section = document.querySelector("section");
+const end = section.querySelector("h1");
 
-canvas.width = 1158;
-canvas.height = 770;
+//SCROLLMAGIC
+const controller = new ScrollMagic.Controller();
 
-const currentFrame = index =>
-  `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
-    .toString()
-    .padStart(4, '0')}.jpg`;
+//Scenes
+let scene = new ScrollMagic.Scene({
+  duration: 9000,
+  triggerElement: intro,
+  triggerHook: 0
+})
+  .addIndicators()
+  .setPin(intro)
+  .addTo(controller);
 
-const preloadImages = () => {
-  for (let i = 1; i < 148; i++) {
-    const image = new Image();
-    image.src = currentFrame(i);
-  }
-};
+//Text Animation
+const textAnim = TweenMax.fromTo(text, 3, { opacity: 1 }, { opacity: 0 });
 
-const image = new Image();
-image.src = currentFrame(1);
+let scene2 = new ScrollMagic.Scene({
+  duration: 3000,
+  triggerElement: intro,
+  triggerHook: 0
+})
+  .setTween(textAnim)
+  .addTo(controller);
 
-image.onload = function () {
-  context.drawImage(image, 0, 0);
-};
+//Video Animation
+let accelamount = 0.1;
+let scrollpos = 0;
+let delay = 0;
 
-window.addEventListener('scroll', () => {
-  const scrollTop = html.scrollTop;
-  const maxScroll = html.scrollHeight - window.innerHeight;
-  const scrollFraction = scrollTop / maxScroll;
-  const frameIndex = Math.min(147, Math.floor(scrollFraction * 148));
-  requestAnimationFrame(() => updateImage(frameIndex + 1));
+scene.on("update", e => {
+  scrollpos = e.scrollPos / 1000;
 });
 
-const updateImage = index => {
-  image.src = currentFrame(index);
-  context.drawImage(image, 0, 0);
-};
+setInterval(() => {
+  delay += (scrollpos - delay) * accelamount;
+  console.log(scrollpos, delay);
 
-preloadImages();
+  video.currentTime = delay;
+}, 33.3);
