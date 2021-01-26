@@ -15,15 +15,12 @@ function displayContent() {
     headerVideo.muted = true;
     headerVideo.playbackRate = 1.75;
     headerVideo.play();
-    headerVideo.onended = function () {
-      document.querySelector("body").style.overflowY = "scroll";
-    };
-    // normalVideo.muted = true;
-    // normalVideo.play();
     // headerVideo.onended = function () {
     //   document.querySelector("body").style.overflowY = "scroll";
     // };
-  }, 40);
+    // normalVideo.muted = true;
+    // normalVideo.play();
+  }, 4000);
 }
 displayContent();
 

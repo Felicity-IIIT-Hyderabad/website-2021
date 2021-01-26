@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +9,8 @@
 }
 
 body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   /* font-family: sans-serif; */
   overflow-x: hidden;
   /* overflow-y: hidden; */
@@ -15,6 +21,36 @@ body {
   font-weight: 300;
   font-size: 20px;
   text-rendering: optimizeLegibility;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+nav {
+  position: fixed;
+  font-size: 30px;
+  color: white;
+  width: 100vw;
+  transition: background-color 0.5s;
+  z-index: 10;
+}
+
+nav.active {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 20px;
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 5px 10px;
 }
 
 .intro {
@@ -28,7 +64,7 @@ body {
   object-fit: cover;
 }
 
-p {
+p.short {
   width: 50%;
   margin-left: 25%;
   padding: 15px 0;
@@ -52,15 +88,30 @@ h1 {
   text-align: center;
 }
 
-/* body::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-} */
-
 .about-us {
   height: 60vh;
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.center {
+  text-align: center;
 }
