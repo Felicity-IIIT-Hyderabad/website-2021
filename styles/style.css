@@ -52,11 +52,15 @@ h1 {
   text-align: center;
 }
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   display: none;
 }
 
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+} */
+
+.about-us {
+  height: 60vh;
 }
