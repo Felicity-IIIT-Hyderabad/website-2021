@@ -115,3 +115,8 @@ h1 {
 .center {
   text-align: center;
 }
+
+.video-container video {
+    height: 100%;
+    width: 100%;
+}
