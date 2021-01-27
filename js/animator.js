@@ -13,8 +13,10 @@ function setupScroller(videoSelector) {
     heightElm.style.position = "absolute";
     heightElm.style.width = "1px";
     heightElm.style.display = "block";
+    heightElm.style.top = "0px";
+    heightElm.style.right = "0px";
 
-    function scrollPlay(){  
+    function scrollPlay() {
         var bodyRect = document.body.getBoundingClientRect(),
             elemRect = vid_container.getBoundingClientRect(),
             offset   = elemRect.top - bodyRect.top;
@@ -28,9 +30,7 @@ function setupScroller(videoSelector) {
         if (frameNumber > vid.duration) frameNumber = vid.duration, should_fix = false;
 
         if (should_fix) {
-            vid.style.position = 'fixed';
-            vid.style.top = "0px";
-            vid.style.left = "0px";
+            vid.style.paddingTop = diff + 'px';
         } else {
             vid.style.position = "relative";
         }
@@ -45,15 +45,6 @@ function setupScroller(videoSelector) {
     }
 
     function onloadedmetadata(event) {
-        //var timeRangesObject = vid.seekable;
-        //var timeRanges = [];
-        ////Go through the object and output an array
-        //for (let count = 0; count < timeRangesObject.length; count ++) {
-        //    timeRanges.push([timeRangesObject.start(count), timeRangesObject.end(count)]);
-        //}
-        //console.log(timeRanges);
-
-        heightElm.style.height = Math.floor(vid.duration) * scrollUnitMultiplier + "px";
         window.requestAnimationFrame(scrollPlay);
     }
 
