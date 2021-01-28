@@ -24,59 +24,59 @@ function displayContent() {
 }
 displayContent();
 
-const video = $(".replay video").get(0);
+// const video = $(".replay video").get(0);
 
-function scrollVideo() {
-  // const video = document.querySelector(".replay").get(0);
-  // var video = document.querySelector(".replay"),
-  //   videoLength = video.duration,
-  //   scrollPosition = document.documentElement.scrollTop;
-  // console.log(video, videoLength, scrollPosition);
+// function scrollVideo() {
+//   // const video = document.querySelector(".replay").get(0);
+//   // var video = document.querySelector(".replay"),
+//   //   videoLength = video.duration,
+//   //   scrollPosition = document.documentElement.scrollTop;
+//   // console.log(video, videoLength, scrollPosition);
 
-  const scrollPosition = $(document).scrollTop();
-  const videoLength = video.duration;
-  // console.log(scrollPosition);
+//   const scrollPosition = $(document).scrollTop();
+//   const videoLength = video.duration;
+//   // console.log(scrollPosition);
 
-  // console.log(video, videoLength, scrollPosition);
+//   // console.log(video, videoLength, scrollPosition);
 
-  if (
-    scrollPosition > 1100 &&
-    (lastScroll > scrollPosition + 1 || lastScroll < scrollPosition - 1)
-  ) {
-    video.currentTime = ((scrollPosition - 1100) * videoLength) / 500;
-    console.log(video.currentTime);
+//   if (
+//     scrollPosition > 1100 &&
+//     (lastScroll > scrollPosition + 1 || lastScroll < scrollPosition - 1)
+//   ) {
+//     video.currentTime = ((scrollPosition - 1100) * videoLength) / 500;
+//     console.log(video.currentTime);
 
-    lastScroll = scrollPosition;
-  }
-}
+//     lastScroll = scrollPosition;
+//   }
+// }
 
-$(window).scroll(function (e) {
-  scrollVideo();
-});
+// $(window).scroll(function (e) {
+//   scrollVideo();
+// });
 
-function scrollVid() {
-  var frameNumber = 0, // start video at frame 0
-    // lower numbers = faster playback
-    playbackConst = 500,
-    // get page height from video duration
-    setHeight = document.getElementById("set-height"),
-    // select video element
-    vid = document.querySelector(".replay video");
-  // var vid = $('#v0')[0]; // jquery option
+// function scrollVid() {
+//   var frameNumber = 0, // start video at frame 0
+//     // lower numbers = faster playback
+//     playbackConst = 500,
+//     // get page height from video duration
+//     setHeight = document.getElementById("set-height"),
+//     // select video element
+//     vid = document.querySelector(".replay video");
+//   // var vid = $('#v0')[0]; // jquery option
 
-  // dynamically set the page height according to video length
-  vid.addEventListener("loadedmetadata", function () {
-    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-  });
+//   // dynamically set the page height according to video length
+//   vid.addEventListener("loadedmetadata", function () {
+//     setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+//   });
 
-  // Use requestAnimationFrame for smooth playback
-  function scrollPlay() {
-    var frameNumber = window.pageYOffset / playbackConst;
-    vid.currentTime = frameNumber;
-    window.requestAnimationFrame(scrollPlay);
-  }
+//   // Use requestAnimationFrame for smooth playback
+//   function scrollPlay() {
+//     var frameNumber = window.pageYOffset / playbackConst;
+//     vid.currentTime = frameNumber;
+//     window.requestAnimationFrame(scrollPlay);
+//   }
 
-  window.requestAnimationFrame(scrollPlay);
-}
+//   window.requestAnimationFrame(scrollPlay);
+// }
 
-// scrollVid()
+// // scrollVid()
