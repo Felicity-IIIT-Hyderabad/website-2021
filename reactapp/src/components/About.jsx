@@ -8,7 +8,7 @@ const About = ({ id }) => {
             className="full-page d-flex flex-column justify-content-center text-light"
         >
             <ScrollAnimation animateIn="fadeIn">
-                <h1 className="font-weight-bold display-3"> About Us </h1>
+                <h1 className="font-weight-bold display-3 mb-5"> About Us </h1>
             </ScrollAnimation>
             <div>
                 <ScrollAnimation animateIn="fadeIn">
