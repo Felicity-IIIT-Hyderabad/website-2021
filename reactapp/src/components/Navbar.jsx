@@ -29,7 +29,7 @@ const Navbar = () => {
                             activeClass="active"
                             to="about"
                             spy={true}
-                            offset={-50}
+                            offset={-80}
                             smooth={true}
                             duration={500}
                         >
@@ -42,7 +42,7 @@ const Navbar = () => {
                             activeClass="active"
                             to="campus-reloaded"
                             spy={true}
-                            offset={-50}
+                            offset={-80}
                             smooth={true}
                             duration={500}
                         >
@@ -55,7 +55,7 @@ const Navbar = () => {
                             activeClass="active"
                             to="contact"
                             spy={true}
-                            offset={-50}
+                            offset={-80}
                             smooth={true}
                             duration={500}
                         >
