@@ -5,10 +5,29 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
+    NavItem as RSNavItem,
     NavLink,
 } from "reactstrap";
 import { Link, animateScroll as scroll } from "react-scroll";
+
+const NavItem = ({ to, title }) => {
+    return (
+        <RSNavItem>
+            <NavLink
+                tag={Link}
+                activeClass="active"
+                to={to}
+                spy={true}
+                offset={-40}
+                smooth={true}
+                duration={500}
+                className="mx-1"
+            >
+                {title}
+            </NavLink>
+        </RSNavItem>
+    );
+};
 
 const Navbar = () => {
     const navRef = useRef(null);
@@ -39,52 +58,18 @@ const Navbar = () => {
             fixed="top"
         >
             <NavbarBrand href="#">
-                {isTransparent && (
-                    <img src="/felicity.png" alt="Felicity '21" className="navbar-logo" />
-                )}
+                <img
+                    src="/felicity.png"
+                    alt="Felicity '21"
+                    className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
+                />
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto text-uppercase" navbar>
-                    <NavItem>
-                        <NavLink
-                            tag={Link}
-                            activeClass="active"
-                            to="about"
-                            spy={true}
-                            offset={-40}
-                            smooth={true}
-                            duration={500}
-                        >
-                            About Us
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink
-                            tag={Link}
-                            activeClass="active"
-                            to="campus-reloaded"
-                            spy={true}
-                            offset={-40}
-                            smooth={true}
-                            duration={500}
-                        >
-                            Campus Reloaded
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink
-                            tag={Link}
-                            activeClass="active"
-                            to="contact"
-                            spy={true}
-                            offset={-40}
-                            smooth={true}
-                            duration={500}
-                        >
-                            Contact
-                        </NavLink>
-                    </NavItem>
+                    <NavItem to="about" title="About Us" />
+                    <NavItem to="campus-reloaded" title="Campus Reloaded" />
+                    <NavItem to="contact" title="Contact" />
                 </Nav>
             </Collapse>
         </RSNavbar>

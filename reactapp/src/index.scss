@@ -61,6 +61,7 @@ code {
 }
 
 .navbar-sticky {
+    font-weight: 500;
     height: 84px;
     transition: background-color 0.5s;
 }
@@ -74,8 +75,17 @@ code {
 }
 
 .navbar-logo {
-    height: 50px;
+    height: 50px !important;
     margin: 0.2em;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.navbar-logo-visible {
+    opacity: 1;
+}
+
+.navbar-logo-hidden {
+    opacity: 0;
 }
 
 .nav-item {
