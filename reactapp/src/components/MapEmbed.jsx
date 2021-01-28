@@ -1,5 +1,4 @@
 const MapEmbed = () => {
-    console.log(process.env.REACT_APP_MAPS_API_KEY);
     return (
         <iframe
             title="map"
