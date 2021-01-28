@@ -24,7 +24,7 @@ code {
 }
 
 .full-page {
-    height: 105vh;
+    height: 100vh;
     width: 100vw;
     padding: 0;
 }
@@ -35,7 +35,7 @@ code {
     width: 100%;
     height: 118vh;
     z-index: -9999;
-    clip: rect(0px, 100vw, 105vh, 0px);
+    clip: rect(0px, 100vw, 100vh, 0px);
 }
 
 .centered-row {
@@ -61,10 +61,16 @@ code {
 }
 
 .navbar-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+    height: 84px;
+    transition: background-color 0.5s;
+}
+
+.navbar-semi {
     background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.navbar-transparent {
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .navbar-logo {

@@ -8,11 +8,11 @@ const About = ({ id }) => {
             className="full-page d-flex flex-column justify-content-center text-light"
         >
             <ScrollAnimation animateIn="fadeIn">
-                <h1 className="font-weight-bold display-4"> About Us </h1>
+                <h1 className="font-weight-bold display-3"> About Us </h1>
             </ScrollAnimation>
             <div>
                 <ScrollAnimation animateIn="fadeIn">
-                    <div className="mb-4">
+                    <div className="mb-5 lead">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus
                         molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias
                         officiis assumenda officia quibusdam deleniti eos cupiditate dolore
@@ -25,7 +25,7 @@ const About = ({ id }) => {
                 <ScrollAnimation animateIn="fadeIn">
                     <Button
                         type="button"
-                        color="warning"
+                        color="light"
                         onClick={() => null}
                         className="mr-2 font-weight-bold px-3"
                     >

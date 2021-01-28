@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
     Collapse,
     Navbar as RSNavbar,
@@ -11,14 +11,37 @@ import {
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const Navbar = () => {
+    const navRef = useRef(null);
+
     const [isOpen, setIsOpen] = useState(false);
+    const [isTransparent, setIsTransparent] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
+    useEffect(() => {
+        document.addEventListener("scroll", () => {
+            let scrolled = document.scrollingElement.scrollTop;
+            if (scrolled >= (2 * window.innerHeight) / 3) {
+                setIsTransparent(true);
+            } else {
+                setIsTransparent(false);
+            }
+        });
+    }, []);
+
     return (
-        <RSNavbar color="dark" dark expand="md" className="navbar-sticky">
+        <RSNavbar
+            ref={navRef}
+            color="dark"
+            dark
+            expand="md"
+            className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semi"}`}
+            fixed="top"
+        >
             <NavbarBrand href="#">
-                <img src="/felicity.png" alt="Felicity '21" className="navbar-logo" />
+                {isTransparent && (
+                    <img src="/felicity.png" alt="Felicity '21" className="navbar-logo" />
+                )}
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
@@ -29,7 +52,7 @@ const Navbar = () => {
                             activeClass="active"
                             to="about"
                             spy={true}
-                            offset={-80}
+                            offset={-40}
                             smooth={true}
                             duration={500}
                         >
@@ -42,7 +65,7 @@ const Navbar = () => {
                             activeClass="active"
                             to="campus-reloaded"
                             spy={true}
-                            offset={-80}
+                            offset={-40}
                             smooth={true}
                             duration={500}
                         >
@@ -55,7 +78,7 @@ const Navbar = () => {
                             activeClass="active"
                             to="contact"
                             spy={true}
-                            offset={-80}
+                            offset={-40}
                             smooth={true}
                             duration={500}
                         >
