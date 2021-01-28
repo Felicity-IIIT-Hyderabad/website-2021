@@ -16,7 +16,9 @@ const Navbar = () => {
 
     return (
         <RSNavbar color="dark" dark expand="md" className="navbar-sticky">
-            <NavbarBrand href="/">Felicity '21</NavbarBrand>
+            <NavbarBrand href="#">
+                <img src="/felicity.png" alt="Felicity '21" className="navbar-logo" />
+            </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto text-uppercase" navbar>
