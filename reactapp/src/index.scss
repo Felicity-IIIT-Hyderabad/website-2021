@@ -54,6 +54,15 @@ code {
     align-items: center;
 }
 
+.vignette {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0) 80%,
+        rgba(0, 0, 0, 1) 100%
+    );
+}
+
 .navbar-sticky {
     position: -webkit-sticky;
     position: sticky;
