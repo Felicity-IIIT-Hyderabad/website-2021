@@ -1,6 +1,15 @@
 @import "./theme.scss";
 @import "~bootstrap/scss/bootstrap";
 
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     margin: 0;
     font-family: $font-primary, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -17,6 +26,15 @@ code {
 .full-page {
     height: 100vh;
     width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.bg-video {
+    position: absolute;
+    width: 100%;
+    z-index: -9999;
+    clip: rect(0px, 100vw, 100vh, 0px);
 }
 
 .centered-row {
