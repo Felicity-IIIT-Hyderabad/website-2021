@@ -6,11 +6,13 @@ import CampusReloaded from "./components/CampusReloaded";
 const App = () => {
     return (
         <>
-            <Intro />
-            <Navbar />
-            <About />
-            <CampusReloaded />
-            <About />
+            <Intro id="home" />
+            <div id="main">
+                <Navbar />
+                <About id="about" />
+                <CampusReloaded id="campus-reloaded" />
+                <About id="contact" />
+            </div>
         </>
     );
 };

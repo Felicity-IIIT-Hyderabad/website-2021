@@ -1,8 +1,8 @@
 import { Container } from "reactstrap";
 
-const CampusReloaded = () => {
+const CampusReloaded = ({ id }) => {
     return (
-        <Container fluid className="full-page text-light vignette">
+        <Container fluid id={id} className="full-page text-light vignette">
             <img src="/himalaya-static.png" alt="" className="bg-media" />
         </Container>
     );

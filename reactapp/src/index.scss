@@ -24,7 +24,6 @@ code {
 }
 
 .full-page {
-    position: static;
     height: 105vh;
     width: 100vw;
     padding: 0;
@@ -34,7 +33,7 @@ code {
     object-fit: cover;
     position: absolute;
     width: 100%;
-    height: 105vh;
+    height: 118vh;
     z-index: -9999;
     clip: rect(0px, 100vw, 105vh, 0px);
 }
@@ -71,4 +70,8 @@ code {
 .navbar-logo {
     height: 50px;
     margin: 0.2em;
+}
+
+.nav-item {
+    cursor: pointer;
 }

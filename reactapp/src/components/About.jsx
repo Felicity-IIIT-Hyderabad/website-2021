@@ -1,8 +1,11 @@
 import { Container, Button } from "reactstrap";
 
-const About = () => {
+const About = ({ id }) => {
     return (
-        <Container className="full-page d-flex flex-column justify-content-center text-light">
+        <Container
+            id={id}
+            className="full-page d-flex flex-column justify-content-center text-light"
+        >
             <h1 className="font-weight-bold display-4"> About Us </h1>
             <div className="">
                 <div className="mb-4">

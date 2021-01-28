@@ -8,6 +8,7 @@ import {
     NavItem,
     NavLink,
 } from "reactstrap";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,10 +24,43 @@ const Navbar = () => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem>
-                        <NavLink href="#about">About Us</NavLink>
+                        <NavLink
+                            tag={Link}
+                            activeClass="active"
+                            to="about"
+                            spy={true}
+                            offset={-50}
+                            smooth={true}
+                            duration={500}
+                        >
+                            About Us
+                        </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="#contact">Contact</NavLink>
+                        <NavLink
+                            tag={Link}
+                            activeClass="active"
+                            to="campus-reloaded"
+                            spy={true}
+                            offset={-50}
+                            smooth={true}
+                            duration={500}
+                        >
+                            Campus Reloaded
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink
+                            tag={Link}
+                            activeClass="active"
+                            to="contact"
+                            spy={true}
+                            offset={-50}
+                            smooth={true}
+                            duration={500}
+                        >
+                            Contact
+                        </NavLink>
                     </NavItem>
                 </Nav>
             </Collapse>

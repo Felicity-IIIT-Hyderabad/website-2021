@@ -1,8 +1,8 @@
 import { Container } from "reactstrap";
 
-const Intro = () => {
+const Intro = ({ id }) => {
     return (
-        <Container fluid className="full-page text-light vignette">
+        <Container fluid id={id} className="full-page text-light vignette">
             <video autoPlay muted className="bg-media">
                 <source src="/videos/websitemedium1.mp4" type="video/mp4" />
             </video>
