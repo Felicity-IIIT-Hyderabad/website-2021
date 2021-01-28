@@ -13,7 +13,7 @@ const App = () => {
             <div id="main">
                 <Navbar />
                 <About id="about" />
-                <CampusReloaded id="campus-reloaded" />
+                <CampusReloaded />
                 <Events id="events" />
                 <ThreePs />
                 <Contact id="contact" />

@@ -23,6 +23,89 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.intro-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.animate-darken {
+    filter: brightness(0.8);
+    animation: darken 8s;
+}
+
+@keyframes darken {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(0.8);
+    }
+}
+
+.intro-logo {
+    object-fit: cover;
+    position: absolute;
+    width: 90%;
+    max-width: 1000px;
+    clip: rect(0px, 100vw, 100vh, 0vw);
+    filter: brightness(1.5);
+    -webkit-animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    -ms-animation: fadein 1.5s;
+    -o-animation: fadein 1.5s;
+    animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from {
+        clip: rect(0px, 100vw, 100vh, 100vw);
+        opacity: 0;
+    }
+    to {
+        clip: rect(0px, 100vw, 100vh, 0vw);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .full-page {
     height: 100vh;
     width: 100vw;

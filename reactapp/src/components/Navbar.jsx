@@ -68,8 +68,8 @@ const Navbar = () => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem to="about" title="About Us" />
-                    <NavItem to="campus-reloaded" title="Campus Reloaded" />
                     <NavItem to="events" title="Events" />
+                    <NavItem to="contact" title="Contact" />
                 </Nav>
             </Collapse>
         </RSNavbar>
