@@ -25,7 +25,7 @@ const About = ({ id }) => {
                 <ScrollAnimation animateIn="fadeIn">
                     <Button
                         type="button"
-                        color="light"
+                        color="primary"
                         onClick={() => null}
                         className="mr-2 font-weight-bold px-3"
                     >

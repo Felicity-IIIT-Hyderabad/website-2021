@@ -11,13 +11,15 @@ const PItem = ({ text }) => {
 
 const ThreePs = ({ id }) => {
     return (
-        <Container
-            id={id}
-            className="full-page d-flex flex-column justify-content-center text-light"
-        >
-            <PItem text="Participants" />
-            <PItem text="Partners" />
-            <PItem text="Prizes" />
+        <Container fluid id={id} className="full-page text-light vignette">
+            <video autoPlay muted className="bg-media">
+                <source src="/videos/threep.mp4" type="video/mp4" />
+            </video>
+            <Container className="d-flex flex-column justify-content-center h-100">
+                <PItem text="Participants" />
+                <PItem text="Partners" />
+                <PItem text="Prizes" />
+            </Container>
         </Container>
     );
 };
