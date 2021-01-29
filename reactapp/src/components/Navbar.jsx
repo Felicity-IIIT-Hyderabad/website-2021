@@ -8,7 +8,7 @@ import {
     NavItem as RSNavItem,
     NavLink,
 } from "reactstrap";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 const NavItem = ({ to, title }) => {
     return (

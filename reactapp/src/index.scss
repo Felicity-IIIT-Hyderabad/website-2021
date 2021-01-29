@@ -108,8 +108,6 @@ code {
 
 .full-page {
     height: 100vh;
-    width: 100vw;
-    padding: 0;
 }
 
 .bg-media {
@@ -173,4 +171,8 @@ code {
 
 .nav-item {
     cursor: pointer;
+}
+
+.threep-text {
+    font-size: calc(2em + 6vw);
 }
