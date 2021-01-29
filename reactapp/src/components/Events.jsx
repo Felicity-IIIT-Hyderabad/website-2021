@@ -6,12 +6,12 @@ const Events = ({ id }) => {
         <div id={id} className="full-page d-flex flex-column justify-content-center text-light">
             <Container>
                 <ScrollAnimation animateIn="fadeIn">
-                    <h1 className="font-weight-bold display-3 mb-5"> Events</h1>
+                    <h1 className="font-weight-bold infopage-title mb-5"> Events</h1>
                 </ScrollAnimation>
-                <Row>
-                    <Col md={6}>
-                        <ScrollAnimation animateIn="fadeIn">
-                            <div className="h1"> Technical </div>
+                <ScrollAnimation animateIn="fadeIn">
+                    <Row>
+                        <Col md={6}>
+                            <div className="infopage-subtitle"> Technical </div>
                             <div className="mb-5 lead">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta
                                 minus molestiae vel beatae natus eveniet ratione temporibus aperiam
@@ -22,11 +22,9 @@ const Events = ({ id }) => {
                                 assumenda officia quibusdam deleniti eos cupiditate dolore
                                 doloribus!
                             </div>
-                        </ScrollAnimation>
-                    </Col>
-                    <Col>
-                        <ScrollAnimation animateIn="fadeIn">
-                            <div className="h1"> Cultural </div>
+                        </Col>
+                        <Col>
+                            <div className="infopage-subtitle"> Cultural </div>
                             <div className="mb-5 lead">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta
                                 minus molestiae vel beatae natus eveniet ratione temporibus aperiam
@@ -37,9 +35,9 @@ const Events = ({ id }) => {
                                 assumenda officia quibusdam deleniti eos cupiditate dolore
                                 doloribus!
                             </div>
-                        </ScrollAnimation>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                </ScrollAnimation>
             </Container>
         </div>
     );

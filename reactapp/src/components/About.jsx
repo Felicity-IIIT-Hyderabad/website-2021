@@ -6,7 +6,7 @@ const About = ({ id }) => {
         <div id={id} className="full-page d-flex flex-column justify-content-center text-light">
             <Container>
                 <ScrollAnimation animateIn="fadeIn">
-                    <h1 className="font-weight-bold display-3 mb-5"> About Us </h1>
+                    <h1 className="font-weight-bold infopage-title mb-5"> About Us </h1>
                 </ScrollAnimation>
                 <div>
                     <ScrollAnimation animateIn="fadeIn">
@@ -19,13 +19,12 @@ const About = ({ id }) => {
                             ratione temporibus aperiam harum alias officiis assumenda officia
                             quibusdam deleniti eos cupiditate dolore doloribus!
                         </div>
-                    </ScrollAnimation>
-                    <ScrollAnimation animateIn="fadeIn">
                         <Button
                             type="button"
                             color="primary"
                             onClick={() => null}
                             className="mr-2 font-weight-bold px-3"
+                            size="lg"
                         >
                             LOGIN
                         </Button>
@@ -34,6 +33,7 @@ const About = ({ id }) => {
                             color="dark"
                             onClick={() => null}
                             className="font-weight-bold px-3"
+                            size="lg"
                         >
                             REGISTER
                         </Button>
