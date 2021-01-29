@@ -217,3 +217,48 @@ code {
         font-size: calc(2em + 6vw);
     }
 }
+
+.cr-animated {
+    font-weight: 800;
+    position: absolute;
+    text-align: right;
+    right: 0;
+}
+
+.cr-big {
+    position: relative;
+    font-size: calc(5em + 10vw);
+    animation: slideLeft 1s forwards;
+    opacity: 0;
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0.5;
+        left: 200px;
+    }
+    to {
+        opacity: 1;
+        left: -50px;
+    }
+}
+
+.cr-small {
+    position: relative;
+    line-height: 0;
+    font-size: calc(4em + 5vw);
+    animation: slideDown 0.5s forwards;
+    opacity: 0;
+    left: -50px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0.5;
+        top: -80px;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
