@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
-const Intro = ({ id }) => {
+const Intro = ({ id, scrollLocked }) => {
     const [logoVisible, setLogoVisible] = useState(false);
-    const [scrollLocked, setScrollLocked] = useState(true);
 
     useEffect(() => {
         setTimeout(() => setLogoVisible(true), 4000);
-        setTimeout(() => setScrollLocked(false), 8000);
     }, []);
 
     useEffect(() => {
