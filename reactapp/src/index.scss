@@ -23,6 +23,33 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.intro-caret {
+    position: absolute;
+    bottom: 6em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    filter: opacity(0.1);
+    animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+    from {
+        filter: opacity(0.1);
+        bottom: 6em;
+    }
+    50% {
+        filter: opacity(0.5);
+        bottom: 3em;
+    }
+    to {
+        filter: opacity(0.1);
+        bottom: 6em;
+    }
+}
+
 .intro-logo-container {
     display: flex;
     justify-content: center;
@@ -174,7 +201,7 @@ code {
 }
 
 .infopage-title {
-    font-size: calc(2em + 3vw);
+    font-size: calc(3em + 3vw);
 }
 
 .infopage-subtitle {

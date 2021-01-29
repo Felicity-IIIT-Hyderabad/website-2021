@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
+import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 const Intro = ({ id }) => {
     const [logoVisible, setLogoVisible] = useState(false);
+    const [scrollLocked, setScrollLocked] = useState(true);
 
     useEffect(() => {
         setTimeout(() => setLogoVisible(true), 4000);
+        setTimeout(() => setScrollLocked(false), 8000);
     }, []);
+
+    useEffect(() => {
+        scrollLocked ? disablePageScroll() : enablePageScroll();
+    }, [scrollLocked]);
 
     return (
         <div fluid id={id} className="full-page text-light vignette">
@@ -15,6 +22,13 @@ const Intro = ({ id }) => {
             <div className="intro-logo-container">
                 {logoVisible && <img src="/feli21white.png" alt="" className="intro-logo" />}
             </div>
+            <img
+                src="/caret.svg"
+                alt=""
+                className={`intro-caret ${
+                    scrollLocked ? "navbar-logo-hidden" : "navbar-logo-visible"
+                }`}
+            />
         </div>
     );
 };
