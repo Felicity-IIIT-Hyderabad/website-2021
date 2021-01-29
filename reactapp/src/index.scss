@@ -174,5 +174,11 @@ code {
 }
 
 .threep-text {
-    font-size: calc(2em + 6vw);
+    font-size: calc(2em + 4vw);
+}
+
+@media (min-width: 992px) {
+    .threep-text {
+        font-size: calc(2em + 6vw);
+    }
 }

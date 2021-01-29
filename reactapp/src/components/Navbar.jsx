@@ -21,7 +21,7 @@ const NavItem = ({ to, title }) => {
                 offset={-40}
                 smooth={true}
                 duration={500}
-                className="mx-1"
+                className="mx-1 text-right"
             >
                 {title}
             </NavLink>
@@ -64,8 +64,8 @@ const Navbar = () => {
                     className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
                 />
             </NavbarBrand>
-            <NavbarToggler onClick={toggle} />
-            <Collapse isOpen={isOpen} navbar>
+            <NavbarToggler onClick={toggle} className="border-0" />
+            <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem to="about" title="About Us" />
                     <NavItem to="events" title="Events" />
