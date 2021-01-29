@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import VisibilitySensor from "react-visibility-sensor";
 
 const CampusReloaded = ({ id }) => {
+    const bgVideo = useRef(null);
+
     const [visible, setVisible] = useState(false);
 
-    const renderText = (isVisible) => {
+    const onVisible = (isVisible) => {
         setVisible(isVisible);
+        if (isVisible) bgVideo.current.play();
     };
 
     const bigText = "CAMPUS";
     const smallText = "RELOADED";
-    const loadDelay = 0.5;
+    const loadDelay = 2;
 
     return (
-        <VisibilitySensor partialVisibility onChange={renderText}>
+        <VisibilitySensor partialVisibility onChange={onVisible}>
             <div fluid id={id} className="full-page text-light vignette">
-                <img src="/himalaya-static.png" alt="" className="bg-media" />
+                {/* <img src="/himalaya-static.png" alt="" className="bg-media" /> */}
+                <video ref={bgVideo} autoPlay muted className="bg-media animate-darken">
+                    <source src="/videos/himalaya-better-cut.mp4" type="video/mp4" />
+                </video>
                 {visible && (
                     <div className="cr-animated text-uppercase">
                         <div>

@@ -10,9 +10,9 @@ const Intro = ({ id }) => {
         setTimeout(() => setScrollLocked(false), 8000);
     }, []);
 
-    // useEffect(() => {
-    //     scrollLocked ? disablePageScroll() : enablePageScroll();
-    // }, [scrollLocked]);
+    useEffect(() => {
+        scrollLocked ? disablePageScroll() : enablePageScroll();
+    }, [scrollLocked]);
 
     return (
         <div fluid id={id} className="full-page text-light vignette">
