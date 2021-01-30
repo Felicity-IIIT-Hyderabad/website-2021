@@ -12,18 +12,18 @@ const Contact = ({ id }) => {
                     <Row>
                         <Col md={6}>
                             <div className="mb-5 lead">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta
-                                minus molestiae vel beatae natus eveniet ratione temporibus aperiam
-                                harum alias officiis assumenda officia quibusdam deleniti eos
-                                cupiditate dolore doloribus!
-                            </div>
+	    			IIIT Hyderabad
+                             
+	    			Professor CR Rao Rd, 
+
+	    			Gachibowli, Hyderabad, 
+
+	    			Telangana 500032, India
+	    		    </div>
                         </Col>
                         <Col md={6}>
                             <div className="mb-5 lead">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta
-                                minus molestiae vel beatae natus eveniet ratione temporibus aperiam
-                                harum alias officiis assumenda officia quibusdam deleniti eos
-                                cupiditate dolore doloribus!
+	    				&#169; Felicity 2021, IIIT Hyderabad
                             </div>
                         </Col>
                     </Row>

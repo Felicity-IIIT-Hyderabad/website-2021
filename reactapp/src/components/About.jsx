@@ -11,13 +11,7 @@ const About = ({ id }) => {
                 <div>
                     <ScrollAnimation animateIn="fadeIn">
                         <div className="mb-5 lead">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta
-                            minus molestiae vel beatae natus eveniet ratione temporibus aperiam
-                            harum alias officiis assumenda officia quibusdam deleniti eos cupiditate
-                            dolore doloribus! <br /> Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet
-                            ratione temporibus aperiam harum alias officiis assumenda officia
-                            quibusdam deleniti eos cupiditate dolore doloribus!
+	    		Felicity is IIIT Hyderabad's annual cultural and tech fest held every year at the beginning of the spring semester. Felicity encompasses and embraces the diverse plethora of interests of IIIT Hyderabad, with everyone playing a role. Despite the disruptions in place, travel to the past with Felicity 2021 and relive your exhilarating memories.
                         </div>
                         <Button
                             type="button"
