@@ -1,3 +1,10 @@
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Intro from "./components/Intro";
 import About from "./components/About";
@@ -5,6 +12,8 @@ import Events from "./components/Events";
 import Contact from "./components/Contact";
 import CampusReloaded from "./components/CampusReloaded";
 import ThreePs from "./components/ThreePs";
+import Home from "./components/Home";
+
 
 const App = () => {
     return (
@@ -12,11 +21,19 @@ const App = () => {
             <Intro id="home" />
             <div id="main">
                 <Navbar />
-                <About id="about" />
-                <CampusReloaded />
-                <Events id="events" />
-                <ThreePs />
-                <Contact id="contact" />
+                    <Router>
+                        <Switch>
+                            <Route path="/about">
+                                {/* <About /> */}
+                            </Route>
+                            <Route path="/users">
+                                {/* <Users /> */}
+                            </Route>
+                            <Route path="/">
+                                <Home />
+                            </Route>
+                        </Switch>
+                </Router>
             </div>
         </>
     );
