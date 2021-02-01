@@ -18,7 +18,6 @@ const NavItem = ({ to, title }) => {
                 activeClass="active"
                 to={to}
                 spy={true}
-                offset={-40}
                 smooth={true}
                 duration={500}
                 className="mx-1 text-right"
