@@ -17,7 +17,7 @@ const Contact = ({ id }) => {
             <Container>
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5"> Contact Us </h1>
-                    <Row>
+                    <Row className="d-flex align-items-center">
                         <Col md className="d-flex flex-column align-items-start text-md-left">
                             <div className="mb-1 font-weight-bold">Address</div>
                             <div className="mb-3 lead">
@@ -34,6 +34,7 @@ const Contact = ({ id }) => {
                             </div>
                             <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
+                        <div className="divider" />
                         <Col
                             md
                             className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0"
@@ -60,6 +61,7 @@ const Contact = ({ id }) => {
                                 </a>
                             </div>
                         </Col>
+                        <div className="divider" />
                         <Col
                             md
                             className="d-flex flex-column align-items-md-end text-left text-md-right mb-5"

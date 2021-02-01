@@ -219,7 +219,7 @@ code {
 
 @media (min-width: 992px) {
     .threep-text {
-        font-size: calc(2em + 6vw);
+        font-size: calc(2em + 5vw);
     }
 }
 
@@ -294,4 +294,10 @@ code {
 .fb-icon {
     width: 26px;
     filter: grayscale(1) invert(1) brightness(2);
+}
+
+.divider {
+    border: 1px solid gray;
+    width: 2px;
+    height: 120px;
 }
