@@ -1,61 +1,71 @@
 import { Container, Row, Col } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
-import { SocialIcon } from 'react-social-icons';
-import GoogleMapReact from 'google-map-react';
+import { SocialIcon } from "react-social-icons";
+import GoogleMapReact from "google-map-react";
 
 var defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+        lat: 59.95,
+        lng: 30.33,
     },
-    zoom: 11
-  };
+    zoom: 11,
+};
 
 const Contact = ({ id }) => {
     return (
-        <div id={id} className="d-flex flex-column justify-content-center text-light">
+        <div id={id} className="d-flex flex-column justify-content-center text-light contact-page">
             <Container>
                 <ScrollAnimation animateIn="fadeIn">
-                    <h1 className="font-weight-bold infopage-title mb-5"> Contact Us</h1>
+                    <h1 className="font-weight-bold infopage-title mb-5"> Contact Us </h1>
                     <Row>
-                        <Col md={4}>
-                            <div className="mb-5 lead">
+                        <Col md className="d-flex flex-column align-items-start text-md-left">
+                            <div className="mb-1 font-weight-bold">Address</div>
+                            <div className="mb-3 lead">
+                                {`
                                 IIIT Hyderabad
-                                        
-                                Professor CR Rao Rd, 
-
-                                <br/>
-                                Gachibowli, Hyderabad, 
-
-                                <br/>
+                                Professor CR Rao Rd,
+                                Gachibowli, Hyderabad,
                                 Telangana 500032, India
-
-                                <br/>
-                                
-                                &#9742; : (+91) - 85294 73299
+                                `
+                                    .split("\n")
+                                    .map((l) => (
+                                        <div>{l}</div>
+                                    ))}
                             </div>
-                    </Col>
-                    <Col md={4}>
-                        <div className="mb-5 lead">
-                                Social Media
-                        </div>
-                            {/* <br/> */}
-                            <SocialIcon url="https://www.youtube.com/c/FelicityIIITHyderabad"/>
-                            <SocialIcon url="http://twitter.com/felicity_iiith" />
-                            <SocialIcon url="https://www.instagram.com/felicity.iiith" />
-                            <SocialIcon url="https://www.facebook.com/felicity.iiith/" />
+                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
-                        <div className="mb-5 lead">
-                                Overall Coordinator: Shivaan Sehgal
-                        </div>                                         
-                    </Row>
-                    <Row>
-                    <Col md={4}>
-                    </Col>
-                        <Col md={6}>
-                            <div className="mb-5 lead">
-	    				&#169; Felicity 2021, IIIT Hyderabad
+                        <Col
+                            md
+                            className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0"
+                        >
+                            <div className="mb-3 font-weight-bold">Social Media</div>
+                            <div>
+                                <a
+                                    href="https://www.youtube.com/c/FelicityIIITHyderabad"
+                                    className="mx-0 mr-3 mx-md-3"
+                                >
+                                    <img src="/youtube.svg" alt="YouTube" className="yt-icon" />
+                                </a>
+                                <a
+                                    href="http://twitter.com/felicity_iiith"
+                                    className="mx-0 mr-3 mx-md-3"
+                                >
+                                    <img src="/twitter.svg" alt="Twitter" className="tw-icon" />
+                                </a>
+                                <a href="https://www.instagram.com/felicity.iiith" className="mx-2">
+                                    <img src="/instagram.svg" alt="Instagram" className="ig-icon" />
+                                </a>
+                                <a href="https://www.facebook.com/felicity.iiith/" className="mx-2">
+                                    <img src="/facebook.svg" alt="Facebook" className="fb-icon" />
+                                </a>
                             </div>
+                        </Col>
+                        <Col
+                            md
+                            className="d-flex flex-column align-items-md-end text-left text-md-right mb-5"
+                        >
+                            <div className="mb-1 font-weight-bold">Overall Coordinator</div>
+                            <div className="lead">Shivaan Sehgal</div>
                         </Col>
                     </Row>
                 </ScrollAnimation>
@@ -63,18 +73,18 @@ const Contact = ({ id }) => {
                     <Row>
                         <Col md={6}>
                             <div className="mb-5 lead">
-	    			IIIT Hyderabad
-                             
-	    			Professor CR Rao Rd, 
+                    IIIT Hyderabad
 
-	    			Gachibowli, Hyderabad, 
+                    Professor CR Rao Rd, 
 
-	    			Telangana 500032, India
-	    		    </div>
+                    Gachibowli, Hyderabad, 
+
+                    Telangana 500032, India
+                    </div>
                         </Col>
                         <Col md={6}>
                             <div className="mb-5 lead">
-	    				&#169; Felicity 2021, IIIT Hyderabad
+                        &#169; Felicity 2021, IIIT Hyderabad
                             </div>
                         </Col>
                     </Row>

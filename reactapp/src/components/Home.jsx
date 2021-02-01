@@ -1,10 +1,11 @@
-import React, {Component} from 'react' 
+import React, { Component } from "react";
 import Navbar from "./Navbar";
 import Intro from "./Intro";
 import About from "./About";
 import Events from "./Events";
 import Contact from "./Contact";
 import CampusReloaded from "./CampusReloaded";
+import Footer from "./Footer";
 import ThreePs from "./ThreePs";
 
 class Home extends React.Component {
@@ -16,9 +17,10 @@ class Home extends React.Component {
                 <Events id="events" />
                 <ThreePs />
                 <Contact id="contact" />
+                <Footer />
             </>
         );
     }
-};
+}
 
 export default Home;

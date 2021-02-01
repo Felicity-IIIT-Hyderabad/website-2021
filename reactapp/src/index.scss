@@ -138,6 +138,10 @@ code {
     height: 100vh;
 }
 
+.contact-page {
+    height: 60vh;
+}
+
 .bg-media {
     object-fit: cover;
     position: absolute;
@@ -270,4 +274,24 @@ code {
         opacity: 1;
         top: 0;
     }
+}
+
+.yt-icon {
+    width: 32px;
+    filter: grayscale(1) invert(1) brightness(2);
+}
+
+.tw-icon {
+    width: 32px;
+    filter: grayscale(1) invert(1) brightness(3);
+}
+
+.ig-icon {
+    width: 28px;
+    filter: grayscale(1) invert(1) brightness(2);
+}
+
+.fb-icon {
+    width: 26px;
+    filter: grayscale(1) invert(1) brightness(2);
 }
