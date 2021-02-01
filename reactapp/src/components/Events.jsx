@@ -4,7 +4,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 const Events = ({ id }) => {
     return (
         <div id={id} className="full-page d-flex flex-column justify-content-center text-light">
-            <Container className="p-5 p-md-0">
+            <Container className="px-5 px-md-0">
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5"> Events</h1>
                 </ScrollAnimation>
