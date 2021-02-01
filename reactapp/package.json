@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.6.0",
+    "google-map-react": "^2.1.9",
     "gsap": "^3.6.0",
     "node-sass": "4.14.1",
     "react": "^17.0.1",
@@ -17,8 +18,10 @@
     "react-scripts": "4.0.1",
     "react-scroll": "^1.8.1",
     "react-scrollmagic": "^2.2.0",
+    "react-social-icons": "^4.1.0",
     "react-visibility-sensor": "^5.1.1",
     "reactstrap": "^8.9.0",
+    "scroll-lock": "^2.1.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

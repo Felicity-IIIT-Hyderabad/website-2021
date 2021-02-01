@@ -1,37 +1,25 @@
-import { useRef } from "react";
 import { Container } from "reactstrap";
 
-import VisibilitySensor from "react-visibility-sensor";
 import ScrollAnimation from "react-animate-on-scroll";
 
 const PItem = ({ text }) => {
     return (
         <ScrollAnimation animateIn="fadeInLeft">
-            <div className="display-1 font-weight-bold">{text}</div>
+            <div className="threep-text font-weight-bold my-n2">{text}</div>
         </ScrollAnimation>
     );
 };
 
 const ThreePs = ({ id }) => {
-    var bgVideo = useRef(null);
-
-    const playVideo = (isVisible) => {
-        if (isVisible) bgVideo.current.play();
-    };
-
     return (
-        <Container fluid id={id} className="full-page text-light vignette">
-            <VisibilitySensor partialVisibility onChange={playVideo}>
-                <video ref={bgVideo} playsInline muted className="bg-media">
-                    <source src="/videos/threep.mp4" type="video/mp4" />
-                </video>
-            </VisibilitySensor>
+        <div fluid id={id} className="full-page text-light vignette">
+            <img src="/himalaya-new-static.jpg" alt="" className="bg-media" />
             <Container className="d-flex flex-column justify-content-center h-100">
-                <PItem text="100+ Participants" />
-                <PItem text="100+ Partners" />
-                <PItem text="100+ Prizes" />
+                <PItem text="Participants: 20,000+ " />
+                <PItem text="Partners: 12+ " />
+                <PItem text="Prizes worth: &#8377; 400K   " />
             </Container>
-        </Container>
+        </div>
     );
 };
 
