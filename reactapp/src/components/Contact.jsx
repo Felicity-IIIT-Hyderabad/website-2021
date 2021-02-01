@@ -34,7 +34,7 @@ const Contact = ({ id }) => {
                             </div>
                             <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
-                        <div className="divider" />
+                        <div className="divider d-none d-md-block" />
                         <Col
                             md
                             className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0"
@@ -61,7 +61,7 @@ const Contact = ({ id }) => {
                                 </a>
                             </div>
                         </Col>
-                        <div className="divider" />
+                        <div className="divider d-none d-md-block" />
                         <Col
                             md
                             className="d-flex flex-column align-items-md-end text-left text-md-right mb-5"
