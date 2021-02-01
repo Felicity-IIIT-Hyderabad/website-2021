@@ -17,7 +17,6 @@ class Home extends React.Component {
                 <Events id="events" />
                 <ThreePs />
                 <Contact id="contact" />
-                <Footer />
             </>
         );
     }

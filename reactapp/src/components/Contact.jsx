@@ -2,6 +2,7 @@ import { Container, Row, Col } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
 import { SocialIcon } from "react-social-icons";
 import GoogleMapReact from "google-map-react";
+import Footer from "./Footer";
 
 var defaultProps = {
     center: {
@@ -14,7 +15,7 @@ var defaultProps = {
 const Contact = ({ id }) => {
     return (
         <div id={id} className="d-flex flex-column justify-content-center text-light contact-page">
-            <Container>
+            <Container className="px-5 px-md-0">
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5"> Contact Us </h1>
                     <Row className="d-flex align-items-center">
@@ -64,7 +65,7 @@ const Contact = ({ id }) => {
                         <div className="divider d-none d-md-block" />
                         <Col
                             md
-                            className="d-flex flex-column align-items-md-end text-left text-md-right mb-5"
+                            className="d-flex flex-column align-items-md-end text-left text-md-right"
                         >
                             <div className="mb-1 font-weight-bold">Overall Coordinator</div>
                             <div className="lead">Shivaan Sehgal</div>
@@ -96,6 +97,7 @@ const Contact = ({ id }) => {
                 {/*         <MapEmbed /> */}
                 {/*     </ScrollAnimation> */}
                 {/* </Col> */}
+                <Footer />
             </Container>
         </div>
     );
