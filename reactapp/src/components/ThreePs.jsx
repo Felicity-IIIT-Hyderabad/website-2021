@@ -16,7 +16,7 @@ const ThreePs = ({ id }) => {
             <img width="600px" height="400px" src="/crowd22.jpg" alt="" className="bg-media" />
             <Container className="d-flex flex-column justify-content-center">
                 <PItem text="Participants: 20,000+"/>
-                <PItem text="Partners: 12+ " />
+                <PItem text="Partners: 30+ " />
                 <PItem text="Prizes worth: &#8377; 400K   " />
             </Container>
         </div>
