@@ -13,9 +13,9 @@ const PItem = ({ text }) => {
 const ThreePs = ({ id }) => {
     return (
         <div fluid id={id} className="full-page text-light vignette">
-            <img src="/himalaya-new-static.jpg" alt="" className="bg-media" />
-            <Container className="d-flex flex-column justify-content-center h-100">
-                <PItem text="Participants: 20,000+ " />
+            <img width="600px" height="400px" src="/crowd22.jpg" alt="" className="bg-media" />
+            <Container className="d-flex flex-column justify-content-center">
+                <PItem text="Participants: 20,000+"/>
                 <PItem text="Partners: 12+ " />
                 <PItem text="Prizes worth: &#8377; 400K   " />
             </Container>
