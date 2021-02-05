@@ -1,6 +1,32 @@
 @import "./theme.scss";
 @import "~bootstrap/scss/bootstrap";
 
+:root {
+    --fb-col: linear-gradient(
+        to bottom,
+        #18affe,
+        #139ff7,
+        #1197f6,
+        #0b86ed,
+        #0476e6,
+        #0168e1,
+        #0064e0,
+        #0062e1,
+        #075cd9
+    );
+    --insta-col: linear-gradient(
+        to bottom left,
+        #405de6,
+        #833ab4,
+        #c13584,
+        #e1306c,
+        #f77737,
+        #fcaf45
+    );
+    --twit-col: #1da1f2;
+    --yt-col: #ff0000;
+}
+
 html {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -278,36 +304,30 @@ code {
 
 .yt-icon {
     width: 32px;
-    filter: grayscale(1) invert(1) brightness(2);
+	color: white;
 }
 
 .tw-icon {
     width: 32px;
-    filter: grayscale(1) invert(1) brightness(3);
+	color: white;
 }
 
 .ig-icon {
-    width: 28px;
-    filter: grayscale(1) invert(1) brightness(2);
+    width: 32px;
+	color: white;
 }
 
 .fb-icon {
     width: 26px;
-    filter: grayscale(1) invert(1) brightness(2);
+    color: white;
 }
 
 .fb-icon:hover {
     background: var(--fb-col);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .ig-icon:hover {
     background: var(--insta-col);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .tw-icon:hover {
