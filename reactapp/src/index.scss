@@ -296,6 +296,28 @@ code {
     filter: grayscale(1) invert(1) brightness(2);
 }
 
+.fb-icon:hover {
+    background: var(--fb-col);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ig-icon:hover {
+    background: var(--insta-col);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tw-icon:hover {
+    color: var(--twit-col);
+}
+
+.yt-icon:hover {
+    color: var(--yt-col);
+}
+
 .divider {
     border: 1px solid gray;
     width: 2px;
