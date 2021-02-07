@@ -18,15 +18,17 @@ var defaultProps = {
 
 const Sponsors = ({ id }) => {
     return (
-        <div id={id} className="d-flex flex-column text-light contact-page">
+        <div id={id} className="d-flex flex-column text-light contact-page dark-blue">
+		<br />
+		<br />
+		<br />
+
             <Container className="px-5 px-md-0">
                 <ScrollAnimation animateIn="fadeIn">
-                    <h1 className="font-weight-bold infopage-title mb-5">Sponsors</h1>
+                    <h1 className="font-weight-bold infopage-title mb-5" style={{ textAlignVertical: "right", textAlign: "right" }}>Sponsors</h1>
 		            <br />
                     <h1 className="font-weight-bold center" style={{ textAlignVertical: "center", textAlign: "center" }}>Title Sponsor</h1>
-		            <div className="center-image">
-		             <img src="/qualcomm.png" alt="image" className="center-image"/>
-		            </div>
+		             <img src="/qualcomm.png" alt="image" className="center-image" style={{ alignSelf: 'center', display: 'flex'}}/>
                     <h1 className="font-weight-bold center" style={{ textAlignVertical: "center", textAlign: "center" }}>Media Sponsor</h1>                    
 		            <div className="center-image">
 		             <img src="/sbi.png" alt="image" className="center-image"/>
