@@ -14,7 +14,10 @@ var defaultProps = {
 
 const Contact = ({ id }) => {
     return (
-        <div id={id} className="d-flex flex-column justify-content-center text-light contact-page">
+        <div
+            id={id}
+            className="d-flex flex-column justify-content-center text-light contact-page h-50 h-md-100 pt-4"
+        >
             <Container className="px-5 px-md-0">
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5"> Contact Us </h1>
