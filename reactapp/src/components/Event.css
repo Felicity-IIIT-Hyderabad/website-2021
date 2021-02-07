@@ -1,5 +1,16 @@
+.event-heading{
+	text-align: right;
+}
+
+.main-description{
+	font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 768px) {
-  .days {
-    display: none !important;
-  }
+	.event-heading{
+		text-align: center;
+	}
+  	.days {
+    	display: none !important;
+  	}
 }

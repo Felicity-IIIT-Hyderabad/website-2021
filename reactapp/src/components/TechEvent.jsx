@@ -10,11 +10,17 @@ const TechEvent = () => {
 
     return (
         <div>
-            <div className="font-weight-bold infopage-title mt-5 text-right text-white"> TECHNICAL </div>
+            <div className="font-weight-bold infopage-title mt-5 event-heading text-white"> TECHNICAL </div>
             <div className="text-white font-weight-bold d-flex justify-content-center days">
                 <h2 className="mx-3 text-info">DAY 1</h2>
                 <h2 className="mx-3 text-info">DAY 2</h2>
                 <h2 className="mx-3 text-info">DAY 3</h2>
+            </div>
+
+            <div className="container">
+                <div className="text-white my-3 main-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
             </div>
 
             <div className="my-5">
