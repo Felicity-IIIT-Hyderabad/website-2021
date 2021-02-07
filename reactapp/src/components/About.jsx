@@ -16,6 +16,8 @@ const About = ({ id }) => {
                             embraces the diverse plethora of interests of IIIT Hyderabad, with
                             everyone playing a role. Despite the disruptions in place, travel to the
                             past with Felicity 2021 and relive your exhilarating memories.
+		                   <a href="/sponsors">asd</a>
+
                         </div>
                     </ScrollAnimation>
                 </div>

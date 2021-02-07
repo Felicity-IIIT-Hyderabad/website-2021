@@ -343,3 +343,15 @@ code {
     width: 2px;
     height: 120px;
 }
+.center-image{
+   display:flex;
+   justify-content:center; /* horizontally center */
+   align-items:center;    /* vertically center */
+   height:300px;
+   width:300px;
+ }
+
+.center-image img{
+  max-width:100%;
+  max-height:100%;
+}
