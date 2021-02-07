@@ -33,7 +33,6 @@ const Contact = ({ id }) => {
                                         <div>{l}</div>
                                     ))}
                             </div>
-                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
                         <div className="divider d-none d-md-block" />
                         <Col
@@ -69,6 +68,7 @@ const Contact = ({ id }) => {
                         >
                             <div className="mb-1 font-weight-bold">Overall Coordinator</div>
                             <div className="lead">Shivaan Sehgal</div>
+                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
                     </Row>
                 </ScrollAnimation>
