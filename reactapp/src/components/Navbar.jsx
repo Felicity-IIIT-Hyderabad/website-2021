@@ -56,7 +56,7 @@ const Navbar = () => {
             className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semi"}`}
             fixed="top"
         >
-            <NavbarBrand href="#">
+            <NavbarBrand href="/">
                 <img
                     src="/felicity.png"
                     alt="Felicity '21"

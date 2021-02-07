@@ -1,23 +1,22 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Intro from "./components/Intro";
 import Home from "./components/Home";
+import TechEvent from "./components/TechEvent";
+import CultEvent from "./components/CultEvent";
 
 const App = () => {
     return (
         <>
-            <Intro id="home" />
-            <div id="main">
-                <Navbar />
-                <Router>
+            <Navbar />
+            <Router>
                     <Switch>
-                        <Route path="/">
-                            <Home />
-                        </Route>
+                        <Route path="/events-technical" component={TechEvent} />
+                        <Route path="/events-cultural" component={CultEvent} />
+                        <Route path="/" component={Home} />
                     </Switch>
-                </Router>
-            </div>
+            </Router>
+            
         </>
     );
 };
