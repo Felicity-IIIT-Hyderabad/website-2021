@@ -43,11 +43,6 @@ const TechEvent = () => {
 
             <div className="container event-list">
                 <div className="text-center mt-5">
-                    <div className="text-white font-weight-bold d-flex justify-content-center days">
-                        <h2 className="mx-3 text-info">DAY 1</h2>
-                        <h2 className="mx-3 text-info">DAY 2</h2>
-                        <h2 className="mx-3 text-info">DAY 3</h2>
-                    </div>
                     <div className="text-white my-3 main-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
