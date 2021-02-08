@@ -14,7 +14,10 @@ var defaultProps = {
 
 const Contact = ({ id }) => {
     return (
-        <div id={id} className="d-flex flex-column justify-content-center text-light contact-page">
+        <div
+            id={id}
+            className="d-flex flex-column justify-content-center text-light contact-page h-50 h-md-100 pt-4"
+        >
             <Container className="px-5 px-md-0">
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5"> Contact Us </h1>
@@ -33,7 +36,6 @@ const Contact = ({ id }) => {
                                         <div>{l}</div>
                                     ))}
                             </div>
-                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
                         <div className="divider d-none d-md-block" />
                         <Col
@@ -69,6 +71,7 @@ const Contact = ({ id }) => {
                         >
                             <div className="mb-1 font-weight-bold">Overall Coordinator</div>
                             <div className="lead">Shivaan Sehgal</div>
+                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
                     </Row>
                 </ScrollAnimation>

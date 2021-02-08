@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import { Link } from "react-scroll";
 
 const Intro = ({ id, scrollLocked }) => {
     const [logoVisible, setLogoVisible] = useState(false);
@@ -20,13 +21,15 @@ const Intro = ({ id, scrollLocked }) => {
             <div className="intro-logo-container">
                 {logoVisible && <img src="/feli21white.png" alt="" className="intro-logo" />}
             </div>
-            <img
-                src="/caret.svg"
-                alt=""
-                className={`intro-caret ${
-                    scrollLocked ? "navbar-logo-hidden" : "navbar-logo-visible"
-                }`}
-            />
+            <Link to="about" spy={true} smooth={true} duration={500}>
+                <img
+                    src="/caret.svg"
+                    alt=""
+                    className={`intro-caret ${
+                        scrollLocked ? "navbar-logo-hidden" : "navbar-logo-visible"
+                    }`}
+                />
+            </Link>
         </div>
     );
 };

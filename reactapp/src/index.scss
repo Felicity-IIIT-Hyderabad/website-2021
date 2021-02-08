@@ -25,6 +25,7 @@ code {
 }
 
 .intro-caret {
+    cursor: pointer;
     position: absolute;
     bottom: 6em;
     left: 0;
@@ -214,12 +215,20 @@ code {
 }
 
 .threep-text {
-    font-size: calc(2em + 4vw);
+    font-size: calc(1.2em + 5vw);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 @media (min-width: 992px) {
     .threep-text {
         font-size: calc(2em + 5vw);
+    }
+}
+
+@media (max-width: 992px) {
+    .threep-container {
+        padding-top: 6em;
     }
 }
 
@@ -230,6 +239,8 @@ code {
     right: 0;
     margin-top: 15vh;
     font-size: 1em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 @media (max-width: 992px) {
