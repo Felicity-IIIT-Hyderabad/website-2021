@@ -327,6 +327,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+	.absolute-navbar{
+		display: none;
+	}
 	.left-panel{
 		min-height: 700px;
 		background: #121212;
