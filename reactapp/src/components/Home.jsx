@@ -12,11 +12,14 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <About id="about" />
-                <CampusReloaded />
-                <Events id="events" />
-                <ThreePs />
-                <Contact id="contact" />
+                <Intro id="home" />
+                <div id="main">
+                    <About id="about" />
+                    <CampusReloaded />
+                    <Events id="events" />
+                    <ThreePs />
+                    <Contact id="contact" />
+                </div>
             </>
         );
     }
