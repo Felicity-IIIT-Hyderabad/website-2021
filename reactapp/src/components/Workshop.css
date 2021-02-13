@@ -1,0 +1,313 @@
+.left-panel{
+	min-height: 100vh;
+	background: #121212;
+}
+
+.right-panel{
+	min-height: 100vh;
+	background: #59D298;
+}
+
+.left-header{
+	font-size: 6rem;
+	line-height: 6rem;
+}
+
+.right-header{
+	font-size: 17rem;
+}
+
+.right-header-desc{
+	font-size: 4rem;
+	line-height: 0;
+	margin-top: -3rem;
+}
+
+.vertical-net{
+	position: absolute;
+	left: 0;
+	top: 22rem;
+	height: 117.28px;
+	width: 249px;
+}
+
+.silver-ball{
+	position: relative;
+	display: inline-block;
+	margin-left: 3px;
+	height: 12px;
+    width: 12px;
+    border-radius: 50%;
+	background: #A1A4AC;
+}
+
+.horizontal-net{
+	position: absolute;
+	left: 10%;
+	right: 25.6%;
+	bottom: 65.5px;
+	width: 137.28px;
+	height: 249px;
+}
+
+.white-ball{
+	position: relative;
+	display: inline-block;
+	margin-left: 3px;
+	height: 12px;
+    width: 12px;
+    border-radius: 50%;
+	background: #ffffff;
+}
+
+#left-circle {
+	position: absolute;
+    border-radius: 50%;
+    width: 396px;
+	height: 387px;
+	left: -122px;
+	bottom: -120px;
+	background: #FFFCAA;
+}
+
+.white-text-blob{
+	position: relative;
+	left: 125px;
+	top: 7rem;
+	width: 30vw;
+	min-height: 180px;
+	background: #fff;
+	z-index: 11;
+}
+
+.white-text-blob p{
+	margin: 0 8rem 0 1rem;
+	padding-top: 2rem
+}
+
+.dark-text-blob{
+	position: relative;
+	left: 125px;
+	top: 5rem;
+	width: 30vw;
+	height: 280px;
+	background: #055B46;
+	z-index: 11;
+}
+
+.dark-text-blob p{
+	margin: 0 8rem 0 1rem;
+	padding-top: 2rem;
+	color: white;
+}
+
+.dark-text-blob-sidekick{
+	position: absolute;
+	top: 35rem;
+	left: 17vw;
+	width: 30vw;
+	height: 280px;
+	background: #2DA36A;
+	z-index: 9;
+}
+
+.pink-lines{
+	position: absolute;
+	top: 7rem;
+	left: 22vw;
+	height: 500px;
+}
+
+.bg-rectangle{
+	position: absolute;
+	width: 201px;
+	height: 378px;
+	top: -7rem;
+	left: 28vw;
+	height: 500px;
+	background: rgba(28, 28, 28, 0.8);
+}
+
+.line{
+	display: inline-block;
+	height: 131px;
+	margin-left: 10px;
+	border: 5px solid #FFAAAA;
+}
+
+#curve1{
+	position: absolute;
+	top: 0;
+	left: 9rem;
+}
+
+#curve2{
+	position: absolute;
+	top: 0;
+	left: 11rem;
+}
+
+#curve3{
+	position: absolute;
+	top: 0;
+	left: 13rem;
+}
+
+@media only screen and (max-width: 1504px) {
+	.white-text-blob{
+		top: 2rem;
+		left: 85px;
+		height: 300px;
+		background: #fff;
+		z-index: 10;
+	}
+	.white-text-blob p{
+		margin: 0 8rem 0 1rem;
+		padding-top: 3rem;
+	}
+	.pink-lines{
+		top: 14rem;
+		left: 18vw;
+	}
+}
+
+@media only screen and (max-width: 1180px) {
+	.left-header{
+		margin-top: 5rem !important;
+		font-size: 4rem;
+		line-height: 4rem;
+	}
+	.vertical-net{
+		position: absolute;
+		left: 0;
+		top: 17rem;
+		height: 117.28px;
+		width: 249px;
+	}
+	.white-text-blob{
+		top: 6rem;
+		left: 85px;
+		height: 300px;
+		background: #fff;
+		z-index: 10;
+	}
+	.pink-lines{
+		top: 13rem;
+		left: 18vw;
+	}
+	.white-text-blob p{
+		margin: 0 8rem 0 1rem;
+		padding-top: 1rem;
+	}
+	.bg-rectangle{
+		display: none;
+	}
+	.dark-text-blob-sidekick{
+		display: none;
+	}
+
+	#curve1{
+		display: none;
+	}
+
+	#curve2{
+		display: none;
+	}
+
+	#curve3{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.left-panel{
+		min-height: 700px;
+		background: #121212;
+	}
+
+	.right-panel{
+		min-height: 700px;
+		background: #59D298;
+	}
+	.left-header{
+		margin-top: 5rem !important;
+		font-size: 3rem;
+		line-height: 3rem;
+	}
+
+	.right-header{
+		margin-top: 2rem !important;
+		font-size: 8rem;
+	}
+
+	.right-header-desc{
+		font-size: 2rem;
+		line-height: 0;
+		margin-top: -1rem;
+	}
+
+	.vertical-net{
+		position: absolute;
+		left: 0;
+		top: 15rem;
+		height: 117.28px;
+		width: 249px;
+	}
+	.horizontal-net{
+		bottom: 65.5px;
+	}
+	.white-text-blob{
+		top: 8rem;
+		left: 85px;
+		width: 60vw;
+		height: 280px;
+		background: #fff;
+		z-index: 10;
+	}
+	.white-text-blob p{
+		margin: 0 8rem 0 1rem;
+		padding-top: 4rem
+	}
+	.dark-text-blob{
+		top: 5rem;
+		left: 20vw;
+		height: 280px;
+		width: 70vw;
+	}
+	.dark-text-blob p{
+		margin: 0 2rem 0 1rem;
+		padding-top: 4rem
+	}
+	.pink-lines{
+		display: none;
+	}
+
+	.bg-rectangle{
+		display: flex;
+		position: absolute;
+		width: 201px;
+		height: 378px;
+		top: -7rem;
+		left: 49vw;
+		height: 500px;
+		background: rgba(28, 28, 28, 0.8);
+		z-index: 9;
+	}
+}
+
+@media only screen and (max-width: 648px) {
+	.white-text-blob{
+		top: 3.5rem;
+		left: 50px !important;
+		width: 75vw;
+	}
+	.bg-rectangle{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 372px) {
+	.white-text-blob p{
+		margin: 0 2rem 0 1rem;
+	}
+}
