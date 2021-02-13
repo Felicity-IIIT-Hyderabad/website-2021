@@ -424,10 +424,16 @@
 }
 
 @media only screen and (max-width: 372px) {
+	.white-text-blob{
+		height: 360px;
+	}
 	.white-text-blob p{
 		margin: 0 2rem 0 1rem;
 	}
 	.cta-button{
 		top: 0 !important;
+	}
+	.cta-text{
+		margin-top: 3rem;
 	}
 }
