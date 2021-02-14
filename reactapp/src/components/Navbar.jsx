@@ -24,7 +24,7 @@ const NavItem = ({ to, title }) => {
             >
                 {title}
             </NavLink>
-        </RSNavItem>
+        </RSNavItem >
     );
 };
 

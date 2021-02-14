@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -13,16 +13,16 @@ const App = () => {
         <>
             <Navbar />
             <Router>
-                    <Switch>
-                        <Route path="/workshop/cp" component={CPWorkshop} />
-                        <Route path="/workshop/ml" component={MLWorkshop} />
-                        <Route path="/workshop" component={Workshop} />
-                        <Route path="/events-technical" component={TechEvent} />
-                        <Route path="/events-cultural" component={CultEvent} />
-                        <Route path="/" component={Home} />
-                    </Switch>
+                <Switch>
+                    <Route path="/workshop/cp" component={CPWorkshop} />
+                    <Route path="/workshop/ml" component={MLWorkshop} />
+                    <Route path="/workshop" component={Workshop} />
+                    <Route path="/events-technical" component={TechEvent} />
+                    <Route path="/events-cultural" component={CultEvent} />
+                    <Route path="/" component={Home} />
+                </Switch>
             </Router>
-            
+
         </>
     );
 };

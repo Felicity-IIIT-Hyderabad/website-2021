@@ -1,11 +1,6 @@
-import { useState } from 'react';
-import { Container, Row, Col } from "reactstrap";
-import ScrollAnimation from "react-animate-on-scroll";
-
-import "./Workshop.css"
+import "./Workshop.css";
 
 const CPWorkshop = () => {
-
     document.body.style.backgroundColor = "#0F2028";
 
     return (
@@ -18,7 +13,7 @@ const CPWorkshop = () => {
                 </div>
             </div>
 
-            <div className="row" style={{"overflow": "hidden"}}>
+            <div className="row" style={{ "overflow": "hidden" }}>
                 <div className="col-md-6 left-panel">
                     <div className="font-weight-bold details-header ml-5 mr-3 text-left text-warning"> Competitive</div>
                     <div className="font-weight-bold details-header-desc ml-5 mr-3 text-left text-warning"> Programming</div>
@@ -50,18 +45,18 @@ const CPWorkshop = () => {
 
                 </div>
                 <div className="col-md-6 right-panel">
-                    
+
                     <div className="curved-lines">
-                        <img src = "vector1.svg" id="curve3"  alt="My Happy SVG"/>
-                        <img src = "vector2.svg" id="curve2" alt="My Happy SVG"/>
-                        <img src = "vector3.svg" id="curve1" alt="My Happy SVG"/>
+                        <img src="vector1.svg" id="curve3" alt="My Happy SVG" />
+                        <img src="vector2.svg" id="curve2" alt="My Happy SVG" />
+                        <img src="vector3.svg" id="curve1" alt="My Happy SVG" />
                     </div>
 
                     <div className="font-weight-bold right-header ml-5 mr-3 text-right text-white"> ML </div>
                     <div className="font-weight-bold right-header-desc ml-5 mr-3 text-right text-white"> WORKSHOP </div>
                     <div className="horizontal-net">
-                        {[...Array(135)].map((e, i) =>
-                            <div className="white-ball"></div>
+                        {[...Array(135)].map((_, i) =>
+                            <div className="white-ball" key={i}></div>
                         )}
                     </div>
 
@@ -87,8 +82,8 @@ const CPWorkshop = () => {
             </div>
 
             <div className="text-center">
-                <div className="d-inline-block font-weight-bold infopage-title mx-5 event-heading text-white text-center cta-text"> 
-                    BUY 2 GET 1 FREE 
+                <div className="d-inline-block font-weight-bold infopage-title mx-5 event-heading text-white text-center cta-text">
+          BUY 2 GET 1 FREE
                 </div>
 
                 <button className="d-inline-block cta-button btn btn-success"> REGISTER NOW </button>
@@ -99,7 +94,7 @@ const CPWorkshop = () => {
                     <div className="text-white font-weight-bold d-flex justify-content-center days">
                     </div>
                     <div className="text-white my-3 main-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
                 </div>
             </div>
