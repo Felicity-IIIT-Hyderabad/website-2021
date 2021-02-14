@@ -13,7 +13,7 @@ const Sponsors = ({ id }) => {
     return (
         <div>
             <Navbar/>
-		    <div className="image-absolute">
+		    <div className="image-absolute-sponsors">
                 <div id="sponsor-circle3"></div>
                 <div id="sponsor-circle2"></div>
                 <div id="sponsor-circle1"></div>
