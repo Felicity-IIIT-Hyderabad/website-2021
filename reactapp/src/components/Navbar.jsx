@@ -39,7 +39,7 @@ const Navbar = () => {
     useEffect(() => {
         document.addEventListener("scroll", () => {
             let scrolled = document.scrollingElement.scrollTop;
-            if (scrolled >= (2 * window.innerHeight) / 3) {
+            if (scrolled >= (window.innerHeight) / 10000) {
                 setIsTransparent(true);
             } else {
                 setIsTransparent(false);
@@ -68,6 +68,21 @@ const Navbar = () => {
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem to="about" title="About Us" />
                     <NavItem to="events" title="Events" />
+                    <RSNavItem>
+                        <NavLink
+                            tag={Link}
+                            activeClass="active"
+                            to={"to"}
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            className="mx-1 text-right"
+                        >
+                            <Link to="/anna">
+                                Workshop
+                            </Link>
+                        </NavLink>
+                    </RSNavItem >
                     <NavItem to="contact" title="Contact" />
                 </Nav>
             </Collapse>

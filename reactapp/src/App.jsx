@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import TechEvent from "./components/TechEvent";
 import CultEvent from "./components/CultEvent";
@@ -11,7 +10,6 @@ import Workshop from "./components/Workshop";
 const App = () => {
     return (
         <>
-            <Navbar />
             <Router>
                 <Switch>
                     <Route path="/workshop/cp" component={CPWorkshop} />

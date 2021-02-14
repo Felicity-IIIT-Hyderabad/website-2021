@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Workshop.css";
 
 const MLWorkshop = () => {
@@ -7,7 +8,9 @@ const MLWorkshop = () => {
     return (
         <div>
             <div className="absolute-navbar">
-                <img id="iiit" src="../iiit.png" alth="IIIT" />
+                <Link to="/">
+                    <img id="iiit" src="../iiit.png" alth="IIIT" />
+                </Link> 
                 <div className="text-center">
                     <img id="qualcomm" src="../qualcomm.png" alth="IIIT" />
                     <img id="felicity" src="../felicityblack.png" alth="IIIT" />
@@ -28,16 +31,14 @@ const MLWorkshop = () => {
                     <div className="white-text-blob">
                         <p className="text-date">Date: 21st Feb @ 10 PM </p>
                         <p className="text-bullets">
-                            <ul>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                            </ul>
+                        Want to become an Expert on Codeforces?
+                        Join us to learn concepts of CP and get that 1600+ rating.
+                        No prerequisites required!
                         </p>
                         <p className="text-price"><strong> PRICE: </strong> <strike>₹ 250.00 </strike> ₹ 200.00 </p>
                         <div className="text-buttons">
                             <button className="btn pink-buttons rounded-pill ml-3 mt-1">REGISTER NOW</button>
-                            <button className="btn pink-buttons rounded-pill ml-3 mt-1">MORE DETAILS</button>
+                            <button className="btn pink-buttons rounded-pill ml-3 mt-1"><Link to="/workshop/"><strong>LESS DETAILS</strong></Link></button>
                         </div>
                         <div className="pink-lines">
                             <div className="line"></div>
@@ -75,20 +76,14 @@ const MLWorkshop = () => {
                         <p className="text-date text-white">Date: 21st Feb @ 10 PM </p>
                         <p className="text-bullets text-white">
                             <ul>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
-                                <li>Sample Bullet</li>
+                                <li>Want to win a ML contest? Felicity IIITH brings you an interactive beginner workshop to cover important concepts of Machine Learning.</li>
+                                <li>So, join us on 26th and 27th Feb, as we show you the tools necessary to become an expert in the field of Machine Learning!</li>
                             </ul>
-                        </p>
+                        </p>                        
                         <p className="text-price-details text-white"><strong> PRICE: </strong><strike>₹ 250.00 </strike>₹ 200.00 </p>
                         <div className="text-buttons-details text-right">
                             <button className="btn btn-warning rounded-pill mr-3 mt-1">REGISTER NOW</button>
-                            <button className="btn btn-warning rounded-pill mr-3 mt-1">MORE DETAILS</button>
+                            <button className="btn btn-warning rounded-pill mr-3 mt-1"><Link to="/workshop/"><strong>LESS DETAILS</strong></Link></button>
                         </div>
                     </div>
 
@@ -110,7 +105,7 @@ const MLWorkshop = () => {
                     <div className="text-white font-weight-bold d-flex justify-content-center days">
                     </div>
                     <div className="text-white my-3 main-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Buy urgently, dont wait for the offer to expire !!
                     </div>
                 </div>
             </div>

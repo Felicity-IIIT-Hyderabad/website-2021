@@ -5,7 +5,8 @@ import "react-vertical-timeline-component/style.min.css";
 import Swal from "sweetalert2";
 
 import "./Event.css";
-import culturalEvents from "./culturalEvents.js";
+import Navbar from "./Navbar";
+import * as culturalEvents from "../sample-data/cultural-events.json";
 
 const CultEvent = () => {
 
@@ -17,8 +18,8 @@ const CultEvent = () => {
         Swal.fire({
             title: event["name"],
             text: event["description"],
-            footer: "Launches on: " + event["time"],
-            imageUrl: "/images/" + event["poster"],
+            footer: "Launches on: " + dateToString(event["time"]),
+            imageUrl: "/images/sample.jpg",
             customClass: {
                 title: "text-danger error-message",
                 content: "error-message text-white",
@@ -38,8 +39,26 @@ const CultEvent = () => {
         setSelectedDay("Day" + dayNum);
     };
 
+    const dateToString = (num) => {
+        let unix_timestamp = num;
+        // Create a new JavaScript Date object based on the timestamp
+        // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+        var date = new Date(unix_timestamp * 1000);
+        // Hours part from the timestamp
+        var hours = date.getHours();
+        // Minutes part from the timestamp
+        var minutes = "0" + date.getMinutes();
+        
+        // Will display time in 10:30:23 format
+        var formattedTime = hours + ":" + minutes.substr(-2);
+        
+        console.log(formattedTime);
+        return formattedTime;
+    };    
+
     return (
         <div>
+            <Navbar/>
             <div className="image-absolute">
                 <div id="cult-circle4"></div>
                 <div id="cult-circle3"></div>
@@ -57,7 +76,7 @@ const CultEvent = () => {
                         <h2 className={selectedDay === "Day3" ? "mx-3 text-danger day" : "mx-3 text-info day"} onClick={() => changeDay(3)}>DAY 3</h2>
                     </div>
                     <div className="text-white my-3 main-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        The days events are fascinating, they are full of surprises hidden. Stay tuned to find out.
                     </div>
                 </div>
             </div>
@@ -65,23 +84,28 @@ const CultEvent = () => {
             <div className="my-5">
 
                 <VerticalTimeline>
-
-                    {culturalEvents[selectedDay].map((event, idx) => (
+                    {culturalEvents.default[selectedDay].map((event, idx) => (
                         <VerticalTimelineElement
                             className="vertical-timeline-element--work"
+                            contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                             contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
                             iconStyle={{ background: "rgb(133, 150, 243)", color: "#fff" }}
                             iconOnClick={() => showModalEvent(event)}
+                            date={dateToString(event["time"])}
                             onTimelineElementClick={() => showModalEvent(event)}
+                            dateClassName={"my-date"}
                             key={idx}
                         >
                             <h3 className="vertical-timeline-element-title">{event["name"]}</h3>
-                            <h4 className="vertical-timeline-element-subtitle">{event["time"]}</h4>
+                            {/* <h4 className="vertical-timeline-element-subtitle">{event["time"]}</h4> */}
                             <p>
                                 {event["description"]}
                             </p>
                         </VerticalTimelineElement>
                     ))}
+                    <VerticalTimelineElement
+                        iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
+                    />                    
                 </VerticalTimeline>
 
             </div>
