@@ -4,8 +4,6 @@ import Home from "./components/Home";
 import Sponsors from "./components/Sponsors";
 import TechEvent from "./components/TechEvent";
 import CultEvent from "./components/CultEvent";
-import CPWorkshop from "./components/CPWorkshop";
-import MLWorkshop from "./components/MLWorkshop";
 import Workshop from "./components/Workshop";
 
 const App = () => {
