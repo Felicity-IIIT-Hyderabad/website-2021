@@ -28,6 +28,22 @@ const NavItem = ({ to, title }) => {
     );
 };
 
+const NavItem2 = ({ to, title }) => {
+    return (
+        <RSNavItem>
+            <NavLink
+                href={to}
+                spy={true}
+                smooth={true}
+                duration={500}
+                className="mx-1 text-right"
+            >
+                {title}
+            </NavLink>
+        </RSNavItem >
+    );
+};
+
 const Navbar = () => {
     const navRef = useRef(null);
 
@@ -68,21 +84,7 @@ const Navbar = () => {
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem to="about" title="About Us" />
                     <NavItem to="events" title="Events" />
-                    <RSNavItem>
-                        <NavLink
-                            tag={Link}
-                            activeClass="active"
-                            to={"to"}
-                            spy={true}
-                            smooth={true}
-                            duration={500}
-                            className="mx-1 text-right"
-                        >
-                            <Link to="/anna">
-                                Workshop
-                            </Link>
-                        </NavLink>
-                    </RSNavItem >
+                    <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem to="contact" title="Contact" />
                 </Nav>
             </Collapse>
