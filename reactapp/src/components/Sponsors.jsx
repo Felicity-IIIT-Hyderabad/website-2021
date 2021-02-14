@@ -18,6 +18,14 @@ var defaultProps = {
 
 const Sponsors = ({ id }) => {
     return (
+		<div>
+		            <div className="image-absolute">
+                <div id="tech-circle4"></div>
+                <div id="tech-circle3"></div>
+                <div id="tech-circle2"></div>
+                <div id="tech-circle1"></div>
+            </div>
+
         <div id={id} className="d-flex flex-column text-light contact-page dark-blue">
 		<br />
 		<br />
@@ -27,8 +35,17 @@ const Sponsors = ({ id }) => {
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5" style={{ textAlignVertical: "right", textAlign: "right" }}>Sponsors</h1>
 		            <br />
+		            <br />
+		            <br />
+		            <br />
+		            <br />
                     <h1 className="font-weight-bold center" style={{ textAlignVertical: "center", textAlign: "center" }}>Title Sponsor</h1>
-		             <img src="/qualcomm.png" alt="image" className="center-image" style={{ alignSelf: 'center', display: 'flex'}}/>
+		            <br />
+		            <br />
+		            <br />
+		            <br />
+		            <br />
+		             <img src="/qualcomm.png" alt="image" className="center-image justify-content-center" style={{ alignSelf: 'right', display: 'flex'}}/>
                     <h1 className="font-weight-bold center" style={{ textAlignVertical: "center", textAlign: "center" }}>Media Sponsor</h1>                    
 		            <div className="center-image">
 		             <img src="/sbi.png" alt="image" className="center-image"/>
@@ -117,6 +134,7 @@ const Sponsors = ({ id }) => {
                 <Footer />
             </Container>
         </div>
+		</div>
     );
 };
 
