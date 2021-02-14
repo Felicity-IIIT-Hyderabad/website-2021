@@ -1,9 +1,8 @@
 import { Container, Row, Col } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
-import { SocialIcon } from "react-social-icons";
-import GoogleMapReact from "google-map-react";
 import Footer from "./Footer";
 
+/*
 var defaultProps = {
     center: {
         lat: 59.95,
@@ -11,6 +10,7 @@ var defaultProps = {
     },
     zoom: 11,
 };
+*/
 
 const Contact = ({ id }) => {
     return (
@@ -32,8 +32,8 @@ const Contact = ({ id }) => {
                                 Telangana 500032, India
                                 `
                                     .split("\n")
-                                    .map((l) => (
-                                        <div>{l}</div>
+                                    .map((l, idx) => (
+                                        <div key={idx}>{l}</div>
                                     ))}
                             </div>
                         </Col>
