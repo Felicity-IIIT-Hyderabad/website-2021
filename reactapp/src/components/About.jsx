@@ -18,6 +18,24 @@ const About = ({ id }) => {
                             past with Felicity 2021 and relive your exhilarating memories.
                         </div>
                     </ScrollAnimation>
+                    <ScrollAnimation animateIn="fadeIn">
+                    <Button
+                        type="button"
+                        color="light"
+                        onClick={() => null}
+                        className="mr-2 font-weight-bold px-3"
+                    >
+                        LOGIN
+                    </Button>
+                    <Button
+                        type="button"
+                        color="dark"
+                        onClick={() => null}
+                        className="font-weight-bold px-3"
+                    >
+                        REGISTER
+                    </Button>
+                </ScrollAnimation>                    
                 </div>
             </Container>
         </div>
