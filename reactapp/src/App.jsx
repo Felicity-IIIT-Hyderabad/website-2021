@@ -15,8 +15,6 @@ const App = () => {
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
                         </Route>
-                        <Route path="/workshop/cp" component={CPWorkshop} />
-                        <Route path="/workshop/ml" component={MLWorkshop} />
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/events-technical" component={TechEvent} />
                         <Route path="/events-cultural" component={CultEvent} />
