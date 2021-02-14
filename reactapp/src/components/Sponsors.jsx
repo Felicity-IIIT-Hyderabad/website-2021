@@ -19,11 +19,10 @@ var defaultProps = {
 const Sponsors = ({ id }) => {
     return (
 		<div>
-		            <div className="image-absolute">
-                <div id="tech-circle4"></div>
-                <div id="tech-circle3"></div>
-                <div id="tech-circle2"></div>
-                <div id="tech-circle1"></div>
+		    <div className="image-absolute">
+                <div id="sponsor-circle3"></div>
+                <div id="sponsor-circle2"></div>
+                <div id="sponsor-circle1"></div>
             </div>
 
         <div id={id} className="d-flex flex-column text-light contact-page dark-blue">
