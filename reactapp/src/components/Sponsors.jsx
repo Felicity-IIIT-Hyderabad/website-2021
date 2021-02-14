@@ -11,7 +11,7 @@ library.add(fab, faFacebookF, faTwitterSquare, faInstagram, faYoutube);
 
 const Sponsors = ({ id }) => {
     return (
-		<div>
+        <div>
             <Navbar/>
 		    <div className="image-absolute">
                 <div id="sponsor-circle3"></div>
