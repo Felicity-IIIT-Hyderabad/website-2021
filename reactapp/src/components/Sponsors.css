@@ -65,17 +65,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-	#sponsor-circle1{
-		overflow: hidden;
-		height: 692px;
-	}
-	#sponsor-circle2{
-		overflow: hidden;
-		height: 692px;
-	}
-	#sponsor-circle3{
-		overflow: hidden;
-		height: 692px;
+	.image-absolute-sponsors{
+		display: none;
 	}
 	.event-heading{
 		text-align: center;
