@@ -3,6 +3,9 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 
 const Events = ({ id }) => {
+
+    document.body.style.backgroundColor = "#000";
+
     return (
         <div id={id} className="full-page d-flex flex-column justify-content-center text-light">
             <Container className="px-5 px-md-0">
@@ -12,7 +15,7 @@ const Events = ({ id }) => {
                 <ScrollAnimation animateIn="fadeIn">
                     <Row>
                         <Col md={6}>
-                            <div className="infopage-subtitle"> <Link to="/events-technical">Technical</Link></div>
+                            <div className="infopage-subtitle"> <Link to="/events-technical" style={{ "textDecoration": "none", "color": "white" }}>Technical</Link></div>
                             <div className="mb-5 lead">
                 Following the tradition of electrifying events since the first
                 Felicity fest, this year too, we have an array of exhilarating
@@ -23,7 +26,7 @@ const Events = ({ id }) => {
                             </div>
                         </Col>
                         <Col>
-                            <div className="infopage-subtitle"> <Link to="/events-cultural">Cultural</Link> </div>
+                            <div className="infopage-subtitle"> <Link to="/events-cultural" style={{ "textDecoration": "none", "color": "white" }}>Cultural</Link> </div>
                             <div className="mb-5 lead">
                 The diversity of cultures of the student body at IIITH is an
                 invaluable asset to the institute, giving rise a unique &apos;IIITH
