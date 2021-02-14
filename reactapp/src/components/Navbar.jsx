@@ -85,6 +85,7 @@ const Navbar = () => {
                     <NavItem to="about" title="About Us" />
                     <NavItem to="events" title="Events" />
                     <NavItem2 to="/workshop" title="Workshop" />
+                    <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem to="contact" title="Contact" />
                 </Nav>
             </Collapse>
