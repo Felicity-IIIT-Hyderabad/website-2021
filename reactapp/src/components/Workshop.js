@@ -51,7 +51,7 @@ const Workshop = () => {
                                 </ul>
                             </p>
                             <p className="text-price-details text-right"><strong> PRICE: </strong> <strike>₹ 250.00 </strike> ₹ 200.00 </p>
-                            <p className="text-buttons text-right mt-5">
+                            <p className="text-buttons text-right mt-5 mb-5 pb-3">
                                 <button className="btn pink-buttons rounded-pill mr-3 my-1"><strong>REGISTER NOW</strong></button>
                                 <button className="btn pink-buttons rounded-pill mr-3 my-1" onClick={() => toggleCP(false)}><strong>LESS DETAILS</strong></button>
                             </p>
@@ -78,10 +78,10 @@ const Workshop = () => {
                             No prerequisites required!
                             </p>
                             <p className="text-price"><strong> PRICE: </strong> <strike>₹ 250.00 </strike> ₹ 200.00 </p>
-                            <div className="text-buttons">
+                            <p className="text-buttons mb-5 pb-3">
                                 <button className="btn pink-buttons rounded-pill ml-3 mt-1"><strong>REGISTER NOW</strong></button>
                                 <button className="btn pink-buttons rounded-pill ml-3 mt-1" onClick={() => toggleCP(true)}><strong>MORE DETAILS</strong></button>
-                            </div>
+                            </p>
                             <div className="pink-lines">
                                 <div className="line"></div>
                                 <div className="line"></div>
@@ -161,10 +161,10 @@ const Workshop = () => {
                             Join us to learn concepts of ML, in an interactive workshop.
                             </p>
                             <p className="text-price text-white"><strong> PRICE: </strong><strike>₹ 250.00 </strike>₹ 200.00 </p>
-                            <div className="text-buttons">
+                            <p className="text-buttons mb-5 pb-3">
                                 <button className="btn btn-warning rounded-pill ml-3 mt-1"><strong>REGISTER NOW</strong></button>
                                 <button className="btn btn-warning rounded-pill ml-3 mt-1" onClick={() => toggleML(true)}><strong>MORE DETAILS</strong></button>
-                            </div>
+                            </p>
                         </div>
 
                         <div className="dark-text-blob-sidekick">
