@@ -1,14 +1,14 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
 
 const CampusReloaded = ({ id }) => {
-    const bgVideo = useRef(null);
+    // const bgVideo = useRef(null);
 
     const [visible, setVisible] = useState(false);
 
     const onVisible = (isVisible) => {
         setVisible(isVisible);
-        // if (isVisible) bgVideo.current.play();
+    // if (isVisible) bgVideo.current.play();
     };
 
     const bigText = "CAMPUS";
@@ -23,9 +23,9 @@ const CampusReloaded = ({ id }) => {
                     <div className="cr-animated text-uppercase">
                         <div>
                             {bigText.split("").map((l, i) => {
-                                const style = { 
-                                    "animation-delay": `${loadDelay + (i - 1) / 5}s` 
-                            };
+                                const style = {
+                                    "animation-delay": `${loadDelay + (i - 1) / 5}s`
+                                };
                                 return (
                                     <span className="cr-big" key={i} style={style}>
                                         {l}
@@ -36,10 +36,9 @@ const CampusReloaded = ({ id }) => {
                         <div>
                             {smallText.split("").map((l, i) => {
                                 const style = {
-                                    "animation-delay": `${
-                                        bigText.length * 0.25 + loadDelay + (i - 1) / 5
+                                    "animation-delay": `${bigText.length * 0.25 + loadDelay + (i - 1) / 5
                                     }s`,
-                                    "color":"white"
+                                    "color": "white"
                                 };
                                 return (
                                     <span className="cr-small" key={i} style={style}>

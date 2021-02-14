@@ -24,7 +24,23 @@ const NavItem = ({ to, title }) => {
             >
                 {title}
             </NavLink>
-        </RSNavItem>
+        </RSNavItem >
+    );
+};
+
+const NavItem2 = ({ to, title }) => {
+    return (
+        <RSNavItem>
+            <NavLink
+                href={to}
+                spy={true}
+                smooth={true}
+                duration={500}
+                className="mx-1 text-right"
+            >
+                {title}
+            </NavLink>
+        </RSNavItem >
     );
 };
 
@@ -39,7 +55,7 @@ const Navbar = () => {
     useEffect(() => {
         document.addEventListener("scroll", () => {
             let scrolled = document.scrollingElement.scrollTop;
-            if (scrolled >= (2 * window.innerHeight) / 3) {
+            if (scrolled >= (window.innerHeight) / 10000) {
                 setIsTransparent(true);
             } else {
                 setIsTransparent(false);
@@ -56,7 +72,7 @@ const Navbar = () => {
             className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semi"}`}
             fixed="top"
         >
-            <NavbarBrand href="#">
+            <NavbarBrand href="/">
                 <img
                     src="/felicity.png"
                     alt="Felicity '21"
@@ -68,6 +84,8 @@ const Navbar = () => {
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem to="about" title="About Us" />
                     <NavItem to="events" title="Events" />
+                    <NavItem2 to="/workshop" title="Workshop" />
+                    <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem to="contact" title="Contact" />
                 </Nav>
             </Collapse>

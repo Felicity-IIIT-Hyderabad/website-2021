@@ -1,13 +1,12 @@
 import { Container, Row, Col } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
-import { SocialIcon } from "react-social-icons";
-import GoogleMapReact from "google-map-react";
 import Footer from "./Footer";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {fab, faTwitterSquare, faFacebookF, faInstagram, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab, faTwitterSquare, faFacebookF, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 library.add(fab, faFacebookF, faTwitterSquare, faInstagram, faYoutube);
 
+/*
 var defaultProps = {
     center: {
         lat: 59.95,
@@ -15,10 +14,14 @@ var defaultProps = {
     },
     zoom: 11,
 };
+*/
 
 const Contact = ({ id }) => {
     return (
-        <div id={id} className="d-flex flex-column justify-content-center text-light contact-page">
+        <div
+            id={id}
+            className="d-flex flex-column justify-content-center text-light contact-page h-50 h-md-100 pt-4"
+        >
             <Container className="px-5 px-md-0">
                 <ScrollAnimation animateIn="fadeIn">
                     <h1 className="font-weight-bold infopage-title mb-5"> Contact Us </h1>
@@ -33,11 +36,10 @@ const Contact = ({ id }) => {
                                 Telangana 500032, India
                                 `
                                     .split("\n")
-                                    .map((l) => (
-                                        <div>{l}</div>
+                                    .map((l, idx) => (
+                                        <div key={idx}>{l}</div>
                                     ))}
                             </div>
-                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
                         <div className="divider d-none d-md-block" />
                         <Col
@@ -50,19 +52,19 @@ const Contact = ({ id }) => {
                                     href="https://www.youtube.com/c/FelicityIIITHyderabad"
                                     className="mx-0 mr-3 mx-md-3"
                                 >
-                                    <FontAwesomeIcon icon={['fab', 'youtube']} className="yt-icon"/>
+                                    <FontAwesomeIcon icon={["fab", "youtube"]} className="yt-icon" />
                                 </a>
                                 <a
                                     href="http://twitter.com/felicity_iiith"
                                     className="mx-0 mr-3 mx-md-3"
                                 >
-                                    <FontAwesomeIcon icon={['fab', 'twitter']} className="tw-icon"/>
+                                    <FontAwesomeIcon icon={["fab", "youtube"]} className="tw-icon" />
                                 </a>
                                 <a href="https://www.instagram.com/felicity.iiith" className="mx-2">
-                                    <FontAwesomeIcon icon={['fab', 'instagram']} className="ig-icon"/>
+                                    <FontAwesomeIcon icon={["fab", "instagram"]} className="ig-icon" />
                                 </a>
                                 <a href="https://www.facebook.com/felicity.iiith/" className="mx-2">
-                                    <FontAwesomeIcon icon={['fab', 'facebook-f']} className="fb-icon"/>
+                                    <FontAwesomeIcon icon={["fab", "facebook-f"]} className="fb-icon" />
                                 </a>
                             </div>
                         </Col>
@@ -73,6 +75,7 @@ const Contact = ({ id }) => {
                         >
                             <div className="mb-1 font-weight-bold">Overall Coordinator</div>
                             <div className="lead">Shivaan Sehgal</div>
+                            <div className="lead">&#9742; (+91) - 85294 73299</div>
                         </Col>
                     </Row>
                 </ScrollAnimation>
