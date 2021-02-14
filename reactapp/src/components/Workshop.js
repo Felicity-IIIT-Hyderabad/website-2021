@@ -108,8 +108,8 @@ const Workshop = () => {
                             <img src="vector3.svg" id="curve1" alt="My Happy SVG" />
                         </div>
 
-                        <div className="font-weight-bold details-header ml-5 mr-3 text-left text-white"> Machine</div>
-                        <div className="font-weight-bold details-header-desc ml-5 mr-3 text-left text-white"> Learning</div>
+                        <div className="font-weight-bold details-header ml-5 mx-3 text-left text-white text-right"> Machine</div>
+                        <div className="font-weight-bold details-header-desc ml-5 mx-3 text-left text-white text-right"> Learning</div>
                         <div className="horizontal-net">
                             {[...Array(135)].map((_, i) =>
                                 <div className="white-ball" key={i}></div>
