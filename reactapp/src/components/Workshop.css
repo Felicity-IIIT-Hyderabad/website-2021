@@ -12,9 +12,10 @@
 
 .left-header{
 	position: relative;
-	font-size: 17rem;
+	font-size: 12rem;
 	z-index: 10;
-	margin-top: -1.5rem;
+	margin-top: 0.2rem;
+	line-height: 20rem;
 }
 
 .left-header-desc{
@@ -27,8 +28,9 @@
 
 .right-header{
 	position: relative;
-	font-size: 17rem;
-	margin-top: -1.5rem;
+	font-size: 12rem;
+	margin-top: 0.2rem;
+	line-height: 20rem;
 }
 
 .right-header-desc{
@@ -266,6 +268,10 @@
 	font-size: 1.5rem;
 }
 
+li{
+	font-size: smaller
+}
+
 @media only screen and (max-width: 1504px) {
 	.white-text-blob{
 		top: 2rem;
@@ -344,6 +350,7 @@
 	.left-header{
 		margin-top: 2rem !important;
 		font-size: 8rem;
+		line-height: 12rem;
 	}
 	.left-header-desc{
 		font-size: 2rem;
@@ -354,6 +361,7 @@
 	.right-header{
 		margin-top: 2rem !important;
 		font-size: 8rem;
+		line-height: 12rem;
 	}
 
 	.right-header-desc{
