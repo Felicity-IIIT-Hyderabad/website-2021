@@ -108,10 +108,12 @@
 }
 
 .white-text-blob-full{
+	position: relative;
 	color: white;
 	min-height: 420px;
 	z-index: 11;
 	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .dark-text-blob{
@@ -119,7 +121,7 @@
 	left: 125px;
 	top: 3rem;
 	width: 30vw;
-	height: 340px;
+	min-height: 340px;
 	background: #055B46;
 	z-index: 11;
 }
@@ -127,9 +129,9 @@
 .dark-text-blob-full{
 	position: relative;
 	left: 125px;
-	top: 3rem;
+	top: 2rem;
 	width: 35vw;
-	min-height: 390px;
+	min-height: 400px;
 	background: #055B46;
 	z-index: 11;
 }
@@ -268,7 +270,7 @@
 	.white-text-blob{
 		top: 2rem;
 		left: 85px;
-		height: 320px;
+		min-height: 320px;
 		background: #fff;
 		z-index: 10;
 	}
@@ -288,13 +290,13 @@
 	.vertical-net{
 		position: absolute;
 		left: 0;
-		height: 117.28px;
+		min-height: 117.28px;
 		width: 249px;
 	}
 	.white-text-blob{
 		top: 4rem;
 		left: 85px;
-		height: 320px;
+		min-height: 320px;
 		width: 40vw;
 		background: #fff;
 		z-index: 10;
@@ -374,15 +376,21 @@
 		top: 8rem;
 		left: 85px;
 		width: 60vw;
-		height: 280px;
+		min-height: 280px;
 		background: #fff;
 		z-index: 10;
 	}
 	.dark-text-blob{
-		top: 5rem;
-		left: 20vw;
-		height: 360px;
-		width: 70vw;
+		top: 3rem;
+    	left: 12vw;
+    	min-height: 420px;
+    	width: 84vw;
+	}
+	.dark-text-blob-full{
+		top: 3rem;
+    	left: 10vw;
+    	min-height: 420px;
+    	width: 84vw;
 	}
 	.pink-lines{
 		display: none;
@@ -424,8 +432,11 @@
 }
 
 @media only screen and (max-width: 372px) {
+	.details-header-desc{
+		font-size: 3rem;
+	}
 	.white-text-blob{
-		height: 360px;
+		min-height: 360px;
 	}
 	.white-text-blob p{
 		margin: 0 2rem 0 1rem;
