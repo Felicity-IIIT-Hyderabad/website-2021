@@ -24,6 +24,12 @@ const CPWorkshop = () => {
                         <p className="text-date">Date: 21st Feb @ 10 PM </p>
                         <p className="text-bullets">
                             <ul>
+                                <li>Have you ever dreamt of becoming a Codeforces Expert? Felicity IIITH brings you an interactive beginner workshop to cover important concepts of competitive coding for helping you achieve your dreams!</li>
+                                <li>This fun and interactive workshop is designed for beginners with basic knowledge of C++ as the only prerequisite.</li>
+                                <li> A  wide range of important concepts will be covered, starting off with basic C++ programs and time complexity analysis followed by BIT manipulation, Binary Searching, and Dynamic Programming.</li>
+                                <li>The workshop will finally conclude with a discussion on essential concepts of Basic Graphs, Binary Tree, and BST.</li>
+                                <li>After the workshop, you may stick around for an additional half an hour of QnA session where you can get your general doubts regarding CP cleared.</li>
+                                <li>So, join us on 28th Feb, as we show you the tools necessary to become an expert on Codeforces!</li>
                             </ul>
                         </p>
                         <p className="text-price-details text-right"><strong> PRICE: </strong> <strike>₹ 250.00 </strike> ₹ 200.00 </p>

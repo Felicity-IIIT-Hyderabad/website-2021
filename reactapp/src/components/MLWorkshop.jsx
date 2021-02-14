@@ -77,6 +77,9 @@ const MLWorkshop = () => {
                         <p className="text-bullets text-white">
                             <ul>
                                 <li>Want to win a ML contest? Felicity IIITH brings you an interactive beginner workshop to cover important concepts of Machine Learning.</li>
+                                <li>This fun and interactive workshop is designed for beginners with basic knowledge of Python as the only prerequisite.</li>
+                                <li>The first part of the workshop will cover Neural Networks, CNNs, Code Walkthrough of Vision and NLP Models and various other cool techniques to get better results. The second part will make you familiar with GANs.</li>
+                                <li>After the workshop, you may stick around for an additional QnA session where you can get your general doubts regarding ML cleared.</li>
                                 <li>So, join us on 26th and 27th Feb, as we show you the tools necessary to become an expert in the field of Machine Learning!</li>
                             </ul>
                         </p>                        
