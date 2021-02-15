@@ -203,6 +203,7 @@
 }
 
 .text-price{
+	font-size: 1.3rem;
 	padding: 0 1rem 0 2rem;
 }
 
@@ -210,6 +211,21 @@
 	font-size: 1.3rem;
 	line-height: 1rem;
 	padding: 0 1rem 0 2rem;
+}
+
+.text-combo-prev-price{
+	color: red;
+}
+
+.text-combo{
+	font-size: 3rem;
+}
+
+.combo-code{
+	margin-top: 0;
+	padding: 0;
+	font-size: 1.3rem;
+	font-weight: lighter;
 }
 
 .pink-buttons{
@@ -223,7 +239,13 @@
 }
 
 .cta-text{
-	margin-top: -1rem;
+	/* margin-top: -1rem; */
+	display: auto;
+}
+
+.wp-felicity-logo{
+	height: 50%;
+	/* display: block; */
 }
 
 .absolute-navbar{
@@ -250,7 +272,7 @@
 #felicity{
 	margin-top: -4.5rem;
 	margin-left: 1rem;
-	height: 105px;
+	height: 60px;
 }
 
 .details-header{
