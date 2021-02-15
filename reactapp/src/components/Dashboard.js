@@ -199,8 +199,8 @@ const Dashboard = () => {
                                 </div>
                                 <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                             </div>
-                            <div className="left-arrow" onClick={() => leftScroll(1)}>&lt;</div>
-                            <div className="right-arrow" onClick={() => rightScroll(1)}>&gt;</div>
+                            <div className="left-arrow desktop-only" onClick={() => leftScroll(1)}>&lt;</div>
+                            <div className="right-arrow desktop-only" onClick={() => rightScroll(1)}>&gt;</div>
                         </div>
 
                         <div className="feature-image my-4 mr-2"></div>
@@ -231,8 +231,8 @@ const Dashboard = () => {
                                 </div>
                                 <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                             </div>
-                            <div className="left-arrow" onClick={() => leftScroll(2)}>&lt;</div>
-                            <div className="right-arrow" onClick={() => rightScroll(2)}>&gt;</div>
+                            <div className="left-arrow desktop-only" onClick={() => leftScroll(2)}>&lt;</div>
+                            <div className="right-arrow desktop-only" onClick={() => rightScroll(2)}>&gt;</div>
                         </div>
                     </div>
                 </div>
