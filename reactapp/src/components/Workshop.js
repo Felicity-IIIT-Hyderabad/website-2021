@@ -1,5 +1,6 @@
 import { useState } from "react";
 // import { Link } from "react-router-dom";
+
 import "./Workshop.css";
 import Navbar from "./Navbar";
 
@@ -21,6 +22,7 @@ const Workshop = () => {
 
     return (
         <div>
+
             {/* <div className="absolute-navbar">
                 <Link to="/">
                     <img id="iiit" src="../iiit.png" alth="IIIT" />
@@ -33,6 +35,7 @@ const Workshop = () => {
                 </div>
             </div> */}
             <Navbar />
+
 
             <div className="row" style={{ "overflow": "hidden" }}>
                 {cpExpand ? 
