@@ -37,6 +37,14 @@
 	transform: matrix(0.94, -0.34, 0.34, 0.94, 0, 0);
 }
 
+.past-sponsor-logo{
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	/* text-align: center; */
+}
+
 .image-absolute-sponsors img{
 	position: absolute;
 	top: 0;

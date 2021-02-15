@@ -100,7 +100,7 @@ const Sponsors = ({ id }) => {
                         <Row className="d-flex align-items-center">
                             <Col md={4} className="d-flex flex-column align-items-start text-md-left">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/airtel.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/airtel.png" alt="Card image cap" />
                                     <CardBody>
                                         {/* <CardTitle tag="h5">Card title</CardTitle> */}
                                         {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle> */}
@@ -112,7 +112,7 @@ const Sponsors = ({ id }) => {
                             <div className="divider d-none d-md-block" />
                             <Col md={4} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/ajio.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ajio.png" alt="Card image cap" />
                                     <CardBody>
                                         <CardText>
                                         </CardText>
@@ -122,7 +122,7 @@ const Sponsors = ({ id }) => {
                             <div className="divider d-none d-md-block" />
                             <Col md={3} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/ebay.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ebay.png" alt="Card image cap" />
                                     <CardBody>
                                         <CardText>
                                         </CardText>
@@ -133,7 +133,7 @@ const Sponsors = ({ id }) => {
                         <Row className="d-flex align-items-center">
                             <Col md={4} className="d-flex flex-column align-items-start text-md-left">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/lic.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/lic.png" alt="Card image cap" />
                                     <CardBody>
                                         {/* <CardTitle tag="h5">Card title</CardTitle> */}
                                         {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle> */}
@@ -145,7 +145,7 @@ const Sponsors = ({ id }) => {
                             <div className="divider d-none d-md-block" />
                             <Col md={4} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/microsoft.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/microsoft.png" alt="Card image cap" />
                                     <CardBody>
                                         <CardText>
                                         </CardText>
@@ -155,7 +155,7 @@ const Sponsors = ({ id }) => {
                             <div className="divider d-none d-md-block" />
                             <Col md={3} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/redfm.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/redfm.png" alt="Card image cap" />
                                     <CardBody>
                                         <CardText>
                                         </CardText>
