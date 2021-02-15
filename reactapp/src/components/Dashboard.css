@@ -16,6 +16,7 @@
 	color: 	white;
 	overflow-y: hidden;
 	overflow-x: scroll;
+	scrollbar-width: none;
 }
 
 .awssld__bullets{
@@ -154,7 +155,7 @@
 .left-arrow{
 	font-size: 5rem;
 	font-weight: bolder;
-	color: white;
+	color: grey;
 	position: absolute;
 	top: 30%;
 	left: 2rem;
@@ -164,7 +165,7 @@
 .right-arrow{
 	font-size: 5rem;
 	font-weight: bolder;
-	color: white;
+	color: grey;
 	position: absolute;
 	top: 30%;
 	right: 2rem;

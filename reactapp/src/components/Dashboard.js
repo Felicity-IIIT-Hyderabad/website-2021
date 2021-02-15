@@ -6,6 +6,9 @@ import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Dashboard = () => {
@@ -199,8 +202,8 @@ const Dashboard = () => {
                                 </div>
                                 <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                             </div>
-                            <div className="left-arrow desktop-only" onClick={() => leftScroll(1)}>&lt;</div>
-                            <div className="right-arrow desktop-only" onClick={() => rightScroll(1)}>&gt;</div>
+                            <div className="left-arrow desktop-only" onClick={() => leftScroll(1)}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                            <div className="right-arrow desktop-only" onClick={() => rightScroll(1)}><FontAwesomeIcon icon={faChevronRight} /></div>
                         </div>
 
                         <div className="feature-image my-4 mr-2"></div>
@@ -231,8 +234,8 @@ const Dashboard = () => {
                                 </div>
                                 <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                             </div>
-                            <div className="left-arrow desktop-only" onClick={() => leftScroll(2)}>&lt;</div>
-                            <div className="right-arrow desktop-only" onClick={() => rightScroll(2)}>&gt;</div>
+                            <div className="left-arrow desktop-only" onClick={() => leftScroll(2)}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                            <div className="right-arrow desktop-only" onClick={() => rightScroll(2)}><FontAwesomeIcon icon={faChevronRight} /></div>
                         </div>
                     </div>
                 </div>
