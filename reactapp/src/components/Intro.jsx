@@ -25,8 +25,7 @@ const Intro = ({ id, scrollLocked }) => {
                 <img
                     src="/caret.svg"
                     alt=""
-                    className={`intro-caret ${
-                        scrollLocked ? "navbar-logo-hidden" : "navbar-logo-visible"
+                    className={`intro-caret ${scrollLocked ? "navbar-logo-hidden" : "navbar-logo-visible"
                     }`}
                 />
             </Link>

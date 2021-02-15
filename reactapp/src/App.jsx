@@ -1,20 +1,26 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Intro from "./components/Intro";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import Sponsors from "./components/Sponsors";
+import TechEvent from "./components/TechEvent";
+import CultEvent from "./components/CultEvent";
+import Workshop from "./components/Workshop";
 
 const App = () => {
     return (
         <>
-            <Intro id="home" />
             <div id="main">
-                <Navbar />
                 <Router>
                     <Switch>
-                        <Route path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
+                        <Route path="/sponsors">
+                            <Sponsors id="sponsors" />
+                        </Route>
+                        <Route path="/workshop" component={Workshop} />
+                        <Route path="/events-technical" component={TechEvent} />
+                        <Route path="/events-cultural" component={CultEvent} />
+                        <Route path="/" component={Home} />
                     </Switch>
                 </Router>
             </div>

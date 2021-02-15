@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
     "bootstrap": "^4.6.0",
     "google-map-react": "^2.1.9",
     "gsap": "^3.6.0",
@@ -22,10 +25,12 @@
     "react-scroll": "^1.8.1",
     "react-scrollmagic": "^2.2.0",
     "react-social-icons": "^4.1.0",
+    "react-vertical-timeline-component": "^3.3.3",
     "react-visibility-sensor": "^5.1.1",
     "reactstrap": "^8.9.0",
     "redux": "^4.0.5",
     "scroll-lock": "^2.1.4",
+    "sweetalert2": "^10.14.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -51,5 +56,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-plugin-react": "^7.22.0"
   }
 }

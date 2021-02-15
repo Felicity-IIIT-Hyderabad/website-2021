@@ -1,9 +1,12 @@
 import { Container, Row, Col } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
-import { SocialIcon } from "react-social-icons";
-import GoogleMapReact from "google-map-react";
 import Footer from "./Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab, faTwitterSquare, faFacebookF, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+library.add(fab, faFacebookF, faTwitterSquare, faInstagram, faYoutube);
 
+/*
 var defaultProps = {
     center: {
         lat: 59.95,
@@ -11,6 +14,7 @@ var defaultProps = {
     },
     zoom: 11,
 };
+*/
 
 const Contact = ({ id }) => {
     return (
@@ -32,8 +36,8 @@ const Contact = ({ id }) => {
                                 Telangana 500032, India
                                 `
                                     .split("\n")
-                                    .map((l) => (
-                                        <div>{l}</div>
+                                    .map((l, idx) => (
+                                        <div key={idx}>{l}</div>
                                     ))}
                             </div>
                         </Col>
@@ -48,19 +52,19 @@ const Contact = ({ id }) => {
                                     href="https://www.youtube.com/c/FelicityIIITHyderabad"
                                     className="mx-0 mr-3 mx-md-3"
                                 >
-                                    <img src="/youtube.svg" alt="YouTube" className="yt-icon" />
+                                    <FontAwesomeIcon icon={["fab", "youtube"]} className="yt-icon" />
                                 </a>
                                 <a
                                     href="http://twitter.com/felicity_iiith"
                                     className="mx-0 mr-3 mx-md-3"
                                 >
-                                    <img src="/twitter.svg" alt="Twitter" className="tw-icon" />
+                                    <FontAwesomeIcon icon={["fab", "youtube"]} className="tw-icon" />
                                 </a>
                                 <a href="https://www.instagram.com/felicity.iiith" className="mx-2">
-                                    <img src="/instagram.svg" alt="Instagram" className="ig-icon" />
+                                    <FontAwesomeIcon icon={["fab", "instagram"]} className="ig-icon" />
                                 </a>
                                 <a href="https://www.facebook.com/felicity.iiith/" className="mx-2">
-                                    <img src="/facebook.svg" alt="Facebook" className="fb-icon" />
+                                    <FontAwesomeIcon icon={["fab", "facebook-f"]} className="fb-icon" />
                                 </a>
                             </div>
                         </Col>
