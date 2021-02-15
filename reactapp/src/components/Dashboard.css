@@ -154,7 +154,6 @@
 
 .left-arrow{
 	font-size: 5rem;
-	font-weight: bolder;
 	color: grey;
 	position: absolute;
 	top: 30%;
@@ -164,7 +163,6 @@
 
 .right-arrow{
 	font-size: 5rem;
-	font-weight: bolder;
 	color: grey;
 	position: absolute;
 	top: 30%;
@@ -173,10 +171,12 @@
 }
 
 .left-arrow:hover{
+	color: white;
 	cursor: pointer;
 }
 
 .right-arrow:hover{
+	color: white;
 	cursor: pointer;
 }
 
