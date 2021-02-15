@@ -36,5 +36,9 @@ class Home extends React.Component {
     }
 }
 
-export default connect()(Home);
+const mapStateToProps = state => ({
+    userInfo: state,
+});
+
+export default connect(mapStateToProps)(Home);
 

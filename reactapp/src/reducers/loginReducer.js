@@ -1,14 +1,9 @@
-const INITIAL_STATE = {
-    loginState: "",
-};
-
-function loginReducer(state = INITIAL_STATE, action) {
+export default (state = {}, action) => {
     switch(action.type) {
     case "LOGIN":
         console.log("AA");
-        return { ...state, loginState: action.loginState };
+        console.log(action.action.idTokenParsed);
+        return { ...state, loginState: action.action.idTokenParsed };
     default: return state;
     }
-}
-
-export default loginReducer;
+};

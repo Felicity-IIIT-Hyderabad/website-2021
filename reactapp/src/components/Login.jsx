@@ -3,6 +3,8 @@ import Keycloak from "keycloak-js";
 import { Button } from "reactstrap";
 import { connect } from "react-redux";
 
+import loginUser from "../actions/login";
+
 class Login extends React.Component {
 
     constructor(props) {
@@ -17,7 +19,7 @@ class Login extends React.Component {
     componentDidMount() {
         const keycloak = Keycloak("/keycloak.json");
         keycloak.init({ onLoad: "login-required" }).then(authenticated => {
-            this.loginUser(keycloak);
+            this.props.loginUser(keycloak);
             this.setState({ keycloak: keycloak, authenticated: authenticated });
         });
     }
@@ -47,11 +49,12 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    userInfo: state.keycloak,
+    userInfo: state,
 });
 
-const mapDispathToProps = dispatch => ({
-    loginUser: keycloak => dispatch({ type: "LOGIN", keycloak }),
+const mapDispatchToProps = () => ({
+    loginUser: loginUser,
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Login);
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
