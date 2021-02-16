@@ -87,6 +87,10 @@
 }
 
 .right-display{
+	
+	position: relative;
+	z-index: 3;
+	scroll-behavior: smooth;
 	padding: 15px;
 	height: 50rem;
 	border-radius: 8px;

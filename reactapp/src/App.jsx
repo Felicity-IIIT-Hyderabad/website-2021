@@ -6,6 +6,7 @@ import TechEvent from "./components/TechEvent";
 import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
+import Team from "./components/Team";
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
             <div id="main">
                 <Router>
                     <Switch>
+                        <Route path="/team" component={Team} />
                         <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
