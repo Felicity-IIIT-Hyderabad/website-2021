@@ -35,7 +35,7 @@ const Sponsors = ({ id }) => {
                             <Col md={3}></Col>
                             <Col md={6}>
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000", width: "100%", height: "90%" }}>
-                                    <Link><CardImg top width="70%" src="/qualcomm.png" alt="Card image cap"  style={{ width: "100%", height: "100%" }} onClick={() => window.location.href="https://www.qualcomm.com/"}/></Link>
+                                    <Link><CardImg top width="70%" src="/qualcomm.png" alt="Card image cap"  style={{ width: "100%", height: "100%" }} onClick={() => window.open("https://www.qualcomm.com/")}/></Link>
                                 </Card>
                                 {/* <img src="/qualcomm.png" alt="image" style={{ alignSelf: "center", display: "flex" }} />         */}
                             </Col>
@@ -51,7 +51,7 @@ const Sponsors = ({ id }) => {
                                         <br/>
                                         <br/>                                        
                                     </CardText>
-                                    <Link><a><CardImg top width="100%" src="/sbi.png" alt="Card image cap" onClick={() => window.location.href="https://www.onlinesbi.com/"}/></a></Link>
+                                    <Link><a><CardImg top width="100%" src="/sbi.png" alt="Card image cap" onClick={() => window.open("https://www.onlinesbi.com/")}/></a></Link>
                                     <CardBody>
                                         {/* <CardTitle tag="h5">Card title</CardTitle> */}
                                         {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle> */}
@@ -73,7 +73,7 @@ const Sponsors = ({ id }) => {
                                         <br/>
                                         <br/>                                        
                                     </CardText>                                  
-                                    <Link><CardImg top width="100%" src="/logos/aicrowd.jpg" alt="Card image cap" onClick={() => window.location.href="https://www.aicrowd.com/"}/></Link>
+                                    <Link><CardImg top width="100%" src="/logos/aicrowd.jpg" alt="Card image cap" onClick={() => window.open("https://www.aicrowd.com/")}/></Link>
                                     <CardBody>
                                         {/* <CardTitle tag="h5">Card title</CardTitle> */}
                                         {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle> */}
