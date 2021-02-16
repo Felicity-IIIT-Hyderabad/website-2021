@@ -1,3 +1,7 @@
 body{
     display: block;
 }
+
+div #cpBox{
+    margin-top: 1rem;
+}

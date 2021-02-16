@@ -112,7 +112,7 @@
 .white-text-blob-full{
 	position: relative;
 	color: white;
-	min-height: 420px;
+	min-height: 250px;
 	z-index: 11;
 	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.5);
@@ -130,10 +130,10 @@
 
 .dark-text-blob-full{
 	position: relative;
-	left: 125px;
-	top: 2rem;
-	width: 35vw;
-	min-height: 400px;
+	left: 3rem;
+	top: 0rem;
+	width: 45vw;
+	min-height: 300px;
 	background: #055B46;
 	z-index: 11;
 }
@@ -477,4 +477,15 @@ li{
 	.cta-text{
 		margin-top: 3rem;
 	}
+}
+
+div #cpBox{
+	margin-top: 1rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.cpButtons{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
