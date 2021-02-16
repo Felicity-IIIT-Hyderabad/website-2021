@@ -5,6 +5,7 @@ import Sponsors from "./components/Sponsors";
 import TechEvent from "./components/TechEvent";
 import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <div id="main">
                 <Router>
                     <Switch>
+                        <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
                         </Route>

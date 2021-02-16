@@ -95,6 +95,7 @@ const Navbar = () => {
                                     Events
                                 </DropdownToggle>
                                 <DropdownMenu style={{ backgroundColor: "black" }}>
+                                    <DropdownItem style={{ color: "grey" }}><a href="/events">Main</a></DropdownItem>
                                     <DropdownItem style={{ color: "grey" }}><a href="/events-technical">Technical</a></DropdownItem>
                                     <DropdownItem style={{ color: "grey" }}><a href="/events-cultural">Cultural</a></DropdownItem>
                                 </DropdownMenu>

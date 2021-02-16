@@ -25,7 +25,7 @@ const Workshop = () => {
 
             <div className="absolute-navbar">
                 <Link to="/">
-                    <img id="iiit" src="../iiit.png" alth="IIIT" />
+                    <img id="iiit" src="../iiit.png" alt="IIIT" />
                 </Link> 
                 <div className="text-center">
                     <img id="qualcomm" src="../qualcomm.png" alth="IIIT" />
