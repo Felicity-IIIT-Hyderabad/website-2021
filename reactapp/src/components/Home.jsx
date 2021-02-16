@@ -7,7 +7,7 @@ import Contact from "./Contact";
 import CampusReloaded from "./CampusReloaded";
 import ThreePs from "./ThreePs";
 import Navbar from "./Navbar";
-import store from "../store";
+import { getUser } from "../actions/login";
 
 class Home extends React.Component {
 
@@ -19,14 +19,11 @@ class Home extends React.Component {
     }
 
     componentDidMount = () => {
-        console.log("BHAYA");
-        console.log(this.props);
-        console.log(store.getState());
+        getUser();
     }
 
     componentDidUpdate = () => {
         if(this.state.key){
-            console.log(this.props);
             this.setState({
                 key:0
             });
@@ -36,7 +33,7 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <Navbar />
+                <Navbar props={this.props}/>
                 <Intro id="home" />
                 <div id="main">
                     <About id="about" />

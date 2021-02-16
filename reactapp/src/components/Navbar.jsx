@@ -8,6 +8,7 @@ import {
     NavItem as RSNavItem,
     NavLink,
 } from "reactstrap";
+import { connect } from "react-redux";
 import { Link } from "react-scroll";
 
 const NavItem = ({ to, title }) => {
@@ -44,7 +45,17 @@ const NavItem2 = ({ to, title }) => {
     );
 };
 
-const Navbar = () => {
+function func(props){
+    try{
+        return props.props.userInfo.loginReducer.idTokenParsed.family_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.given_name;
+    }
+    catch{
+        return "Hello";
+    }
+}
+
+
+const Navbar = (props) => {
     const navRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -82,6 +93,7 @@ const Navbar = () => {
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
                 <Nav className="ml-auto text-uppercase" navbar>
+                    <NavItem title={func(props)} />
                     <NavItem to="about" title="About Us" />
                     <NavItem to="events" title="Events" />
                     <NavItem2 to="/workshop" title="Workshop" />
@@ -93,4 +105,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default connect()(Navbar);

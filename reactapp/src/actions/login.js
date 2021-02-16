@@ -1,10 +1,11 @@
 import store from "../store";
 
-function loginUser(keycloak){
+export function loginUser(keycloak){
     console.log(keycloak);
     console.log("ME CALLED");
-    store.dispatch({ type:"LOGIN", action: keycloak });
-    console.log(store.getState());
+    return store.dispatch({ type:"LOGIN", keycloak });
 }
 
-export default loginUser;
+export function getUser(){
+    return store.dispatch({ type:"GET_USER" });
+}

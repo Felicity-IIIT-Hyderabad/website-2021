@@ -1,9 +1,18 @@
 import React from "react";
 import Keycloak from "keycloak-js";
-import { Button } from "reactstrap";
+import { Button, Col, Row } from "reactstrap";
 import { connect } from "react-redux";
 
-import loginUser from "../actions/login";
+import { loginUser } from "../actions/login";
+
+function func(props){
+    try{
+        return props.keycloak.idTokenParsed.family_name + "\t" + props.keycloak.idTokenParsed.given_name;
+    }
+    catch{
+        return "Hello";
+    }
+}
 
 class Login extends React.Component {
 
@@ -12,17 +21,14 @@ class Login extends React.Component {
         this.state = { keycloak: null, authenticated: false };
     }
 
-    loginUser(keycloak){
-        console.log(keycloak);
-    }
-
     componentDidMount() {
         const keycloak = Keycloak("/keycloak.json");
         keycloak.init({ onLoad: "login-required" }).then(authenticated => {
-            this.props.loginUser(keycloak);
+            console.log(this.props);
             this.setState({ keycloak: keycloak, authenticated: authenticated });
         }).then(()=>{
             console.log(this.props);
+            console.log(this.props.loginUser(keycloak));
         });
     }
 
@@ -33,12 +39,18 @@ class Login extends React.Component {
 
     render() {
         if (this.state.keycloak) {
-            if (this.state.authenticated) 
+            if (this.state.authenticated)
                 return (
                     <div>
-                        <p>This is a Keycloak-secured component of your application. You shouldnt be able
-                to see this unless you ve authenticated with Keycloak.</p>
-                        <Button onClick={ () => this.logOut() }> LOGOUT</Button>
+                        <p>Welcome {func(this.state)}!</p>
+                        <Row>
+                            <Col md={2}>
+                                <Button onClick={ () => window.location.href="/" }> GO BACK</Button>
+                            </Col>
+                            <Col md={2}>
+                                <Button onClick={ () => this.logOut() }> LOGOUT</Button>
+                            </Col>
+                        </Row>
                     </div>
                 ); else return (<div>Unable to authenticate!</div>);
         }
@@ -54,9 +66,14 @@ const mapStateToProps = state => ({
     userInfo: state,
 });
 
-const mapDispatchToProps = () => ({
-    loginUser: loginUser,
-});
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         actions: bindActionCreators({ loginUser }, dispatch)
+//     };
+// };
 
+const mapDispatchToProps = () => ({
+    loginUser: loginUser
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(Login);
