@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
     Collapse,
+    //  Button,
     Navbar as RSNavbar,
     NavbarToggler,
     NavbarBrand,
@@ -8,6 +9,7 @@ import {
     NavItem as RSNavItem,
     NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem 
 } from "reactstrap";
+import { connect } from "react-redux";
 import { Link } from "react-scroll";
 
 const NavItem = ({ to, title }) => {
@@ -44,7 +46,39 @@ const NavItem2 = ({ to, title }) => {
     );
 };
 
-const Navbar = () => {
+// function func(props){
+//     try{
+//         return "Welcome \t" + props.props.userInfo.loginReducer.idTokenParsed.given_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.family_name;
+//     }
+//     catch{
+//         return "";
+//     }
+// }
+
+// function displayInOrOut(props){
+//     try{
+//         console.log(props.props.userInfo.loginReducer.authenticated);
+//         if(props.props.userInfo.loginReducer.authenticated)
+//             return "LOGOUT";
+//     }
+//     catch{
+//         return "LOGIN";
+//     }
+// }
+
+// function logInOrOut(props){
+//     try{
+//         console.log(props.props.userInfo.loginReducer.authenticated);
+//         if(props.props.userInfo.loginReducer.authenticated)
+//             window.location.href="/";
+//     }
+//     catch{
+//         return "LOGIN";
+//     }
+// }
+
+
+const Navbar = (props) => {
     const navRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +117,8 @@ const Navbar = () => {
             </NavbarBrand>
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
-                <Nav className="ml-auto text-uppercase" navbar>
+                <Nav className="ml-auto text-uppercase" navbar>                    
+                    {/* <NavItem title={func(props)} /> */}
                     <RSNavItem>
                         <NavLink>
                             <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
@@ -106,10 +141,20 @@ const Navbar = () => {
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem to="contact" title="Contact" />
+                    {/* <Button
+                        type="button"
+                        color="dark"
+                        onClick={() => logInOrOut(props)}
+                        className="mr-2 font-weight-bold px-3"
+                    >
+                        <Link to={"/login"}>
+                            {displayInOrOut(props)}
+                        </Link>
+                    </Button>                     */}
                 </Nav>
             </Collapse>
         </RSNavbar>
     );
 };
 
-export default Navbar;
+export default connect()(Navbar);

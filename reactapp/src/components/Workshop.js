@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import "./Workshop.css";
-// import Navbar from "./Navbar";
+import WorkshopNavbar from "./WorkshopNavbar";
 
 const Workshop = () => {
 
@@ -22,8 +22,8 @@ const Workshop = () => {
 
     return (
         <div>
-
-            <div className="absolute-navbar">
+            <WorkshopNavbar/>
+            {/* <div className="absolute-navbar">
                 <Link to="/">
                     <img id="iiit" src="../iiit.png" alt="IIIT" />
                 </Link> 
@@ -33,7 +33,10 @@ const Workshop = () => {
                         <img id="felicity" className="wp-felicity-logo" src="../felicityblack_cropped.png" alth="IIIT" />
                     </Link>
                 </div>
-            </div>
+                <div>
+                    AA
+                </div>
+            </div> */}
             {/* <Navbar /> */}
 
 
@@ -46,7 +49,7 @@ const Workshop = () => {
                         <div className="font-weight-bold details-header ml-5 mr-3 text-left text-warning" style={{ fontSize: "2rem" }}> Competitive</div>
                         <div className="font-weight-bold details-header-desc ml-5 mr-3 text-left text-warning" style={{ fontSize: "4rem" }}> Programming</div>
                         <div className="white-text-blob-full" id="cpBox">
-                            <p className="text-date">Date: 21st Feb @ 10 PM </p>
+                            <p className="text-date">Date: 28<sup>th</sup> Feb @ 1 PM  </p>
                             <p className="text-bullets">
                                 <ul>
                                     <li>Have you ever dreamt of becoming a Codeforces Expert? Felicity IIITH brings you an interactive beginner workshop to cover important concepts of competitive coding for helping you achieve your dreams!</li>
@@ -79,7 +82,7 @@ const Workshop = () => {
                         <div className="font-weight-bold left-header-desc ml-5 mr-3 text-right text-warning"> WORKSHOP </div>
 
                         <div className="white-text-blob">
-                            <p className="text-date">Date: 21st Feb @ 10 PM </p>
+                            <p className="text-date">Date: 28<sup>th</sup> Feb @ 1 PM  </p>
                             <p className="text-bullets">
                                 <ul>
                                     <li>Want to become an Expert on Codeforces?</li>
@@ -128,7 +131,7 @@ const Workshop = () => {
                         </div>
 
                         <div className="dark-text-blob-full">
-                            <p className="text-date text-white">Date: 21st Feb @ 10 PM </p>
+                            <p className="text-date text-white">Date: 26<sup>th</sup>-27<sup>th</sup> Feb @ 12 PM </p>
                             <p className="text-bullets text-white">
                                 <ul>
                                     <li>Want to win a ML contest? Felicity IIITH brings you an interactive beginner workshop to cover important concepts of Machine Learning.</li>
@@ -166,7 +169,7 @@ const Workshop = () => {
                         </div>
 
                         <div className="dark-text-blob">
-                            <p className="text-date text-white">Date: 21st Feb @ 10 PM </p>
+                            <p className="text-date text-white">Date: 26<sup>th</sup>-27<sup>th</sup> Feb @ 1 PM </p>
                             <p className="text-bullets text-white">
                                 <ul>
                                     <li>Ever heard of Kaggle? Curious about GPT-3?</li>
@@ -203,6 +206,8 @@ const Workshop = () => {
                     </div>
                     <div className="text-white my-3 main-description">
                         Buy urgently, dont wait for the offer to expire !!
+                        <br/>
+                        <div className="lead"> Contact: &#9742; (+91) - 81788 64086</div>
                     </div>
                 </div>
             </div>

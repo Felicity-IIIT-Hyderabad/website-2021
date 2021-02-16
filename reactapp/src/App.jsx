@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./components/Home";
+// import Login from "./components/Login";
 import Sponsors from "./components/Sponsors";
 import TechEvent from "./components/TechEvent";
 import CultEvent from "./components/CultEvent";
@@ -13,6 +14,7 @@ const App = () => {
             <div id="main">
                 <Router>
                     <Switch>
+                        {/* <Route path="/login" component={Login}/> */}
                         <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
