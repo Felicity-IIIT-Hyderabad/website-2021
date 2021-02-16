@@ -59,7 +59,7 @@ const Workshop = () => {
                             </p>
                             <p className="text-price-details text-right"><strong> PRICE: </strong> <strike>₹ 250.00 </strike> ₹ 200.00 </p>
                             <p className="text-buttons text-right">
-                                <button className="btn pink-buttons rounded-pill mr-3 my-1"><strong>REGISTER NOW</strong></button>
+                                <button className="btn pink-buttons rounded-pill mr-3 my-1" onClick={() => window.location.href="https://www.meraevents.com/event/iiit-hyderabad-cp-ml-workshops?ucode=organizer"}><strong>REGISTER NOW</strong></button>
                                 <button className="btn pink-buttons rounded-pill mr-3 my-1 cpButtons" onClick={() => toggleCP(false)}><strong>LESS DETAILS</strong></button>
                             </p>
                         </div>
@@ -138,7 +138,7 @@ const Workshop = () => {
                             </p>                        
                             <p className="text-price-details text-white"><strong> PRICE: </strong><strike>₹ 250.00 </strike>₹ 200.00 </p>
                             <p className="text-buttons mb-5 pb-3 text-right">
-                                <button className="btn btn-warning rounded-pill mr-3 mt-1"><strong>REGISTER NOW</strong></button>
+                                <button className="btn btn-warning rounded-pill mr-3 mt-1"  onClick={() => window.location.href="https://www.meraevents.com/event/iiit-hyderabad-cp-ml-workshops?ucode=organizer"}><strong>REGISTER NOW</strong></button>
                                 <button className="btn btn-warning rounded-pill mr-3 mt-1" onClick={() => toggleML(false)}><strong>LESS DETAILS</strong></button>
                             </p>
                         </div>
@@ -190,7 +190,7 @@ const Workshop = () => {
                     <div className="combo-code">*use you campus ambassador code and get <strong>EXTRA</strong> ₹50 OFF</div>
                 </div>
 
-                <button className="d-inline-block cta-button btn btn-success"> REGISTER NOW </button>
+                <button className="d-inline-block cta-button btn btn-success"  onClick={() => window.location.href="https://www.meraevents.com/event/iiit-hyderabad-cp-ml-workshops?ucode=organizer"}> REGISTER NOW </button>
             </div>
 
             <div className="container">
