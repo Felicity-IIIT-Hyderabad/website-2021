@@ -21,6 +21,8 @@ class Login extends React.Component {
         keycloak.init({ onLoad: "login-required" }).then(authenticated => {
             this.props.loginUser(keycloak);
             this.setState({ keycloak: keycloak, authenticated: authenticated });
+        }).then(()=>{
+            console.log(this.props);
         });
     }
 

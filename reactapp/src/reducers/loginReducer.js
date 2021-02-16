@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+export default (state = { "anna":"bond" }, action) => {
     switch(action.type) {
     case "LOGIN":
         console.log("AA");
