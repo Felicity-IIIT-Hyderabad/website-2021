@@ -1,65 +1,128 @@
 {
-    "cultural":[
-        {
-            "name":"A",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/a.jpg",
-            "main":true
-        },
-        {
-            "name":"B",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/b.jpg",            
-            "main":true
-        }        
-    ],
-    "technical":[
-        {
-            "name":"A",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/a.jpg",
-            "main":true
-        },
-        {
-            "name":"B",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/b.jpg",            
-            "main":true
-        }        
-    ],
     "events":[
         {
             "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
+            "image":"/team/sample.jpg",
             "main":true
         },
         {
             "name":"B",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/team/sample.jpg",            
             "main":true
-        }        
+        },
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        }         
+    ],
+    "web":[
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":true
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":true
+        },
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        }         
+    ],
+    "design":[
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":true
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":true
+        },
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        }           
     ],
     "corporate":[
         {
             "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
+            "image":"/team/sample.jpg",
             "main":true
         },
         {
             "name":"B",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/team/sample.jpg",            
             "main":true
         }        
     ],
@@ -68,15 +131,43 @@
             "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
+            "image":"/team/sample.jpg",
             "main":true
         },
         {
             "name":"B",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/team/sample.jpg",            
             "main":true
-        }        
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        }         
     ]            
 }
