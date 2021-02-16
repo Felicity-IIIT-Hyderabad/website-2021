@@ -1,0 +1,190 @@
+.header-carousel{
+	position: relative;
+	height: 20rem;
+	display: flex;
+	border-radius: 8px;
+	color: 	white;
+	margin-top: 5rem;
+}
+
+.event-carousel{
+	scroll-behavior: smooth;
+	position: relative;
+	height: 19rem;
+	display: flex;
+	border-radius: 8px;
+	color: 	white;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	scrollbar-width: none;
+}
+
+.awssld__bullets{
+	display: none !important;
+}
+
+.header-carousel-item{
+	height: 20rem;
+  	flex: 0 0 100%;
+  	text-align: center;
+  	transition: transform 300ms ease 100ms;
+	color: white;
+	border-radius: 8px;
+}
+
+.event-carousel-item{
+	height: 15rem;
+  	flex: 0 0 30%;
+  	text-align: center;
+  	transition: transform 300ms ease 100ms;
+	color: white;
+	border-radius: 8px;
+	background-image: linear-gradient(rgba(81, 81, 81, 0.47) 0%, #000000 100%), url('https://i.ibb.co/vP7XyVW/Rectangle-1.png')
+}
+
+.event-carousel:hover .event-carousel-item {
+   transform: translateX(-15%);
+}
+
+.event-carousel-item:hover ~ .event-carousel-item {
+   transform: translateX(15%);
+}
+
+.event-carousel-item:hover {
+ 	transform: scale(1.2) !important;
+}
+
+#item1{
+	background-image: linear-gradient(rgba(81, 81, 81, 0.47) 0%, #000000 100%), url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+}
+
+#item2{
+	background-image: linear-gradient(rgba(81, 81, 81, 0.47) 0%, #000000 100%), url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+}
+
+.header-carousel-title{
+	position: absolute;
+	font-size: 4rem;
+	font-weight: bolder;
+	left: 10vw;
+	top: 6.5rem;
+}
+
+.left-display{
+	padding: 15px;
+	height: 50rem;
+	border-radius: 8px;
+	overflow-y: scroll;
+}
+
+.left-display::-webkit-scrollbar {
+  display: none;
+}
+
+.left-display {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.right-display{
+	padding: 15px;
+	height: 50rem;
+	border-radius: 8px;
+	overflow-y: scroll;
+}
+
+.right-display::-webkit-scrollbar {
+  display: none;
+}
+
+.right-display {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.event-days{
+	color: white;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.non-active-left{
+	background: linear-gradient(to left, white, black);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.non-active-right{
+	background: linear-gradient(to right, white, black);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.event-list-title{
+	color: grey;
+	font-size: 1.5rem;
+}
+
+.event-list-det{
+	color: grey;
+	font-size: 1.2rem;
+	margin-left: 4rem;
+}
+
+.event-type-title{
+	color: white;
+	font-size: 2.1rem;
+	font-weight: bolder;
+}
+
+.event-carousel::-webkit-scrollbar {
+	display: none
+}
+
+.feature-image{
+	height: 20rem;
+	background-image: url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+	border-radius: 8px;
+}
+
+.carousel-holder{
+	position: relative;
+	z-index: 200;
+}
+
+.left-arrow{
+	font-size: 5rem;
+	color: grey;
+	position: absolute;
+	top: 30%;
+	left: 2rem;
+	z-index: 200;
+}
+
+.right-arrow{
+	font-size: 5rem;
+	color: grey;
+	position: absolute;
+	top: 30%;
+	right: 2rem;
+	z-index: 200;
+}
+
+.left-arrow:hover{
+	color: white;
+	cursor: pointer;
+}
+
+.right-arrow:hover{
+	color: white;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+	.left-display{
+		display: none;
+	}
+	.desktop-only{
+		display: none;
+	}
+}

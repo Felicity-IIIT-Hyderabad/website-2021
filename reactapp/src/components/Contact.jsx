@@ -58,7 +58,7 @@ const Contact = ({ id }) => {
                                     href="http://twitter.com/felicity_iiith"
                                     className="mx-0 mr-3 mx-md-3"
                                 >
-                                    <FontAwesomeIcon icon={["fab", "youtube"]} className="tw-icon" />
+                                    <FontAwesomeIcon icon={["fab", "twitter"]} className="tw-icon" />
                                 </a>
                                 <a href="https://www.instagram.com/felicity.iiith" className="mx-2">
                                     <FontAwesomeIcon icon={["fab", "instagram"]} className="ig-icon" />

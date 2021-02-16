@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import {
-    Collapse,
+    Collapse, Button,
     Navbar as RSNavbar,
     NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem as RSNavItem,
-    NavLink,
+    NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem 
 } from "reactstrap";
 import { connect } from "react-redux";
 import { Link } from "react-scroll";
@@ -47,10 +47,32 @@ const NavItem2 = ({ to, title }) => {
 
 function func(props){
     try{
-        return props.props.userInfo.loginReducer.idTokenParsed.family_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.given_name;
+        return "Welcome \t" + props.props.userInfo.loginReducer.idTokenParsed.given_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.family_name;
     }
     catch{
-        return "Hello";
+        return "";
+    }
+}
+
+function displayInOrOut(props){
+    try{
+        console.log(props.props.userInfo.loginReducer.authenticated);
+        if(props.props.userInfo.loginReducer.authenticated)
+            return "LOGOUT";
+    }
+    catch{
+        return "LOGIN";
+    }
+}
+
+function logInOrOut(props){
+    try{
+        console.log(props.props.userInfo.loginReducer.authenticated);
+        if(props.props.userInfo.loginReducer.authenticated)
+            window.location.href="/";
+    }
+    catch{
+        return "LOGIN";
     }
 }
 
@@ -59,9 +81,11 @@ const Navbar = (props) => {
     const navRef = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
+    const [isEventsOpen, setIsEventsOpen] = useState(false);
     const [isTransparent, setIsTransparent] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
+    const toggleEvents = () => setIsEventsOpen(!isEventsOpen);
 
     useEffect(() => {
         document.addEventListener("scroll", () => {
@@ -92,13 +116,40 @@ const Navbar = (props) => {
             </NavbarBrand>
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
-                <Nav className="ml-auto text-uppercase" navbar>
+                <Nav className="ml-auto text-uppercase" navbar>                    
                     <NavItem title={func(props)} />
-                    <NavItem to="about" title="About Us" />
-                    <NavItem to="events" title="Events" />
+                    <RSNavItem>
+                        <NavLink>
+                            <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
+                                <DropdownToggle
+                                    tag="span"
+                                    data-toggle="dropdown"
+                                    aria-expanded={isEventsOpen}
+                                >
+                                    Events
+                                </DropdownToggle>
+                                <DropdownMenu style={{ backgroundColor: "black" }}>
+                                    <DropdownItem style={{ color: "grey" }}><a href="/events">Main</a></DropdownItem>
+                                    <DropdownItem style={{ color: "grey" }}><a href="/events-technical">Technical</a></DropdownItem>
+                                    <DropdownItem style={{ color: "grey" }}><a href="/events-cultural">Cultural</a></DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                        </NavLink>                     
+                    </RSNavItem>
+
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem to="contact" title="Contact" />
+                    <Button
+                        type="button"
+                        color="dark"
+                        onClick={() => logInOrOut(props)}
+                        className="mr-2 font-weight-bold px-3"
+                    >
+                        <Link to={"/login"}>
+                            {displayInOrOut(props)}
+                        </Link>
+                    </Button>                    
                 </Nav>
             </Collapse>
         </RSNavbar>

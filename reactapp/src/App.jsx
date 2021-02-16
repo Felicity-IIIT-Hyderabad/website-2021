@@ -6,6 +6,7 @@ import Sponsors from "./components/Sponsors";
 import TechEvent from "./components/TechEvent";
 import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                 <Router>
                     <Switch>
                         <Route path="/login" component={Login}/>
+                        <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
                         </Route>
