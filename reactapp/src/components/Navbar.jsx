@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
-    Collapse, Button,
+    Collapse,
+    //  Button,
     Navbar as RSNavbar,
     NavbarToggler,
     NavbarBrand,
@@ -45,36 +46,36 @@ const NavItem2 = ({ to, title }) => {
     );
 };
 
-function func(props){
-    try{
-        return "Welcome \t" + props.props.userInfo.loginReducer.idTokenParsed.given_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.family_name;
-    }
-    catch{
-        return "";
-    }
-}
+// function func(props){
+//     try{
+//         return "Welcome \t" + props.props.userInfo.loginReducer.idTokenParsed.given_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.family_name;
+//     }
+//     catch{
+//         return "";
+//     }
+// }
 
-function displayInOrOut(props){
-    try{
-        console.log(props.props.userInfo.loginReducer.authenticated);
-        if(props.props.userInfo.loginReducer.authenticated)
-            return "LOGOUT";
-    }
-    catch{
-        return "LOGIN";
-    }
-}
+// function displayInOrOut(props){
+//     try{
+//         console.log(props.props.userInfo.loginReducer.authenticated);
+//         if(props.props.userInfo.loginReducer.authenticated)
+//             return "LOGOUT";
+//     }
+//     catch{
+//         return "LOGIN";
+//     }
+// }
 
-function logInOrOut(props){
-    try{
-        console.log(props.props.userInfo.loginReducer.authenticated);
-        if(props.props.userInfo.loginReducer.authenticated)
-            window.location.href="/";
-    }
-    catch{
-        return "LOGIN";
-    }
-}
+// function logInOrOut(props){
+//     try{
+//         console.log(props.props.userInfo.loginReducer.authenticated);
+//         if(props.props.userInfo.loginReducer.authenticated)
+//             window.location.href="/";
+//     }
+//     catch{
+//         return "LOGIN";
+//     }
+// }
 
 
 const Navbar = (props) => {
@@ -117,7 +118,7 @@ const Navbar = (props) => {
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
                 <Nav className="ml-auto text-uppercase" navbar>                    
-                    <NavItem title={func(props)} />
+                    {/* <NavItem title={func(props)} /> */}
                     <RSNavItem>
                         <NavLink>
                             <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
@@ -140,7 +141,7 @@ const Navbar = (props) => {
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem to="contact" title="Contact" />
-                    <Button
+                    {/* <Button
                         type="button"
                         color="dark"
                         onClick={() => logInOrOut(props)}
@@ -149,7 +150,7 @@ const Navbar = (props) => {
                         <Link to={"/login"}>
                             {displayInOrOut(props)}
                         </Link>
-                    </Button>                    
+                    </Button>                     */}
                 </Nav>
             </Collapse>
         </RSNavbar>

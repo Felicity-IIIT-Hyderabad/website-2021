@@ -1,6 +1,5 @@
-import { Container, Button } from "reactstrap";
+import { Container } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
-import { Link } from "react-router-dom";
 
 const About = ({ id }) => {
     return (
@@ -18,26 +17,6 @@ const About = ({ id }) => {
                             everyone playing a role. Despite the disruptions in place, travel to the
                             past with Felicity 2021 and relive your exhilarating memories.
                         </div>
-                    </ScrollAnimation>
-                    <ScrollAnimation animateIn="fadeIn">
-                        <Button
-                            type="button"
-                            color="light"
-                            onClick={() => null}
-                            className="mr-2 font-weight-bold px-3"
-                        >
-                            <Link to={"/login"}>
-                            LOGIN
-                            </Link>
-                        </Button>
-                        <Button
-                            type="button"
-                            color="dark"
-                            onClick={() => null}
-                            className="font-weight-bold px-3"
-                        >
-                            REGISTER
-                        </Button>
                     </ScrollAnimation>
                 </div>
             </Container>

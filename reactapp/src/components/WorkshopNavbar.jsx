@@ -87,13 +87,15 @@ const WorkshopNavbar = (props) => {
                     className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
                 />
             </NavbarBrand>
-            <NavbarBrand href="/">
-                <img
-                    src="/qualcomm.png"
-                    alt="Felicity '21"
-                    className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
-                />
-            </NavbarBrand>
+            <div className="text-center">
+                <NavbarBrand href="/">
+                    <img
+                        src="../felicityblack_cropped.png"
+                        alt="Felicity '21"
+                        className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
+                    />
+                </NavbarBrand>            
+            </div>            
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
                 <Nav className="ml-auto text-uppercase" navbar>                    
