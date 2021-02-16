@@ -4,46 +4,39 @@
             "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
+            "image":"/teams/a.jpeg",
             "main":true
         },
         {
             "name":"B",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/teams/a.jpeg",            
             "main":true
         }        
     ],
     "technical":[
         {
-            "name":"A",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/a.jpg",
+            "name":"Vikrant Dewangan",
+            "linkedin":"vikrant.dewangan",
+            "facebook":"vikrant.d123",
+            "image":"/teams/vikrant.jpeg",
             "main":true
         },
         {
-            "name":"B",
+            "name":"Yoogottam Khandelwal",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/teams/a.jpeg",            
             "main":true
         }        
     ],
     "events":[
         {
-            "name":"A",
+            "name":"Rohan Grover",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
-            "main":true
-        },
-        {
-            "name":"B",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/teams/a.jpeg",
             "main":true
         }        
     ],
@@ -52,14 +45,14 @@
             "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
+            "image":"/teams/a.jpeg",
             "main":true
         },
         {
             "name":"B",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/teams/a.jpeg",            
             "main":true
         }        
     ],
@@ -68,15 +61,40 @@
             "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
+            "image":"/teams/a.jpeg",
             "main":true
         },
         {
             "name":"B",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/b.jpg",            
+            "image":"/teams/a.jpeg",            
             "main":true
-        }        
-    ]            
+        },
+        {
+            "name":"Keshav Bajaj",
+            "linkedin":"keshav-bajaj-7242631b2",
+            "facebook":"keshav.bajaj.9887",
+            "image":"/teams/keshavbajaj.jpeg",            
+            "main":false
+        }                
+    ],
+    "logistics":[
+        {
+            "name":"Tanmay Garg",
+            "linkedin":"tanmay-garg01",
+            "facebook":"tanmay.garg.520",
+            "image":"/teams/a.jpeg",
+            "main":true
+        }
+    ],
+    "design":[
+        {
+            "name":"Mallika Subramanian",
+            "linkedin":"mallika-subramanian-2607b116b",
+            "facebook":"mallika.subramanian.58",
+            "image":"/teams/mallika.jpeg",
+            "main":true
+        }
+    ]
 }
