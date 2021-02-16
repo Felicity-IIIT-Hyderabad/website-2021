@@ -84,7 +84,6 @@ const Navbar = () => {
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
                 <Nav className="ml-auto text-uppercase" navbar>
-                    <NavItem2 to="/team" title="Our Team" />
                     <RSNavItem>
                         <NavLink>
                             <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
