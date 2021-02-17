@@ -1,5 +1,5 @@
 {
-    "cultural":[
+    "events":[
         {
             "name":"A",
             "linkedin":"B",
@@ -13,9 +13,30 @@
             "facebook":"C",
             "image":"/teams/a.jpeg",            
             "main":true
-        }        
+        },
+        {
+            "name":"A",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        }         
     ],
-    "technical":[
+    "web":[
         {
             "name":"Vikrant Dewangan",
             "linkedin":"vikrant.dewangan",
@@ -29,16 +50,28 @@
             "facebook":"C",
             "image":"/teams/a.jpeg",            
             "main":true
-        }        
-    ],
-    "events":[
+        },
         {
-            "name":"Rohan Grover",
+            "name":"A",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpeg",
-            "main":true
-        }        
+            "image":"/team/sample.jpg",
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        },
+        {
+            "name":"B",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false
+        }         
     ],
     "corporate":[
         {
