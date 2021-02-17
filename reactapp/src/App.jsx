@@ -9,6 +9,7 @@ import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
+import Team from "./components/Team";
 
 import { getUser, loginUser, logoutUser } from "./actions/login";
 
@@ -25,7 +26,9 @@ const App = (props) => {
             <div id="main">
                 <Router>
                     <Switch>
+                        <Route path="/workshop" component={Workshop}/>
                         <Route path="/login" component={Login}/>
+                        <Route path="/team" component={Team} />
                         <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
@@ -33,12 +36,6 @@ const App = (props) => {
                         <Route path="/events-technical" component={TechEvent} />
                         <Route path="/events-cultural" component={CultEvent} />
                         <Route path="/" component={Home} />
-                        <Route path="workshop" component={Workshop}/>
-                        <Route path="*">
-                            <div>
-                                404 not found
-                            </div>
-                        </Route>                        
                     </Switch>
                 </Router>
             </div>

@@ -153,6 +153,7 @@ const Navbar = (props) => {
                         </NavLink>                     
                     </RSNavItem>
 
+                    <NavItem2 to="/team" title="Teams" />
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem to="contact" title="Contact" />
