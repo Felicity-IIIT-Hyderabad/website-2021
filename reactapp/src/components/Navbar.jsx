@@ -7,7 +7,11 @@ import {
     NavbarBrand,
     Nav,
     NavItem as RSNavItem,
-    NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem 
+    NavLink,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
 } from "reactstrap";
 import { connect } from "react-redux";
 import { Link } from "react-scroll";
@@ -28,70 +32,62 @@ const NavItem = ({ to, title }) => {
             >
                 {title}
             </NavLink>
-        </RSNavItem >
+        </RSNavItem>
     );
 };
 
 const NavItem2 = ({ to, title }) => {
     return (
         <RSNavItem>
-            <NavLink
-                href={to}
-                spy={true}
-                smooth={true}
-                duration={500}
-                className="mx-1 text-right"
-            >
+            <NavLink href={to} spy={true} smooth={true} duration={500} className="mx-1 text-right">
                 {title}
             </NavLink>
-        </RSNavItem >
+        </RSNavItem>
     );
 };
 
-function func(props){
-    try{
-        if(props.props.userInfo.loginReducer.authenticated)
-            return "Welcome \t" + props.props.userInfo.loginReducer.idTokenParsed.given_name + "\t" + props.props.userInfo.loginReducer.idTokenParsed.family_name;
-        else{
+function func(props) {
+    try {
+        if (props.props.userInfo.loginReducer.authenticated)
+            return (
+                "Welcome \t" +
+                props.props.userInfo.loginReducer.idTokenParsed.given_name +
+                "\t" +
+                props.props.userInfo.loginReducer.idTokenParsed.family_name
+            );
+        else {
             return "";
         }
-    }
-    catch{
+    } catch {
         return "";
     }
 }
 
-function displayInOrOut(props){
-    try{
-        if(props.props.userInfo.loginReducer.authenticated)
-            return "LOGOUT";
-        else{
+function displayInOrOut(props) {
+    try {
+        if (props.props.userInfo.loginReducer.authenticated) return "LOGOUT";
+        else {
             return "LOGIN";
         }
-    }
-    catch{
-        return "LOGIN";
+    } catch {
+        return " LOGIN";
     }
 }
 
-function logInOrOut(props){
-    try{
-        if(props.props.userInfo.loginReducer.authenticated)
-        {
+function logInOrOut(props) {
+    try {
+        if (props.props.userInfo.loginReducer.authenticated) {
             // window.location.href="/";
             logoutUser();
-            window.location.href="/";
+            window.location.href = "/";
+        } else {
+            window.location.href = "/login";
         }
-        else{
-            window.location.href="/login";
-        }
-    }
-    catch{
-        window.location.href="/login";
+    } catch {
+        window.location.href = "/login";
         return "LOGIN";
     }
 }
-
 
 const Navbar = (props) => {
     const navRef = useRef(null);
@@ -106,7 +102,7 @@ const Navbar = (props) => {
     useEffect(() => {
         document.addEventListener("scroll", () => {
             let scrolled = document.scrollingElement.scrollTop;
-            if (scrolled >= (window.innerHeight) / 10000) {
+            if (scrolled >= window.innerHeight / 10000) {
                 setIsTransparent(true);
             } else {
                 setIsTransparent(false);
@@ -123,6 +119,7 @@ const Navbar = (props) => {
             className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semi"}`}
             fixed="top"
         >
+            <div className={`navbar-shade shade-${isOpen ? "visible" : "invisible"}`} />
             <NavbarBrand href="/">
                 <img
                     src="/felicity.png"
@@ -132,7 +129,7 @@ const Navbar = (props) => {
             </NavbarBrand>
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
-                <Nav className="ml-auto text-uppercase" navbar>                    
+                <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem title={func(props)} />
                     <RSNavItem>
                         <NavLink>
@@ -145,12 +142,18 @@ const Navbar = (props) => {
                                     Events
                                 </DropdownToggle>
                                 <DropdownMenu style={{ backgroundColor: "black" }}>
-                                    <DropdownItem style={{ color: "grey" }}><a href="/events">Main</a></DropdownItem>
-                                    <DropdownItem style={{ color: "grey" }}><a href="/events-technical">Technical</a></DropdownItem>
-                                    <DropdownItem style={{ color: "grey" }}><a href="/events-cultural">Cultural</a></DropdownItem>
+                                    <DropdownItem style={{ color: "grey" }}>
+                                        <a href="/events">Main</a>
+                                    </DropdownItem>
+                                    <DropdownItem style={{ color: "grey" }}>
+                                        <a href="/events-technical">Technical</a>
+                                    </DropdownItem>
+                                    <DropdownItem style={{ color: "grey" }}>
+                                        <a href="/events-cultural">Cultural</a>
+                                    </DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
-                        </NavLink>                     
+                        </NavLink>
                     </RSNavItem>
 
                     <NavItem2 to="/workshop" title="Workshop" />
@@ -164,7 +167,7 @@ const Navbar = (props) => {
                         className="mr-2 font-weight-bold px-3"
                     >
                         {displayInOrOut(props)}
-                    </Button>                    
+                    </Button>
                 </Nav>
             </Collapse>
         </RSNavbar>
