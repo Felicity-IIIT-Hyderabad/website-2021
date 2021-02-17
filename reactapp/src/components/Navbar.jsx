@@ -153,10 +153,9 @@ const Navbar = (props) => {
                         </NavLink>                     
                     </RSNavItem>
 
-                    <NavItem2 to="/our-team" title="Teams" />
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
-                    <NavItem2 to="/team" title="Our Team" />
+                    <NavItem2 to="/our-team" title="Our Team" />
                     <NavItem to="contact" title="Contact" />
                     <Button
                         type="button"
