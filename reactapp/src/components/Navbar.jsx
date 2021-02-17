@@ -129,11 +129,15 @@ const Navbar = (props) => {
             </NavbarBrand>
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
-                <Nav className="ml-auto text-uppercase" navbar>
+                <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
                     <NavItem title={func(props)} />
                     <RSNavItem>
                         <NavLink>
-                            <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
+                            <Dropdown
+                                isOpen={isEventsOpen}
+                                toggle={toggleEvents}
+                                className="text-right mr-1"
+                            >
                                 <DropdownToggle
                                     tag="span"
                                     data-toggle="dropdown"
@@ -160,14 +164,17 @@ const Navbar = (props) => {
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem2 to="/our-team" title="Our Team" />
                     <NavItem to="contact" title="Contact" />
-                    <Button
-                        type="button"
-                        color="dark"
-                        onClick={() => logInOrOut(props)}
-                        className="mr-2 font-weight-bold px-3"
-                    >
-                        {displayInOrOut(props)}
-                    </Button>
+                    <div className="text-right">
+                        <Button
+                            type="button"
+                            color="dark"
+                            onClick={() => logInOrOut(props)}
+                            className="ml-2 font-weight-bold px-3 mt-4 mt-md-0"
+                            style={{ fontSize: "0.9em" }}
+                        >
+                            {displayInOrOut(props)}
+                        </Button>
+                    </div>
                 </Nav>
             </Collapse>
         </RSNavbar>
