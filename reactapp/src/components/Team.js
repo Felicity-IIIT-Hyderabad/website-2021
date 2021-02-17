@@ -25,7 +25,7 @@ const Team = () => {
         setSelectedTeam(teamName);
         var elmnt = document.getElementById(teamName);
         elmnt.scrollIntoView();
-        elmnt.scrollTo(0, 100);
+        elmnt.scrollTo(0, 500);
     };
 
     const changeTeamToScroll = () => {
@@ -66,7 +66,7 @@ const Team = () => {
 
     return (
         <div>
-            <div className="container-fluid mt-5">
+            <div className="container-fluid mt-5 no-scroll">
                 <div className="row">
                     <div className="col-md-6 desktop-only left-display">
                         <div className="font-weight-bold details-header my-5 ml-3 event-heading text-white text-left">MEET THE TEAM</div>
@@ -132,7 +132,7 @@ const Team = () => {
                                     </div> : ""
                                 
                             ))}
-                            {teamMembers.default["events"].map((teamMember, idx) => (
+                            {teamMembers.default["web"].map((teamMember, idx) => (
                                 teamMember["main"] ? "" : 
                                     <div className="non-featured d-inline-block mx-4">
                                         <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
@@ -159,7 +159,7 @@ const Team = () => {
                                     </div> : ""
                                 
                             ))}
-                            {teamMembers.default["events"].map((teamMember, idx) => (
+                            {teamMembers.default["design"].map((teamMember, idx) => (
                                 teamMember["main"] ? "" : 
                                     <div className="non-featured d-inline-block mx-4">
                                         <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
@@ -186,7 +186,7 @@ const Team = () => {
                                     </div> : ""
                                 
                             ))}
-                            {teamMembers.default["events"].map((teamMember, idx) => (
+                            {teamMembers.default["marketing"].map((teamMember, idx) => (
                                 teamMember["main"] ? "" : 
                                     <div className="non-featured d-inline-block mx-4">
                                         <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
@@ -213,7 +213,7 @@ const Team = () => {
                                     </div> : ""
                                 
                             ))}
-                            {teamMembers.default["events"].map((teamMember, idx) => (
+                            {teamMembers.default["corporate"].map((teamMember, idx) => (
                                 teamMember["main"] ? "" : 
                                     <div className="non-featured d-inline-block mx-4">
                                         <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />

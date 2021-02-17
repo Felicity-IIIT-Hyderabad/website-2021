@@ -39,9 +39,6 @@ class Home extends React.Component {
                     <Events id="events" />
                     <ThreePs />
                     <Contact id="contact" />
-                    <div>
-                        {console.log(this.props)}
-                    </div>
                 </div>
             </>
         );
@@ -49,7 +46,6 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => (
-    console.log(state),    
     {
         userInfo: state,
     });

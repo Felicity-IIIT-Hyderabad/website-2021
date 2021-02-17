@@ -87,7 +87,6 @@
 }
 
 .right-display{
-	
 	position: relative;
 	z-index: 3;
 	scroll-behavior: smooth;
@@ -95,6 +94,7 @@
 	height: 50rem;
 	border-radius: 8px;
 	overflow-y: scroll;
+	scrollbar-width: none;
 }
 
 .right-display::-webkit-scrollbar {

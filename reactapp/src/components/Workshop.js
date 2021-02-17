@@ -193,7 +193,7 @@ const Workshop = () => {
 
             <div className="text-center">
                 <div className="d-inline-block font-weight-bold infopage-title mx-5 event-heading text-white text-center cta-text text-combo">
-                    GET BOTH AT <strike className="text-combo-prev-price">₹ 500 </strike>₹ 300
+                    GET BOTH WORKSHOPS AT <strike className="text-combo-prev-price">₹ 500 </strike>₹ 300
                     <div className="combo-code">*use you campus ambassador code and get <strong>EXTRA</strong> ₹50 OFF</div>
                 </div>
 
