@@ -2,7 +2,6 @@ import { Container, Row, Col } from "reactstrap";
 import {  Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import ScrollAnimation from "react-animate-on-scroll";
 
-import Navbar from "./Navbar";
 import "./Sponsors.css";
 import Footer from "./Footer";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -13,7 +12,6 @@ library.add(fab, faFacebookF, faTwitterSquare, faInstagram, faYoutube);
 const Sponsors = ({ id }) => {
     return (
         <div>
-            <Navbar/>
 		    <div className="image-absolute-sponsors">
                 <div id="sponsor-circle3"></div>
                 <div id="sponsor-circle2"></div>

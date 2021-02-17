@@ -3,7 +3,7 @@ import Keycloak from "keycloak-js";
 import { Button, Col, Row } from "reactstrap";
 import { connect } from "react-redux";
 
-import { loginUser } from "../actions/login";
+import { loginUser, logoutUser } from "../actions/login";
 
 function func(props){
     try{
@@ -22,6 +22,13 @@ class Login extends React.Component {
     }
 
     componentDidMount() {
+        if(this.state.authenticated){
+            console.log("AAAAAA");
+            this.state.keycloak.logOut();
+            this.setState({
+                authenticated:false
+            });
+        }
         const keycloak = Keycloak("/keycloak.json");
         keycloak.init({ onLoad: "login-required" }).then(authenticated => {
             console.log(this.props);
@@ -29,12 +36,14 @@ class Login extends React.Component {
         }).then(()=>{
             console.log(this.props);
             console.log(this.props.loginUser(keycloak));
+            window.location.href="/";
         });
     }
 
     logOut() {
         console.log(this.state);
         this.state.keycloak.logout();
+        this.props.logout();
     }
 
     render() {
@@ -73,7 +82,8 @@ const mapStateToProps = state => ({
 // };
 
 const mapDispatchToProps = () => ({
-    loginUser: loginUser
+    loginUser: loginUser,
+    logoutUser: logoutUser
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Login);

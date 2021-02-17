@@ -6,7 +6,6 @@ import Events from "./Events";
 import Contact from "./Contact";
 import CampusReloaded from "./CampusReloaded";
 import ThreePs from "./ThreePs";
-import Navbar from "./Navbar";
 import { getUser } from "../actions/login";
 
 class Home extends React.Component {
@@ -33,7 +32,6 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <Navbar props={this.props}/>
                 <Intro id="home" />
                 <div id="main">
                     <About id="about" />

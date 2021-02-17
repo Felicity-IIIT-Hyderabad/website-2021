@@ -77,14 +77,14 @@ const WorkshopNavbar = (props) => {
             color="light"
             light
             expand="md"
-            className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semii"}`}
+            className={`navbar-sticky ${!isTransparent ? "navbar-transparentt" : "navbar-semii"}`}
             fixed="top"
         >
             <NavbarBrand href="/">
                 <img
                     src="/iiit.png"
                     alt="Felicity '21"
-                    className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
+                    className={`navbar-logo navbar-logo-${!isTransparent ? "visible" : "visible"}`}
                 />
             </NavbarBrand>
             <div className="text-center">
@@ -92,7 +92,7 @@ const WorkshopNavbar = (props) => {
                     <img
                         src="../felicityblack_cropped.png"
                         alt="Felicity '21"
-                        className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
+                        className={`navbar-logo navbar-logo-${!isTransparent ? "visible" : "visible"}`}
                     />
                 </NavbarBrand>            
             </div>            
