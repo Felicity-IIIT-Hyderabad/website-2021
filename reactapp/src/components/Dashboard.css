@@ -95,6 +95,7 @@
 	height: 50rem;
 	border-radius: 8px;
 	overflow-y: scroll;
+	scrollbar-width: none;
 }
 
 .right-display::-webkit-scrollbar {
