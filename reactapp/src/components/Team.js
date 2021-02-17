@@ -25,7 +25,7 @@ const Team = () => {
         setSelectedTeam(teamName);
         var elmnt = document.getElementById(teamName);
         elmnt.scrollIntoView();
-        elmnt.scrollTo(0, 100);
+        elmnt.scrollTo(0, 500);
     };
 
     const changeTeamToScroll = () => {
