@@ -2,6 +2,11 @@
 	position: relative;
 }
 
+.no-scroll{
+	overflow: hidden;
+	height: 80vh;
+}
+
 .featured{
 	position: relative;
 }
