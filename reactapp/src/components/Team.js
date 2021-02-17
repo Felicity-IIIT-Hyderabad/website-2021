@@ -66,7 +66,7 @@ const Team = () => {
 
     return (
         <div>
-            <div className="container-fluid mt-5">
+            <div className="container-fluid mt-5 no-scroll">
                 <div className="row">
                     <div className="col-md-6 desktop-only left-display">
                         <div className="font-weight-bold details-header my-5 ml-3 event-heading text-white text-left">MEET THE TEAM</div>
