@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Team.css";
+import "./OurTeam.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import { faLinkedin, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 import * as teamMembers from "../sample-data/teams.json";
 
-const Team = () => {
+const OurTeam = () => {
 
     const [selectedTeam, setSelectedTeam] = useState("overall");
 
@@ -233,4 +233,4 @@ const Team = () => {
     );
 };
 
-export default Team;
+export default OurTeam;

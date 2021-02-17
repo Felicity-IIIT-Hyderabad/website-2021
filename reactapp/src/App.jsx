@@ -9,7 +9,7 @@ import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
-import Team from "./components/Team";
+import OurTeam from "./components/OurTeam";
 
 import { getUser, loginUser, logoutUser } from "./actions/login";
 
@@ -28,7 +28,7 @@ const App = (props) => {
                     <Switch>
                         <Route path="/workshop" component={Workshop}/>
                         <Route path="/login" component={Login}/>
-                        <Route path="/team" component={Team} />
+                        <Route path="/our-team" component={OurTeam} />
                         <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
