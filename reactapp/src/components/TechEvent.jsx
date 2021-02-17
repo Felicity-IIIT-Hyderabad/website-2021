@@ -4,7 +4,6 @@ import "react-vertical-timeline-component/style.min.css";
 import Swal from "sweetalert2";
 
 import "./Event.css";
-import Navbar from "./Navbar";
 import * as data from "../sample-data/technical-events.json";
 
 const showModalEventOne = () => {
@@ -61,7 +60,6 @@ class TechEvent extends React.Component {
     render() {
         return (
             <div>
-                <Navbar/>
                 <div className="image-absolute">
                     <div id="tech-circle4"></div>
                     <div id="tech-circle3"></div>

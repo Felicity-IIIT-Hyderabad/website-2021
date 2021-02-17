@@ -1,15 +1,20 @@
 import { useState } from "react";
 import "./Dashboard.css";
-import Navbar from "./Navbar";
 
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
+import { connect } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
+import { loginUser, logoutUser } from "../actions/login";
+import { getUser } from "../actions/login";
+
 const AutoplaySlider = withAutoplay(AwesomeSlider);
+
+var key = 1;
 
 const Dashboard = () => {
 
@@ -29,9 +34,14 @@ const Dashboard = () => {
         carousel.scrollBy(400, 0);
     };
 
+    if(key)
+    {
+        key = 0;   
+        getUser();
+    }
+
     return (
         <div>
-            <Navbar/>
             <div className="container-fluid">
                 <div className="header-carousel">
                     <AutoplaySlider
@@ -244,4 +254,13 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+const mapStateToProps = state => ({
+    userInfo: state,
+});
+
+const mapDispatchToProps = () => ({
+    loginUser: loginUser,
+    logoutUser: logoutUser
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

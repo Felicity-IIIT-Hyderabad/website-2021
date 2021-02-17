@@ -5,7 +5,6 @@ import "react-vertical-timeline-component/style.min.css";
 import Swal from "sweetalert2";
 
 import "./Event.css";
-import Navbar from "./Navbar";
 import * as culturalEvents from "../sample-data/cultural-events.json";
 
 const CultEvent = () => {
@@ -58,7 +57,6 @@ const CultEvent = () => {
 
     return (
         <div>
-            <Navbar/>
             <div className="image-absolute">
                 <div id="cult-circle4"></div>
                 <div id="cult-circle3"></div>
