@@ -98,8 +98,9 @@ const WorkshopNavbar = (props) => {
             </div>            
             <NavbarToggler onClick={toggle} className="border-0" />
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
-                <Nav className="ml-auto text-uppercase" navbar>                    
+                <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem title={func(props)} />
+                    <NavItem2 to="/" title="Home" />
                     <RSNavItem>
                         <NavLink>
                             <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
@@ -121,6 +122,7 @@ const WorkshopNavbar = (props) => {
 
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
+                    <NavItem2 to="/team" title="Our Team" />
                     <NavItem to="contact" title="Contact" />               
                 </Nav>
             </Collapse>

@@ -23,7 +23,6 @@ class Login extends React.Component {
 
     componentDidMount() {
         if(this.state.authenticated){
-            console.log("AAAAAA");
             this.state.keycloak.logOut();
             this.setState({
                 authenticated:false
@@ -31,17 +30,14 @@ class Login extends React.Component {
         }
         const keycloak = Keycloak("/keycloak.json");
         keycloak.init({ onLoad: "login-required" }).then(authenticated => {
-            console.log(this.props);
             this.setState({ keycloak: keycloak, authenticated: authenticated });
         }).then(()=>{
-            console.log(this.props);
-            console.log(this.props.loginUser(keycloak));
+            this.props.loginUser(keycloak);
             window.location.href="/";
         });
     }
 
     logOut() {
-        console.log(this.state);
         this.state.keycloak.logout();
         this.props.logout();
     }
