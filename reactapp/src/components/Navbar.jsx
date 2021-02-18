@@ -128,7 +128,7 @@ const Navbar = (props) => {
                 />
             </NavbarBrand>
             <NavbarToggler onClick={toggle} className="border-0" />
-            <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0">
+            <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0" style={{ fontSize:"1.5rem", color:"#000000" }}>
                 <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
                     <NavItem title={func(props)} />
                     <RSNavItem>
