@@ -1,60 +1,16 @@
 {
-    "events":[
+    "overall":[
         {
-            "name":"A",
+            "name":"Shivaan Sehgal",
             "linkedin":"B",
             "facebook":"C",
-            "image":"/teams/a.jpg",
-            "main":true
-        },
-        {
-            "name":"B",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/a.jpg",            
+            "image":"/teams/shivaan.jpg",
             "main":true
         }
     ],
-    "web":[
-        {
-            "name":"Vikrant Dewangan",
-            "linkedin":"dewangan.vikrant12345",
-            "facebook":"vikrant.d123",
-            "image":"/teams/vikrant.jpg",
-            "main":true
-        },
-        {
-            "name":"Yoogottam Khandelwal",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/a.jpg",            
-            "main":true
-        },
-        {
-            "name":"A",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/team/sample.jpg",
-            "main":false
-        },
-        {
-            "name":"B",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/team/sample.jpg",            
-            "main":false
-        },
-        {
-            "name":"B",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/team/sample.jpg",            
-            "main":false
-        }         
-    ],
     "corporate":[
         {
-            "name":"Bhavyajeet Singh",
+            "name":"Bhayajeet Singh",
             "linkedin":"bhavyajeet-singh",
             "facebook":"",
             "image":"/teams/a.jpg",
@@ -67,39 +23,7 @@
             "image":"/teams/varun.jpg",            
             "main":true
         }        
-    ],
-    "marketing":[
-        {
-            "name":"Pahulpreet Singh",
-            "linkedin":"pahulpreet-singh-3885681b4",
-            "facebook":"pahulpreetsingh001",
-            "image":"/teams/pahul.jpg",
-            "main":true
-        },
-        {
-            "name":"A",
-            "linkedin":"B",
-            "facebook":"C",
-            "image":"/teams/a.jpg",            
-            "main":true
-        },
-        {
-            "name":"Keshav Bajaj",
-            "linkedin":"keshav-bajaj-7242631b2",
-            "facebook":"keshav.bajaj.9887",
-            "image":"/teams/keshavbajaj.jpg",            
-            "main":false
-        }                
-    ],
-    "logistics":[
-        {
-            "name":"Tanmay Garg",
-            "linkedin":"tanmay-garg01",
-            "facebook":"tanmay.garg.520",
-            "image":"/teams/a.jpg",
-            "main":true
-        }
-    ],
+    ], 
     "design":[
         {
             "name":"Mallika Subramanian",
@@ -109,11 +33,219 @@
             "main":true
         },
         {
-            "name":"Ahish Desphpande",
+            "name":"Ahish Deshpande",
             "linkedin":"ahishd",
             "facebook":"ahish.deshpande.14",
             "image":"/teams/ahish.jpg",
             "main":true
         }        
-    ]
+    ],
+    "editing":[
+        {
+            "name":"Brijesh Singh",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/a.jpg",
+            "main":true
+        },
+        {
+            "name":"Eshika Khandelwal",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/a.jpg",
+            "main":true
+        }        
+    ],     
+    "events":[
+        {
+            "name":"Rogan Grover",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/teams/a.jpg",
+            "main":true
+        },
+        {
+            "name":"Mayank Goyal",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/teams/a.jpg",            
+            "main":true
+        },
+        {
+            "name":"Aditya Nair",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/teams/anair.jpg",            
+            "main":false,
+            "core":true
+        }        
+    ], 
+    "logistics":[
+        {
+            "name":"Tanmay Garg",
+            "linkedin":"tanmay-garg01",
+            "facebook":"tanmay.garg.520",
+            "image":"/teams/tgarg.jpg",
+            "main":true
+        },
+        {
+            "name":"Aaakash Varma",
+            "linkedin":"tanmay-garg01",
+            "facebook":"tanmay.garg.520",
+            "image":"/teams/a.jpg",
+            "main":true
+        }        
+    ],    
+    "marketing":[
+        {
+            "name":"Pahulpreet Singh",
+            "linkedin":"pahulpreet-singh-3885681b4",
+            "facebook":"pahulpreetsingh001",
+            "image":"/teams/pahul.jpg",
+            "main":true
+        },
+        {
+            "name":"Palash Sharma",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/teams/a.jpg",            
+            "main":true
+        },
+        {
+            "name":"Aman Aman",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/a.jpg",            
+            "main":false,
+            "core":true
+        },
+        {
+            "name":"Gunjan Gupta",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/a.jpg",            
+            "main":false,
+            "core":true
+        },
+        {
+            "name":"Vamshi Krishna",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/a.jpg",            
+            "main":false,
+            "core":false
+        }        
+    ],
+    "outreach":[
+        {
+            "name":"Keshav Bajaj",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/keshavbajaj.jpg",
+            "main":true
+        },
+        {
+            "name":"Varun Chhangani",
+            "linkedin":"varun-chhangani",
+            "facebook":"varun-chhangani",
+            "image":"/teams/varun.jpg",            
+            "main":true
+        }             
+    ],    
+    "technical":[
+        {
+            "name":"Vikrant Dewangan",
+            "linkedin":"dewangan.vikrant12345",
+            "facebook":"vikrant.d123",
+            "image":"/teams/vikrant.jpg",
+            "main":true
+        },
+        {
+            "name":"Prajneya Kumar",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":true
+        },        
+        {
+            "name":"Viswa Saravanan",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false,
+            "core":true
+        },
+        {
+            "name":"Aditya Verma",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false,
+            "core":true
+        }         
+    ],
+    "threads":[
+        {
+            "name":"Arpan Dasgupta",
+            "linkedin":"",
+            "facebook":"",
+            "image":"/teams/a.jpg",
+            "main":true
+        },
+        {
+            "name":"Gaurang Tandon",
+            "linkedin":"yoogottamk",
+            "facebook":"yoogottamk",
+            "image":"/teams/yoogottam.jpg",            
+            "main":true
+        },
+        {
+            "name":"Avani Gupta",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/teams/a.jpg",            
+            "main":false,
+            "core": true
+        },                        
+        {
+            "name":"Kanish Anand",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",
+            "main":false,
+            "core":true
+        },     
+        {
+            "name":"Viswa Saravanan",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false,
+            "core":false
+        },
+        {
+            "name":"Amul",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":false,
+            "core":false
+        }         
+    ],
+    "system":[
+        {
+            "name":"Yoogottam Khandelwal",
+            "linkedin":"yoogottamk",
+            "facebook":"yoogottamk",
+            "image":"/teams/yoogottam.jpg",            
+            "main":true
+        },
+        {
+            "name":"Kunwar Shaanjeet Singh Grover",
+            "linkedin":"B",
+            "facebook":"C",
+            "image":"/team/sample.jpg",            
+            "main":true
+        }        
+    ] 
 }
