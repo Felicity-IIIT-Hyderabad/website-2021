@@ -97,7 +97,7 @@ const OurTeam = () => {
                         </div> */}
                         {Object.keys(teamMembers.default).map((obj,ind)=>
                             <>
-                                <div id={ obj } className={selectedTeam==={ obj } ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "3rem" }}>{ obj.toUpperCase() }</div>
+                                <div id={ obj } className={selectedTeam==={ obj } ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "2rem" }}>{ obj.toUpperCase() }</div>
                                 <div className="text-center">
                                     {teamMembers.default[obj].map((teamMember, idx) => (
                                         teamMember["main"] ? 
