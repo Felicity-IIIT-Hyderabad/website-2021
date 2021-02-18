@@ -42,6 +42,31 @@
 	top: -242px;
 }
 
+#tech-circle-image {
+	position: absolute;
+    background: url(https://www.collegeatlas.org/wp-content/uploads/2014/06/Top-Party-Schools-main-image.jpg) center;
+    background-size: cover;
+    border-radius: 50%;
+	width: 644px;
+	height: 644px;
+	left: -87px;
+	top: -109px;
+	opacity: 0.8;
+}
+
+#cult-circle-image {
+	position: absolute;
+    background: url(https://static.toiimg.com/thumb/msid-75446211,width-1070,height-580,resizemode-75,imgsize-153527,pt-32,y_pad-40/75446211.jpg) center;
+    background-size: cover;
+    border-radius: 50%;
+	width: 644px;
+	height: 644px;
+	left: -87px;
+	top: -109px;
+	opacity: 0.8;
+}
+
+
 #tech-circle1 {
 	position: absolute;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.64)), rgba(59, 80, 89, 0.64);

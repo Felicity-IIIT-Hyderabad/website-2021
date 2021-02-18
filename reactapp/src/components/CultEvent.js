@@ -62,6 +62,7 @@ const CultEvent = () => {
                 <div id="cult-circle3"></div>
                 <div id="cult-circle2"></div>
                 <div id="cult-circle1"></div>
+                <div id="cult-circle-image"></div>
             </div>
 
             <div className="font-weight-bold infopage-title my-5 mx-5 event-heading text-white"> CULTURAL </div>
