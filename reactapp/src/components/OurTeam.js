@@ -25,7 +25,13 @@ const OurTeam = () => {
         console.log(teamName.obj);
         setSelectedTeam(teamName.obj);
         var elmnt = document.getElementById(teamName.obj);
-        elmnt.scrollIntoView({ behavior: "instant", block: "center" });
+        elmnt.scrollIntoView();
+        var headerOffset = 80;
+        var elementPosition = elmnt.offsetTop;
+        var offsetPosition = elementPosition - headerOffset;
+        
+        elmnt = document.getElementById("scroll-container");
+        elmnt.scrollTop = offsetPosition;
     };
 
     const changeTeamToScroll = () => {
