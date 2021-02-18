@@ -45,6 +45,19 @@
 	/* text-align: center; */
 }
 
+.my-border-right{
+	border-right: 1px solid #fff;
+}
+
+.my-border-left{
+	border-left: 1px solid #fff;
+}
+
+.horizontal-margin{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .image-absolute-sponsors img{
 	position: absolute;
 	top: 0;
