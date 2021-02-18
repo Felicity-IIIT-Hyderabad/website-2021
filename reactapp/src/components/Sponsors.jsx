@@ -92,72 +92,42 @@ const Sponsors = ({ id }) => {
                             <Col md={4}></Col>
                         </Row>
                         <h1 className="font-weight-bold center" style={{ textAlignVertical: "center", textAlign: "center" }}>Past Sponsors</h1>
+                        <div className="horizontal-divider my-border-black" />
                         <Row className="d-flex align-items-center">
-                            <Col md={4} className="d-flex flex-column align-items-start text-md-left">
+                            <Col md={4} className="my-border-right">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/airtel.png" alt="Card image cap" />
-                                    <CardBody>
-                                        {/* <CardTitle tag="h5">Card title</CardTitle> */}
-                                        {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle> */}
-                                        <CardText>
-                                        </CardText>
-                                    </CardBody>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/airtel.png" alt="Card image cap" />
                                 </Card>
                             </Col>
-                            <div className="divider d-none d-md-block" />
-                            <Col md={4} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
+                            <Col md={4}>
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/ajio.png" alt="Card image cap" />
-                                    <CardBody>
-                                        <CardText>
-                                        </CardText>
-                                    </CardBody>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ajio.png" alt="Card image cap" />
                                 </Card>
                             </Col>
-                            <div className="divider d-none d-md-block" />
-                            <Col md={3} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
+                            <Col md={4} className="my-border-left">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/ebay.png" alt="Card image cap" />
-                                    <CardBody>
-                                        <CardText>
-                                        </CardText>
-                                    </CardBody>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ebay.png" alt="Card image cap" />
                                 </Card>
-                            </Col>                            
+                            </Col>
                         </Row>
+                        <div className="horizontal-margin" />
                         <Row className="d-flex align-items-center">
-                            <Col md={4} className="d-flex flex-column align-items-start text-md-left">
+                            <Col md={4} className="my-border-right">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/lic.png" alt="Card image cap" />
-                                    <CardBody>
-                                        {/* <CardTitle tag="h5">Card title</CardTitle> */}
-                                        {/* <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle> */}
-                                        <CardText>
-                                        </CardText>
-                                    </CardBody>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/lic.png" alt="Card image cap" />
                                 </Card>
                             </Col>
-                            <div className="divider d-none d-md-block" />
-                            <Col md={4} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
+                            <Col md={4}>
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/microsoft.png" alt="Card image cap" />
-                                    <CardBody>
-                                        <CardText>
-                                        </CardText>
-                                    </CardBody>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/microsoft.png" alt="Card image cap" />
                                 </Card>
                             </Col>
-                            <div className="divider d-none d-md-block" />
-                            <Col md={3} className="d-flex flex-column align-items-start align-items-md-center my-5 my-md-0">
+                            <Col md={4} className="my-border-left">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top width="50%" src="/logos/redfm.png" alt="Card image cap" />
-                                    <CardBody>
-                                        <CardText>
-                                        </CardText>
-                                    </CardBody>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/redfm.png" alt="Card image cap" />
                                 </Card>
-                            </Col>                            
-                        </Row>
+                            </Col>
+                        </Row>s
 
                     </ScrollAnimation>
                     {/* <ScrollAnimation animateIn="fadeIn">
