@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Dashboard.css";
 
 import AwesomeSlider from "react-awesome-slider";
@@ -17,12 +16,6 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 var key = 1;
 
 const Dashboard = () => {
-
-    const [selectedDay, setSelectedDay] = useState("Day1");
-
-    const changeDay = (dayNum) => {
-        setSelectedDay("Day" + dayNum);
-    };
 
     const leftScroll = (num) => {
         var carousel = document.getElementById("event"+num);
@@ -64,126 +57,12 @@ const Dashboard = () => {
             <div className="container-fluid mt-5">
                 <div className="row">
                     <div className="col-3 left-display">
-                        <h2 className="text-center my-3 text-white"><strong>Your Events</strong></h2>
-                        <div className="event-days d-flex justify-content-center mt-4">
-                            <div className={selectedDay === "Day1" ? "mx-2 text-center" : "mx-2 non-active-left text-center"} onClick={() => changeDay(1)}>DAY 1</div>
-                            <div className={selectedDay === "Day2" ? "mx-2 text-center" : "mx-2 non-active-left text-center"} onClick={() => changeDay(2)}>DAY 2</div>
-                            <div className={selectedDay === "Day3" ? "mx-2 text-center" : "mx-2 non-active-right text-center"} onClick={() => changeDay(3)}>DAY 3</div>
+                        <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
+                        <div className="event-days text-center mt-4">
+                            <button className="btn event-button mt-4 event-pink"> CULTURAL </button><br/>
+                            <button className="btn event-button mt-4 event-green"> TECHNICAL </button><br/>
+                            <button className="btn event-button mt-4 event-blue"> WORKSHOPS </button><br/>
                         </div>
-                        {selectedDay === "Day1" ?
-                            <div className="events-listing mt-5">
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">8-9 AM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">8-9 AM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">8-9 AM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">8-9 AM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">8-9 AM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                            </div> : "" }
-                        {selectedDay === "Day2" ?
-                            <div className="events-listing mt-5">
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">12-01 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">12-01 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">12-01 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">12-01 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">12-01 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                            </div> : "" }
-                        {selectedDay === "Day3" ?
-                            <div className="events-listing mt-5">
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">4-5 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">4-5 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">4-5 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">4-5 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                                <div className="event-listing-item mt-3 mx-5">
-                                    <div className="event-list-title ml-5">4-5 PM: IDK</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                    <div className="event-list-det">- Sample Text</div>
-                                </div>
-                            </div> : "" }
                     </div>
                     <div className="col-md-9 right-display">
                         <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
@@ -215,7 +94,10 @@ const Dashboard = () => {
                             <div className="left-arrow desktop-only" onClick={() => leftScroll(1)}><FontAwesomeIcon icon={faChevronLeft} /></div>
                             <div className="right-arrow desktop-only" onClick={() => rightScroll(1)}><FontAwesomeIcon icon={faChevronRight} /></div>
                         </div>
-
+                    </div>
+                </div>
+                <div className="container-fluid mb-5">
+                    <div>
                         <div className="feature-image my-4 mr-2"></div>
 
                         <div className="event-type-title mt-3 mx-3">Upcoming - Day 2</div>
