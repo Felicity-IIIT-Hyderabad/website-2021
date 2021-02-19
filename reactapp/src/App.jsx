@@ -10,24 +10,26 @@ import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
 import OurTeam from "./components/OurTeam";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 import { getUser, loginUser, logoutUser } from "./actions/login";
 
 var userKey = 1;
 
 const App = (props) => {
-    if(userKey){
+    if (userKey) {
         userKey = 0;
         getUser();
     }
     return (
         <>
-            <Navbar props={props}/>
+            <Navbar props={props} />
             <div id="main">
                 <Router>
                     <Switch>
-                        <Route path="/workshop" component={Workshop}/>
-                        <Route path="/login" component={Login}/>
+                        <Route path="/privacy-policy" component={PrivacyPolicy} />
+                        <Route path="/workshop" component={Workshop} />
+                        <Route path="/login" component={Login} />
                         <Route path="/our-team" component={OurTeam} />
                         <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
@@ -52,4 +54,4 @@ const mapDispatchToProps = () => ({
     logoutUser: logoutUser
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
