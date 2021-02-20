@@ -21,18 +21,18 @@ const OurTeam = () => {
         );
     }
 
-    // const changeTeam = (teamName) => {
-    //     console.log(teamName.obj);
-    //     setSelectedTeam(teamName.obj);
-    //     var elmnt = document.getElementById(teamName.obj);
-    //     elmnt.scrollIntoView();
-    //     var headerOffset = 80;
-    //     var elementPosition = elmnt.offsetTop;
-    //     var offsetPosition = elementPosition - headerOffset;
+    const changeTeam = (teamName) => {
+        console.log(teamName.obj);
+        setSelectedTeam(teamName.obj);
+        var elmnt = document.getElementById(teamName.obj);
+        elmnt.scrollIntoView();
+        var headerOffset = 80;
+        var elementPosition = elmnt.offsetTop;
+        var offsetPosition = elementPosition - headerOffset;
         
-    //     elmnt = document.getElementById("scroll-container");
-    //     elmnt.scrollTop = offsetPosition;
-    // };
+        elmnt = document.getElementById("scroll-container");
+        elmnt.scrollTop = offsetPosition;
+    };
 
     const changeTeamToScroll = () => {
         var elmnt = document.getElementById("technical");
@@ -90,12 +90,13 @@ const OurTeam = () => {
                         </div> */}
                         {Object.keys(teamMembers.default).map((obj,ind)=>
                             <>
-                                <div id={ obj } className={selectedTeam==={ obj } ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "2rem" }}>{ obj.toUpperCase() }</div>
+                                <div id={ obj } className={selectedTeam==={ obj } ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category text-center" } style={{ fontSize: "4rem" }}>{ obj.toUpperCase() }</div>                            
+                                {/* <div id={ obj } className={selectedTeam==={ obj } ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "2rem" }}>{ obj.toUpperCase() }</div> */}
                                 <div className="text-center">
                                     {teamMembers.default[obj].map((teamMember, idx) => (
                                         teamMember["main"] ? 
                                             <div className="main-featured d-inline-block mx-5">
-                                                <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
+                                                <img className="img-fluid mt-5" src={"/teams/" + teamMember["image"]} alt="Thumb" />
                                                 <h3 className="text-white my-3">{teamMember["name"]}</h3>
                                                 <div className="social-links-feat">
                                                     <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
@@ -104,10 +105,11 @@ const OurTeam = () => {
                                             </div> : ""
                                         
                                     ))}
+                                    <br/>
                                     {teamMembers.default[obj].map((teamMember, idx) => (
                                         teamMember["main"] ? "" : teamMember["core"] ? 
                                             <div className="featured d-inline-block mx-4">
-                                                <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
+                                                <img className="img-fluid mt-5" src={"/teams/" + teamMember["image"]} alt="Thumb" />
                                                 <h3 className="text-white my-3">{teamMember["name"]}</h3>
                                                 <div className="social-links-non">
                                                     <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
@@ -120,7 +122,7 @@ const OurTeam = () => {
                                     {teamMembers.default[obj].map((teamMember, idx) => (
                                         teamMember["main"] ? "" : teamMember["core"] ? "":
                                             <div className="non-featured d-inline-block mx-1">
-                                                <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
+                                                <img className="img-fluid mt-5" src={"/teams/" + teamMember["image"]} alt="Thumb" />
                                                 <h3 className="text-white my-3">{teamMember["name"]}</h3>
                                                 <div className="social-links-non">
                                                     <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
@@ -131,169 +133,7 @@ const OurTeam = () => {
                                     ))}                                    
                                 </div>
                             </> 
-                        )}                        
-                        {/* <div id="events" className={selectedTeam==="events" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Events</div>
-                        <div className="text-center">
-                            {teamMembers.default["events"].map((teamMember, idx) => (
-                                teamMember["main"] ? 
-                                    <div className="featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-feat">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div> : ""
-                                
-                            ))}
-                            {teamMembers.default["events"].map((teamMember, idx) => (
-                                teamMember["main"] ? "" : 
-                                    <div className="non-featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-non">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div>
-                                
-                            ))}
-                        </div> 
-                        <div id="marketing" className={selectedTeam==="marketing" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Marketing</div>
-                        <div className="text-center">
-                            {teamMembers.default["marketing"].map((teamMember, idx) => (
-                                teamMember["main"] ? 
-                                    <div className="featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-feat">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div> : ""
-                                
-                            ))}
-                            {teamMembers.default["marketing"].map((teamMember, idx) => (
-                                teamMember["main"] ? "" : 
-                                    <div className="non-featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-non">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div>
-                                
-                            ))}
-                        </div>
-                        <div id="corporate" className={selectedTeam==="corporate" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Corporate</div>
-                        <div className="text-center">
-                            {teamMembers.default["corporate"].map((teamMember, idx) => (
-                                teamMember["main"] ? 
-                                    <div className="featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-feat">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div> : ""
-                                
-                            ))}
-                            {teamMembers.default["corporate"].map((teamMember, idx) => (
-                                teamMember["main"] ? "" : 
-                                    <div className="non-featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-non">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div>
-                                
-                            ))}
-                        </div>
-                        <div id="design" className={selectedTeam==="design" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Design</div>
-                        <div className="text-center">
-                            {teamMembers.default["design"].map((teamMember, idx) => (
-                                teamMember["main"] ? 
-                                    <div className="featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-feat">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div> : ""
-                                
-                            ))}
-                            {teamMembers.default["design"].map((teamMember, idx) => (
-                                teamMember["main"] ? "" : 
-                                    <div className="non-featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-non">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div>
-                                
-                            ))}
-                        </div>                                                
-                        <div id="technical" className={selectedTeam==="technical" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Technical</div>
-                        <div className="text-center">
-                            {teamMembers.default["technical"].map((teamMember, idx) => (
-                                teamMember["main"] ? 
-                                    <div className="featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-feat">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div> : ""
-                                
-                            ))}
-                            {teamMembers.default["technical"].map((teamMember, idx) => (
-                                teamMember["main"] ? "" : 
-                                    <div className="non-featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-non">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div>
-                                
-                            ))}
-                        </div>
-                        <div id="logistics" className={selectedTeam==="logistics" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Logistics</div>
-                        <div className="text-center">
-                            {teamMembers.default["logistics"].map((teamMember, idx) => (
-                                teamMember["main"] ? 
-                                    <div className="featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-feat">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div> : ""
-                                
-                            ))}
-                            {teamMembers.default["logistics"].map((teamMember, idx) => (
-                                teamMember["main"] ? "" : 
-                                    <div className="non-featured d-inline-block mx-4">
-                                        <img className="img-fluid mt-5" src={teamMember["image"]} alt="Thumb" />
-                                        <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                        <div className="social-links-non">
-                                            <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                            <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                        </div>
-                                    </div>
-                                
-                            ))}
-                        </div>                                                  */}
+                        )}
                     </div>
                 </div>
             </div>

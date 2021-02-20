@@ -3,12 +3,13 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import "react-vertical-timeline-component/style.min.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Row, Col, Button } from "reactstrap";
 
 import "./Event.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
 
-// import { eventsCulturalApi } from "../api/";
+import { eventsCulturalApi } from "../api/";
 
 class CultEvent extends React.Component {
 
@@ -24,7 +25,8 @@ class CultEvent extends React.Component {
     componentDidMount = async () => {
 
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
-        axios.get("https://felicity.iiit.ac.in/backend/events-cultural").then(async (response)=>{
+        console.log("AA");
+        axios.get(eventsCulturalApi).then(async (response)=>{
             console.log(response.data);
             await this.setState({
                 events: response.data
@@ -142,9 +144,7 @@ class CultEvent extends React.Component {
                                 contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                                 contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
                                 iconStyle={{ background: "rgb(133, 150, 243)", color: "#fff" }}
-                                iconOnClick={() => this.showModalEvent(event)}
                                 date={this.dateToString(event["start_date"], event["end_date"])}
-                                onTimelineElementClick={() => this.showModalEvent(event)}
                                 dateClassName={"my-date"}
                                 key={idx}
                             >
@@ -152,6 +152,16 @@ class CultEvent extends React.Component {
                                 <h4 className="vertical-timeline-element-subtitle">{event["tagline"]}</h4>
                                 <p>
                                     {event["description"]}
+                                    <br/>
+                                    <Row>
+                                        <Col md={4} xs={3}>
+                                            <Button onClick={() => this.showModalEvent(event)} color="danger">Register Now</Button>
+                                        </Col>
+                                        <Col md={4} xs={1}></Col>                                 
+                                        <Col md={4} xs={2}>
+                                        <Button onClick={() => window.open("/events/" + event.code.toString())} color="warning">More Details</Button>
+                                        </Col>
+                                    </Row>                                    
                                 </p>
                             </VerticalTimelineElement>
                         ))}

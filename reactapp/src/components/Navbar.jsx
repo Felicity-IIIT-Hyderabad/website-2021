@@ -98,7 +98,7 @@ function renderEvents(props, isEventsOpen, toggleEvents){
         }
         else{
             return(
-                <RSNavItem>
+                <RSNavItem style={{ color:"white" }}>
                     <NavLink>
                         <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
                             <DropdownToggle
@@ -108,10 +108,10 @@ function renderEvents(props, isEventsOpen, toggleEvents){
                             >
                                 Events
                             </DropdownToggle>
-                            <DropdownMenu style={{ backgroundColor: "black" }}>
-                                <DropdownItem style={{ color: "black" }}><a href="/events">Home</a></DropdownItem>
-                                <DropdownItem style={{ color: "black" }}><a href="/events-technical">Technical</a></DropdownItem>
-                                <DropdownItem style={{ color: "black" }}><a href="/events-cultural">Cultural</a></DropdownItem>
+                            <DropdownMenu style={{ backgroundColor: "grey" }}>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-technical"}>Technical</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-cultural"}>Cultural</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </NavLink>                     
@@ -147,6 +147,23 @@ const Navbar = (props) => {
         });
     }, []);
 
+    function renderHome(props){
+        console.log(props);
+        var str = "https://felicity.iiit.ac.in/";
+        console.log(window.location.href.split("/"));
+        console.log(window.location.href.split("/").length);
+        if(window.location.href.split("/").length >= 4 && window.location.href.split("/")[3] != ""){
+            return (
+                <NavItem2 to="/" title="Home" />                
+            );
+        }
+        else{
+            return (
+                <></>
+            );
+        }
+    }
+
     return (
         <RSNavbar
             ref={navRef}
@@ -169,7 +186,7 @@ const Navbar = (props) => {
                 <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
                     <NavItem title={func(props)} />
                     {renderEvents(props, isEventsOpen, toggleEvents)}
-
+                    {renderHome(props)}
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem2 to="/our-team" title="Our Team" />

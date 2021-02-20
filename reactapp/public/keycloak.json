@@ -1,8 +1,8 @@
 {
-  "realm": "master",
-  "auth-server-url": "http://10.4.16.150:8080/auth/",
-  "ssl-required": "external",
-  "resource": "website",
-  "public-client": true,
-  "confidential-port": 0
+    "realm": "master",
+    "auth-server-url": "https://felicity.iiit.ac.in/auth/",
+    "ssl-required": "external",
+    "resource": "website",
+    "public-client": true,
+    "confidential-port": 0
 }

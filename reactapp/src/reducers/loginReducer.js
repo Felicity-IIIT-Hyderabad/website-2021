@@ -4,6 +4,7 @@ export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
     case "LOGIN":
         var token = action.keycloak.idToken;
+        console.log(action);
         localStorage.setItem("jwt",token);
         localStorage.setItem("user",JSON.stringify(action.keycloak));
         return { ...state, loginState: action.keycloak, authenticated: true };

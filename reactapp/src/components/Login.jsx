@@ -3,7 +3,7 @@ import Keycloak from "keycloak-js";
 import { Button, Col, Row } from "reactstrap";
 import { connect } from "react-redux";
 
-import { loginUser, logoutUser } from "../actions/login";
+// import { loginUser, logoutUser } from "../actions/login";
 
 function func(props){
     try{
@@ -79,9 +79,9 @@ const mapStateToProps = state => ({
 //     };
 // };
 
-const mapDispatchToProps = () => ({
-    loginUser: loginUser,
-    logoutUser: logoutUser
+const mapDispatchToProps = dispatch => ({
+    loginUser: (keycloak) => dispatch({ type: "LOGIN", keycloak }),
+    logoutUser: () => dispatch({ type: "LOGOUT" })
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Login);

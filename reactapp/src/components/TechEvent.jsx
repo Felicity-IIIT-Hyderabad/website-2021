@@ -3,18 +3,19 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import "react-vertical-timeline-component/style.min.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Row, Col, Button } from "reactstrap";
 
 import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
-// import { eventsTechnicalApi } from "../api/";
+import { eventsTechnicalApi } from "../api/";
 
 const showModalEventOne = (event) => {
     Swal.fire({
         title: event["name"],
         text: event["description"],
         footer: "Coming Soon.",
-        imageUrl: "/images/sample.jpg",
+        imageUrl: "/teams/a.jpg",
         customClass: {
             title: "text-danger error-message",
             content: "error-message text-white",
@@ -51,6 +52,9 @@ const dateToString = (num1, num2) => {
     var formattedTime = hours + ":" + minutes.substr(-2);
     console.log(formattedTime);
 
+    var rr = new Date(num1);
+    console.log(rr.getDate());
+
     return num1 + "\tTo\t" + num2;
 };
 
@@ -64,7 +68,7 @@ class TechEvent extends React.Component {
     }
 
     componentDidMount = () => {
-        axios.get("https://felicity.iiit.ac.in/backend/events-technical").then(async (response)=>{
+        axios.get(eventsTechnicalApi).then(async (response)=>{
             console.log(response.data);
             await this.setState({
                 events: response.data
@@ -102,14 +106,22 @@ class TechEvent extends React.Component {
                                     contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}                                    
                                     date={dateToString(obj.start_date,obj.end_date)}
                                     iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-                                    iconOnClick={() => showModalEventOne(obj)}
-                                    onTimelineElementClick={() => showModalEventOne(obj)}
                                     key={ind}
                                 >
                                     <h3 className="vertical-timeline-element-title">{obj.name}</h3>
                                     <h4 className="vertical-timeline-element-subtitle">{obj.tagline}</h4>
                                     <p>
                                         {obj.description}
+                                        <br/>
+                                        <Row>
+                                            <Col md={4} xs={3}>
+                                                <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>
+                                            </Col>
+                                            <Col md={4} xs={1}></Col>                                 
+                                            <Col md={4} xs={2}>
+                                                <Button onClick={() => window.open("/events/" + obj.code.toString())} color="warning">More Details</Button>
+                                            </Col>
+                                        </Row>
                                     </p>
                                 </VerticalTimelineElement>
                             );

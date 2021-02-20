@@ -13,6 +13,9 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import { loginUser, logoutUser } from "../actions/login";
 import { getUser } from "../actions/login";
 
+import { eventsApi } from "../api/";
+import { Link } from "react-router-dom";
+
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 var key = 1;
@@ -38,7 +41,7 @@ class Dashboard extends React.Component {
 
     componentDidMount = () => {
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
-        axios.get("https://felicity.iiit.ac.in/backend/events").then(async (response)=>{
+        axios.get(eventsApi).then(async (response)=>{
             console.log(response.data);
             response.data.map((obj)=>{
                 console.log(obj.start_date.slice(8,10));
@@ -68,79 +71,85 @@ class Dashboard extends React.Component {
 
     render () {
         return (
-            <div>
-                <div className="container-fluid">
-                    <div className="header-carousel">
-                        <AutoplaySlider
-                            play={true}
-                            cancelOnInteraction={false} // should stop playing on user interaction
-                            interval={2000}>
-                            <div className="header-carousel-item" id="item1">
-                                <div className="header-carousel-title text-left">
-                                    Event One
+            <>
+                <div>
+                    <div className="container-fluid">
+                        <div className="header-carousel">
+                            <AutoplaySlider
+                                play={true}
+                                cancelOnInteraction={false} // should stop playing on user interaction
+                                interval={2000}>
+                                <div className="header-carousel-item" id="item1">
+                                    <div className="header-carousel-title text-left">
+                                        Event One
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="header-carousel-item" id="item2">2
-                                <div className="header-carousel-title text-left">
-                                    Event Two
+                                <div className="header-carousel-item" id="item2">2
+                                    <div className="header-carousel-title text-left">
+                                        Event Two
+                                    </div>
                                 </div>
-                            </div>
-                        </AutoplaySlider>
+                            </AutoplaySlider>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="container-fluid mt-5">
-                <div className="row">
-                    <div className="col-3 left-display">
-                        <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
-                        <div className="event-days text-center mt-4">
-                            <Button className="btn event-button mt-4 event-blue" onClick={() => window.open("/events-prolines")}> PROLINES </Button><br/>
-                            <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
-                            <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
-                        </div>
-                        <div className="col-md-9 right-display">
-                            <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
-                            <div className="carousel-holder">
-                                <div className="mt-4 event-carousel" id="event1">
-                                    <div className="empty-space mx-4 desktop-only"></div>
-                                    {this.state.events["Day1"].map((event, idx) => (
-                                        <div className="event-carousel-item mt-4 mx-2" key={idx}>
-                                            <div>
-                                                {event["name"]}
-                                            </div>
-                                        </div>
-                                    ))}
-                                    <div className="empty-space mx-5 desktop-only">&nbsp;</div>
+                <div className="container-fluid mt-5">
+                    <div className="row">
+                        <div className="col-3 left-display">
+                            <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
+                            <div className="event-days text-center mt-4">
+                                <Button className="btn event-button mt-4 event-blue" onClick={() => window.open("/events-prolines")}> PROLINES </Button><br/>
+                                <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
+                                <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
+                            </div>
+                            <div className="col-md-9 right-display">
+                                <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
+                                <div className="carousel-holder">
+                                    <div className="mt-4 event-carousel" id="event1">
+                                        <div className="empty-space mx-4 desktop-only"></div>
+                                        {this.state.events["Day1"].map((event, idx) => (
+                                            <Link>
+                                                <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
+                                                    <div>
+                                                        {event["name"]}
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                        <div className="empty-space mx-5 desktop-only">&nbsp;</div>
+                                    </div>
+                                    <div className="left-arrow desktop-only" onClick={() => this.leftScroll(1)}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                                    <div className="right-arrow desktop-only" onClick={() => this.rightScroll(1)}><FontAwesomeIcon icon={faChevronRight} /></div>
                                 </div>
-                                <div className="left-arrow desktop-only" onClick={() => this.leftScroll(1)}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                                <div className="right-arrow desktop-only" onClick={() => this.rightScroll(1)}><FontAwesomeIcon icon={faChevronRight} /></div>
                             </div>
                         </div>
-                    </div>
-                    <div className="container-fluid mb-5">
-                        <div>
-                            <div className="feature-image my-4 mr-2"></div>
+                        <div className="container-fluid mb-5">
+                            <div>
+                                <div className="feature-image my-4 mr-2"></div>
 
-                            <div className="event-type-title mt-3 mx-3">Upcoming - Day 2</div>
-                            <div className="carousel-holder">
-                                <div className="mt-4 event-carousel" id="event2">
-                                    <div className="empty-space mx-4 desktop-only"></div>
-                                    {this.state.events["Day2"].map((event, idx) => (
-                                        <div className="event-carousel-item mt-4 mx-2" key={idx}>
-                                            <div>
-                                                {event["name"]}
-                                            </div>
-                                        </div>
-                                    ))}
-                                    <div className="empty-space mx-5 desktop-only">&nbsp;</div>
+                                <div className="event-type-title mt-3 mx-3">Upcoming - Day 2</div>
+                                <div className="carousel-holder">
+                                    <div className="mt-4 event-carousel" id="event2">
+                                        <div className="empty-space mx-4 desktop-only"></div>
+                                        {this.state.events["Day2"].map((event, idx) => (
+                                            <Link>
+                                                <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
+                                                    <div>
+                                                        {event["name"]}
+                                                    </div>
+                                                </div>
+                                            </Link>                                            
+                                        ))}
+                                        <div className="empty-space mx-5 desktop-only">&nbsp;</div>
+                                    </div>
+                                    <div className="left-arrow desktop-only" onClick={() => this.leftScroll(2)}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                                    <div className="right-arrow desktop-only" onClick={() => this.rightScroll(2)}><FontAwesomeIcon icon={faChevronRight} /></div>
                                 </div>
-                                <div className="left-arrow desktop-only" onClick={() => this.leftScroll(2)}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                                <div className="right-arrow desktop-only" onClick={() => this.rightScroll(2)}><FontAwesomeIcon icon={faChevronRight} /></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </>
         );
     }
 }

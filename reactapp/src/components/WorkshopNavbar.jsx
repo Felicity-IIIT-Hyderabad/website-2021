@@ -73,10 +73,10 @@ function renderEvents(props, isEventsOpen, toggleEvents){
                             >
                                 Events
                             </DropdownToggle>
-                            <DropdownMenu style={{ backgroundColor: "black" }}>
-                                <DropdownItem style={{ color: "grey" }}><a href="/events">Home</a></DropdownItem>
-                                <DropdownItem style={{ color: "grey" }}><a href="/events-technical">Technical</a></DropdownItem>
-                                <DropdownItem style={{ color: "grey" }}><a href="/events-cultural">Cultural</a></DropdownItem>
+                            <DropdownMenu style={{ backgroundColor: "grey" }}>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-technical"}>Technical</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-cultural"}>Cultural</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </NavLink>                     
