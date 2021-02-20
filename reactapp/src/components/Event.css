@@ -44,7 +44,7 @@
 
 #tech-circle-image {
 	position: absolute;
-    background: url(https://www.collegeatlas.org/wp-content/uploads/2014/06/Top-Party-Schools-main-image.jpg) center;
+    background: url("https://www.collegeatlas.org/wp-content/uploads/2014/06/Top-Party-Schools-main-image.jpg?__cf_chl_jschl_tk__=72e673a8620694c1f5e4036f2d70d528587e1eb0-1613828621-0-Ad69jq2VFtiYJVd7Vjd6-cbHK6IfCgCIujqhydzpWyf1bU6deW4Uk67GM9zmHtgJoQuz3LHRa9-weavPIpvaW5BNCBY0qPKM0jFHJzdXy8EB6Qmpz6mSo_zDmDtEnecLXlYALdbo21G-ln3nSIxT0yYk4ITDDdHyZaIExVmz_gWQqsQ7fBIwEhabAz2n0NWOOKszGTAqWnP0CKS9byg8b-GG_FfbwVgrGhZ2skI585g5X5yYL9ImVCsVmvYNWK6tOv5zAHAUVVahld1ePzkcEOSGL-jCvfYH4lkLX-W4rEN0MSbTjMnRmCIMPF3Sg3bgSbq5jtdFA8gTz1U3_lg50vAchYMCzd-D6j-3HP10iTYXzCAEO-8y-xQiw0ZvTOEqCA") center;
     background-size: cover;
     border-radius: 50%;
 	width: 644px;
@@ -56,7 +56,7 @@
 
 #cult-circle-image {
 	position: absolute;
-    background: url(https://static.toiimg.com/thumb/msid-75446211,width-1070,height-580,resizemode-75,imgsize-153527,pt-32,y_pad-40/75446211.jpg) center;
+    background: url("https://static.toiimg.com/thumb/msid-75446211,width-1070,height-580,resizemode-75,imgsize-153527,pt-32,y_pad-40/75446211.jpg") center;
     background-size: cover;
     border-radius: 50%;
 	width: 644px;
