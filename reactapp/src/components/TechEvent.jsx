@@ -76,6 +76,7 @@ class TechEvent extends React.Component {
                     <div id="tech-circle3"></div>
                     <div id="tech-circle2"></div>
                     <div id="tech-circle1"></div>
+                    <div id="tech-circle-image"></div>
                 </div>
 
                 <div className="font-weight-bold infopage-title my-5 mx-5 event-heading text-white"> TECHNICAL </div>

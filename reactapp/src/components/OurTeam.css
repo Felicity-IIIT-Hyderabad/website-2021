@@ -152,6 +152,26 @@
 	cursor: pointer;
 }
 
+.right-display-team{
+	position: relative;
+	z-index: 3;
+	scroll-behavior: smooth;
+	padding: 15px;
+	border-radius: 8px;
+	height: 90vh;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+.right-display-team::-webkit-scrollbar {
+  display: none;
+}
+
+.right-display-team {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @media only screen and (max-width: 768px) {
 	.desktop-only{
 		display: none;

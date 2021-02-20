@@ -72,7 +72,6 @@
 
 .left-display{
 	padding: 15px;
-	height: 50rem;
 	border-radius: 8px;
 	overflow-y: scroll;
 }
@@ -91,7 +90,6 @@
 	z-index: 3;
 	scroll-behavior: smooth;
 	padding: 15px;
-	height: 50rem;
 	border-radius: 8px;
 	overflow-y: scroll;
 	scrollbar-width: none;
@@ -106,10 +104,32 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-.event-days{
-	color: white;
-	font-weight: bold;
+.event-button{
+	width: 85%;
 	font-size: 1.5rem;
+	border-style: solid;
+	border-radius: 10px;
+	font-weight: bolder;
+}
+
+.event-pink{
+	color: #ffe2e2;
+	border-color: #ffe2e2;
+}
+
+.event-green{
+	color: #e8ffd6;
+	border-color: #e8ffd6;
+}
+
+.event-blue{
+	color: #d1dff4;
+	border-color: #d1dff4;
+}
+
+.event-button:hover{
+	color: wheat;
+	border-color: wheat;
 }
 
 .non-active-left{

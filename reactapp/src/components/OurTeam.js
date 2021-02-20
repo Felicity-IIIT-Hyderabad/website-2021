@@ -26,7 +26,12 @@ const OurTeam = () => {
         setSelectedTeam(teamName.obj);
         var elmnt = document.getElementById(teamName.obj);
         elmnt.scrollIntoView();
-        elmnt.scrollTo(0, 500);
+        var headerOffset = 80;
+        var elementPosition = elmnt.offsetTop;
+        var offsetPosition = elementPosition - headerOffset;
+        
+        elmnt = document.getElementById("scroll-container");
+        elmnt.scrollTop = offsetPosition;
     };
 
     const changeTeamToScroll = () => {
@@ -83,7 +88,7 @@ const OurTeam = () => {
                         <div className={selectedTeam==="logistics" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("logistics")}>  {selectedTeam==="logistics" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } LOGISTICS</div> */}
                     </div>
                     {/* {console.log(teamMembers.default)} */}
-                    <div className="col-md-8 right-display" onScroll={() => changeTeamToScroll()}>                        
+                    <div className="col-md-8 right-display-team" onScroll={() => changeTeamToScroll()} id="scroll-container">                        
                         {/* <div id="overall" className={selectedTeam==="overall" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Overall</div>
                         <div className="text-center">
                             <div className="main-featured">
