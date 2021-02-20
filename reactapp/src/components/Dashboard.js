@@ -1,5 +1,6 @@
 import "./Dashboard.css";
 
+import { Button } from "reactstrap";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
@@ -59,9 +60,9 @@ const Dashboard = () => {
                     <div className="col-3 left-display">
                         <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
                         <div className="event-days text-center mt-4">
-                            <button className="btn event-button mt-4 event-pink"> CULTURAL </button><br/>
-                            <button className="btn event-button mt-4 event-green"> TECHNICAL </button><br/>
-                            <button className="btn event-button mt-4 event-blue"> WORKSHOPS </button><br/>
+                            <Button className="btn event-button mt-4 event-blue" onClick={() => window.open("/events-prolines")}> PROLINES </Button><br/>
+                            <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
+                            <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
                         </div>
                     </div>
                     <div className="col-md-9 right-display">

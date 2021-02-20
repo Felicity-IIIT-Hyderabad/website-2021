@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./OurTeam.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+// import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 import * as teamMembers from "../sample-data/teams.json";
@@ -21,18 +21,18 @@ const OurTeam = () => {
         );
     }
 
-    const changeTeam = (teamName) => {
-        console.log(teamName.obj);
-        setSelectedTeam(teamName.obj);
-        var elmnt = document.getElementById(teamName.obj);
-        elmnt.scrollIntoView();
-        var headerOffset = 80;
-        var elementPosition = elmnt.offsetTop;
-        var offsetPosition = elementPosition - headerOffset;
+    // const changeTeam = (teamName) => {
+    //     console.log(teamName.obj);
+    //     setSelectedTeam(teamName.obj);
+    //     var elmnt = document.getElementById(teamName.obj);
+    //     elmnt.scrollIntoView();
+    //     var headerOffset = 80;
+    //     var elementPosition = elmnt.offsetTop;
+    //     var offsetPosition = elementPosition - headerOffset;
         
-        elmnt = document.getElementById("scroll-container");
-        elmnt.scrollTop = offsetPosition;
-    };
+    //     elmnt = document.getElementById("scroll-container");
+    //     elmnt.scrollTop = offsetPosition;
+    // };
 
     const changeTeamToScroll = () => {
         var elmnt = document.getElementById("technical");
@@ -74,21 +74,9 @@ const OurTeam = () => {
         <div>
             <div className="container-fluid mt-5 no-scroll">
                 <div className="row">
-                    <div className="col-md-4 desktop-only left-display">
-                        <div className="font-weight-bold details-header my-5 ml-3 event-heading text-white text-left">MEET THE TEAM</div>
-                        {/* <div className={selectedTeam==="overall" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("overall")}> {selectedTeam==="overall" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } OVERALL</div>                         */}
-                        {Object.keys(teamMembers.default).map((obj,ind)=>
-                            <div key={ind} className={selectedTeam=== obj ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "1rem" }} onClick={() => changeTeam({ obj })}> {selectedTeam===obj ? <FontAwesomeIcon icon={faChevronRight} /> : "" } { obj.toUpperCase() } </div>
-                        )}
-                        {/* <div className={selectedTeam==="events" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("events")}>  {selectedTeam==="events" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } EVENTS</div>
-                        <div className={selectedTeam==="marketing" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("marketing")}>  {selectedTeam==="marketing" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } MARKETING</div>
-                        <div className={selectedTeam==="corporate" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("corporate")}>  {selectedTeam==="corporate" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } CORPORATE</div>
-                        <div className={selectedTeam=="design" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("design")}>  {selectedTeam==="design" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } DESIGN</div>                                                                        
-                        <div className={selectedTeam==="technical" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("technical")}>  {selectedTeam==="technical" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } TECHNICAL</div>
-                        <div className={selectedTeam==="logistics" ? "font-weight-bold ml-5 my-3 text-left text-white left-category" : "font-weight-bold ml-5 my-3 text-left text-secondary left-category"} style={{ fontSize: "2rem" }} onClick={() => changeTeam("logistics")}>  {selectedTeam==="logistics" ? <FontAwesomeIcon icon={faChevronRight} /> : "" } LOGISTICS</div> */}
-                    </div>
+
                     {/* {console.log(teamMembers.default)} */}
-                    <div className="col-md-8 right-display-team" onScroll={() => changeTeamToScroll()} id="scroll-container">                        
+                    <div className="col-md-12 right-display-team" onScroll={() => changeTeamToScroll()} id="scroll-container">                        
                         {/* <div id="overall" className={selectedTeam==="overall" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Overall</div>
                         <div className="text-center">
                             <div className="main-featured">

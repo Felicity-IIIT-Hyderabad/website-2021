@@ -20,7 +20,42 @@ const App = (props) => {
     if (userKey) {
         userKey = 0;
         getUser();
+        console.log(props);
     }
+
+    function renderEvents(){
+        try{
+            if(!props.userInfo.loginReducer.authenticated){
+                return (
+                    <>
+                        <Route path="/events" component={Home} />
+                        <Route path="/events-technical" component={Home} />
+                        <Route path="/events-cultural" component={Home} />
+                        <Route path="/" component={Home} />
+                    </>                
+                );
+            }
+            else{
+                return (
+                    <>
+                        <Route path="/events" component={Dashboard} />
+                        <Route path="/events-technical" component={TechEvent} />
+                        <Route path="/events-cultural" component={CultEvent} />
+                    </>
+                );
+            }
+        }
+        catch{
+            return (
+                <>
+                    <Route path="/events" component={Dashboard} />
+                    <Route path="/events-technical" component={TechEvent} />
+                    <Route path="/events-cultural" component={CultEvent} />
+                </>
+            );
+        }
+    }
+
     return (
         <>
             <Navbar props={props} />
@@ -31,13 +66,11 @@ const App = (props) => {
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/login" component={Login} />
                         <Route path="/our-team" component={OurTeam} />
-                        <Route path="/events" component={Dashboard} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
                         </Route>
-                        <Route path="/events-technical" component={TechEvent} />
-                        <Route path="/events-cultural" component={CultEvent} />
-                        <Route path="/" component={Home} />
+                        {renderEvents()}           
+                        <Route path="/" component={Home} />                        
                     </Switch>
                 </Router>
             </div>
