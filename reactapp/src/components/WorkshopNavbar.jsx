@@ -54,6 +54,43 @@ function func(props){
     }
 }
 
+function renderEvents(props, isEventsOpen, toggleEvents){
+    try{
+        if (props.props.userInfo.loginReducer.authenticated) {
+            return(
+                <></>
+            );
+        }
+        else{
+            return(
+                <RSNavItem>
+                    <NavLink>
+                        <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
+                            <DropdownToggle
+                                tag="span"
+                                data-toggle="dropdown"
+                                aria-expanded={isEventsOpen}
+                            >
+                                Events
+                            </DropdownToggle>
+                            <DropdownMenu style={{ backgroundColor: "black" }}>
+                                <DropdownItem style={{ color: "grey" }}><a href="/events">Home</a></DropdownItem>
+                                <DropdownItem style={{ color: "grey" }}><a href="/events-technical">Technical</a></DropdownItem>
+                                <DropdownItem style={{ color: "grey" }}><a href="/events-cultural">Cultural</a></DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
+                    </NavLink>                     
+                </RSNavItem>
+            );
+        }
+    }
+    catch{
+        return(
+            <></>
+        );
+    }
+}
+
 const WorkshopNavbar = (props) => {
     const navRef = useRef(null);
 
@@ -101,29 +138,11 @@ const WorkshopNavbar = (props) => {
                 <Nav className="ml-auto text-uppercase" navbar>
                     <NavItem title={func(props)} />
                     <NavItem2 to="/" title="Home" />
-                    <RSNavItem>
-                        <NavLink>
-                            <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
-                                <DropdownToggle
-                                    tag="span"
-                                    data-toggle="dropdown"
-                                    aria-expanded={isEventsOpen}
-                                >
-                                    Events
-                                </DropdownToggle>
-                                <DropdownMenu style={{ backgroundColor: "black" }}>
-                                    <DropdownItem style={{ color: "grey" }}><a href="/events">Main</a></DropdownItem>
-                                    <DropdownItem style={{ color: "grey" }}><a href="/events-technical">Technical</a></DropdownItem>
-                                    <DropdownItem style={{ color: "grey" }}><a href="/events-cultural">Cultural</a></DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
-                        </NavLink>                     
-                    </RSNavItem>
+                    {renderEvents(props, isEventsOpen, toggleEvents)}
 
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem2 to="/our-team" title="Our Team" />
-                    <NavItem to="contact" title="Contact" />               
                 </Nav>
             </Collapse>
         </RSNavbar>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 
+import { Button } from "reactstrap";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
@@ -87,15 +88,15 @@ class Dashboard extends React.Component {
                         </AutoplaySlider>
                     </div>
                 </div>
-                <div className="container-fluid mt-5">
-                    <div className="row">
-                        <div className="col-3 left-display">
-                            <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
-                            <div className="event-days text-center mt-4">
-                                <button className="btn event-button mt-4 event-pink"> CULTURAL </button><br/>
-                                <button className="btn event-button mt-4 event-green"> TECHNICAL </button><br/>
-                                <button className="btn event-button mt-4 event-blue"> WORKSHOPS </button><br/>
-                            </div>
+            </div>
+            <div className="container-fluid mt-5">
+                <div className="row">
+                    <div className="col-3 left-display">
+                        <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
+                        <div className="event-days text-center mt-4">
+                            <Button className="btn event-button mt-4 event-blue" onClick={() => window.open("/events-prolines")}> PROLINES </Button><br/>
+                            <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
+                            <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
                         </div>
                         <div className="col-md-9 right-display">
                             <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
