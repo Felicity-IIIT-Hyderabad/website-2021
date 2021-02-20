@@ -22,7 +22,6 @@ const OurTeam = () => {
     }
 
     const changeTeam = (teamName) => {
-        console.log(teamName.obj);
         setSelectedTeam(teamName.obj);
         var elmnt = document.getElementById(teamName.obj);
         elmnt.scrollIntoView();

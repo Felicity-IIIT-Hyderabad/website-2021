@@ -25,14 +25,11 @@ class CultEvent extends React.Component {
     componentDidMount = async () => {
 
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
-        console.log("AA");
         axios.get(eventsCulturalApi).then(async (response)=>{
-            console.log(response.data);
             await this.setState({
                 events: response.data
             });
             response.data.map((obj)=>{
-                console.log(obj.start_date.slice(8,10));
                 var dateOfEvent = obj.start_date.slice(8,10);
                 if(dateOfEvent == "24"){
                     tempCultEvents["Day1"].push(obj);
@@ -73,7 +70,6 @@ class CultEvent extends React.Component {
             cancelButtonText: "Not Now",
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log("sent");
                 axios.post("https://felicity.iiit.ac.in/backend/events/"+event["code"]+"/register", {
                     Authorization: JSON.parse(window.localStorage.getItem("user")).token
                 });

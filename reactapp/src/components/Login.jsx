@@ -30,10 +30,8 @@ class Login extends React.Component {
         }
         const keycloak = Keycloak("/keycloak.json");
         keycloak.init({ onLoad: "login-required" }).then(authenticated => {
-            console.log(keycloak);
             this.setState({ keycloak: keycloak, authenticated: authenticated });
         }).then(()=>{
-            console.log(keycloak);
             this.props.loginUser(keycloak);
             window.location.href="/events";
         });

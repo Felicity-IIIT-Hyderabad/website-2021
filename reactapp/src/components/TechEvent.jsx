@@ -30,7 +30,6 @@ const showModalEventOne = (event) => {
         cancelButtonText: "Not Now",
     }).then((result) => {
         if (result.isConfirmed) {
-            console.log("sent");
             axios.post("https://felicity.iiit.ac.in/backend/events/"+event["code"]+"/register", {
                 Authorization: JSON.parse(window.localStorage.getItem("user")).token
             });
@@ -52,9 +51,6 @@ const dateToString = (num1, num2) => {
     var formattedTime = hours + ":" + minutes.substr(-2);
     console.log(formattedTime);
 
-    var rr = new Date(num1);
-    console.log(rr.getDate());
-
     return num1 + "\tTo\t" + num2;
 };
 
@@ -69,7 +65,6 @@ class TechEvent extends React.Component {
 
     componentDidMount = () => {
         axios.get(eventsTechnicalApi).then(async (response)=>{
-            console.log(response.data);
             await this.setState({
                 events: response.data
             });

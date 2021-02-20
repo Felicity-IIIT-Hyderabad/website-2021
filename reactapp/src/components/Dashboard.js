@@ -42,9 +42,7 @@ class Dashboard extends React.Component {
     componentDidMount = () => {
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
         axios.get(eventsApi).then(async (response)=>{
-            console.log(response.data);
             response.data.map((obj)=>{
-                console.log(obj.start_date.slice(8,10));
                 var dateOfEvent = obj.start_date.slice(8,10);
                 if(dateOfEvent == "24"){
                     tempCultEvents["Day1"].push(obj);
