@@ -1,18 +1,18 @@
 import React from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-// import axios from "axios";
+import axios from "axios";
 import Swal from "sweetalert2";
 
 import "./Event.css";
-import * as data from "../sample-data/technical-events.json";
-import * as technicalBackend from "../sample-data/events-technical-backend.json";
+// import * as data from "../sample-data/technical-events.json";
+// import * as technicalBackend from "../sample-data/events-technical-backend.json";
 // import { eventsTechnicalApi } from "../api/";
 
-const showModalEventOne = () => {
+const showModalEventOne = (event) => {
     Swal.fire({
-        title: "Felicity Event One",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        title: event["name"],
+        text: event["description"],
         footer: "Coming Soon.",
         imageUrl: "/images/sample.jpg",
         customClass: {
@@ -27,6 +27,13 @@ const showModalEventOne = () => {
         showCloseButton: true,
         showCancelButton: true,
         cancelButtonText: "Not Now",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log("sent");
+            axios.post("https://felicity.iiit.ac.in/backend/events/"+event["code"]+"/register", {
+                Authorization: JSON.parse(window.localStorage.getItem("user")).token
+            });
+        } 
     });
 };
 
@@ -52,20 +59,17 @@ class TechEvent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            events:{ "default":[] }
+            events: []
         };
     }
 
     componentDidMount = () => {
-        // axios.get(eventsTechnicalApi).then((response)=>{
-        //     console.log(response);
-        // });
-        // console.log()
-        this.setState({
-            events: technicalBackend
+        axios.get("https://felicity.iiit.ac.in/backend/events-technical").then(async (response)=>{
+            console.log(response.data);
+            await this.setState({
+                events: response.data
+            });
         });
-        console.log(technicalBackend);
-        console.log(data);
     }
 
     render() {
@@ -91,15 +95,15 @@ class TechEvent extends React.Component {
 
                 <div className="my-5">
                     <VerticalTimeline>
-                        {this.state.events.default.map((obj,ind)=>{
+                        {this.state.events.map((obj,ind)=>{
                             return(
                                 <VerticalTimelineElement
                                     className="vertical-timeline-element--work"
                                     contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}                                    
                                     date={dateToString(obj.start_date,obj.end_date)}
                                     iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-                                    iconOnClick={showModalEventOne}
-                                    onTimelineElementClick={showModalEventOne}
+                                    iconOnClick={() => showModalEventOne(obj)}
+                                    onTimelineElementClick={() => showModalEventOne(obj)}
                                     key={ind}
                                 >
                                     <h3 className="vertical-timeline-element-title">{obj.name}</h3>
