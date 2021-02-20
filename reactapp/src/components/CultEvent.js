@@ -2,13 +2,17 @@ import { useState } from "react";
 
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import axios from "axios";
+// import axios from "axios";
 import Swal from "sweetalert2";
 
 import "./Event.css";
-import * as culturalEvents from "../sample-data/cultural-events.json";
+// import * as culturalEvents from "../sample-data/cultural-events.json";
+import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
 
-import { eventsCulturalApi } from "../api/";
+// import { eventsCulturalApi } from "../api/";
+
+var cultEvents = { "Day1":[],"Day2":[],"Day3":[] };
+var added = 1;
 
 const CultEvent = () => {
 
@@ -41,8 +45,8 @@ const CultEvent = () => {
         setSelectedDay("Day" + dayNum);
     };
 
-    const dateToString = (num) => {
-        let unix_timestamp = num;
+    const dateToString = (num1, num2) => {
+        let unix_timestamp = 100;
         // Create a new JavaScript Date object based on the timestamp
         // multiplied by 1000 so that the argument is in milliseconds, not seconds.
         var date = new Date(unix_timestamp * 1000);
@@ -55,12 +59,34 @@ const CultEvent = () => {
         var formattedTime = hours + ":" + minutes.substr(-2);
         
         console.log(formattedTime);
-        return formattedTime;
+        return num1 + num2;
     };    
 
-    axios.get(eventsCulturalApi).then((response)=>{
-        console.log(response);
-    });
+    // axios.get(eventsCulturalApi).then((response)=>{
+    //     console.log(response);
+    //     cultEvents = {};
+    // });
+    if(added){
+        added = 0;
+        culturalEventsBackend.default.map((obj)=>{
+            console.log(obj.start_date.slice(8,10));
+            var dateOfEvent = obj.start_date.slice(8,10);
+            if(dateOfEvent == "24"){
+                console.log("AAA");
+                cultEvents["Day1"].push(obj);
+            }
+            else if(dateOfEvent == "25"){
+                console.log("AAC");
+                cultEvents["Day2"].push(obj);
+            }
+            else if(dateOfEvent == "26"){
+                console.log("AAB");
+                cultEvents["Day3"].push(obj);
+            }
+        });
+    }
+    console.log(culturalEventsBackend);
+    console.log(cultEvents);
 
     return (
         <div>
@@ -89,20 +115,20 @@ const CultEvent = () => {
             <div className="my-5">
 
                 <VerticalTimeline>
-                    {culturalEvents.default[selectedDay].map((event, idx) => (
+                    {cultEvents[selectedDay].map((event, idx) => (
                         <VerticalTimelineElement
                             className="vertical-timeline-element--work"
                             contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                             contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
                             iconStyle={{ background: "rgb(133, 150, 243)", color: "#fff" }}
                             iconOnClick={() => showModalEvent(event)}
-                            date={dateToString(event["time"])}
+                            date={dateToString(event["start_date"], event["end_date"])}
                             onTimelineElementClick={() => showModalEvent(event)}
                             dateClassName={"my-date"}
                             key={idx}
                         >
                             <h3 className="vertical-timeline-element-title">{event["name"]}</h3>
-                            {/* <h4 className="vertical-timeline-element-subtitle">{event["time"]}</h4> */}
+                            <h4 className="vertical-timeline-element-subtitle">{event["tagline"]}</h4>
                             <p>
                                 {event["description"]}
                             </p>
