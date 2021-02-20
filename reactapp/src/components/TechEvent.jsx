@@ -1,13 +1,13 @@
 import React from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import axios from "axios";
+// import axios from "axios";
 import Swal from "sweetalert2";
 
 import "./Event.css";
 import * as data from "../sample-data/technical-events.json";
-
-import { eventsTechnicalApi } from "../api/";
+import * as technicalBackend from "../sample-data/events-technical-backend.json";
+// import { eventsTechnicalApi } from "../api/";
 
 const showModalEventOne = () => {
     Swal.fire({
@@ -30,8 +30,8 @@ const showModalEventOne = () => {
     });
 };
 
-const dateToString = (num) => {
-    let unix_timestamp = num;
+const dateToString = (num1, num2) => {
+    let unix_timestamp = 100;
     // Create a new JavaScript Date object based on the timestamp
     // multiplied by 1000 so that the argument is in milliseconds, not seconds.
     var date = new Date(unix_timestamp * 1000);
@@ -42,8 +42,9 @@ const dateToString = (num) => {
     
     // Will display time in 10:30:23 format
     var formattedTime = hours + ":" + minutes.substr(-2);
-    
-    return formattedTime;
+    console.log(formattedTime);
+
+    return num1 + "\tTo\t" + num2;
 };
 
 class TechEvent extends React.Component {
@@ -51,14 +52,20 @@ class TechEvent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            events:data
+            events:{ "default":[] }
         };
     }
 
     componentDidMount = () => {
-        axios.get(eventsTechnicalApi).then((response)=>{
-            console.log(response);
+        // axios.get(eventsTechnicalApi).then((response)=>{
+        //     console.log(response);
+        // });
+        // console.log()
+        this.setState({
+            events: technicalBackend
         });
+        console.log(technicalBackend);
+        console.log(data);
     }
 
     render() {
@@ -83,19 +90,19 @@ class TechEvent extends React.Component {
 
                 <div className="my-5">
                     <VerticalTimeline>
-                        {this.state.events.default["Day1"].map((obj,ind)=>{
+                        {this.state.events.default.map((obj,ind)=>{
                             return(
                                 <VerticalTimelineElement
                                     className="vertical-timeline-element--work"
                                     contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}                                    
-                                    date={dateToString(obj.time)}
+                                    date={dateToString(obj.start_date,obj.end_date)}
                                     iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                                     iconOnClick={showModalEventOne}
                                     onTimelineElementClick={showModalEventOne}
                                     key={ind}
                                 >
                                     <h3 className="vertical-timeline-element-title">{obj.name}</h3>
-                                    {/* <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4> */}
+                                    <h4 className="vertical-timeline-element-subtitle">{obj.tagline}</h4>
                                     <p>
                                         {obj.description}
                                     </p>
