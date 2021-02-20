@@ -1,10 +1,13 @@
 import React from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import axios from "axios";
 import Swal from "sweetalert2";
 
 import "./Event.css";
 import * as data from "../sample-data/technical-events.json";
+
+import { eventsTechnicalApi } from "../api/";
 
 const showModalEventOne = () => {
     Swal.fire({
@@ -40,7 +43,6 @@ const dateToString = (num) => {
     // Will display time in 10:30:23 format
     var formattedTime = hours + ":" + minutes.substr(-2);
     
-    console.log(formattedTime);
     return formattedTime;
 };
 
@@ -54,7 +56,9 @@ class TechEvent extends React.Component {
     }
 
     componentDidMount = () => {
-        console.log(this.state.events);
+        axios.get(eventsTechnicalApi).then((response)=>{
+            console.log(response);
+        });
     }
 
     render() {

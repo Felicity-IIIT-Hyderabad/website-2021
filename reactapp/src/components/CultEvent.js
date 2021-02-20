@@ -2,10 +2,13 @@ import { useState } from "react";
 
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import axios from "axios";
 import Swal from "sweetalert2";
 
 import "./Event.css";
 import * as culturalEvents from "../sample-data/cultural-events.json";
+
+import { eventsCulturalApi } from "../api/";
 
 const CultEvent = () => {
 
@@ -54,6 +57,10 @@ const CultEvent = () => {
         console.log(formattedTime);
         return formattedTime;
     };    
+
+    axios.get(eventsCulturalApi).then((response)=>{
+        console.log(response);
+    });
 
     return (
         <div>
