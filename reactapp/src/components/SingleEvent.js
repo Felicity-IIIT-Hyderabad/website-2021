@@ -50,8 +50,8 @@ const showModalEventOne = (event) => {
         cancelButtonText: "Not Now",
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{
-                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)
             }).catch((error)=>
