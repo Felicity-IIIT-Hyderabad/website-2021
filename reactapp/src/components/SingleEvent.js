@@ -7,7 +7,7 @@ import { Col, Row, Button, Card, CardBody, CardTitle } from "reactstrap";
 import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { eventsApi, eventsRegisteredApi, eventsRegisterApi } from "../api/";
+import { eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi } from "../api/";
 
 // import { Button } from "react-scroll";
 const classes = {
@@ -50,12 +50,7 @@ const showModalEventOne = (event) => {
         cancelButtonText: "Not Now",
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.get(eventsRegisteredApi,{
-                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-            }).then((res)=>{
-                console.log(res)
-            });
-            axios.post(eventsRegisterApi,{
+            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{
                 headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)

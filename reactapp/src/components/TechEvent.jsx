@@ -8,7 +8,7 @@ import { Row, Col, Button } from "reactstrap";
 import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
-import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsApi } from "../api/";
+import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
 
 const showModalEventOne = (event) => {
     Swal.fire({
@@ -30,7 +30,7 @@ const showModalEventOne = (event) => {
         cancelButtonText: "Not Now",
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.post(eventsApi + "/" + event["code"] + "/register",{
+            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{
                 headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)
