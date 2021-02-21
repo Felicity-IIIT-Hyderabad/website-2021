@@ -8,10 +8,9 @@ import { Row, Col, Button } from "reactstrap";
 import "./Event.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
-import { eventsCulturalApi, eventsRegisteredApi, eventsRegisterApi, eventsApi } from "../api/";
+import { eventsCulturalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
 
 function addSuperScript(number){
-    console.log(number % 10);
     if((number % 10 >= 4) || (number % 10 == 0)){
         return "th"
     }
@@ -135,11 +134,13 @@ class CultEvent extends React.Component {
             cancelButtonText: "Not Now",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post(eventsApi + "/" + event["code"] + "/register",{
+                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                 }).then((res)=>{
-                    console.log(res)
-                });
+                    window.location.reload();
+                }).catch((error)=>
+                    console.log(error)
+                );
             } 
         });
     };
@@ -162,11 +163,9 @@ class CultEvent extends React.Component {
         for (let ind = 0; ind < this.state.myEvents.length; ind++) {
             if(this.state.myEvents[ind]["code"] == obj.code){
                 flag = 0;
-                console.log("registered already");
             }
         }
         if(!flag){
-            console.log("okay");
             return(
                 <Button color="success">Registered</Button>
             )

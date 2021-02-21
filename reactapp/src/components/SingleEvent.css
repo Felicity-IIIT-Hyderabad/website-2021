@@ -5,7 +5,7 @@
 	border-radius: 8px;
 	color: 	white;
 	margin-top: 5rem;
-	background-image: linear-gradient(rgba(81, 81, 81, 0.47) 0%, #000000 100%), url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+	background-image: url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
 }
 
 .single-event-details{
