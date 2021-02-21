@@ -8,7 +8,7 @@ import { Row, Col, Button } from "reactstrap";
 import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
-import { eventsTechnicalApi, eventsRegisteredApi } from "../api/";
+import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi } from "../api/";
 
 const showModalEventOne = (event) => {
     Swal.fire({
@@ -35,9 +35,10 @@ const showModalEventOne = (event) => {
             }).then((res)=>{
                 console.log(res)
             });
-            console.log(eventsRegisteredApi);
-            axios.post("https://felicity.iiit.ac.in/backend/events/"+event["code"]+"/register", {
-                Authorization: JSON.parse(window.localStorage.getItem("user")).token
+            axios.post(eventsRegisterApi,{
+                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+            }).then((res)=>{
+                console.log(res)
             });
         } 
     });

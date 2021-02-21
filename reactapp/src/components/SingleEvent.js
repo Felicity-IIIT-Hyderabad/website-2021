@@ -6,7 +6,9 @@
 import { Col, Row, Button, Card, CardBody, CardTitle } from "reactstrap";
 import React from "react";
 import axios from "axios";
-import { eventsApi } from "../api/";
+import Swal from "sweetalert2";
+import { eventsApi, eventsRegisteredApi, eventsRegisterApi } from "../api/";
+
 // import { Button } from "react-scroll";
 const classes = {
     root: {
@@ -29,6 +31,40 @@ function checkUndef(string){
         return string.split(",");
     }
 }
+
+const showModalEventOne = (event) => {
+    Swal.fire({
+        title: event["name"],
+        text: event["description"],
+        footer: "Coming Soon.",
+        imageUrl: "/teams/a.jpg",
+        customClass: {
+            title: "text-danger error-message",
+            content: "error-message text-white",
+            confirmButton: "game-button bg-danger",
+            image: "error-image-swal",
+        },
+        width: "64em",
+        background: "rgba(0,0,0,1)",
+        confirmButtonText: "Register Now",
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonText: "Not Now",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.get(eventsRegisteredApi,{
+                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+            }).then((res)=>{
+                console.log(res)
+            });
+            axios.post(eventsRegisterApi,{
+                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+            }).then((res)=>{
+                console.log(res)
+            });
+        } 
+    });
+};
 
 
 //#TODO: Add club logo to JSON data and change second image to {poster}
@@ -72,18 +108,19 @@ class SingleEvent extends React.Component{
 
     }
 
+
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.start_date);
         var today = new Date();
         if(startDate > today){
             return(
-                <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+                <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>
             );
         }
         else if(startDate <= today && endDate > today){
             return(
-                <Button onClick={() => this.showModalEvent(obj)} color="warning">warning</Button>
+                <Button onClick={() => showModalEventOne(obj)} color="warning">warning</Button>
             );
         }
         else{
