@@ -72,6 +72,27 @@ class SingleEvent extends React.Component{
 
     }
 
+    checkLiveOrNot = (obj) => {
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.start_date);
+        var today = new Date();
+        if(startDate > today){
+            return(
+                <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+            );
+        }
+        else if(startDate <= today && endDate > today){
+            return(
+                <Button onClick={() => this.showModalEvent(obj)} color="warning">warning</Button>
+            );
+        }
+        else{
+            return(
+                <Button color="success">Over</Button>
+            );
+        }
+    }
+
     render(){
         return (
             <div className="container events-list" style={{ marginTop: "6rem" }}>
@@ -90,7 +111,7 @@ class SingleEvent extends React.Component{
                         <Card style={{ background: "black", color:"white", borderColor: "white" }}>
                             <CardBody>
                                 <div className="text-right">
-                                    <Button color="danger" onClick={() => this.registerMe()}> Register </Button>
+                                    {this.checkLiveOrNot(this.state.event)}
                                     <br/>
                                     Deadline:{this.state.event.end_date}
                                 </div>

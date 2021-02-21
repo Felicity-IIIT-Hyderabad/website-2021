@@ -1,3 +1,44 @@
+#tech-circle1 {
+	position: absolute;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.64)), rgba(59, 80, 89, 0.64);
+    border-radius: 50%;
+	width: 684px;
+	height: 684px;
+	left: -87px;
+	top: -109px;
+}
+
+#tech-circle2 {
+	position: absolute;
+    background: rgba(210, 205, 91, 0.69);
+    border-radius: 50%;
+    width: 944px;
+	height: 944px;
+	left: -268px;
+	top: -262px;
+}
+
+#tech-circle3 {
+	position: absolute;
+    background: rgba(56, 195, 255, 0.69);
+    border-radius: 50%;
+    width: 1028px;
+	height: 1028px;
+	left: -310px;
+	top: -281px;
+}
+
+#tech-circle4 {
+	position: absolute;
+    background: rgba(32, 81, 205, 0.69);
+    border-radius: 50%;
+    width: 1055px;
+	height: 1054px;
+	left: -275px;
+	top: -242px;
+}
+
+
 #cult-circle1 {
 	position: absolute;
     background: linear-gradient(0deg, rgba(59, 80, 89, 0.64), rgba(59, 80, 89, 0.64)), rgba(59, 80, 89, 0.64);
@@ -44,7 +85,7 @@
 
 #tech-circle-image {
 	position: absolute;
-    background: url("https://www.collegeatlas.org/wp-content/uploads/2014/06/Top-Party-Schools-main-image.jpg?__cf_chl_jschl_tk__=72e673a8620694c1f5e4036f2d70d528587e1eb0-1613828621-0-Ad69jq2VFtiYJVd7Vjd6-cbHK6IfCgCIujqhydzpWyf1bU6deW4Uk67GM9zmHtgJoQuz3LHRa9-weavPIpvaW5BNCBY0qPKM0jFHJzdXy8EB6Qmpz6mSo_zDmDtEnecLXlYALdbo21G-ln3nSIxT0yYk4ITDDdHyZaIExVmz_gWQqsQ7fBIwEhabAz2n0NWOOKszGTAqWnP0CKS9byg8b-GG_FfbwVgrGhZ2skI585g5X5yYL9ImVCsVmvYNWK6tOv5zAHAUVVahld1ePzkcEOSGL-jCvfYH4lkLX-W4rEN0MSbTjMnRmCIMPF3Sg3bgSbq5jtdFA8gTz1U3_lg50vAchYMCzd-D6j-3HP10iTYXzCAEO-8y-xQiw0ZvTOEqCA") center;
+    background: url("../images/images/event1.jpeg") center;
     background-size: cover;
     border-radius: 50%;
 	width: 644px;
@@ -56,7 +97,7 @@
 
 #cult-circle-image {
 	position: absolute;
-    background: url("https://static.toiimg.com/thumb/msid-75446211,width-1070,height-580,resizemode-75,imgsize-153527,pt-32,y_pad-40/75446211.jpg") center;
+    background: url("../images/images/inaugrals-294.jpg") center;
     background-size: cover;
     border-radius: 50%;
 	width: 644px;
@@ -64,47 +105,6 @@
 	left: -87px;
 	top: -109px;
 	opacity: 0.8;
-}
-
-
-#tech-circle1 {
-	position: absolute;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.64)), rgba(59, 80, 89, 0.64);
-    border-radius: 50%;
-	width: 684px;
-	height: 684px;
-	left: -87px;
-	top: -109px;
-}
-
-#tech-circle2 {
-	position: absolute;
-    background: rgba(210, 205, 91, 0.69);
-    border-radius: 50%;
-    width: 944px;
-	height: 944px;
-	left: -268px;
-	top: -262px;
-}
-
-#tech-circle3 {
-	position: absolute;
-    background: rgba(56, 195, 255, 0.69);
-    border-radius: 50%;
-    width: 1028px;
-	height: 1028px;
-	left: -310px;
-	top: -281px;
-}
-
-#tech-circle4 {
-	position: absolute;
-    background: rgba(32, 81, 205, 0.69);
-    border-radius: 50%;
-    width: 1055px;
-	height: 1054px;
-	left: -275px;
-	top: -242px;
 }
 
 .image-absolute img{

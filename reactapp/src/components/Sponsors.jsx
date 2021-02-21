@@ -101,7 +101,7 @@ const Sponsors = ({ id }) => {
                             </Col>
                             <Col md={4}>
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top className="past-sponsor-logo" src="/logos/ajio.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ajio.png" alt="Card image cap" style={{ backgroundColor: "black"  }}/>
                                 </Card>
                             </Col>
                             <Col md={4} className="my-border-left">

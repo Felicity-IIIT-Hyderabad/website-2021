@@ -37,21 +37,65 @@ const showModalEventOne = (event) => {
     });
 };
 
-const dateToString = (num1, num2) => {
-    let unix_timestamp = 100;
+function amOrPM(hours){
+    if(hours >= 12){
+        return "\t PM"
+    }
+    else{
+        return "\t AM"
+    }
+}
+
+function addSuperScript(number){
+    console.log(number % 10);
+    if(number % 10 > 4 || (number % 10 == 0)){
+        return "th"
+    }
+    else if(number % 10 == 3){
+        return "rd"
+    }
+    else if(number % 10 == 2){
+        return "nd"
+    }
+    else if(number % 10 == 1){
+        return "st"
+    }        
+}
+
+
+function formatDate(num1){
     // Create a new JavaScript Date object based on the timestamp
     // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-    var date = new Date(unix_timestamp * 1000);
+    var startDate = new Date(num1);
+    // var endDate = new Date(num2);
+    var day = startDate.getDate();
+    var mon = startDate.getMonth();
     // Hours part from the timestamp
-    var hours = date.getHours();
+    var hours = startDate.getHours();
     // Minutes part from the timestamp
-    var minutes = "0" + date.getMinutes();
-    
-    // Will display time in 10:30:23 format
-    var formattedTime = hours + ":" + minutes.substr(-2);
-    console.log(formattedTime);
+    var minutes = "0" + startDate.getMinutes();
 
-    return num1 + "\tTo\t" + num2;
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "Aug";
+    month[8] = "Sept";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+
+    // Will display time in 10:30:23 format
+    var formattedTime = day + addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);;
+    return formattedTime;
+}
+
+const dateToString = (num1, num2) => {
+    return formatDate(num1) + "\t To \t" + formatDate(num2);
 };
 
 class TechEvent extends React.Component {
@@ -69,6 +113,27 @@ class TechEvent extends React.Component {
                 events: response.data
             });
         });
+    }
+
+    checkLiveOrNot = (obj) => {
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.start_date);
+        var today = new Date();
+        if(startDate > today){
+            return(
+                <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+            );
+        }
+        else if(startDate <= today && endDate > today){
+            return(
+                <Button onClick={() => this.showModalEvent(obj)} color="warning">warning</Button>
+            );
+        }
+        else{
+            return(
+                <Button color="success">Over</Button>
+            );
+        }
     }
 
     render() {
@@ -110,7 +175,7 @@ class TechEvent extends React.Component {
                                         <br/>
                                         <Row>
                                             <Col md={4} xs={3}>
-                                                <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>
+                                                {this.checkLiveOrNot(obj)}
                                             </Col>
                                             <Col md={4} xs={1}></Col>                                 
                                             <Col md={4} xs={2}>

@@ -108,7 +108,7 @@ function renderEvents(props, isEventsOpen, toggleEvents){
                             >
                                 Events
                             </DropdownToggle>
-                            <DropdownMenu style={{ backgroundColor: "grey" }}>
+                            <DropdownMenu style={{ backgroundColor: "white" }}>
                                 <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
                                 <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-technical"}>Technical</DropdownItem>
                                 <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-cultural"}>Cultural</DropdownItem>
@@ -185,8 +185,8 @@ const Navbar = (props) => {
             <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0" style={{ fontSize:"1.5rem", color:"#000000" }}>
                 <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
                     <NavItem title={func(props)} />
+                    {renderHome(props)}                    
                     {renderEvents(props, isEventsOpen, toggleEvents)}
-                    {renderHome(props)}
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem2 to="/our-team" title="Our Team" />

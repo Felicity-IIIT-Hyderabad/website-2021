@@ -11,6 +11,62 @@ import "./Event.css";
 
 import { eventsCulturalApi } from "../api/";
 
+function addSuperScript(number){
+    console.log(number % 10);
+    if((number % 10 >= 4) || (number % 10 == 0)){
+        return "th"
+    }
+    else if(number % 10 == 3){
+        return "rd"
+    }
+    else if(number % 10 == 2){
+        return "nd"
+    }
+    else if(number % 10 == 1){
+        return "st"
+    }        
+}
+
+function amOrPM(hours){
+    if(hours >= 12){
+        return "\t PM"
+    }
+    else{
+        return "\t AM"
+    }
+}
+
+function formatDate(num1){
+    // Create a new JavaScript Date object based on the timestamp
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var startDate = new Date(num1);
+    // var endDate = new Date(num2);
+    var day = startDate.getDate();
+    var mon = startDate.getMonth();
+    // Hours part from the timestamp
+    var hours = startDate.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + startDate.getMinutes();
+
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "Aug";
+    month[8] = "Sept";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+
+    // Will display time in 10:30:23 format
+    var formattedTime = day + addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);
+    return formattedTime;
+}
+
 class CultEvent extends React.Component {
 
     constructor(props){
@@ -82,23 +138,31 @@ class CultEvent extends React.Component {
             selectedDay: "Day"+dayNum
         });
     };
-
+    
     dateToString = (num1, num2) => {
-        let unix_timestamp = 100;
-        // Create a new JavaScript Date object based on the timestamp
-        // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-        var date = new Date(unix_timestamp * 1000);
-        // Hours part from the timestamp
-        var hours = date.getHours();
-        // Minutes part from the timestamp
-        var minutes = "0" + date.getMinutes();
-        
-        // Will display time in 10:30:23 format
-        var formattedTime = hours + ":" + minutes.substr(-2);
-        
-        console.log(formattedTime);
-        return num1 + num2;
-    };    
+        return formatDate(num1) + "\t To \t" + formatDate(num2);
+    };
+
+    checkLiveOrNot = (obj) => {
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.start_date);
+        var today = new Date();
+        if(startDate > today){
+            return(
+                <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+            );
+        }
+        else if(startDate <= today && endDate > today){
+            return(
+                <Button onClick={() => this.showModalEvent(obj)} color="warning">warning</Button>
+            );
+        }
+        else{
+            return(
+                <Button color="success">Over</Button>
+            );
+        }
+    }
 
     // axios.get(eventsCulturalApi).then((response)=>{
     //     console.log(response);
@@ -151,11 +215,11 @@ class CultEvent extends React.Component {
                                     <br/>
                                     <Row>
                                         <Col md={4} xs={3}>
-                                            <Button onClick={() => this.showModalEvent(event)} color="danger">Register Now</Button>
+                                            {this.checkLiveOrNot(event)}
                                         </Col>
                                         <Col md={4} xs={1}></Col>                                 
                                         <Col md={4} xs={2}>
-                                        <Button onClick={() => window.open("/events/" + event.code.toString())} color="warning">More Details</Button>
+                                            <Button onClick={() => window.open("/events/" + event.code.toString())} color="warning">More Details</Button>
                                         </Col>
                                     </Row>                                    
                                 </p>
