@@ -143,7 +143,7 @@ class SingleEvent extends React.Component{
                             <CardTitle>
                                 NAME: {this.state.event.name}
                                 <br/>
-                                {this.state.event.description}
+                                DESCRIPTION:{this.state.event.description}
                             </CardTitle>
                             <CardBody>
                                 Organizers:

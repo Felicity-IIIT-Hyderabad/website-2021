@@ -14,15 +14,15 @@ import OurTeam from "./components/OurTeam";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import { loginUser } from "./actions/login";
 
-// import { loginUser, logoutUser } from "./actions/login";
+import { getUser } from "./actions/login";
 
-var userKey = 1;
+var userKey = true;
 
 const App = (props) => {
-    if (userKey) {
-        userKey = 0;
-        // getUser();
-        console.log(props);
+    if (userKey != props.userInfo.authenticated) {
+        userKey = props.userInfo.authenticated;
+        getUser();
+        // console.log(props);
     }
 
     function renderEvents(){

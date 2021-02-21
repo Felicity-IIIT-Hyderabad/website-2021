@@ -47,6 +47,7 @@ const NavItem2 = ({ to, title }) => {
 };
 
 function func(props) {
+    console.log(props);
     try {
         if (props.props.userInfo.loginReducer.authenticated)
             return (
@@ -99,7 +100,8 @@ function renderEvents(props, isEventsOpen, toggleEvents){
         else{
             return(
                 <RSNavItem style={{ color:"white" }}>
-                    <NavLink>
+                    <NavLink
+                    >
                         <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
                             <DropdownToggle
                                 tag="span"
@@ -150,8 +152,6 @@ const Navbar = (props) => {
     function renderHome(props){
         console.log(props);
         var str = "https://felicity.iiit.ac.in/";
-        console.log(window.location.href.split("/"));
-        console.log(window.location.href.split("/").length);
         if(window.location.href.split("/").length >= 4 && window.location.href.split("/")[3] != ""){
             return (
                 <NavItem2 to="/" title="Home" />                
