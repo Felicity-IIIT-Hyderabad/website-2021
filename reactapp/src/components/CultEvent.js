@@ -151,7 +151,7 @@ class CultEvent extends React.Component {
 
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
-        var endDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
         var today = new Date();
         if(startDate > today){
             return(
@@ -160,7 +160,7 @@ class CultEvent extends React.Component {
         }
         else if(startDate <= today && endDate > today){
             return(
-                <Button onClick={() => this.showModalEvent(obj)} color="warning">warning</Button>
+                <Button onClick={() => this.showModalEvent(obj)} color="warning">Join Now</Button>
             );
         }
         else{

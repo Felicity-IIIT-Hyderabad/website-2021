@@ -120,7 +120,7 @@ class SingleEvent extends React.Component{
         }
         else if(startDate <= today && endDate > today){
             return(
-                <Button onClick={() => showModalEventOne(obj)} color="warning">warning</Button>
+                <Button onClick={() => showModalEventOne(obj)} color="warning">Join Now</Button>
             );
         }
         else{

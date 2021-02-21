@@ -124,16 +124,16 @@ class TechEvent extends React.Component {
 
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
-        var endDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
         var today = new Date();
         if(startDate > today){
             return(
-                <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+                <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>
             );
         }
         else if(startDate <= today && endDate > today){
             return(
-                <Button onClick={() => this.showModalEvent(obj)} color="warning">warning</Button>
+                <Button onClick={() => showModalEventOne(obj)} color="warning">Join Now</Button>
             );
         }
         else{
