@@ -126,9 +126,11 @@ class SingleEvent extends React.Component{
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
+                        {console.log(this.state.event)}
                         <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only">Register Now</button>
                         <h1 className="text-white"><strong>Description</strong></h1>
                         <p className="mt-3 text-white single-event-details">{this.state.event.description}</p>
+                        <p className="mt-3 text-white single-event-details">{this.state.event.start_date} to {this.state.event.end_date}</p>
                     </div>
                     <div className="col-md-4 px-3">
                         <div className="text-center">

@@ -51,7 +51,7 @@ function amOrPM(hours){
 }
 
 function addSuperScript(number){
-    if(number % 10 > 4 || (number % 10 == 0)){
+    if(number % 10 >= 4 || (number % 10 == 0)){
         return "th"
     }
     else if(number % 10 == 3){
@@ -98,6 +98,9 @@ function formatDate(num1){
 }
 
 const dateToString = (num1, num2) => {
+    if(num1 == null || num2 == null){
+        return "Coming Soon!";
+    }
     return formatDate(num1) + "\t To \t" + formatDate(num2);
 };
 
@@ -109,6 +112,33 @@ class TechEvent extends React.Component {
             events: [],
             myEvents: []
         };
+    }
+
+    compare(a,b){
+        var date1 = new Date(a.start_date);
+        var date2 = new Date(b.start_date);
+        return date1 > date2;
+    }
+
+    sortDateWise(array){
+        return array.sort(this.compare)
+    }
+
+    filterArray(array){
+        var filteredArray = [];
+        var dirt = [];
+        for (let ind = 0; ind < array.length; ind++) {
+            if(array[ind].start_date == null || array[ind].end_date == null){
+                dirt.push(array[ind]);
+            }
+            else{
+                filteredArray.push(array[ind]);
+            }
+        }
+        console.log(filteredArray);
+        filteredArray =  filteredArray.concat(dirt);
+        console.log(dirt);        
+        return filteredArray;
     }
 
     componentDidMount = () => {
@@ -124,13 +154,23 @@ class TechEvent extends React.Component {
             console.log(error)
         );     
         axios.get(eventsTechnicalApi).then(async (response)=>{
+            var array = this.sortDateWise(response.data);
+            console.log(array);
+            var filteredArray = this.filterArray(array);
             this.setState({
-                events: response.data
+                events: filteredArray
             });
+            // console.log(this.sortDateWise(response.data));
         });
     }
 
     checkLiveOrNot = (obj) => {
+        if(obj.start_date == null || obj.start_date == null ){
+            console.log("null");
+            return(
+                <Button color="secondary">Coming Soon</Button>
+            );            
+        }
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.end_date);
         var today = new Date();

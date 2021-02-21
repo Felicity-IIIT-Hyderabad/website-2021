@@ -26,7 +26,7 @@ function addSuperScript(number){
 }
 
 function amOrPM(hours){
-    if(hours >= 12){
+    if(hours > 12){
         return "\t PM"
     }
     else{
@@ -77,6 +77,16 @@ class CultEvent extends React.Component {
         };
     }
 
+    compare(a,b){
+        var date1 = new Date(a.start_date);
+        var date2 = new Date(b.start_date);
+        return date1 > date2;
+    }
+
+    sortDateWise(array){
+        return array.sort(this.compare)
+    }
+    
     componentDidMount = async () => {
 
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
@@ -105,6 +115,12 @@ class CultEvent extends React.Component {
                     tempCultEvents["Day3"].push(obj);
                 }
             });
+
+            tempCultEvents["Day1"] = this.sortDateWise(tempCultEvents["Day1"])                    
+            tempCultEvents["Day2"] = this.sortDateWise(tempCultEvents["Day2"])                    
+            tempCultEvents["Day3"] = this.sortDateWise(tempCultEvents["Day3"])
+
+            console.log(this.sortDateWise(tempCultEvents["Day1"]));
 
             await this.setState({
                 cultEvents: tempCultEvents

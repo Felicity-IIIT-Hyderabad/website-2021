@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Sponsors from "./components/Sponsors";
 import TechEvent from "./components/TechEvent";
 import SingleEvent from "./components/SingleEvent";
+import SingleEventRplay from "./components/SingleEvents/SingleEventRplay";
 import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
@@ -72,6 +73,7 @@ const App = (props) => {
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/login" component={Login} />
                         <Route path="/our-team" component={OurTeam} />
+                        <Route exact path="/events/rplay" component={SingleEventRplay} />
                         <Route path="/events/*" component={SingleEvent} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />

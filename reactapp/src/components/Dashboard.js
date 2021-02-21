@@ -39,21 +39,36 @@ class Dashboard extends React.Component {
         carousel.scrollBy(400, 0);
     };
 
+    compare(a,b){
+        var date1 = new Date(a.start_date);
+        var date2 = new Date(b.start_date);
+        return date1 > date2;
+    }
+
+    sortDateWise(array){
+        return array.sort(this.compare)
+    }
+
     componentDidMount = () => {
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
         axios.get(eventsApi).then(async (response)=>{
             response.data.map((obj)=>{
-                var dateOfEvent = obj.start_date.slice(8,10);
-                if(dateOfEvent == "24"){
-                    tempCultEvents["Day1"].push(obj);
-                }
-                else if(dateOfEvent == "25"){
-                    tempCultEvents["Day2"].push(obj);
-                }
-                else if(dateOfEvent == "26"){
-                    tempCultEvents["Day3"].push(obj);
-                }
+                if(obj.start_date != null){
+                    console.log(obj.start_date);
+                    var dateOfEvent = obj.start_date.slice(8,10);
+                    if(dateOfEvent == "24"){
+                        tempCultEvents["Day1"].push(obj);
+                    }
+                    else if(dateOfEvent == "25"){
+                        tempCultEvents["Day2"].push(obj);
+                    }
+                    else if(dateOfEvent == "26"){
+                        tempCultEvents["Day3"].push(obj);
+                    }
+                }                
             });
+            
+            console.log(this.sortDateWise(tempCultEvents["Day1"]));
 
             await this.setState({
                 events: tempCultEvents
