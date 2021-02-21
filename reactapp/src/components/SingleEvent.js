@@ -51,10 +51,12 @@ const showModalEventOne = (event) => {
     }).then((result) => {
         if (result.isConfirmed) {
             axios.post(eventsBaseApi + "/" + event["code"] + "/register",{
-                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
             }).then((res)=>{
                 console.log(res)
-            });
+            }).catch((error)=>
+                console.log(error)
+            );
         } 
     });
 };
@@ -66,7 +68,8 @@ class SingleEvent extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            event: []
+            event: [],
+            myEvents: []
         }
     }
 

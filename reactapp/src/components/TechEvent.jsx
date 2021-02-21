@@ -31,7 +31,7 @@ const showModalEventOne = (event) => {
     }).then((result) => {
         if (result.isConfirmed) {
             axios.post(eventsBaseApi + "/" + event["code"] + "/register",{
-                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
             }).then((res)=>{
                 console.log(res)
             }).catch((error)=>
