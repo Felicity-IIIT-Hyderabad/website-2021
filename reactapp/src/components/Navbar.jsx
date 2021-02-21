@@ -47,7 +47,6 @@ const NavItem2 = ({ to, title }) => {
 };
 
 function func(props) {
-    console.log(props);
     try {
         if (props.props.userInfo.loginReducer.authenticated)
             return (
@@ -150,7 +149,6 @@ const Navbar = (props) => {
     }, []);
 
     function renderHome(props){
-        console.log(props);
         var str = "https://felicity.iiit.ac.in/";
         if(window.location.href.split("/").length >= 4 && window.location.href.split("/")[3] != ""){
             return (

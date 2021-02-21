@@ -6,7 +6,7 @@
 import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { eventsApi, eventsRegisteredApi, eventsRegisterApi } from "../api/";
+import { eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi } from "../api/";
 
 import "./SingleEvent.css";
 
@@ -41,16 +41,13 @@ const showModalEventOne = (event) => {
         cancelButtonText: "Not Now",
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.get(eventsRegisteredApi,{
-                headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")).token }
+            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
-                console.log(res);
-            });
-            axios.post(eventsRegisterApi,{
-                headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")).token }
-            }).then((res)=>{
-                console.log(res);
-            });
+                window.location.reload();
+            }).catch((error)=>
+                console.log(error)
+            );
         } 
     });
 };
@@ -81,15 +78,11 @@ class SingleEvent extends React.Component{
             console.log(error)
         );        
         axios.get(eventsApi).then(async (response)=>{
-            console.log(response.data);
             var myEvent = response.data.filter((obj) => obj.code == eventId);
-            console.log(myEvent[0]);
             this.setState({
                 event:myEvent[0]
             });
-        });    
-        console.log(this.props.match.params["0"]);
-
+        });
     }
 
 
@@ -102,11 +95,9 @@ class SingleEvent extends React.Component{
         for (let ind = 0; ind < this.state.myEvents.length; ind++) {
             if(this.state.myEvents[ind]["code"] == obj.code){
                 flag = 0;
-                console.log("registered already");
             }
         }
         if(!flag){
-            console.log("okay");
             return(
                 <button className="btn btn-success rounded-pill py-2 w-100 desktop-only">Registered</button>
             );
