@@ -101,12 +101,30 @@ const Sponsors = ({ id }) => {
                             </Col>
                             <Col md={4}>
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top className="past-sponsor-logo" src="/logos/ajio.png" alt="Card image cap" style={{ backgroundColor: "black"  }}/>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/google.png" alt="Card image cap" style={{ backgroundColor: "black"  }}/>
                                 </Card>
                             </Col>
                             <Col md={4} className="my-border-left">
                                 <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
-                                    <CardImg top className="past-sponsor-logo" src="/logos/ebay.png" alt="Card image cap" />
+                                    <CardImg top className="past-sponsor-logo" src="/logos/uber.png" alt="Card image cap" />
+                                </Card>
+                            </Col>
+                        </Row>
+                        <div className="horizontal-margin" />
+                        <Row className="d-flex align-items-center">
+                            <Col md={4} className="my-border-right">
+                                <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/goldman.png" alt="Card image cap" />
+                                </Card>
+                            </Col>
+                            <Col md={4}>
+                                <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/zomato.png" alt="Card image cap" />
+                                </Card>
+                            </Col>
+                            <Col md={4} className="my-border-left">
+                                <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/shaw.png" alt="Card image cap" />
                                 </Card>
                             </Col>
                         </Row>
@@ -128,6 +146,24 @@ const Sponsors = ({ id }) => {
                                 </Card>
                             </Col>
                         </Row>s
+                        <div className="horizontal-margin" />
+                        <Row className="d-flex align-items-center">
+                            <Col md={4} className="my-border-right">
+                                <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ajio.png" alt="Card image cap" />
+                                </Card>
+                            </Col>
+                            <Col md={4}>
+                                <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/ebay.png" alt="Card image cap" />
+                                </Card>
+                            </Col>
+                            <Col md={4} className="my-border-left">
+                                <Card style={{ backgroundColor: "#000", borderColor: "#000" }}>
+                                    <CardImg top className="past-sponsor-logo" src="/logos/red_bull.png" alt="Card image cap" />
+                                </Card>
+                            </Col>
+                        </Row>
 
                     </ScrollAnimation>
                     {/* <ScrollAnimation animateIn="fadeIn">
