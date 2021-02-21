@@ -9,6 +9,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { eventsApi, eventsRegisteredApi, eventsRegisterApi } from "../api/";
 
+import "./SingleEvent.css"
+
 // import { Button } from "react-scroll";
 const classes = {
     root: {
@@ -71,6 +73,7 @@ class SingleEvent extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            myEvents: [],
             event: []
         }
     }
@@ -78,7 +81,7 @@ class SingleEvent extends React.Component{
     componentDidMount = () => {
         var eventId = this.props.match.params["0"];
         axios.get(eventsRegisteredApi,{
-            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : ""}
         }).then((res)=>{
             {
                 this.setState({
@@ -137,80 +140,39 @@ class SingleEvent extends React.Component{
 
     render(){
         return (
-            <div className="container events-list" style={{ marginTop: "6rem" }}>
-                <Row>
-                    <Col md={12}>
-                        {/* <Card>
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card> */}
-                        <Card style={{ background: "black", color:"white", borderColor: "white" }}>
-                            <CardBody>
-                                <div className="text-right">
-                                    {this.checkLiveOrNot(this.state.event)}
-                                    <br/>
-                                    Deadline:{this.state.event.end_date}
-                                </div>
-                                <div className="text-left">
-                                Prizes worth:  
-                                {console.log(this.state.event)}
-                                    <ul>
-                                        <li>
-                                            A
-                                        </li>
-                                        <li>
-                                            B
-                                        </li>
-                                        <li>
-                                            B
-                                        </li>
-                                        <li>
-                                            B
-                                        </li>                                                                                        
-                                    </ul>
-                                </div>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={8} style={{  marginRight: "0rem" }}>
-                        <Card style={{ color:"white", backgroundColor: "black", borderColor:"white" }}>
-                            <CardTitle>
-                                NAME: {this.state.event.name}
-                                <br/>
-                                DESCRIPTION:{this.state.event.description}
-                            </CardTitle>
-                            <CardBody>
-                                Organizers:
-                                <ul>
-                                    {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
-                                        <li>
-                                            {obj}
-                                        </li>
-                                    )}
-                                </ul>
-                                Rules:
-                            </CardBody>
-                        </Card>
-                    </Col>
-                    <Col md={4}>
-                        <Card style={{ color:"white", backgroundColor: "black", borderColor:"white" }}>
-                            <CardTitle>
-                                LOGO
-                            </CardTitle>
-                            <CardBody>
-                                ADD
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
+            <div className="container-fluid events-list" style={{ marginTop: "6rem" }}>
+
+                <div className="banner">
+                </div>
+
+                <div className="row mt-5 mx-2">
+                    <div className="col-md-8 single-event-contain">
+                    <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only">Register Now</button>
+                        <h1 className="text-white"><strong>Description</strong></h1>
+                        <p className="mt-3 text-white single-event-details">{this.state.event.description}</p>
+                    </div>
+                    <div className="col-md-4 px-3">
+                        <div className="text-center">
+                            <button className="btn btn-primary rounded-pill py-2 w-100 desktop-only">Register Now</button>
+                        </div>
+                        <h1 className="text-white mt-3"><strong>Prizes</strong></h1>
+                        <ul className="text-white single-event-details">
+                            {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
+                                <li>
+                                    {obj}
+                                </li>
+                            )}
+                        </ul>
+                        <h1 className="text-white mt-3"><strong>Organizers</strong></h1>
+                        <ul className="text-white single-event-details">
+                            {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
+                                <li>
+                                    {obj}
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                </div>
 
             </div>
         );
