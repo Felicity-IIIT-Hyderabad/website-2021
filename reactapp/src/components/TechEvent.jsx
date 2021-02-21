@@ -51,7 +51,6 @@ function amOrPM(hours){
 }
 
 function addSuperScript(number){
-    console.log(number % 10);
     if(number % 10 > 4 || (number % 10 == 0)){
         return "th"
     }
@@ -139,11 +138,9 @@ class TechEvent extends React.Component {
         for (let ind = 0; ind < this.state.myEvents.length; ind++) {
             if(this.state.myEvents[ind]["code"] == obj.code){
                 flag = 0;
-                console.log("registered already");
             }
         }
         if(!flag){
-            console.log("okay");
             return(
                 <Button color="success">Registered</Button>
             )

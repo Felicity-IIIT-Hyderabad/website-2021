@@ -10,7 +10,6 @@ const Workshop = () => {
     const [cpExpand, setCpExpand] = useState(false);
 
     const toggleML = (truthValue) => {
-        console.log(truthValue);
         setMlExpand(truthValue);
     };
 

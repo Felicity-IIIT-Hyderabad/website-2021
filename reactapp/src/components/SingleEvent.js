@@ -87,15 +87,11 @@ class SingleEvent extends React.Component{
             console.log(error)
         );        
         axios.get(eventsApi).then(async (response)=>{
-            console.log(response.data);
             var myEvent = response.data.filter((obj) => obj.code == eventId);
-            console.log(myEvent[0]);
             this.setState({
                 event:myEvent[0]
             });
-        });    
-        console.log(this.props.match.params["0"]);
-
+        });
     }
 
 
@@ -107,11 +103,9 @@ class SingleEvent extends React.Component{
         for (let ind = 0; ind < this.state.myEvents.length; ind++) {
             if(this.state.myEvents[ind]["code"] == obj.code){
                 flag = 0;
-                console.log("registered already");
             }
         }
         if(!flag){
-            console.log("okay");
             return(
                 <Button color="success">Registered</Button>
             )
@@ -157,7 +151,6 @@ class SingleEvent extends React.Component{
                                 </div>
                                 <div className="text-left">
                                 Prizes worth:  
-                                {console.log(this.state.event)}
                                     <ul>
                                         <li>
                                             A
