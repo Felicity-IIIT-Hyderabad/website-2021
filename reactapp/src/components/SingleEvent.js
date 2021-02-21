@@ -96,7 +96,7 @@ class SingleEvent extends React.Component{
             var myEvent = response.data.filter((obj) => obj.code == eventId);
             console.log(myEvent[0]);
             this.setState({
-                event:myEvent[0]
+                event: myEvent[0] ? myEvent[0] : []
             });
         });    
         console.log(this.props.match.params["0"]);

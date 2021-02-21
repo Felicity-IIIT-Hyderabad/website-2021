@@ -100,25 +100,26 @@ class Dashboard extends React.Component {
                                 <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
                                 <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
                             </div>
-                            <div className="col-md-9 right-display">
-                                <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
-                                <div className="carousel-holder">
-                                    <div className="mt-4 event-carousel" id="event1">
-                                        <div className="empty-space mx-4 desktop-only"></div>
-                                        {this.state.events["Day1"].map((event, idx) => (
-                                            <Link>
-                                                <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
-                                                    <div>
-                                                        {event["name"]}
-                                                    </div>
+                        </div>
+                        
+                        <div className="col-md-9 right-display">
+                            <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
+                            <div className="carousel-holder">
+                                <div className="mt-4 event-carousel" id="event1">
+                                    <div className="empty-space mx-4 desktop-only"></div>
+                                    {this.state.events["Day1"].map((event, idx) => (
+                                        <Link>
+                                            <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
+                                                <div>
+                                                    {event["name"]}
                                                 </div>
-                                            </Link>
-                                        ))}
-                                        <div className="empty-space mx-5 desktop-only">&nbsp;</div>
-                                    </div>
-                                    <div className="left-arrow desktop-only" onClick={() => this.leftScroll(1)}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                                    <div className="right-arrow desktop-only" onClick={() => this.rightScroll(1)}><FontAwesomeIcon icon={faChevronRight} /></div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                    <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                                 </div>
+                                <div className="left-arrow desktop-only" onClick={() => this.leftScroll(1)}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                                <div className="right-arrow desktop-only" onClick={() => this.rightScroll(1)}><FontAwesomeIcon icon={faChevronRight} /></div>
                             </div>
                         </div>
                         <div className="container-fluid mb-5">

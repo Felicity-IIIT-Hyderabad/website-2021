@@ -31,7 +31,7 @@ const App = (props) => {
                 return (
                     <>
                         <Route path="/events/*" component={SingleEvent} />
-                        <Route path="/events" component={Home} />
+                        <Route path="/events" component={Dashboard} />>
                         <Route path="/events-technical" component={Home} />
                         <Route path="/events-cultural" component={Home} />
                         <Route path="/" component={Home} />
