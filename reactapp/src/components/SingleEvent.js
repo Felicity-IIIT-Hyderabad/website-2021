@@ -26,8 +26,6 @@ function checkUndef(string){
         return [];
     }
     else{
-        console.log(string.split(","));
-        console.log("AAAAAAAAAAA");
         return string.split(",");
     }
 }
@@ -78,7 +76,18 @@ class SingleEvent extends React.Component{
     }
 
     componentDidMount = () => {
-        var eventId = this.props.match.params["0"]; 
+        var eventId = this.props.match.params["0"];
+        axios.get(eventsRegisteredApi,{
+            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+        }).then((res)=>{
+            {
+                this.setState({
+                    myEvents: res.data
+                })
+            }
+        }).catch((error)=>
+            console.log(error)
+        );        
         axios.get(eventsApi).then(async (response)=>{
             console.log(response.data);
             var myEvent = response.data.filter((obj) => obj.code == eventId);
@@ -96,27 +105,19 @@ class SingleEvent extends React.Component{
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.start_date);
         var today = new Date();
-        axios.get(eventsRegisteredApi,{
-            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-        }).then((res)=>{
-            {
-                console.log(res.data);
-                var flag = 1;
-                for (let ind = 0; ind < res.data.length; ind++) {
-                    if(res.data[ind]["code"] == obj.code){
-                        flag = 0;
-                        console.log("registered already");
-                    }
-                }
-                if(!flag){
-                    return(
-                        <Button color="success">Registered</Button>
-                    )
-                }
+        var flag = 1;
+        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
+            if(this.state.myEvents[ind]["code"] == obj.code){
+                flag = 0;
+                console.log("registered already");
             }
-        }).catch((error)=>
-            console.log(error)
-        );        
+        }
+        if(!flag){
+            console.log("okay");
+            return(
+                <Button color="success">Registered</Button>
+            )
+        }
         if(startDate > today){
             return(
                 <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>

@@ -72,6 +72,7 @@ class CultEvent extends React.Component {
         super(props);
         this.state = {
             events: [],
+            myEvents:[],
             cultEvents: { "Day1":[],"Day2":[],"Day3":[] },
             selectedDay: "Day1"
         };
@@ -80,8 +81,17 @@ class CultEvent extends React.Component {
     componentDidMount = async () => {
 
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
+        axios.get(eventsRegisteredApi,{
+            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+        }).then(async (res)=>{
+            this.setState({
+                myEvents: res.data
+            })
+        }).catch((error)=>
+            console.log(error)
+        );        
         axios.get(eventsCulturalApi).then(async (response)=>{
-            await this.setState({
+            this.setState({
                 events: response.data
             });
             response.data.map((obj)=>{
@@ -148,6 +158,19 @@ class CultEvent extends React.Component {
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.end_date);
         var today = new Date();
+        var flag = 1;
+        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
+            if(this.state.myEvents[ind]["code"] == obj.code){
+                flag = 0;
+                console.log("registered already");
+            }
+        }
+        if(!flag){
+            console.log("okay");
+            return(
+                <Button color="success">Registered</Button>
+            )
+        }        
         if(startDate > today){
             return(
                 <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>

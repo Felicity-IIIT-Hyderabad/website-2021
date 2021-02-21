@@ -107,13 +107,25 @@ class TechEvent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            events: []
+            events: [],
+            myEvents: []
         };
     }
 
     componentDidMount = () => {
+        axios.get(eventsRegisteredApi,{
+            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+        }).then((res)=>{
+            {
+                this.setState({
+                    myEvents: res.data
+                });                
+            }
+        }).catch((error)=>
+            console.log(error)
+        );     
         axios.get(eventsTechnicalApi).then(async (response)=>{
-            await this.setState({
+            this.setState({
                 events: response.data
             });
         });
@@ -123,27 +135,19 @@ class TechEvent extends React.Component {
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.end_date);
         var today = new Date();
-        axios.get(eventsRegisteredApi,{
-            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-        }).then((res)=>{
-            {
-                console.log(res.data);
-                var flag = 1;
-                for (let ind = 0; ind < res.data.length; ind++) {
-                    if(res.data[ind]["code"] == obj.code){
-                        flag = 0;
-                        console.log("registered already");
-                    }
-                }
-                if(!flag){
-                    return(
-                        <Button color="success">Registered</Button>
-                    )
-                }
+        var flag = 1;
+        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
+            if(this.state.myEvents[ind]["code"] == obj.code){
+                flag = 0;
+                console.log("registered already");
             }
-        }).catch((error)=>
-            console.log(error)
-        );
+        }
+        if(!flag){
+            console.log("okay");
+            return(
+                <Button color="success">Registered</Button>
+            )
+        }        
         if(startDate > today){
             return(
                 <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>
@@ -156,7 +160,7 @@ class TechEvent extends React.Component {
         }
         else{
             return(
-                <Button color="info">Over</Button>
+                <Button color="secondary">Over</Button>
             );
         }
     }
