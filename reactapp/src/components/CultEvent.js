@@ -8,7 +8,7 @@ import { Row, Col, Button } from "reactstrap";
 import "./Event.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
-import { eventsCulturalApi, eventsRegisteredApi, eventsRegisterApi } from "../api/";
+import { eventsCulturalApi, eventsRegisteredApi, eventsRegisterApi, eventsApi } from "../api/";
 
 function addSuperScript(number){
     console.log(number % 10);
@@ -125,12 +125,7 @@ class CultEvent extends React.Component {
             cancelButtonText: "Not Now",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.get(eventsRegisteredApi,{
-                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                }).then((res)=>{
-                    console.log(res)
-                });
-                axios.post(eventsRegisterApi,{
+                axios.post(eventsApi + "/" + event["code"] + "/register",{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                 }).then((res)=>{
                     console.log(res)
