@@ -181,7 +181,6 @@ class SingleEventRplay extends React.Component{
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
-                        {console.log(this.state.event)}
                         <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only" onClick={() => window.open(linksData.default[window.location.href.split("/")[4]])}>Register Now</button>
                         <h1 className="text-white"><strong>Description</strong></h1>
                         <p className="mt-3 text-white single-event-details">{this.state.event.description}</p>
@@ -191,7 +190,7 @@ class SingleEventRplay extends React.Component{
                         <div className="text-center">
                             {this.checkLiveOrNot(this.state.event)}
                         </div>
-                        <h1 className="text-white mt-3"><strong>Prizes</strong></h1>
+                        <h1 className="text-white text-center mt-3"><strong>Prizes</strong></h1>
                         {checkUndef(this.state.event.prizes).length > 1 ? 
                         <ol className="text-white single-event-details">
                         {checkUndef(this.state.event.prizes).map((obj,ind)=>
@@ -206,7 +205,11 @@ class SingleEventRplay extends React.Component{
                             </div>
                         }
 
-                        <h1 className="text-white mt-3"><strong>Organizers</strong></h1>
+                        <h1 className="text-white text-center mt-3"><strong>Organizers</strong></h1>
+                        <h3 className="text-white mt-2"><strong>
+                            {this.state.event == undefined ? "": this.state.event.organizer_clubs}
+                            </strong>
+                        </h3>                        
                         <ul className="text-white single-event-details">
                             {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
                                 <li key={ind}>
@@ -214,6 +217,7 @@ class SingleEventRplay extends React.Component{
                                 </li>
                             )}
                         </ul>
+                        <br/>
                     </div>
                 </div>
 

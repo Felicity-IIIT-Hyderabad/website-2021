@@ -21,6 +21,62 @@ function checkUndef(string){
     }
 }
 
+function addSuperScript(number){
+    if((number % 10 >= 4) || (number % 10 == 0)){
+        return "th"
+    }
+    else if(number % 10 == 3){
+        return "rd"
+    }
+    else if(number % 10 == 2){
+        return "nd"
+    }
+    else if(number % 10 == 1){
+        return "st"
+    }        
+}
+
+function amOrPM(hours){
+    if(hours > 12){
+        return "\t "
+    }
+    else{
+        return "\t "
+    }
+}
+
+function formatDate(num1){
+    // Create a new JavaScript Date object based on the timestamp
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var startDate = new Date(num1);
+    // var endDate = new Date(num2);
+    var day = startDate.getDate();
+    var mon = startDate.getMonth();
+    // Hours part from the timestamp
+    var hours = startDate.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + startDate.getMinutes();
+
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "Aug";
+    month[8] = "Sept";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+
+    // Will display time in 10:30:23 format
+    var formattedTime = day + addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);
+    return formattedTime;
+}
+
+
 const showModalEventOne = (event) => {
     Swal.fire({
         title: event["name"],
@@ -66,7 +122,7 @@ class SingleEvent extends React.Component{
 
     componentDidMount = () => {
         var eventId = this.props.match.params["0"];
-        axios.get(eventsRegisteredApi,{
+        axios.get(eventsRegisteredApi,{},{
             headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : "" }
         }).then((res)=>{
             {
@@ -91,7 +147,9 @@ class SingleEvent extends React.Component{
         var endDate = new Date(obj.start_date);
         var today = new Date();
         var flag = 1;
-        console.log(obj);
+        console.log(startDate);
+        console.log(endDate);
+        console.log(today);
         for (let ind = 0; ind < this.state.myEvents.length; ind++) {
             if(this.state.myEvents[ind]["code"] == obj.code){
                 flag = 0;
@@ -102,12 +160,12 @@ class SingleEvent extends React.Component{
                 <button className="btn btn-success rounded-pill py-2 w-100 desktop-only">Registered</button>
             );
         }
-        if(startDate > today){
+        if(startDate >= today){
             return(
                 <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Registered</button>
             );
         }
-        else if(startDate <= today && endDate > today){
+        else if(startDate < today && endDate > today){
             return(
                 <button onClick={() => showModalEventOne(obj)} className="btn btn-warning rounded-pill py-2 w-100 desktop-only">Join Now</button>
             );
@@ -119,32 +177,47 @@ class SingleEvent extends React.Component{
         }
     }
 
+    dateToString = (num1, num2) => {
+        return formatDate(num1) + "\t To \t" + formatDate(num2);
+    };
+
+
     render(){
         return (
             <div className="container-fluid events-list" style={{ marginTop: "6rem" }}>
-                <div className="banner">
+                <div className="banner" style={{ backgroundImage: `url('https://i.ibb.co/vP7XyVW/Rectangle-1.png')` }}>
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
                         {console.log(this.state.event)}
+                        <h1 className="text-white"><strong>{this.state.event.name}</strong></h1>
                         <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only">Register Now</button>
-                        <h1 className="text-white"><strong>Description</strong></h1>
                         <p className="mt-3 text-white single-event-details">{this.state.event.description}</p>
-                        <p className="mt-3 text-white single-event-details">{this.state.event.start_date} to {this.state.event.end_date}</p>
+                        <p className="mt-3 text-white single-event-details">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</p>
                     </div>
                     <div className="col-md-4 px-3">
                         <div className="text-center">
                             {this.checkLiveOrNot(this.state.event)}
                         </div>
-                        <h1 className="text-white mt-3"><strong>Prizes</strong></h1>
+                        <h1 className="text-white text-center mt-3"><strong>Prizes</strong></h1>
+                        {checkUndef(this.state.event.prizes).length > 1 ? 
                         <ol className="text-white single-event-details">
-                            {checkUndef(this.state.event.prizes).map((obj,ind)=>
-                                <li key={ind}>
-                                    {obj}
-                                </li>
-                            )}
+                        {checkUndef(this.state.event.prizes).map((obj,ind)=>
+                            <li key={ind}>
+                                {obj}
+                            </li>
+                        )}
                         </ol>
-                        <h1 className="text-white mt-3"><strong>Organizers</strong></h1>
+                            : 
+                            <div className="text-white bold">
+                                &#8377; {checkUndef(this.state.event.prizes)[0]}
+                            </div>
+                        }
+                        <h1 className="text-white text-center mt-3"><strong>Organizers</strong></h1>
+                        <h3 className="text-white mt-2"><strong>
+                            {this.state.event == undefined ? "": this.state.event.organizer_clubs}
+                            </strong>
+                        </h3>                        
                         <ul className="text-white single-event-details">
                             {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
                                 <li key={ind}>

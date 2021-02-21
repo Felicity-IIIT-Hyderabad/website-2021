@@ -90,7 +90,7 @@ class CultEvent extends React.Component {
     componentDidMount = async () => {
 
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
-        axios.get(eventsRegisteredApi,{
+        axios.get(eventsRegisteredApi,{},{
             headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
         }).then(async (res)=>{
             this.setState({
@@ -241,7 +241,7 @@ class CultEvent extends React.Component {
                             <VerticalTimelineElement
                                 className="vertical-timeline-element--work"
                                 contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-                                contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
+                                contentArrowStyle={{ borderRight: "20px solid  rgb(33, 150, 243)" }}
                                 iconStyle={{ background: "rgb(133, 150, 243)", color: "#fff" }}
                                 date={this.dateToString(event["start_date"], event["end_date"])}
                                 dateClassName={"my-date"}
