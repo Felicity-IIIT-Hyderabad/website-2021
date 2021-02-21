@@ -5,3 +5,4 @@ export var eventsTechnicalApi = eventsBaseAPI +  "?type=technical";
 export var eventsCulturalApi = eventsBaseAPI + "?type=cultural";
 export var eventsApi = eventsBaseAPI;
 export var eventsRegisterApi = eventsBaseAPI + "/register";
+export var eventsRegisteredApi = baseAPI + "/registered";

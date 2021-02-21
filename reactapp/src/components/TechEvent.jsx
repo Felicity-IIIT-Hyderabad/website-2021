@@ -8,7 +8,7 @@ import { Row, Col, Button } from "reactstrap";
 import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
-import { eventsTechnicalApi } from "../api/";
+import { eventsTechnicalApi, eventsRegisteredApi } from "../api/";
 
 const showModalEventOne = (event) => {
     Swal.fire({
@@ -30,6 +30,12 @@ const showModalEventOne = (event) => {
         cancelButtonText: "Not Now",
     }).then((result) => {
         if (result.isConfirmed) {
+            axios.get(eventsRegisteredApi,{
+                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+            }).then((res)=>{
+                console.log(res)
+            });
+            console.log(eventsRegisteredApi);
             axios.post("https://felicity.iiit.ac.in/backend/events/"+event["code"]+"/register", {
                 Authorization: JSON.parse(window.localStorage.getItem("user")).token
             });
