@@ -31,15 +31,19 @@ const showModalEventOne = (event) => {
     }).then((result) => {
         if (result.isConfirmed) {
             axios.get(eventsRegisteredApi,{
-                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)
-            });
+            }).catch((error)=>
+                console.log(error)
+            );
             axios.post(eventsRegisterApi,{
-                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)
-            });
+            }).catch((error)=>
+                console.log(error)
+            );
         } 
     });
 };

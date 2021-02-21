@@ -53,12 +53,12 @@ const showModalEventOne = (event) => {
     }).then((result) => {
         if (result.isConfirmed) {
             axios.get(eventsRegisteredApi,{
-                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)
             });
             axios.post(eventsRegisterApi,{
-                "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res)=>{
                 console.log(res)
             });
@@ -86,23 +86,6 @@ class SingleEvent extends React.Component{
             this.setState({
                 event:myEvent[0]
             });
-            // response.data.map((obj)=>{
-            //     console.log(obj.start_date.slice(8,10));
-            //     var dateOfEvent = obj.start_date.slice(8,10);
-            //     if(dateOfEvent == "24"){
-            //         tempCultEvents["Day1"].push(obj);
-            //     }
-            //     else if(dateOfEvent == "25"){
-            //         tempCultEvents["Day2"].push(obj);
-            //     }
-            //     else if(dateOfEvent == "26"){
-            //         tempCultEvents["Day3"].push(obj);
-            //     }
-            // });
-
-            // await this.setState({
-            //     events: tempCultEvents
-            // });
         });    
         console.log(this.props.match.params["0"]);
 

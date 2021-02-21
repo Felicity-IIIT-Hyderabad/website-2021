@@ -126,12 +126,12 @@ class CultEvent extends React.Component {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.get(eventsRegisteredApi,{
-                    "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                 }).then((res)=>{
                     console.log(res)
                 });
                 axios.post(eventsRegisterApi,{
-                    "Authorization":JSON.parse(window.localStorage.getItem("user")).token
+                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                 }).then((res)=>{
                     console.log(res)
                 });
