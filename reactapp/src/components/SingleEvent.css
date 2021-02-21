@@ -1,0 +1,24 @@
+.banner{
+	position: relative;
+	height: 25rem;
+	display: flex;
+	border-radius: 8px;
+	color: 	white;
+	margin-top: 5rem;
+	background-image: url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+}
+
+.single-event-details{
+	color: white;
+	font-size: 1.5rem !important;
+}
+
+.mobile-only{
+	display: none;
+}
+
+@media only screen and (max-width: 768px) {
+	.mobile-only{
+		display: block;
+	}
+}

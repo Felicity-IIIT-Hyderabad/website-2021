@@ -30,6 +30,7 @@ const App = (props) => {
             if(!props.userInfo.loginReducer.authenticated){
                 return (
                     <>
+                        <Route path="/events/*" component={SingleEvent} />
                         <Route path="/events" component={Home} />
                         <Route path="/events-technical" component={Home} />
                         <Route path="/events-cultural" component={Home} />
