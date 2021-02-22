@@ -81,16 +81,17 @@ const showModalEventOne = (event) => {
     Swal.fire({
         title: event["name"],
         text: event["description"],
-        footer: "Coming Soon.",
+        footer: "Deadline:" + formatDate(event["end_date"]),
         imageUrl: "/teams/sample.jpg",
         customClass: {
-            title: "text-danger error-message",
-            content: "error-message ",
+            title: " error-message",
+            content: "error-message",
             confirmButton: "game-button bg-danger",
             image: "error-image-swal",
+            footer: "text-danger error-message"
         },
         width: "64em",
-        background: "rgba(0,0,0,1)",
+        background: "white",
         confirmButtonText: "Register Now",
         showCloseButton: true,
         showCancelButton: true,

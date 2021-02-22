@@ -142,13 +142,14 @@ class CultEvent extends React.Component {
         Swal.fire({
             title: event["name"],
             text: event["description"],
-            footer: "Launches on: " + this.dateToString(event["time"]),
-            imageUrl: "/images/sample.jpg",
+            footer: "Deadline:" +  formatDate(event["end_date"]),
+            imageUrl: "/teams/sample.jpg",
             customClass: {
-                title: "text-danger error-message",
-                content: "error-message text-white",
+                title: " error-message",
+                content: "error-message",
                 confirmButton: "game-button bg-danger",
                 image: "error-image-swal",
+                footer: "text-danger error-message"
             },
             width: "64em",
             background: "white",
@@ -158,13 +159,15 @@ class CultEvent extends React.Component {
             cancelButtonText: "Not Now",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{"Authorization":JSON.parse(window.localStorage.getItem("user")).token}).then((res)=>{
+                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                }).then((res)=>{
                     window.location.reload();
                 }).catch((error)=>
                     console.log(error)
                 );
             } 
-        });
+        });    
     };
 
     changeDay = async (dayNum) => {
@@ -250,13 +253,13 @@ class CultEvent extends React.Component {
                                 contentArrowStyle={{ borderRight: "20px solid  rgb(33, 150, 243)" }}
                                 iconStyle={{ background: "rgb(133, 150, 243)", color: "#fff" }}
                                 date={this.dateToString(event["start_date"], event["end_date"])}
-                                dateClassName={"my-date"}
+                                dateClassName={"my-date text-white date-big"}
                                 key={idx}
                             >
                                 <h3 className="vertical-timeline-element-title">{event["name"]}</h3>
-                                <h4 className="vertical-timeline-element-subtitle">{event["tagline"]}</h4>
+                                <h4 className="vertical-timeline-element-subtitle">{event["organizer_clubs"]}</h4>
                                 <p>
-                                    {event["description"]}
+                                    {/* {event["description"]} */}
                                     <br/>
                                     <Row>
                                         <Col md={4} xs={3}>

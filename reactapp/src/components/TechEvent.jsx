@@ -14,13 +14,14 @@ const showModalEventOne = (event) => {
     Swal.fire({
         title: event["name"],
         text: event["description"],
-        footer: "Coming Soon.",
+        footer: "Deadline:" + formatDate(event["end_date"]),
         imageUrl: "/teams/sample.jpg",
         customClass: {
-            title: "text-danger error-message",
+            title: " error-message",
             content: "error-message",
             confirmButton: "game-button bg-danger",
             image: "error-image-swal",
+            footer: "text-danger error-message"
         },
         width: "64em",
         background: "white",
@@ -241,11 +242,11 @@ class TechEvent extends React.Component {
                                     date={dateToString(obj.start_date,obj.end_date)}
                                     iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                                     key={ind}
+                                    dateClassName={"my-date text-white date-big"}
                                 >
                                     <h3 className="vertical-timeline-element-title">{obj.name}</h3>
-                                    <h4 className="vertical-timeline-element-subtitle">{obj.tagline}</h4>
+                                    <h4 className="vertical-timeline-element-subtitle">{obj.organizer_clubs}</h4>
                                     <p>
-                                        {obj.description}
                                         <br/>
                                         <Row>
                                             <Col md={4} xs={3}>
