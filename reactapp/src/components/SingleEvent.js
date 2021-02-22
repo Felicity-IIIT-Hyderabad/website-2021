@@ -274,4 +274,3 @@ class SingleEvent extends React.Component{
 }
 
 export default SingleEvent;
-
