@@ -73,7 +73,8 @@ class CultEvent extends React.Component {
             events: [],
             myEvents:[],
             cultEvents: [],
-            selectedDay: "Day1"
+            selectedDay: "Day1",
+            teamName:""
         };
     }
 
@@ -124,40 +125,63 @@ class CultEvent extends React.Component {
         document.body.style.backgroundColor = "#0F2028";
     };
 
-    showModalEvent = (event) => {
+    changeTeamName(event){
+        this.setState({
+            teamName:event.target.value
+        })
+    }
+
+    prepDescription(event){
+        return(
+            <>
+            {event["description"]} <br/>
+            <input type="text" className="invite-input p-2 w-50" value={this.state.teamName} onChange={(event) => this.changeTeamName(event) } /> <br/><br/><br/>
+            </>
+        );
+    }
+
+    showModalEvent = async (event) => {
         if(event.registration_link != ""){
             window.open(event.registration_link);
         }
-        else{
-            Swal.fire({
-                title: event["name"],
-                text: event["description"],
-                footer: "Deadline:" +  formatDate(event["end_date"]),
-                imageUrl: "/teams/sample.jpg",
+        else{            
+            const { value: text } = await Swal.fire({
+                title:  event["name"],
+                input: 'textarea',
+                inputLabel: event["description"] + "\n Enter your team name below",
+                inputPlaceholder: 'Should not exceed 250 words...',
+                inputAttributes: {
+                  'aria-label': 'Type your message here',
+                  'height': '10'
+                },
                 customClass: {
                     title: " error-message",
                     content: "error-message",
                     confirmButton: "game-button bg-danger",
                     image: "error-image-swal",
                     footer: "text-danger error-message"
-                },
-                width: "64em",
+                },                
+                width: "20vw",
                 background: "white",
                 confirmButtonText: "Register Now",
                 showCloseButton: true,
                 showCancelButton: true,
-                cancelButtonText: "Not Now",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                cancelButtonText: "Not Now"           
+            })
+            if(text){
+                console.log("AAAAAAAAAAAA");
+                console.log(text);
+                console.log("BBBBBBB");
+                if (true) {
+                    axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
                         headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                     }).then((res)=>{
                         window.location.reload();
                     }).catch((error)=>
                         console.log(error)
                     );
-                } 
-            });   
+                }
+            }   
         } 
     };
 

@@ -10,36 +10,47 @@ import "./Event.css";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
 import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
 
-const showModalEventOne = (event) => {
-    Swal.fire({
-        title: event["name"],
-        text: event["description"],
-        footer: "Deadline:" + formatDate(event["end_date"]),
-        imageUrl: "/teams/sample.jpg",
-        customClass: {
-            title: " error-message",
-            content: "error-message",
-            confirmButton: "game-button bg-danger",
-            image: "error-image-swal",
-            footer: "text-danger error-message"
-        },
-        width: "64em",
-        background: "white",
-        confirmButtonText: "Register Now",
-        showCloseButton: true,
-        showCancelButton: true,
-        cancelButtonText: "Not Now",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
-                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-            }).then((res)=>{
-                window.location.reload();
-            }).catch((error)=>
-                console.log(error)
-            );
-        } 
-    });
+const showModalEventOne = async (event) => {
+    if(event.registration_link != ""){
+        window.open(event.registration_link);
+    }
+    else{            
+        const { value: text } = await Swal.fire({
+            title:  event["name"],
+            input: 'textarea',
+            inputLabel: event["description"] + "\n Enter your team name below",
+            inputPlaceholder: 'Should not exceed 250 words...',
+            inputAttributes: {
+              'aria-label': 'Type your message here',
+              'height': '10'
+            },
+            customClass: {
+                title: " error-message",
+                content: "error-message",
+                confirmButton: "game-button bg-danger",
+                image: "error-image-swal",
+                footer: "text-danger error-message"
+            },                
+            width: "20vw",
+            background: "white",
+            confirmButtonText: "Register Now",
+            showCloseButton: true,
+            showCancelButton: true,
+            cancelButtonText: "Not Now"           
+        })
+        if(text){
+            console.log(text);
+            if (true) {
+                axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
+                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                }).then((res)=>{
+                    window.location.reload();
+                }).catch((error)=>
+                    console.log(error)
+                );
+            }
+        }   
+    } 
 };
 
 function amOrPM(hours){
