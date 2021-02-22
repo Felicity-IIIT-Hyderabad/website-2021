@@ -186,10 +186,10 @@ class SingleEvent extends React.Component{
         };
     }
 
-    getEventCode = () => {
+    getEventCode = (array) => {
         var flag = 1;
-        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
-            if(this.state.myEvents[ind]["code"] == this.props.match.params["0"]){
+        for (let ind = 0; ind < array.length; ind++) {
+            if(array[ind]["code"] == this.props.match.params["0"]){
                 flag = 0;
             }
         }
@@ -218,6 +218,7 @@ class SingleEvent extends React.Component{
                 this.setState({
                     myEvents: res.data
                 });
+                this.getEventCode(res.data);
             }
         }).catch((error)=>
             console.log(error)
@@ -228,7 +229,6 @@ class SingleEvent extends React.Component{
                 event: myEvent[0] ? myEvent[0] : []
             });
         });
-        this.getEventCode();
     }
 
 
