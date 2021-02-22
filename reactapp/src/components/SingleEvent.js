@@ -193,7 +193,12 @@ class SingleEvent extends React.Component{
         this.state = {
             myEvents: [],
             event: [],
-            eventCode: ""
+            eventCode: "",
+            teamDetails:{
+                "name":"",
+                "teamcode":"",
+                "members":[]
+            }
         };
     }
 
@@ -210,6 +215,7 @@ class SingleEvent extends React.Component{
             }).then((res)=>{
                 {
                     this.setState({
+                        teamDetails: res.data,
                         eventCode: res.data.teamcode
                     });
                 }
@@ -358,6 +364,14 @@ class SingleEvent extends React.Component{
                                     &#8377; {checkUndef(this.state.event.prizes)[0]}
                                 </div>
                             }
+                            <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
+                            <ul className="single-event-details text-primary">
+                                {checkUndef(this.state.teamDetails.members).map((obj,ind)=>
+                                    <li key={ind}>
+                                        {obj}
+                                    </li>
+                                )}                     
+
                             <h1 className="mt-3"><strong>Organizers</strong></h1>
                             <h3 className=" mt-2"><strong>
                                 {this.state.event == undefined ? "": this.state.event.organizer_clubs}

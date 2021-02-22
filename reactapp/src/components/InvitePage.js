@@ -39,7 +39,7 @@ class ErrorPage extends React.Component{
           background: `rgba(0,0,0,1)`
         }).then(()=>
           {
-            window.location.href="/event" + this.state.eventId;
+            window.location.href="/event/" + this.state.eventId;
           }
         );
       }).catch((error) => 
