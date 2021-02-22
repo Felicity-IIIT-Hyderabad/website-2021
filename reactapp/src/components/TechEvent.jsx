@@ -11,7 +11,7 @@ import "./Event.css";
 import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
 
 const showModalEventOne = (event) => {
-    if(event.registration_link != null){
+    if(event.registration_link != ""){
         window.open(event.registration_link);
     }
     else{

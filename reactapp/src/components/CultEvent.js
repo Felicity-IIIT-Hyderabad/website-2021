@@ -102,7 +102,7 @@ class CultEvent extends React.Component {
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
         axios.get(eventsCulturalApi).then(async (response)=>{
 
-            var cultEventsData = this.sortDateWise(response.data);
+            var cultEventsData = this.sortDateWise(response.data).filter((obj)=> obj.type == "cultural");
 
             this.setState({
                 events: response.data,
@@ -125,7 +125,7 @@ class CultEvent extends React.Component {
     };
 
     showModalEvent = (event) => {
-        if(event.registration_link != null){
+        if(event.registration_link != ""){
             window.open(event.registration_link);
         }
         else{

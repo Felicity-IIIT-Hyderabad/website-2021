@@ -141,40 +141,35 @@ const showModalEventOne = (event) => {
 };
 
 const showModalEventUnregister = (event) => {
-    if(event.registration_link != null){
-        window.open(event.registration_link);
-    }
-    else{
-        Swal.fire({
-            title: event["name"],
-            text: "Are you sure you want to unregister?",
-            footer: "Deadline:" + formatDate(event["end_date"]),
-            imageUrl: "/teams/sample.jpg",
-            customClass: {
-                title: " error-message",
-                content: "error-message",
-                confirmButton: "game-button bg-danger",
-                image: "error-image-swal",
-                footer: "text-danger error-message"
-            },
-            width: "64em",
-            background: "white",
-            confirmButtonText: "Unregister",
-            showCloseButton: true,
-            showCancelButton: true,
-            cancelButtonText: "Cancel",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axios.post(eventsBaseApi + "/" + event["code"] + "/exitteam",{},{
-                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                }).then((res)=>{
-                    window.location.reload();
-                }).catch((error)=>
-                    console.log(error)
-                );
-            } 
-        });
-    }
+    Swal.fire({
+        title: event["name"],
+        text: "Are you sure you want to unregister?",
+        footer: "Deadline:" + formatDate(event["end_date"]),
+        imageUrl: "/teams/sample.jpg",
+        customClass: {
+            title: " error-message",
+            content: "error-message",
+            confirmButton: "game-button bg-danger",
+            image: "error-image-swal",
+            footer: "text-danger error-message"
+        },
+        width: "64em",
+        background: "white",
+        confirmButtonText: "Unregister",
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonText: "Cancel",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.post(eventsBaseApi + "/" + event["code"] + "/exitteam",{},{
+                headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : ""}
+            }).then((res)=>{
+                window.location.reload();
+            }).catch((error)=>
+                console.log(error)
+            );
+        } 
+    });
 };
 
 
