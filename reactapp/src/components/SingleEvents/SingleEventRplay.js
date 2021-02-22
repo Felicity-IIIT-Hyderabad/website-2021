@@ -69,7 +69,7 @@ function addSuperScript(number){
 }
 
 function amOrPM(hours){
-    if(hours > 12){
+    if(hours >= 12){
         return "\t "
     }
     else{

@@ -86,10 +86,8 @@ class CultEvent extends React.Component {
     sortDateWise(array){
         return array.sort(this.compare)
     }
-    
-    componentDidMount = async () => {
 
-        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
+    getRegisteredEvents(){
         axios.get(eventsRegisteredApi,{},{
             headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
         }).then(async (res)=>{
@@ -98,7 +96,11 @@ class CultEvent extends React.Component {
             })
         }).catch((error)=>
             console.log(error)
-        );        
+        );
+    }
+
+    getEvents(){
+        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
         axios.get(eventsCulturalApi).then(async (response)=>{
             this.setState({
                 events: response.data
@@ -126,7 +128,13 @@ class CultEvent extends React.Component {
                 cultEvents: tempCultEvents
             });
         });
-
+    }
+    
+    componentDidMount = async () => {
+        // setInterval(this.getRegisteredEvents, 3000);
+        // setInterval(this.getEvents, 3000);
+        this.getRegisteredEvents();
+        this.getEvents();        
         document.body.style.backgroundColor = "#0F2028";
     };
 
@@ -143,16 +151,14 @@ class CultEvent extends React.Component {
                 image: "error-image-swal",
             },
             width: "64em",
-            background: "rgba(0,0,0,1)",
+            background: "white",
             confirmButtonText: "Register Now",
             showCloseButton: true,
             showCancelButton: true,
             cancelButtonText: "Not Now",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
-                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                }).then((res)=>{
+                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{"Authorization":JSON.parse(window.localStorage.getItem("user")).token}).then((res)=>{
                     window.location.reload();
                 }).catch((error)=>
                     console.log(error)

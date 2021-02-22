@@ -28,7 +28,7 @@ const App = (props) => {
 
     function renderEvents(){
         try{
-            if(!props.userInfo.loginReducer.authenticated){
+            if(false){
                 return (
                     <>
                         <Route path="/events/*" component={SingleEvent} />

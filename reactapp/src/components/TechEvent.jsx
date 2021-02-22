@@ -15,15 +15,15 @@ const showModalEventOne = (event) => {
         title: event["name"],
         text: event["description"],
         footer: "Coming Soon.",
-        imageUrl: "/teams/a.jpg",
+        imageUrl: "/teams/sample.jpg",
         customClass: {
             title: "text-danger error-message",
-            content: "error-message text-white",
+            content: "error-message",
             confirmButton: "game-button bg-danger",
             image: "error-image-swal",
         },
         width: "64em",
-        background: "rgba(0,0,0,1)",
+        background: "white",
         confirmButtonText: "Register Now",
         showCloseButton: true,
         showCancelButton: true,
@@ -141,18 +141,19 @@ class TechEvent extends React.Component {
         return filteredArray;
     }
 
-    componentDidMount = () => {
+    getRegisteredEvents(){
         axios.get(eventsRegisteredApi,{},{
             headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-        }).then((res)=>{
-            {
-                this.setState({
-                    myEvents: res.data
-                });                
-            }
+        }).then(async (res)=>{
+            this.setState({
+                myEvents: res.data
+            })
         }).catch((error)=>
             console.log(error)
-        );     
+        );
+    }
+
+    getEvents(){
         axios.get(eventsTechnicalApi).then(async (response)=>{
             var array = this.sortDateWise(response.data);
             console.log(array);
@@ -162,6 +163,13 @@ class TechEvent extends React.Component {
             });
             // console.log(this.sortDateWise(response.data));
         });
+    }
+
+    componentDidMount = () => {     
+        // setInterval(this.getRegisteredEvents, 3000);
+        // setInterval(this.getRegisteredEvents, 3000);
+        this.getRegisteredEvents();
+        this.getEvents();
     }
 
     checkLiveOrNot = (obj) => {
