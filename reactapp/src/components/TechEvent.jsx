@@ -143,7 +143,7 @@ class TechEvent extends React.Component {
     }
 
     getRegisteredEvents(){
-        axios.get(eventsRegisteredApi,{},  {
+        axios.get(eventsRegisteredApi,{
             header: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}}
         ).then(async (res)=>{
             this.setState({
