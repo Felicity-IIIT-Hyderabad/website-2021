@@ -115,7 +115,7 @@ const showModalEventOne = async (event) => {
     }
     else{
         // console.log(JSON.parse(localStorage.getItem("user")));
-        if( localStorage.getItem("user") == null || !JSON.parse(localStorage.getItem("user"))["authenticated"]){
+        if( localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
             localStorage.setItem("prevURL",window.location.href);
             window.location.href="/login";            
             // localStorage.setItem("prevURL",window.location.href);
