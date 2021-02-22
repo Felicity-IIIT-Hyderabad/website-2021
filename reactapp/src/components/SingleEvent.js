@@ -262,7 +262,7 @@ class SingleEvent extends React.Component{
 
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
-        var endDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
         var today = new Date();
         var flag = 1;
         console.log(startDate);
