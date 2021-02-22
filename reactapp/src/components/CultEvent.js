@@ -132,8 +132,13 @@ class CultEvent extends React.Component {
     componentDidMount = async () => {
         // setInterval(this.getRegisteredEvents, 3000);
         // setInterval(this.getEvents, 3000);
-        this.getRegisteredEvents();
-        this.getEvents();        
+        try{
+            this.getRegisteredEvents();
+        }
+        catch{
+            
+        }
+        this.getEvents();
         document.body.style.backgroundColor = "#0F2028";
     };
 

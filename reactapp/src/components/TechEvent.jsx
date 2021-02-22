@@ -168,7 +168,12 @@ class TechEvent extends React.Component {
     componentDidMount = () => {     
         // setInterval(this.getRegisteredEvents, 3000);
         // setInterval(this.getRegisteredEvents, 3000);
-        this.getRegisteredEvents();
+        try{
+            this.getRegisteredEvents();
+        }
+        catch{
+            
+        }
         this.getEvents();
     }
 
