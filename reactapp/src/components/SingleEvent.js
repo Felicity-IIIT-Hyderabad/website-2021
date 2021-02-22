@@ -229,8 +229,6 @@ class SingleEvent extends React.Component{
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
-                        {console.log(this.state.event.description)}
-                        {console.log("AA")}
                         <h1 className=""><strong>{this.state.event.name}</strong></h1>
                         <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
                         <h2 className="mt-3">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</h2>

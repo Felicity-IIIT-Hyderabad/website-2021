@@ -215,19 +215,18 @@ class SingleEventRplay extends React.Component{
                 <div className="rplaybanner">
                 </div>
                 <div className="row mt-5 mx-2">
-                    <div className="col-md-8 single-event-contain">
-                        <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only" onClick={() => window.open(linksData.default[window.location.href.split("/")[4]])}>Register Now</button>
-                        <h1 className="text-white"><strong>Description</strong></h1>
-                        <p className="mt-3 text-white single-event-details">{this.state.event.description}</p>
-                        <p className="mt-3 text-white single-event-details">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</p>
+                <div className="col-md-8 single-event-contain">
+                        <h1 className=""><strong>{this.state.event.name}</strong></h1>
+                        <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
+                        <h2 className="mt-3">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</h2>
                     </div>
                     <div className="col-md-4 px-3">
                         <div className="text-center">
                             {this.checkLiveOrNot(this.state.event)}
                         </div>
-                        <h1 className="text-white text-center mt-3"><strong>Prizes</strong></h1>
+                        <h1 className=" text-center mt-3"><strong>Prizes</strong></h1>
                         {checkUndef(this.state.event.prizes).length > 1 ? 
-                        <ol className="text-white single-event-details">
+                        <ol className="">
                         {checkUndef(this.state.event.prizes).map((obj,ind)=>
                             <li key={ind}>
                                 {obj}
@@ -235,24 +234,22 @@ class SingleEventRplay extends React.Component{
                         )}
                         </ol>
                             : 
-                            <div className="text-white bold">
+                            <div className=" bold">
                                 &#8377; {checkUndef(this.state.event.prizes)[0]}
                             </div>
                         }
-
-                        <h1 className="text-white text-center mt-3"><strong>Organizers</strong></h1>
-                        <h3 className="text-white mt-2"><strong>
+                        <h1 className=" text-center mt-3"><strong>Organizers</strong></h1>
+                        <h3 className=" mt-2"><strong>
                             {this.state.event == undefined ? "": this.state.event.organizer_clubs}
                             </strong>
                         </h3>                        
-                        <ul className="text-white single-event-details">
+                        <ul className="">
                             {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
                                 <li key={ind}>
                                     {obj}
                                 </li>
                             )}
                         </ul>
-                        <br/>
                     </div>
                 </div>
 
