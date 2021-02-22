@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            events: { "Day1":[],"Day2":[],"Day3":[] },
+            events: [],
         };
     }
 
@@ -54,28 +54,10 @@ class Dashboard extends React.Component {
         axios.get(eventsRegisteredApi,{
             headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
         }).then(async (response)=>{
-            console.log(response);
-            response.data.map((obj)=>{
-                var dateOfEvent = obj.start_date.slice(8,10);
-                if(dateOfEvent == "24"){
-                    tempCultEvents["Day1"].push(obj);
-                }
-                else if(dateOfEvent == "25"){
-                    tempCultEvents["Day2"].push(obj);
-                }
-                else if(dateOfEvent == "26"){
-                    tempCultEvents["Day3"].push(obj);
-                }
-            });
+            var cultEventsData = this.sortDateWise(response.data);
 
-            tempCultEvents["Day1"] = this.sortDateWise(tempCultEvents["Day1"])                    
-            tempCultEvents["Day2"] = this.sortDateWise(tempCultEvents["Day2"])                    
-            tempCultEvents["Day3"] = this.sortDateWise(tempCultEvents["Day3"])
-
-            console.log(this.sortDateWise(tempCultEvents["Day1"]));
-
-            await this.setState({
-                events: tempCultEvents
+            this.setState({
+                events: cultEventsData,
             });
         }).catch((error)=>
             console.log(error)
@@ -89,6 +71,15 @@ class Dashboard extends React.Component {
             getUser();
         }
         this.getEvents();
+    }
+
+    todayDate = (array) => {
+        var today = new Date();
+        var todayEvents = array.filter((obj) => {
+            var date = new Date(obj.start_date);
+            return date == today
+        })
+        return todayEvents;
     }
 
     render () {
@@ -127,11 +118,11 @@ class Dashboard extends React.Component {
                         </div>
                         
                         <div className="col-md-9 right-display">
-                            <div className="event-type-title mt-3 mx-3">Upcoming - Day 1</div>
+                            <div className="event-type-title mt-3 mx-3">Upcoming - Today</div>
                             <div className="carousel-holder">
                                 <div className="mt-4 event-carousel" id="event1">
                                     <div className="empty-space mx-4 desktop-only"></div>
-                                    {this.state.events["Day1"].map((event, idx) => (
+                                    {this.todayDate(this.state.events).map((event, idx) => (
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
                                                 <div>
                                                     {event["name"]}
@@ -146,8 +137,8 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="container-fluid mb-5">
                             <div>
-                                <div className="feature-image my-4 mr-2"></div>
-
+                                {/* <div className="feature-image my-4 mr-2"></div> */}
+                                {/* {upcomingDates.map}
                                 <div className="event-type-title mt-3 mx-3">Upcoming - Day 2</div>
                                 <div className="carousel-holder">
                                     <div className="mt-4 event-carousel" id="event2">
@@ -165,7 +156,7 @@ class Dashboard extends React.Component {
                                     </div>
                                     <div className="left-arrow desktop-only" onClick={() => this.leftScroll(2)}><FontAwesomeIcon icon={faChevronLeft} /></div>
                                     <div className="right-arrow desktop-only" onClick={() => this.rightScroll(2)}><FontAwesomeIcon icon={faChevronRight} /></div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

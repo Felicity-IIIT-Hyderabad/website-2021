@@ -72,7 +72,7 @@ class CultEvent extends React.Component {
         this.state = {
             events: [],
             myEvents:[],
-            cultEvents: { "Day1":[],"Day2":[],"Day3":[] },
+            cultEvents: [],
             selectedDay: "Day1"
         };
     }
@@ -101,30 +101,12 @@ class CultEvent extends React.Component {
     getEvents(){
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
         axios.get(eventsCulturalApi).then(async (response)=>{
+
+            var cultEventsData = this.sortDateWise(response.data);
+
             this.setState({
-                events: response.data
-            });
-            response.data.map((obj)=>{
-                var dateOfEvent = obj.start_date.slice(8,10);
-                if(dateOfEvent == "24"){
-                    tempCultEvents["Day1"].push(obj);
-                }
-                else if(dateOfEvent == "25"){
-                    tempCultEvents["Day2"].push(obj);
-                }
-                else if(dateOfEvent == "26"){
-                    tempCultEvents["Day3"].push(obj);
-                }
-            });
-
-            tempCultEvents["Day1"] = this.sortDateWise(tempCultEvents["Day1"])                    
-            tempCultEvents["Day2"] = this.sortDateWise(tempCultEvents["Day2"])                    
-            tempCultEvents["Day3"] = this.sortDateWise(tempCultEvents["Day3"])
-
-            console.log(this.sortDateWise(tempCultEvents["Day1"]));
-
-            await this.setState({
-                cultEvents: tempCultEvents
+                events: response.data,
+                cultEvents: cultEventsData
             });
         });
     }
@@ -250,7 +232,7 @@ class CultEvent extends React.Component {
                 <div className="my-5">
 
                     <VerticalTimeline>
-                        {this.state.cultEvents[this.state.selectedDay].map((event, idx) => (
+                        {this.state.cultEvents.map((event, idx) => (
                             <VerticalTimelineElement
                                 className="vertical-timeline-element--work"
                                 contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
