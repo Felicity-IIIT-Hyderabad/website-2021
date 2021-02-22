@@ -33,7 +33,7 @@ const App = (props) => {
                     <>
                         <Route path="/events/*" component={Home} />
                         <Route path="/events" component={Home} />
-                        <Route path="/events-technical" component={TechEvent} />
+                        <Route path="/events-technical" component={Home} />
                         <Route path="/events-cultural" component={Home} />
                         <Route path="/" component={Home} />
                     </>                
