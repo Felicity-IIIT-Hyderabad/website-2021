@@ -33,7 +33,7 @@ const App = (props) => {
             if(!props.userInfo.loginReducer.authenticated){
                 return (
                     <>
-                        <Route exact path="/invite" component={InvitePage} />
+                        <Route exact path="/invite/*" component={InvitePage} />
                         <Route exact path="/404" component={ErrorPage} />
                         <Route path="/events/*" component={Home} />
                         <Route exact path="/events" component={Home} />
@@ -46,7 +46,7 @@ const App = (props) => {
             else{
                 return (
                     <>
-                        <Route exact path="/invite" component={InvitePage} />
+                        <Route exact path="/invite/*" component={InvitePage} />
                         <Route exact path="/404" component={ErrorPage} />
                         <Route exact path="/events" component={Dashboard} />
                         <Route path="/events-technical" component={TechEvent} />
