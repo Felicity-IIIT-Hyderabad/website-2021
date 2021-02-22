@@ -229,8 +229,7 @@ class SingleEvent extends React.Component{
                 event: myEvent[0] ? myEvent[0] : []
             });
         });
-    }
-
+    }    
 
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
