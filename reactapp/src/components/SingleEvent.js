@@ -109,6 +109,38 @@ const showModalEventOne = (event) => {
     });
 };
 
+const showModalEventUnregister = (event) => {
+    Swal.fire({
+        title: event["name"],
+        text: "Are you sure you want to unregister?",
+        footer: "Deadline:" + formatDate(event["end_date"]),
+        imageUrl: "/teams/sample.jpg",
+        customClass: {
+            title: " error-message",
+            content: "error-message",
+            confirmButton: "game-button bg-danger",
+            image: "error-image-swal",
+            footer: "text-danger error-message"
+        },
+        width: "64em",
+        background: "white",
+        confirmButtonText: "Register Now",
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonText: "Not Now",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.post(eventsBaseApi + "/" + event["code"] + "/exitteam",{},{
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+            }).then((res)=>{
+                window.location.reload();
+            }).catch((error)=>
+                console.log(error)
+            );
+        } 
+    });
+};
+
 
 //#TODO: Add club logo to JSON data and change second image to {poster}
 class SingleEvent extends React.Component{
@@ -159,12 +191,17 @@ class SingleEvent extends React.Component{
         }
         if(!flag){
             return(
+                <>
                 <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
+                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill py-2 w-100">Unregister</button>
+                </>
             );
         }
         if(startDate >= today){
             return(
+                <>
                 <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100">Register</button>
+                </>
             );
         }
         else if(startDate < today && endDate > today){

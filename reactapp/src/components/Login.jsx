@@ -46,7 +46,7 @@ class Login extends React.Component {
         if (this.state.keycloak) {
             if (this.state.authenticated)
                 return (
-                    <div>
+                    <div className="text-center text-white">
                         <p>Welcome {func(this.state)}!</p>
                         <Row>
                             <Col md={2}>
@@ -60,7 +60,7 @@ class Login extends React.Component {
                 ); else return (<div>Unable to authenticate!</div>);
         }
         return (
-            <div>Initializing Keycloak...
+            <div className="text-center text-white">Initializing Keycloak...
                 <Button onClick={ () => this.logOut() }> LOGOUT</Button>
             </div>
         );

@@ -53,6 +53,38 @@ const showModalEventOne = (event) => {
     });
 };
 
+const showModalEventUnregister = (event) => {
+    Swal.fire({
+        title: event["name"],
+        text: "Are you sure you want to unregister?",
+        footer: "Deadline:" + formatDate(event["end_date"]),
+        imageUrl: "/teams/sample.jpg",
+        customClass: {
+            title: " error-message",
+            content: "error-message",
+            confirmButton: "game-button bg-danger",
+            image: "error-image-swal",
+            footer: "text-danger error-message"
+        },
+        width: "64em",
+        background: "white",
+        confirmButtonText: "Register Now",
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonText: "Not Now",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.post(eventsBaseApi + "/" + event["code"] + "/exitteam",{},{
+                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+            }).then((res)=>{
+                window.location.reload();
+            }).catch((error)=>
+                console.log(error)
+            );
+        } 
+    });
+};
+
 function addSuperScript(number){
     if((number % 10 >= 4) || (number % 10 == 0)){
         return "th"
@@ -159,7 +191,10 @@ class SingleEventRplay extends React.Component{
         }
         if(startDate > today){
             return(
+                <>
                 <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Registered</button>
+                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Unregister</button>
+                </>
             );
         }
         else if(startDate <= today && endDate > today){
@@ -176,7 +211,7 @@ class SingleEventRplay extends React.Component{
 
     render(){
         return (
-            <div className="container-fluid events-list" style={{ marginTop: "6rem" }}>
+            <div className="container-fluid events-list" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
                 <div className="rplaybanner">
                 </div>
                 <div className="row mt-5 mx-2">
