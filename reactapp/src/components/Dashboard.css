@@ -39,6 +39,7 @@
   	transition: transform 300ms ease 100ms;
 	color: white;
 	border-radius: 8px;
+	background-image: url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
 }
 
 .event-carousel:hover .event-carousel-item {

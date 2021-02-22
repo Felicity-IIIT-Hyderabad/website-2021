@@ -152,7 +152,7 @@ class Dashboard extends React.Component {
                                         <div className="empty-space mx-4 desktop-only"></div>
                                         {this.afterToday(this.state.events).map((event, idx) => (
                                         
-                                                <div className="event-carousel-item mt-4 mx-2"  key={idx} onClick={() => window.open("/events/" + event["code"])}>
+                                                <div className="event-carousel-item mt-4 mx-2" style={{backgroundImage: "url('/myEvents/" + event["code"] + "')"}}  key={idx} onClick={() => window.open("/events/" + event["code"])}>
                                                     <div>
                                                         {event["name"]}
                                                     </div>
