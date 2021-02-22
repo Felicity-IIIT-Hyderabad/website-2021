@@ -34,40 +34,71 @@
 	border-radius: 8px;
 	overflow: hidden;
 	margin-bottom: 2rem;
-  }
-  
-  .calendar #monthName {
-	position: relative;
-	padding: 5px 10px;
-	background: #000000;
-	color: #fff;
-	font-size: 30px;
-  }
-  
-  .calendar #dayName {
-	margin: 20px;
-	font-size: 20px;
-	font-weight: 300;
-	color: #2c2c2c;
-	border-style: dotted;
-	padding: 2px;
-	border-color: black;
-  }
-  
-  .calendar #dayNumber {
-	margin: 0;
-	line-height: 1em;
-	font-size: 70px;
-	font-weight: 700;
-	color: #2c2c2c;
-  }
-  
-  .calendar #year {
-	margin-bottom: 20px;
-	font-size: 20px;
-	font-weight: 700;
-	color: #999;
-  }
+}
+
+.calendar #monthName {
+position: relative;
+padding: 5px 10px;
+background: #000000;
+color: #fff;
+font-size: 30px;
+}
+
+.calendar #dayName {
+margin: 20px;
+font-size: 20px;
+font-weight: 300;
+color: #2c2c2c;
+border-style: dotted;
+padding: 2px;
+border-color: black;
+}
+
+.calendar #dayNumber {
+margin: 0;
+line-height: 1em;
+font-size: 70px;
+font-weight: 700;
+color: #2c2c2c;
+}
+
+.calendar #year {
+margin-bottom: 20px;
+font-size: 20px;
+font-weight: 700;
+color: #999;
+}
+
+.passcode{
+	font-size: 24px;
+	font-weight: 500;
+	display: inline-block;
+	padding: 2rem 1rem;
+	border-style: dashed;
+	background-color: antiquewhite;
+	border-radius: 10px;
+	color: black;
+	margin-top: 0.5rem;
+	border-color: #f2a365;
+	line-height: 0.9;
+}
+
+.passcode:hover{
+	cursor: pointer;
+}
+
+.copy-display{
+	font-size: 16px;
+	color: black;
+	display: block;
+	max-width: 90vw;
+	float: right;
+}
+
+#roomcode_helper{
+	width: 0;
+	height: 0;
+}
 
   .passcode{
 	font-size: 24px;

@@ -229,7 +229,19 @@ class SingleEvent extends React.Component{
                 event: myEvent[0] ? myEvent[0] : []
             });
         });
-    }    
+    }
+
+    copyClipboard = () => {
+        const text = document.getElementById("room_passcode").innerHTML;
+        document.getElementById("room_passcode").style.backgroundColor = "wheat";
+        const room_textarea = document.getElementById("roomcode_helper");
+        room_textarea.innerHTML = text;
+        room_textarea.select();
+        document.execCommand("copy");
+        document.getElementById("copy_info").style.color = "tomato";
+        document.getElementById("copy_info").innerHTML = "Code Copied";
+    }
+
 
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
@@ -281,6 +293,9 @@ class SingleEvent extends React.Component{
         return (
             <div className="container-fluid" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
                 <br/>
+                
+
+                <textarea id="roomcode_helper"></textarea>
                 <div className="banner" id={this.props.match.params["0"] + "myid"}>
                 </div>
                 <div className="row mt-5 mx-2">
@@ -312,8 +327,12 @@ class SingleEvent extends React.Component{
                                 {this.checkLiveOrNot(this.state.event)}
                                 <button onClick={() => window.location.href="/invite/" + this.state.event.code}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
                             </div>
-                            <h1 className="mt-3"><strong>Event-Code</strong></h1>
-                            {this.state.eventCode}
+                            <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
+                               {this.state.eventCode}
+                            </div>
+                            <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
+                                Click to copy code
+                            </div>
                             <h1 className="mt-3"><strong>Prizes</strong></h1>
                             {checkUndef(this.state.event.prizes).length > 1 ? 
                             <ol className="single-event-details text-primary">
