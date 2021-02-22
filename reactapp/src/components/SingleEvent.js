@@ -193,25 +193,25 @@ class SingleEvent extends React.Component{
             return(
                 <>
                 <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
-                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill py-2 w-100">Unregister</button>
+                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill single-event-details text-white py-2 w-100"><strong>UNREGISTER</strong></button>
                 </>
             );
         }
         if(startDate >= today){
             return(
                 <>
-                <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100">Register</button>
+                <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill single-event-details text-white py-2 w-100"><strong>REGISTER</strong></button>
                 </>
             );
         }
         else if(startDate < today && endDate > today){
             return(
-                <button onClick={() => showModalEventOne(obj)} className="btn btn-warning rounded-pill py-2 w-100">Join Now</button>
+                <button onClick={() => showModalEventOne(obj)} className="btn btn-warning single-event-details text-white rounded-pill py-2 w-100"><strong>JOIN NOW</strong></button>
             );
         }
         else{
             return(
-                <button className="btn btn-secondary rounded-pill py-2 w-100 desktop-only">Over</button>
+                <button className="btn btn-secondary single-event-details text-white rounded-pill py-2 w-100 desktop-only"><strong>OVER</strong></button>
             );
         }
     }
@@ -224,45 +224,65 @@ class SingleEvent extends React.Component{
 
     render(){
         return (
-            <div className="container-fluid events-list" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
+            <div className="container-fluid" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
+                <br/>
                 <div className="banner" id={this.props.match.params["0"] + "myid"}>
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
                         <h1 className=""><strong>{this.state.event.name}</strong></h1>
                         <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
-                        <h2 className="mt-3">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</h2>
-                    </div>
-                    <div className="col-md-4 px-3">
-                        <div className="text-center">
-                            {this.checkLiveOrNot(this.state.event)}
-                        </div>
-                        <h1 className=" text-center mt-3"><strong>Prizes</strong></h1>
-                        {checkUndef(this.state.event.prizes).length > 1 ? 
-                        <ol className="">
-                        {checkUndef(this.state.event.prizes).map((obj,ind)=>
-                            <li key={ind}>
-                                {obj}
-                            </li>
-                        )}
-                        </ol>
-                            : 
-                            <div className=" bold">
-                                &#8377; {checkUndef(this.state.event.prizes)[0]}
+
+                        <div class="d-flex justify-content-center">
+                            <div class="calendar mx-2">
+                                <p id="monthName">February</p>
+                                <p id="dayNumber">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(0, 2)}</p>
+                                <p id="year">2021</p>
+                                <p id="dayName">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(9, 14)}</p>
                             </div>
-                        }
-                        <h1 className=" text-center mt-3"><strong>Organizers</strong></h1>
-                        <h3 className=" mt-2"><strong>
-                            {this.state.event == undefined ? "": this.state.event.organizer_clubs}
-                            </strong>
-                        </h3>                        
-                        <ul className="">
-                            {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
+
+                            <div class="calendar mx-2">
+                                <p id="monthName">February</p>
+                                <p id="dayNumber">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(21, 24)}</p>
+                                <p id="year">2021</p>
+                                <p id="dayName">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(31, 36)}</p>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    <div className="col-md-4">
+                        <div className="round-card px-5 py-5 my-4">
+                            <div className="text-center">
+                                {this.checkLiveOrNot(this.state.event)}
+                            </div>
+                            <h1 className="mt-3"><strong>Prizes</strong></h1>
+                            {checkUndef(this.state.event.prizes).length > 1 ? 
+                            <ol className="single-event-details text-primary">
+                            {checkUndef(this.state.event.prizes).map((obj,ind)=>
                                 <li key={ind}>
                                     {obj}
                                 </li>
                             )}
-                        </ul>
+                            </ol>
+                                : 
+                                <div className="single-event-details text-primary bold">
+                                    &#8377; {checkUndef(this.state.event.prizes)[0]}
+                                </div>
+                            }
+                            <h1 className="mt-3"><strong>Organizers</strong></h1>
+                            <h3 className=" mt-2"><strong>
+                                {this.state.event == undefined ? "": this.state.event.organizer_clubs}
+                                </strong>
+                            </h3>                        
+                            <ul className="single-event-details text-primary">
+                                {checkUndef(this.state.event.organizer_names).map((obj,ind)=>
+                                    <li key={ind}>
+                                        {obj}
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
