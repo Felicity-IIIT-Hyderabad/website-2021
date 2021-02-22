@@ -125,35 +125,40 @@ class CultEvent extends React.Component {
     };
 
     showModalEvent = (event) => {
-        Swal.fire({
-            title: event["name"],
-            text: event["description"],
-            footer: "Deadline:" +  formatDate(event["end_date"]),
-            imageUrl: "/teams/sample.jpg",
-            customClass: {
-                title: " error-message",
-                content: "error-message",
-                confirmButton: "game-button bg-danger",
-                image: "error-image-swal",
-                footer: "text-danger error-message"
-            },
-            width: "64em",
-            background: "white",
-            confirmButtonText: "Register Now",
-            showCloseButton: true,
-            showCancelButton: true,
-            cancelButtonText: "Not Now",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
-                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                }).then((res)=>{
-                    window.location.reload();
-                }).catch((error)=>
-                    console.log(error)
-                );
-            } 
-        });    
+        if(event.registration_link != null){
+            window.open(event.registration_link);
+        }
+        else{
+            Swal.fire({
+                title: event["name"],
+                text: event["description"],
+                footer: "Deadline:" +  formatDate(event["end_date"]),
+                imageUrl: "/teams/sample.jpg",
+                customClass: {
+                    title: " error-message",
+                    content: "error-message",
+                    confirmButton: "game-button bg-danger",
+                    image: "error-image-swal",
+                    footer: "text-danger error-message"
+                },
+                width: "64em",
+                background: "white",
+                confirmButtonText: "Register Now",
+                showCloseButton: true,
+                showCancelButton: true,
+                cancelButtonText: "Not Now",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                        headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                    }).then((res)=>{
+                        window.location.reload();
+                    }).catch((error)=>
+                        console.log(error)
+                    );
+                } 
+            });   
+        } 
     };
 
     changeDay = async (dayNum) => {
@@ -219,9 +224,6 @@ class CultEvent extends React.Component {
                 <div className="container event-list">
                     <div className="text-center mt-5">
                         <div className="text-white font-weight-bold d-flex justify-content-center days">
-                            <h2 className={this.state.selectedDay === "Day1" ? "mx-3 text-danger day" : "mx-3 text-info day"} onClick={() => this.changeDay(1)}>DAY 1</h2>
-                            <h2 className={this.state.selectedDay === "Day2" ? "mx-3 text-danger day" : "mx-3 text-info day"} onClick={() => this.changeDay(2)}>DAY 2</h2>
-                            <h2 className={this.state.selectedDay === "Day3" ? "mx-3 text-danger day" : "mx-3 text-info day"} onClick={() => this.changeDay(3)}>DAY 3</h2>
                         </div>
                         <div className="text-white my-3 main-description">
                             The days events are fascinating, they are full of surprises hidden. Stay tuned to find out.

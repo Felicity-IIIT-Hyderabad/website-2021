@@ -11,35 +11,40 @@ import "./Event.css";
 import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
 
 const showModalEventOne = (event) => {
-    Swal.fire({
-        title: event["name"],
-        text: event["description"],
-        footer: "Deadline:" + formatDate(event["end_date"]),
-        imageUrl: "/teams/sample.jpg",
-        customClass: {
-            title: " error-message",
-            content: "error-message",
-            confirmButton: "game-button bg-danger",
-            image: "error-image-swal",
-            footer: "text-danger error-message"
-        },
-        width: "64em",
-        background: "white",
-        confirmButtonText: "Register Now",
-        showCloseButton: true,
-        showCancelButton: true,
-        cancelButtonText: "Not Now",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
-                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-            }).then((res)=>{
-                window.location.reload();
-            }).catch((error)=>
-                console.log(error)
-            );
-        } 
-    });
+    if(event.registration_link != null){
+        window.open(event.registration_link);
+    }
+    else{
+        Swal.fire({
+            title: event["name"],
+            text: event["description"],
+            footer: "Deadline:" + formatDate(event["end_date"]),
+            imageUrl: "/teams/sample.jpg",
+            customClass: {
+                title: " error-message",
+                content: "error-message",
+                confirmButton: "game-button bg-danger",
+                image: "error-image-swal",
+                footer: "text-danger error-message"
+            },
+            width: "64em",
+            background: "white",
+            confirmButtonText: "Register Now",
+            showCloseButton: true,
+            showCancelButton: true,
+            cancelButtonText: "Not Now",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                }).then((res)=>{
+                    window.location.reload();
+                }).catch((error)=>
+                    console.log(error)
+                );
+            } 
+        });
+    }
 };
 
 function amOrPM(hours){
