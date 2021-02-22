@@ -171,7 +171,7 @@ class SingleEventRplay extends React.Component{
     checkLiveOrNot = (obj) => {
         if(obj.start_date != null){
             return(
-                <button onClick={() => window.open(linksData.default[window.location.href.split("/")[4]])}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Register</button>
+                <button onClick={() => window.open(linksData.default[window.location.href.split("/")[4]])}  className="btn btn-danger rounded-pill py-2 w-100">Register</button>
             );
         }
         var startDate = new Date(obj.start_date);
@@ -186,7 +186,7 @@ class SingleEventRplay extends React.Component{
         }
         if(!flag){
             return(
-                <button className="btn btn-success rounded-pill py-2 w-100 desktop-only">Registered</button>
+                <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
             );
         }
         if(startDate > today){
@@ -204,7 +204,7 @@ class SingleEventRplay extends React.Component{
         }
         else{
             return(
-                <button className="btn btn-secondary rounded-pill py-2 w-100 desktop-only">Over</button>
+                <button className="btn btn-secondary rounded-pill py-2 w-100">Over</button>
             );
         }
     }
