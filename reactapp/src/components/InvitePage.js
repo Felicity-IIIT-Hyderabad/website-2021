@@ -28,8 +28,17 @@ class ErrorPage extends React.Component{
           Authorization:JSON.parse(localStorage["user"])["token"]
         }
       }).then((response)=>{
-        console.log(response);
-
+          Swal.fire({title: "Success",
+          icon: 'success',
+          html: error.response.message,
+          footer: "Joined Team !",
+          customClass: {
+            title: 'text-success',
+            content: 'text-white',
+            confirmButton: 'bg-success',
+          },
+          background: `rgba(0,0,0,1)`
+        });
       }).catch((error) => 
         {
           Swal.fire({title: "Oops! Error",
