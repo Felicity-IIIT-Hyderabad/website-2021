@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
     getEvents(){
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
         axios.get(eventsRegisteredApi,{
-            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+            headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : ""}
         }).then(async (response)=>{
             var cultEventsData = this.sortDateWise(response.data);
 

@@ -131,7 +131,7 @@ const showModalEventUnregister = (event) => {
     }).then((result) => {
         if (result.isConfirmed) {
             axios.post(eventsBaseApi + "/" + event["code"] + "/exitteam",{},{
-                headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : ""}
             }).then((res)=>{
                 window.location.reload();
             }).catch((error)=>
