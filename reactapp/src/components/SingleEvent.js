@@ -312,9 +312,37 @@ class SingleEvent extends React.Component{
     };
 
     checkIfRegistered = () => {
+        var flag = 1;
+        this.state.myEvents.map((obj)=>{
+            if(obj.code == this.props.match.params["0"]){
+                flag = 0;
+            }
+        })
+        if(flag){
+            return(
+                <div>
+
+                </div>
+            )
+        }
         return(
             <div>
-
+                <h1 className="mt-3"><strong>Invite Code </strong></h1>                            
+                <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
+                    {this.state.eventCode}
+                </div>
+                <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
+                    Click to copy code
+                </div>
+                <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
+                <ul className="single-event-details text-primary">
+                    <li></li>
+                    {this.state.teamDetails.members.map((obj,ind)=>
+                        <li key={ind}>
+                            {obj}
+                        </li>
+                    )}
+                </ul>
             </div>
         )
     }
@@ -373,22 +401,7 @@ class SingleEvent extends React.Component{
                                     &#8377; {checkUndef(this.state.event.prizes)[0]}
                                 </div>
                             }
-                            <h1 className="mt-3"><strong>Invite Code </strong></h1>                            
-                            <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
-                               {this.state.eventCode}
-                            </div>
-                            <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
-                                Click to copy code
-                            </div>
-                            <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
-                            <ul className="single-event-details text-primary">
-                                <li></li>
-                                {this.state.teamDetails.members.map((obj,ind)=>
-                                    <li key={ind}>
-                                        {obj}
-                                    </li>
-                                )}
-                            </ul>                      
+                            {this.checkIfRegistered()}                
 
                             <h1 className="mt-3"><strong>Organizers</strong></h1>
                             <h3 className=" mt-2"><strong>
