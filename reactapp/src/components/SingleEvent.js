@@ -187,17 +187,25 @@ class SingleEvent extends React.Component{
     }
 
     getEventCode = () => {
-        axios.get(eventsBaseApi + "/" + this.props.match.params["0"] + "/myteam",{
-            headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : "" }
-        }).then((res)=>{
-            {
-                this.setState({
-                    eventCode: res.data.team_code
-                });
+        var flag = 1;
+        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
+            if(this.state.myEvents[ind]["code"] == this.props.match.params["0"]){
+                flag = 0;
             }
-        }).catch((error)=>
-            console.log(error)
-        );         
+        }
+        if(!flag){
+            axios.get(eventsBaseApi + "/" + this.props.match.params["0"] + "/myteam",{
+                headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : "" }
+            }).then((res)=>{
+                {
+                    this.setState({
+                        eventCode: res.data.team_code
+                    });
+                }
+            }).catch((error)=>
+                console.log(error)
+            );         
+        }
     }
 
     componentDidMount = () => {
