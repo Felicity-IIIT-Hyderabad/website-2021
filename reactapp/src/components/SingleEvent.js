@@ -124,10 +124,10 @@ const showModalEventUnregister = (event) => {
         },
         width: "64em",
         background: "white",
-        confirmButtonText: "Register Now",
+        confirmButtonText: "Unregister",
         showCloseButton: true,
         showCancelButton: true,
-        cancelButtonText: "Not Now",
+        cancelButtonText: "Cancel",
     }).then((result) => {
         if (result.isConfirmed) {
             axios.post(eventsBaseApi + "/" + event["code"] + "/exitteam",{},{
