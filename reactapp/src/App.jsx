@@ -32,17 +32,17 @@ const App = (props) => {
                 return (
                     <>
                         <Route path="/events/*" component={Home} />
-                        <Route path="/events" component={Home} />
-                        <Route path="/events-technical" component={Home} />
-                        <Route path="/events-cultural" component={Home} />
-                        <Route path="/" component={Home} />
+                        <Route exact path="/events" component={Home} />
+                        <Route exact path="/events-technical" component={Home} />
+                        <Route exact path="/events-cultural" component={Home} />
+                        <Route exact path="/" component={Home} />
                     </>                
                 );
             }
             else{
                 return (
                     <>
-                        <Route path="/events" component={Dashboard} />
+                        <Route exact path="/events" component={Dashboard} />
                         <Route path="/events-technical" component={TechEvent} />
                         <Route path="/events-cultural" component={CultEvent} />
                         <Route path="/events/*" component={SingleEvent} />

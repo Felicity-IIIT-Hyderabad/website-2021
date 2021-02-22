@@ -72,4 +72,7 @@
 	.mobile-only{
 		display: block;
 	}
+  .banner{
+    height: 11rem;
+  }
 }

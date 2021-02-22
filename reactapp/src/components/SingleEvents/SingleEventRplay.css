@@ -5,6 +5,8 @@
 	border-radius: 8px;
 	color: 	white;
 	margin-top: 5rem;
+	background-size: 100% 100%;
+	overflow-y: scroll;
 	background-image: url("../../images/events/rplay.png");
 }
 
@@ -20,5 +22,8 @@
 @media only screen and (max-width: 768px) {
 	.mobile-only{
 		display: block;
+	}
+	.rplaybanner{
+		height: 11rem;
 	}
 }
