@@ -7,6 +7,7 @@ import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi } from "../api/";
+import { Button } from "reactstrap";
 
 import "./SingleEvent.css";
 
@@ -286,6 +287,7 @@ class SingleEvent extends React.Component{
                         <div className="round-card px-5 py-5 my-4">
                             <div className="text-center">
                                 {this.checkLiveOrNot(this.state.event)}
+                                <button onClick={() => window.location.href="/invite/" + this.state.event.code}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
                             </div>
                             <h1 className="mt-3"><strong>Prizes</strong></h1>
                             {checkUndef(this.state.event.prizes).length > 1 ? 

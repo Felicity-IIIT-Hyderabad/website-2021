@@ -188,7 +188,9 @@ class CultEvent extends React.Component {
         }        
         if(startDate > today){
             return(
-                <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+                <>
+                    <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
+                </>
             );
         }
         else if(startDate <= today && endDate > today){
