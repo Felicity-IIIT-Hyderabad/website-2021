@@ -38,7 +38,11 @@ class ErrorPage extends React.Component{
             confirmButton: 'bg-success',
           },
           background: `rgba(0,0,0,1)`
-        });
+        }).then(()=>
+          {
+            window.location.href="/event" + this.state.eventId;
+          }
+        );
       }).catch((error) => 
         {
           Swal.fire({title: "Oops! Error",
