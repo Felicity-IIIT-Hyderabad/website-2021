@@ -83,7 +83,7 @@ const App = (props) => {
                             <Sponsors id="sponsors" />
                         </Route>
                         {renderEvents()}
-                        <Redirect from="*" to="/"/>
+                        <Redirect from="*" to="/404"/>
                     </Switch>
                 </Router>
             </div>
