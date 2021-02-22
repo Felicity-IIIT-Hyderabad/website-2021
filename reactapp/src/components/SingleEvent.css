@@ -69,6 +69,38 @@
 	color: #999;
   }
 
+  .passcode{
+	font-size: 24px;
+	font-weight: 500;
+	display: inline-block;
+	padding: 2rem 1rem;
+	border-style: dashed;
+	background-color: antiquewhite;
+	border-radius: 10px;
+	color: black;
+	margin-top: 0.5rem;
+	border-color: #f2a365;
+	line-height: 0.9;
+}
+
+.passcode:hover{
+	cursor: pointer;
+}
+
+.copy-display{
+	font-size: 16px;
+	color: black;
+	display: block;
+	max-width: 90vw;
+	float: right;
+}
+
+#roomcode_helper{
+	width: 0;
+	height: 0;
+}
+
+
 
 @media only screen and (max-width: 768px) {
 	.mobile-only{
