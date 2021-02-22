@@ -35,7 +35,7 @@ const App = (props) => {
                     <>
                         <Route exact path="/invite/*" component={InvitePage} />
                         <Route exact path="/404" component={ErrorPage} />
-                        <Route path="/event/*" component={Home} />
+                        <Route path="/event/*" component={SingleEvent} />
                         <Route exact path="/events" component={Home} />
                         <Route exact path="/events-technical" component={Home} />
                         <Route exact path="/events-cultural" component={Home} />

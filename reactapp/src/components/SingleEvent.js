@@ -113,7 +113,13 @@ const showModalEventOne = async (event) => {
     if(event.registration_link != ""){
         window.open(event.registration_link);
     }
-    else{            
+    else{
+        // console.log(JSON.parse(localStorage.getItem("user")));
+        if(!JSON.parse(localStorage.getItem("user"))["authenticated"]){
+            localStorage.setItem("prevURL",window.location.href);
+            window.location.href="/login";            
+            // localStorage.setItem("prevURL",window.location.href);
+        }
         const { value: text } = await Swal.fire({
             title:  event["name"],
             input: 'textarea',
@@ -238,8 +244,9 @@ class SingleEvent extends React.Component{
                 this.getEventCode(res.data);
             }
         }).catch((error)=>
-            console.log(error)
-        );      
+            {                
+            }
+        );
         axios.get(eventsApi).then(async (response)=>{
             var myEvent = response.data.filter((obj) => obj.code == eventId);
             this.setState({
@@ -304,6 +311,14 @@ class SingleEvent extends React.Component{
         return formatDate(num1) + "\t To \t" + formatDate(num2);
     };
 
+    checkIfRegistered = () => {
+        return(
+            <div>
+
+            </div>
+        )
+    }
+
     // var url = "../images/" + this.props.match.params["0"] + ".png";
 
     render(){
@@ -344,13 +359,6 @@ class SingleEvent extends React.Component{
                                 {this.checkLiveOrNot(this.state.event)}
                                 <button onClick={() => window.location.href="/invite/" + this.state.event.code}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
                             </div>
-                            <h1 className="mt-3"><strong>Invite Code </strong></h1>                            
-                            <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
-                               {this.state.eventCode}
-                            </div>
-                            <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
-                                Click to copy code
-                            </div>
                             <h1 className="mt-3"><strong>Prizes</strong></h1>
                             {checkUndef(this.state.event.prizes).length > 1 ? 
                             <ol className="single-event-details text-primary">
@@ -365,6 +373,13 @@ class SingleEvent extends React.Component{
                                     &#8377; {checkUndef(this.state.event.prizes)[0]}
                                 </div>
                             }
+                            <h1 className="mt-3"><strong>Invite Code </strong></h1>                            
+                            <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
+                               {this.state.eventCode}
+                            </div>
+                            <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
+                                Click to copy code
+                            </div>
                             <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
                             <ul className="single-event-details text-primary">
                                 <li></li>
