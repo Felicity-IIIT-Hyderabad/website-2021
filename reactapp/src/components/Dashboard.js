@@ -104,9 +104,6 @@ class Dashboard extends React.Component {
                                 interval={2000}>
                                 {bigEvents.default.urls.map((obj,ind)=>
                                     <div className="header-carousel-item" style={{  backgroundImage: "url('/bigEvents/" + obj + ".jpg')", backgroundSize: "100% 100%" }}>
-                                        <div className="header-carousel-title text-left">
-                                            {bigEvents.default.names[ind]}
-                                        </div>
                                     </div>
                                 )}                                          
                                     {/* <div className="header-carousel-title text-left">

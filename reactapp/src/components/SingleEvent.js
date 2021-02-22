@@ -344,6 +344,7 @@ class SingleEvent extends React.Component{
                                 {this.checkLiveOrNot(this.state.event)}
                                 <button onClick={() => window.location.href="/invite/" + this.state.event.code}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
                             </div>
+                            <h1 className="mt-3"><strong>Invite Code </strong></h1>                            
                             <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
                                {this.state.eventCode}
                             </div>
@@ -366,11 +367,13 @@ class SingleEvent extends React.Component{
                             }
                             <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
                             <ul className="single-event-details text-primary">
-                                {checkUndef(this.state.teamDetails.members).map((obj,ind)=>
+                                <li></li>
+                                {this.state.teamDetails.members.map((obj,ind)=>
                                     <li key={ind}>
                                         {obj}
                                     </li>
-                                )}                     
+                                )}
+                            </ul>                      
 
                             <h1 className="mt-3"><strong>Organizers</strong></h1>
                             <h3 className=" mt-2"><strong>
