@@ -13,8 +13,8 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import { loginUser, logoutUser } from "../actions/login";
 import { getUser } from "../actions/login";
 
-import { eventsApi } from "../api/";
-import { Link } from "react-router-dom";
+import { eventsApi, eventsRegisteredApi } from "../api/";
+// import { Link } from "react-router-dom";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -49,37 +49,45 @@ class Dashboard extends React.Component {
         return array.sort(this.compare)
     }
 
-    componentDidMount = () => {
-        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };
-        axios.get(eventsApi).then(async (response)=>{
+    getEvents(){
+        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
+        axios.get(eventsRegisteredApi,
+            {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+        ).then(async (response)=>{
             response.data.map((obj)=>{
-                if(obj.start_date != null){
-                    console.log(obj.start_date);
-                    var dateOfEvent = obj.start_date.slice(8,10);
-                    if(dateOfEvent == "24"){
-                        tempCultEvents["Day1"].push(obj);
-                    }
-                    else if(dateOfEvent == "25"){
-                        tempCultEvents["Day2"].push(obj);
-                    }
-                    else if(dateOfEvent == "26"){
-                        tempCultEvents["Day3"].push(obj);
-                    }
-                }                
+                var dateOfEvent = obj.start_date.slice(8,10);
+                if(dateOfEvent == "24"){
+                    tempCultEvents["Day1"].push(obj);
+                }
+                else if(dateOfEvent == "25"){
+                    tempCultEvents["Day2"].push(obj);
+                }
+                else if(dateOfEvent == "26"){
+                    tempCultEvents["Day3"].push(obj);
+                }
             });
-            
+
+            tempCultEvents["Day1"] = this.sortDateWise(tempCultEvents["Day1"])                    
+            tempCultEvents["Day2"] = this.sortDateWise(tempCultEvents["Day2"])                    
+            tempCultEvents["Day3"] = this.sortDateWise(tempCultEvents["Day3"])
+
             console.log(this.sortDateWise(tempCultEvents["Day1"]));
 
             await this.setState({
                 events: tempCultEvents
             });
-        });
+        }).catch((error)=>
+            console.log(error)
+        );
+    }
 
+    componentDidMount = () => {
         if(key)
         {
             key = 0;   
             getUser();
         }
+        this.getEvents();
     }
 
     render () {
@@ -123,13 +131,11 @@ class Dashboard extends React.Component {
                                 <div className="mt-4 event-carousel" id="event1">
                                     <div className="empty-space mx-4 desktop-only"></div>
                                     {this.state.events["Day1"].map((event, idx) => (
-                                        <Link>
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
                                                 <div>
                                                     {event["name"]}
                                                 </div>
                                             </div>
-                                        </Link>
                                     ))}
                                     <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                                 </div>
@@ -146,13 +152,13 @@ class Dashboard extends React.Component {
                                     <div className="mt-4 event-carousel" id="event2">
                                         <div className="empty-space mx-4 desktop-only"></div>
                                         {this.state.events["Day2"].map((event, idx) => (
-                                            <Link>
-                                                <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/events/" + event["code"])}>
+                                        
+                                                <div className="event-carousel-item mt-4 mx-2"  key={idx} onClick={() => window.open("/events/" + event["code"])}>
                                                     <div>
                                                         {event["name"]}
                                                     </div>
                                                 </div>
-                                            </Link>                                            
+
                                         ))}
                                         <div className="empty-space mx-5 desktop-only">&nbsp;</div>
                                     </div>

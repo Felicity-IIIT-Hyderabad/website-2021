@@ -88,9 +88,8 @@ class CultEvent extends React.Component {
     }
 
     getRegisteredEvents(){
-        axios.get(eventsRegisteredApi,{},{
-            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-        }).then(async (res)=>{
+        axios.get(eventsRegisteredApi,{"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+        ).then(async (res)=>{
             this.setState({
                 myEvents: res.data
             })
