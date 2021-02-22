@@ -159,17 +159,17 @@ class SingleEvent extends React.Component{
         }
         if(!flag){
             return(
-                <button className="btn btn-success rounded-pill py-2 w-100 desktop-only">Registered</button>
+                <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
             );
         }
         if(startDate >= today){
             return(
-                <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Register</button>
+                <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100">Register</button>
             );
         }
         else if(startDate < today && endDate > today){
             return(
-                <button onClick={() => showModalEventOne(obj)} className="btn btn-warning rounded-pill py-2 w-100 desktop-only">Join Now</button>
+                <button onClick={() => showModalEventOne(obj)} className="btn btn-warning rounded-pill py-2 w-100">Join Now</button>
             );
         }
         else{
@@ -195,7 +195,6 @@ class SingleEvent extends React.Component{
                         {console.log(this.state.event.description)}
                         {console.log("AA")}
                         <h1 className=""><strong>{this.state.event.name}</strong></h1>
-                        <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only" onClick={() => showModalEventOne(this.state.event)}>Register Now  </button>
                         <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
                         <h2 className="mt-3">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</h2>
                     </div>
