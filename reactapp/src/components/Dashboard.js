@@ -54,6 +54,7 @@ class Dashboard extends React.Component {
         axios.get(eventsRegisteredApi,{
             headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
         }).then(async (response)=>{
+            console.log(response);
             response.data.map((obj)=>{
                 var dateOfEvent = obj.start_date.slice(8,10);
                 if(dateOfEvent == "24"){

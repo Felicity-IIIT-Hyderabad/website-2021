@@ -31,7 +31,7 @@ const App = (props) => {
             if(!props.userInfo.loginReducer.authenticated){
                 return (
                     <>
-                        <Route path="/events/*" component={SingleEvent} />
+                        <Route path="/events/*" component={Home} />
                         <Route path="/events" component={Home} />
                         <Route path="/events-technical" component={TechEvent} />
                         <Route path="/events-cultural" component={Home} />
@@ -45,6 +45,7 @@ const App = (props) => {
                         <Route path="/events" component={Dashboard} />
                         <Route path="/events-technical" component={TechEvent} />
                         <Route path="/events-cultural" component={CultEvent} />
+                        <Route path="/events/*" component={SingleEvent} />
                         {/* <Route path="/" component={Home} /> */}
                     </>
                 );
@@ -74,7 +75,6 @@ const App = (props) => {
                         <Route path="/login" component={Login} />
                         <Route path="/our-team" component={OurTeam} />
                         <Route exact path="/events/rplay" component={SingleEventRplay} />
-                        <Route path="/events/*" component={SingleEvent} />
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
                         </Route>

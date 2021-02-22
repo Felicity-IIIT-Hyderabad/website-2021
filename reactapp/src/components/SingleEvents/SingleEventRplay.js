@@ -192,14 +192,14 @@ class SingleEventRplay extends React.Component{
         if(startDate > today){
             return(
                 <>
-                <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Registered</button>
-                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill py-2 w-100 desktop-only">Unregister</button>
+                <button onClick={() => showModalEventOne(obj)}  className="btn btn-danger rounded-pill py-2 w-100 ">Registered</button>
+                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill py-2 w-100">Unregister</button>
                 </>
             );
         }
         else if(startDate <= today && endDate > today){
             return(
-                <button onClick={() => showModalEventOne(obj)} className="btn btn-warning rounded-pill py-2 w-100 desktop-only">Join Now</button>
+                <button onClick={() => showModalEventOne(obj)} className="btn btn-warning rounded-pill py-2 w-100">Join Now</button>
             );
         }
         else{
