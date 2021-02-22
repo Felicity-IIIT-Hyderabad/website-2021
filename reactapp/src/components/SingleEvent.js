@@ -349,6 +349,17 @@ class SingleEvent extends React.Component{
 
     // var url = "../images/" + this.props.match.params["0"] + ".png";
 
+    checkLogin = (string) => {
+        if(localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
+            localStorage.setItem("prevURL",window.location.href);
+            window.location.href="/login";            
+            // localStorage.setItem("prevURL",window.location.href);
+        }
+        else{
+            window.location.href = string;
+        }
+    }
+
     render(){
         return (
             <div className="container-fluid" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
@@ -385,7 +396,7 @@ class SingleEvent extends React.Component{
                         <div className="round-card px-5 py-5 my-4">
                             <div className="text-center">
                                 {this.checkLiveOrNot(this.state.event)}
-                                <button onClick={() => window.location.href="/invite/" + this.state.event.code}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
+                                <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
                             </div>
                             <h1 className="mt-3"><strong>Prizes</strong></h1>
                             {checkUndef(this.state.event.prizes).length > 1 ? 
