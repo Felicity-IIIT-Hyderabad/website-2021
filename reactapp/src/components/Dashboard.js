@@ -82,6 +82,15 @@ class Dashboard extends React.Component {
         return todayEvents;
     }
 
+    afterToday = (array) => {
+        var today = new Date();
+        var todayEvents = array.filter((obj) => {
+            var date = new Date(obj.start_date);
+            return date > today
+        })
+        return todayEvents;
+    }
+
     render () {
         return (
             <>
@@ -138,12 +147,11 @@ class Dashboard extends React.Component {
                         <div className="container-fluid mb-5">
                             <div>
                                 {/* <div className="feature-image my-4 mr-2"></div> */}
-                                {/* {upcomingDates.map}
-                                <div className="event-type-title mt-3 mx-3">Upcoming - Day 2</div>
+                                <div className="event-type-title mt-3 mx-3">Upcoming Events</div>
                                 <div className="carousel-holder">
                                     <div className="mt-4 event-carousel" id="event2">
                                         <div className="empty-space mx-4 desktop-only"></div>
-                                        {this.state.events["Day2"].map((event, idx) => (
+                                        {this.afterToday(this.state.events).map((event, idx) => (
                                         
                                                 <div className="event-carousel-item mt-4 mx-2"  key={idx} onClick={() => window.open("/events/" + event["code"])}>
                                                     <div>
@@ -156,7 +164,7 @@ class Dashboard extends React.Component {
                                     </div>
                                     <div className="left-arrow desktop-only" onClick={() => this.leftScroll(2)}><FontAwesomeIcon icon={faChevronLeft} /></div>
                                     <div className="right-arrow desktop-only" onClick={() => this.rightScroll(2)}><FontAwesomeIcon icon={faChevronRight} /></div>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>
