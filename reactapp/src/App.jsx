@@ -74,6 +74,7 @@ const App = (props) => {
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/login" component={Login} />
                         <Route path="/our-team" component={OurTeam} />
+                        <Route path="/events/*" component={SingleEvent} />
                         {/* <Route exact path="/events/rplay" component={SingleEventRplay} /> */}
                         <Route path="/sponsors">
                             <Sponsors id="sponsors" />
