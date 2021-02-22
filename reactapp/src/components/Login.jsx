@@ -33,6 +33,9 @@ class Login extends React.Component {
             this.setState({ keycloak: keycloak, authenticated: authenticated });
         }).then(()=>{
             this.props.loginUser(keycloak);
+            if(localStorage.getItem("prevURL") == null || localStorage.getItem("prevURL") == undefined){
+                window.location.href = "/";    
+            }
             window.location.href = localStorage.getItem("prevURL");
             // console.log(window.history);
             // window.history.go(-1 * window.history.length);
