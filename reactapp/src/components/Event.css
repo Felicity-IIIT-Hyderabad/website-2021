@@ -134,6 +134,10 @@
 	color: orange !important;
 }
 
+.my-date{
+	font-size: 1.4rem !important;
+}
+
 @media only screen and (max-width: 768px) {
 	.image-absolute{
 		display: none !important;
