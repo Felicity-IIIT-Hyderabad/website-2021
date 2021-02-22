@@ -137,7 +137,7 @@ class SingleEvent extends React.Component{
         axios.get(eventsApi).then(async (response)=>{
             var myEvent = response.data.filter((obj) => obj.code == eventId);
             this.setState({
-                event:myEvent[0]
+                event: myEvent[0] ? myEvent[0] : []
             });
         });
     }
