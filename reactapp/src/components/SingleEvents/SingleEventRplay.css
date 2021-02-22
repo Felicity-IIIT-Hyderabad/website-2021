@@ -19,6 +19,50 @@
 	display: none;
 }
 
+.calendar {
+	position: relative;
+	width: 200px;
+	background: #fff;
+	text-align: center;
+	border-style: solid;
+	border-radius: 8px;
+	overflow: hidden;
+	margin-bottom: 2rem;
+  }
+  
+  .calendar #monthName {
+	position: relative;
+	padding: 5px 10px;
+	background: #000000;
+	color: #fff;
+	font-size: 30px;
+  }
+  
+  .calendar #dayName {
+	margin: 20px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #2c2c2c;
+	border-style: dotted;
+	padding: 2px;
+	border-color: black;
+  }
+  
+  .calendar #dayNumber {
+	margin: 0;
+	line-height: 1em;
+	font-size: 70px;
+	font-weight: 700;
+	color: #2c2c2c;
+  }
+  
+  .calendar #year {
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: 700;
+	color: white;
+  }
+
 @media only screen and (max-width: 768px) {
 	.mobile-only{
 		display: block;
@@ -26,4 +70,7 @@
 	.rplaybanner{
 		height: 11rem;
 	}
+	.calendar #dayNumber {
+		font-size: 50px;
+	  }	
 }

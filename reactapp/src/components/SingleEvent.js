@@ -76,6 +76,37 @@ function formatDate(num1){
     return formattedTime;
 }
 
+function formatDate2(num1){
+    // Create a new JavaScript Date object based on the timestamp
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var startDate = new Date(num1);
+    // var endDate = new Date(num2);
+    var day = startDate.getDate();
+    var mon = startDate.getMonth();
+    // Hours part from the timestamp
+    var hours = startDate.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + startDate.getMinutes();
+
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "Aug";
+    month[8] = "Sept";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+
+    // Will display time in 10:30:23 format
+    var formattedTime = day + "/" + (mon + 1);// addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);
+    return formattedTime;
+}
+
 
 const showModalEventOne = (event) => {
     Swal.fire({
@@ -239,16 +270,16 @@ class SingleEvent extends React.Component{
                         <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
 
                         <div class="d-flex justify-content-center">
-                            <div class="calendar mx-2">
-                                <p id="monthName">February</p>
-                                <p id="dayNumber">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(0, 2)}</p>
+                            <div class="calendar mx-2" style={{ backgroundColor: "#2dfa52" }}>
+                                <p id="monthName">Start</p>
+                                <p id="dayNumber">{formatDate2(this.state.event.start_date).slice(0, 4)}</p>
                                 <p id="year">2021</p>
                                 <p id="dayName">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(9, 14)}</p>
                             </div>
 
-                            <div class="calendar mx-2">
-                                <p id="monthName">February</p>
-                                <p id="dayNumber">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(21, 24)}</p>
+                            <div class="calendar mx-2"style={{ backgroundColor: "#f56e6e" }}>
+                                <p id="monthName">End</p>
+                                <p id="dayNumber">{formatDate2(this.state.event.end_date).slice(0, 4)}</p>
                                 <p id="year">2021</p>
                                 <p id="dayName">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(31, 36)}</p>
                             </div>
