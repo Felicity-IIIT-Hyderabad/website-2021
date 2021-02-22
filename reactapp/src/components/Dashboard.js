@@ -7,6 +7,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import { connect } from "react-redux";
 import axios from "axios";
+import * as bigEvents from "../sample-data/bigevents.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -101,8 +102,14 @@ class Dashboard extends React.Component {
                                 play={true}
                                 cancelOnInteraction={false} // should stop playing on user interaction
                                 interval={2000}>
-                                <div className="header-carousel-item" id="item1">
-                                    <div className="header-carousel-title text-left">
+                                {bigEvents.default.urls.map((obj,ind)=>
+                                    <div className="header-carousel-item" style={{  backgroundImage: "url('/bigEvents/" + obj + ".jpg')", backgroundSize: "100% 100%" }}>
+                                        <div className="header-carousel-title text-left">
+                                            {bigEvents.default.names[ind]}
+                                        </div>
+                                    </div>
+                                )}                                          
+                                    {/* <div className="header-carousel-title text-left">
                                         Event One
                                     </div>
                                 </div>
@@ -110,7 +117,7 @@ class Dashboard extends React.Component {
                                     <div className="header-carousel-title text-left">
                                         Event Two
                                     </div>
-                                </div>
+                                </div> */}
                             </AutoplaySlider>
                         </div>
                     </div>
