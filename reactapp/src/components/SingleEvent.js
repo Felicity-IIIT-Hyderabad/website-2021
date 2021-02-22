@@ -186,7 +186,7 @@ class SingleEvent extends React.Component{
     render(){
         return (
             <div className="container-fluid events-list" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
-                <div className="banner" style={{ backgroundImage: `url("../../images/events/rplaybanner.jpg")` }}>
+                <div className="banner" style={{ backgroundImage: `url("../images/events/rplaybanner.jpg")` }}>
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">

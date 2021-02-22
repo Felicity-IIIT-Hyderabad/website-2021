@@ -91,7 +91,7 @@ function logInOrOut(props) {
 
 function renderEvents(props, isEventsOpen, toggleEvents){
     try{
-        if (false) {
+        if (!props.props.userInfo.loginReducer.authenticated) {
             return(
                 <></>
             );
