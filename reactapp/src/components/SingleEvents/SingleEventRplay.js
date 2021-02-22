@@ -27,7 +27,7 @@ const showModalEventOne = (event) => {
         title: event["name"],
         text: event["description"],
         footer: "Coming Soon.",
-        imageUrl: "/events/" + window.location.href.split("/")[4] + ".jpg",
+        imageUrl: "/events/" + "rplay" + ".jpg",
         customClass: {
             title: "text-danger error-message",
             content: "error-message text-white",
@@ -152,8 +152,7 @@ class SingleEventRplay extends React.Component{
     }
 
     componentDidMount = () => {
-        console.log(window.location.href.split("/")[3]);
-        var eventId = window.location.href.split("/")[4];
+        var eventId = "rplay";
         axios.get(eventsApi).then(async (response)=>{
             console.log(response.data);
             var myEvent = response.data.filter((obj) => obj.code == eventId);
@@ -171,7 +170,7 @@ class SingleEventRplay extends React.Component{
     checkLiveOrNot = (obj) => {
         if(obj.start_date != null){
             return(
-                <button onClick={() => window.open(linksData.default[window.location.href.split("/")[4]])}  className="btn btn-danger rounded-pill py-2 w-100">Register</button>
+                <button onClick={() => window.open(linksData.default["rplay"])}  className="btn btn-danger rounded-pill py-2 w-100">Register</button>
             );
         }
         var startDate = new Date(obj.start_date);
