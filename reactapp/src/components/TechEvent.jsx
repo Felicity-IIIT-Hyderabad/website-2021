@@ -31,7 +31,7 @@ const showModalEventOne = async (event) => {
                 image: "error-image-swal",
                 footer: "text-danger error-message"
             },                
-            width: "20vw",
+            width: "40vw",
             background: "white",
             confirmButtonText: "Register Now",
             showCloseButton: true,
