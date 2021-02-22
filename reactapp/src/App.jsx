@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import OurTeam from "./components/OurTeam";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import ErrorPage from "./components/ErrorPage";
+import InvitePage from "./components/InvitePage";
 import { loginUser } from "./actions/login";
 
 import { getUser } from "./actions/login";
@@ -32,6 +33,7 @@ const App = (props) => {
             if(!props.userInfo.loginReducer.authenticated){
                 return (
                     <>
+                        <Route exact path="/invite" component={InvitePage} />
                         <Route exact path="/404" component={ErrorPage} />
                         <Route path="/events/*" component={Home} />
                         <Route exact path="/events" component={Home} />
@@ -44,6 +46,7 @@ const App = (props) => {
             else{
                 return (
                     <>
+                        <Route exact path="/invite" component={InvitePage} />
                         <Route exact path="/404" component={ErrorPage} />
                         <Route exact path="/events" component={Dashboard} />
                         <Route path="/events-technical" component={TechEvent} />
@@ -57,6 +60,7 @@ const App = (props) => {
         catch{
             return (
                 <>
+                    <Route exact path="/invite" component={InvitePage} />
                     <Route exact path="/404" component={ErrorPage} />
                     <Route path="/events" component={Dashboard} />
                     <Route path="/events-technical" component={TechEvent} />
