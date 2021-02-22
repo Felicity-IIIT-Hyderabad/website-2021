@@ -182,7 +182,7 @@ class SingleEvent extends React.Component{
         this.state = {
             myEvents: [],
             event: [],
-            eventCode: "lalalalaalla"
+            eventCode: ""
         };
     }
 
@@ -199,7 +199,7 @@ class SingleEvent extends React.Component{
             }).then((res)=>{
                 {
                     this.setState({
-                        eventCode: res.data.team_code
+                        eventCode: res.data.teamcode
                     });
                 }
             }).catch((error)=>
