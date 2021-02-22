@@ -122,8 +122,9 @@ class SingleEvent extends React.Component{
     }
 
     componentDidMount = () => {
+        document.getElementById(this.props.match.params["0"] + "myid").style.backgroundImage = 'url(/myEvents/' + this.props.match.params["0"] + '.png)';
         var eventId = this.props.match.params["0"];
-        axios.get(eventsRegisteredApi,{},{
+        axios.get(eventsRegisteredApi,{
             headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : "" }
         }).then((res)=>{
             {
@@ -182,18 +183,19 @@ class SingleEvent extends React.Component{
         return formatDate(num1) + "\t To \t" + formatDate(num2);
     };
 
+    // var url = "../images/" + this.props.match.params["0"] + ".png";
 
     render(){
         return (
             <div className="container-fluid events-list" style={{ marginTop: "6rem", backgroundColor: "white", color:"black" }}>
-                <div className="banner" style={{ backgroundImage: `url("../images/events/rplaybanner.jpg")` }}>
+                <div className="banner" id={this.props.match.params["0"] + "myid"}>
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
                         {console.log(this.state.event.description)}
                         {console.log("AA")}
                         <h1 className=""><strong>{this.state.event.name}</strong></h1>
-                        <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only">Register Now  </button>
+                        <button className="btn btn-primary rounded-pill py-2 px-5 w-100 mb-4 mobile-only" onClick={() => showModalEventOne(this.state.event)}>Register Now  </button>
                         <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
                         <h2 className="mt-3">{this.dateToString(this.state.event.start_date,this.state.event.end_date)}</h2>
                     </div>

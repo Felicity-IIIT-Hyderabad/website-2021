@@ -177,7 +177,7 @@ class SingleEventRplay extends React.Component{
     render(){
         return (
             <div className="container-fluid events-list" style={{ marginTop: "6rem" }}>
-                <div className="banner">
+                <div className="rplaybanner">
                 </div>
                 <div className="row mt-5 mx-2">
                     <div className="col-md-8 single-event-contain">
