@@ -30,7 +30,6 @@ class ErrorPage extends React.Component{
       }).then((response)=>{
           Swal.fire({title: "Success",
           icon: 'success',
-          html: error.response.message,
           footer: "Joined Team !",
           customClass: {
             title: 'text-success',
