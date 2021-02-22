@@ -281,7 +281,7 @@ class CultEvent extends React.Component {
                                         </Col>
                                         <Col md={4} xs={1}></Col>                                 
                                         <Col md={4} xs={2}>
-                                            <Button onClick={() => window.open("/events/" + event.code.toString())} color="warning">More Details</Button>
+                                            <Button onClick={() => window.open("/event/" + event.code.toString())} color="warning">More Details</Button>
                                         </Col>
                                     </Row>                                    
                                 </p>
