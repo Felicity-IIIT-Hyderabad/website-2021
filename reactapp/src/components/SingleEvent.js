@@ -181,8 +181,23 @@ class SingleEvent extends React.Component{
         super(props);
         this.state = {
             myEvents: [],
-            event: []
+            event: [],
+            eventCode: "lalalalaalla"
         };
+    }
+
+    getEventCode = () => {
+        axios.get(eventsBaseApi + "/" + this.props.match.params["0"] + "/myteam",{
+            headers: { "Authorization":JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : "" }
+        }).then((res)=>{
+            {
+                this.setState({
+                    eventCode: res.data.team_code
+                });
+            }
+        }).catch((error)=>
+            console.log(error)
+        );         
     }
 
     componentDidMount = () => {
@@ -205,6 +220,7 @@ class SingleEvent extends React.Component{
                 event: myEvent[0] ? myEvent[0] : []
             });
         });
+        this.getEventCode();
     }
 
 
@@ -225,7 +241,7 @@ class SingleEvent extends React.Component{
             return(
                 <>
                 <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
-                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill single-event-details text-white py-2 w-100"><strong>UNREGISTER</strong></button>
+                <button onClick={() => showModalEventUnregister(obj)}  className="btn btn-danger rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>UNREGISTER</strong></button>
                 </>
             );
         }
@@ -289,6 +305,8 @@ class SingleEvent extends React.Component{
                                 {this.checkLiveOrNot(this.state.event)}
                                 <button onClick={() => window.location.href="/invite/" + this.state.event.code}  className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
                             </div>
+                            <h1 className="mt-3"><strong>Event-Code</strong></h1>
+                            {this.state.eventCode}
                             <h1 className="mt-3"><strong>Prizes</strong></h1>
                             {checkUndef(this.state.event.prizes).length > 1 ? 
                             <ol className="single-event-details text-primary">
