@@ -154,6 +154,7 @@ const showModalEventOne = async (event) => {
                     console.log(error)
                 );                
             }
+            else{
             if (true) {
                 axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
@@ -162,6 +163,7 @@ const showModalEventOne = async (event) => {
                 }).catch((error)=>
                     console.log(error)
                 );
+            }
             }
         }   
     } 

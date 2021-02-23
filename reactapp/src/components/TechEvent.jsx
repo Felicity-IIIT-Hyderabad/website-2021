@@ -49,14 +49,16 @@ const showModalEventOne = async (event) => {
                     console.log(error)
                 );                
             }            
-            if (true) {
-                axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
-                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                }).then((res)=>{
-                    window.location.reload();
-                }).catch((error)=>
-                    console.log(error)
-                );
+            else{
+                if (true) {
+                    axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
+                        headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                    }).then((res)=>{
+                        window.location.reload();
+                    }).catch((error)=>
+                        console.log(error)
+                    );
+                }
             }
         }   
     } 
