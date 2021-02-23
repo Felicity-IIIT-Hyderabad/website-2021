@@ -103,33 +103,7 @@ const OurTeam = () => {
                                                 </div>
                                             </div> : ""
                                         
-                                    ))}
-                                    {/* <br/>
-                                    {teamMembers.default[obj].map((teamMember, idx) => (
-                                        teamMember["main"] ? "" : teamMember["core"] ? 
-                                            <div className="featured d-inline-block mx-4">
-                                                <img className="img-fluid mt-5" src={"/teams/" + teamMember["image"]} alt="Thumb" />
-                                                <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                                <div className="social-links-non">
-                                                    <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                                    <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                                </div>
-                                            </div> : ""
-                                        
-                                    ))}
-                                    <br/>
-                                    {teamMembers.default[obj].map((teamMember, idx) => (
-                                        teamMember["main"] ? "" : teamMember["core"] ? "":
-                                            <div className="non-featured d-inline-block mx-1">
-                                                <img className="img-fluid mt-5" src={"/teams/" + teamMember["image"]} alt="Thumb" />
-                                                <h3 className="text-white my-3">{teamMember["name"]}</h3>
-                                                <div className="social-links-non">
-                                                    <span className="social-icon mx-2"><a href={prepareFBLink(teamMember["linkedin"])}><FontAwesomeIcon icon={faLinkedin} /></a></span>
-                                                    <span className="social-icon mx-2"><a href={prepareInLink(teamMember["facebook"])}><FontAwesomeIcon icon={faFacebook} /></a></span>
-                                                </div>
-                                            </div>
-                                        
-                                    ))}                                  */}
+                                    ))}                                 
                                 </div>
                             </> 
                         )}

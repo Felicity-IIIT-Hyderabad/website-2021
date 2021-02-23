@@ -8,7 +8,7 @@ import { Row, Col, Button } from "reactstrap";
 import "./Event.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
-import { eventsCulturalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
+import { eventsCulturalApi, eventsRegisteredApi, eventsBaseApi } from "../api/";
 
 function addSuperScript(number){
     if((number % 10 >= 4) || (number % 10 == 0)){
@@ -183,7 +183,7 @@ class CultEvent extends React.Component {
                 }
             }   
         } 
-    };
+    }
 
     changeDay = async (dayNum) => {
         await this.setState({
