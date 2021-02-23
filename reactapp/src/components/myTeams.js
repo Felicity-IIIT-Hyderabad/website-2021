@@ -29,20 +29,6 @@ class MyTeams extends React.Component{
         this.setState({
           teams:response.data
         })
-        //   Swal.fire({title: "Success",
-        //   icon: 'success',
-        //   footer: "Joined Team !",
-        //   customClass: {
-        //     title: 'text-success',
-        //     content: 'text-white',
-        //     confirmButton: 'bg-success',
-        //   },
-        //   background: `rgba(0,0,0,1)`
-        // }).then(()=>
-        //   {
-        //     window.location.href="/event/" + this.state.eventId;
-        //   }
-        // );
       }).catch((error) => 
         {
           Swal.fire({title: "Oops! Error",

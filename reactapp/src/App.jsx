@@ -12,6 +12,7 @@ import CultEvent from "./components/CultEvent";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
 import MyTeams from "./components/MyTeams";
+import Help from "./components/Help";
 import Navbar from "./components/Navbar";
 import OurTeam from "./components/OurTeam";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -85,7 +86,7 @@ const App = (props) => {
                         <Route path="/privacy-policy" component={PrivacyPolicy} />
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/login" component={Login} />
-                        {/* <Route path="/help" component={Help} /> */}
+                        <Route path="/help" component={Help} />
                         <Route path="/our-team" component={OurTeam} />
                         {/* <Route exact path="/404" component={ErrorPage} /> */}
                         {/* <Route exact path="/events/rplay" component={SingleEventRplay} /> */}
