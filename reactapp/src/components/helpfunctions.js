@@ -23,6 +23,7 @@ export function fireSuccess(doFunc){
 }
 
 export function fireFailure(error){
+    console.log(error);
     Swal.fire({title: "Oops! Error",
     icon: 'error',
     text: error.response.message,
@@ -263,7 +264,7 @@ export function checkUndef(string) {
         }
         else {
           if (true) {
-            axios.post(eventsBaseApi + "/" + event["code"] + "/change_team_custom?name=" + text, {}, {
+            axios.post(eventsBaseApi + "/" + event["code"] + "/change_team_custom?newcustom=" + text, {}, {
               headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res) => {
               window.location.reload();
@@ -380,5 +381,14 @@ export function checkSpecific(obj){
     }
     else{
         return "IIIT Specific";
+    }
+}
+
+export function check42(string){
+    if(string == "42" || string == 42){
+        return "To be Announced";
+    }
+    else{
+        return string;
     }
 }

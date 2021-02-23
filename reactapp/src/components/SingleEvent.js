@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import Chip from '@material-ui/core/Chip';
 import {eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi} from "../api/";
 import {Button} from "reactstrap";
-import { formatDate,formatDate2,checkUndef, checkSpecific,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalSubmit, showModalEventUnregister } from "./helpfunctions";
+import { formatDate,formatDate2,check42, checkUndef, checkSpecific,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalSubmit, showModalEventUnregister } from "./helpfunctions";
 
 import "./SingleEvent.css";
 
@@ -110,7 +110,7 @@ class SingleEvent extends React.Component {
         <>
           <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
           <button onClick={() => showModalEventUnregister(obj)} className="btn btn-danger rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>UNREGISTER</strong></button>
-          <button onClick={() => showModalSubmit(obj)} className="btn btn-danger rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>SUBMIT INFO</strong></button>
+          <button onClick={() => showModalSubmit(obj)} className="btn btn-primary rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>SUBMIT INFO</strong></button>
         </>
       );
     }
@@ -234,7 +234,7 @@ class SingleEvent extends React.Component {
                 </ol>
                 :
                 <div className="single-event-details text-primary bold">
-                  &#8377; {checkUndef(this.state.event.prizes)[0]}
+                  &#8377; {check42(checkUndef(this.state.event.prizes)[0])}
                 </div>
               }
               {this.checkIfRegistered()}
@@ -242,7 +242,7 @@ class SingleEvent extends React.Component {
               {this.state.event == undefined ? "" : this.state.event.team_size_limit}
               <h1 className="mt-3"><strong>Custom Info</strong></h1>
               <h3 className=" mt-2"><strong>
-                {this.state.event == undefined ? "" : this.state.event.organizer_clubs}
+                {this.state.event == undefined ? "" : this.state.teamDetails.custom_info}
               </strong>
               </h3>              
               <h1 className="mt-3"><strong>Organizers</strong></h1>
