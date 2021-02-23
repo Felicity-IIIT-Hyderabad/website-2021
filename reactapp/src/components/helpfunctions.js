@@ -207,6 +207,72 @@ export function checkUndef(string) {
     }
   };
   
+  export const showModalSubmit = async (event) => {
+    if (event.registration_link != "") {
+      window.open(event.registration_link);
+    }
+    else {
+      // console.log(JSON.parse(localStorage.getItem("user")));
+      if (localStorage.getItem("user") == null || localStorage.getItem("user") == undefined || !JSON.parse(localStorage.getItem("user"))["authenticated"]) {
+        localStorage.setItem("prevURL", window.location.href);
+        window.location.href = "/login";
+        // localStorage.setItem("prevURL",window.location.href);
+      }
+      checkExpired();
+      const {value: text} = await Swal.fire({
+        title: event["name"],
+        input: 'textarea',
+        inputLabel: "Enter your information below",
+        inputPlaceholder: 'Should not exceed 100 characters...',
+        inputAttributes: {
+          'aria-label': 'Type your message here',
+          'height': '10'
+        },
+        customClass: {
+          title: " error-message",
+          content: "error-message",
+          confirmButton: "game-button bg-danger",
+          image: "error-image-swal",
+          footer: "text-danger error-message"
+        },
+        width: "40vw",
+        background: "white",
+        confirmButtonText: "Submit Info",
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonText: "Not Now"
+      })
+      if (true) {
+        console.log(text);
+        if (text == "") {
+        //   axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
+        //     headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
+        //   }).then((res) => {
+        //     window.location.reload();
+        //   }).catch((error) =>
+        //     {fireFailure(error);}
+        //   );
+        fireFailure({
+            "response":{
+                "message": "Bhai kuch daal to sahi"
+            }
+        })
+        }
+        else {
+          if (true) {
+            axios.post(eventsBaseApi + "/" + event["code"] + "/change_team_custom?name=" + text, {}, {
+              headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
+            }).then((res) => {
+              window.location.reload();
+            }).catch((error) =>
+              {console.log(error); fireFailure(error);}
+            );
+          }
+        }
+      }
+    }
+  };
+
   export const showModalEventUnregister = (event) => {
     Swal.fire({
       title: event["name"],

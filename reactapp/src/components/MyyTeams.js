@@ -4,6 +4,7 @@ import axios from "axios";
 import "./MyTeam.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
+import { CSVLink } from "react-csv";
 
 class MyTeams extends React.Component{
 
@@ -42,7 +43,8 @@ class MyTeams extends React.Component{
           confirmButton: 'bg-danger',
         },
         background: `rgba(0,0,0,1)`
-      });              
+      });
+      console.log(this.prepareArray(response.data));
         this.setState({
           teams:response.data
         })
@@ -89,6 +91,83 @@ class MyTeams extends React.Component{
       })
     }
 
+    getFileName(){
+      var date = new Date();
+      return this.state.eventId + "_" + (date.getTime()).toString() + ".csv";
+    }
+
+    checkTeamsSize(){
+      console.log(this.state.teams.length);
+      if(this.state.teams.length > 0){
+        return(
+          <div className="text-center">
+          <button className="btn btn-success rounded-pill py-2 w-50 mb-5">
+          <CSVLink className="btn btn btn-success rounded-pill py-2 w-100 btn-round btn-primary text-center"  filename={this.getFileName()} data={this.prepareArray(this.state.teams)["array"]} headers={this.prepareArray(this.state.teams)["headers"]}>
+          Download data
+          </CSVLink>
+          </button>
+          </div>
+        );
+      }
+      else{
+        return(
+          <div className="text-center">
+          <button className="btn btn-success rounded-pill py-2 w-50 mb-5">
+          <CSVLink className="btn btn btn-success rounded-pill py-2 w-100 btn-round btn-primary text-center" data={this.state.teams} separator={";"}>
+          Download data
+          </CSVLink>
+          </button>
+          </div>
+        );
+      }
+    }
+
+    prepareArray(array){
+      var headers = [];
+      var maxi = -1;
+      for (let ind = 0; ind < array.length; ind++) {
+        var tems  = array[ind]["users"];
+        console.log(tems);
+        if(tems.length > maxi){
+          maxi = tems.length;
+        }
+      }
+      console.log(maxi);
+      headers.push({
+        label: "Team Name",
+        key: "team_name"
+      }) 
+      for (let ind = 0; ind < maxi; ind++) {
+        headers.push({
+          label: "Member " + (ind + 1).toString() + " Name",
+          key: "details.name" + (ind + 1).toString()
+        })
+        headers.push({
+          label: "Member " + (ind + 1).toString() + " Email",
+          key: "details.email" + (ind + 1).toString()
+        })        
+      }
+      console.log(headers);
+      var data = [];
+      for (let ind = 0; ind < array.length; ind++) {
+        console.log(array[ind]);
+        var dic = {
+          "team_name": array[ind]["name"],
+          "details":{}
+        }
+        for (let indd = 0; indd < array[ind]["users"].length; indd++) {
+          dic["details"]["name" + (indd + 1).toString()] = array[ind]["users"][indd]["name"];
+          dic["details"]["email" + (indd + 1).toString()] = array[ind]["users"][indd]["email"];
+        }
+        data.push(dic);
+      }
+      console.log(headers);
+      console.log(data);
+      return {
+        "headers":headers,
+        "array":data
+      }
+    }
 
     render(){
     return (
@@ -104,18 +183,19 @@ class MyTeams extends React.Component{
                 </div>
               </div>
               <div className="mt-5 pt-5" style={{ paddingTop: "15rem" ,color: "white" }}>
+              {this.checkTeamsSize()}
               <Table>
                 <thead>
                   <tr>
                     <th>Number</th>
                     <th>Team Name</th>
-                    <th>Users</th>
+                    <th>Users</th>                    
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.teams.map((obj)=>
+                  {this.state.teams.map((obj,ind)=>
                     <tr>
-                      <th scope="row">1</th>
+                      <th scope="row">{ind + 1}</th>
                       <td>{obj.name}</td>
                       <td>{obj.users.map((obj2)=>
                           <div>{obj2.name}</div>
