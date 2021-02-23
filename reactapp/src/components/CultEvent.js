@@ -172,6 +172,16 @@ class CultEvent extends React.Component {
                 console.log("AAAAAAAAAAAA");
                 console.log(text);
                 console.log("BBBBBBB");
+                if(text == ""){
+                    axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                        headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                    }).then((res)=>{
+                        window.location.reload();
+                    }).catch((error)=>
+                        console.log(error)
+                    );                
+                }
+
                 if (true) {
                     axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
                         headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
