@@ -192,7 +192,7 @@ const Navbar = (props) => {
                     {renderEvents(props, isEventsOpen, toggleEvents)}
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
-                    {/* <NavItem2 to="https://www.google.com/" title="Shop" /> */}
+                    <NavItem2 to="https://www.meraevents.com/dashboard/home/239820" title="Shop" />
                     <NavItem2 to="/our-team" title="Our Team" />
                     <NavItem2 to="/help" title="Help" />
                     <div className="text-right">

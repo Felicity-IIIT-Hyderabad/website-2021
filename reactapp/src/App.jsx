@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Sponsors from "./components/Sponsors";
 import TechEvent from "./components/TechEvent";
 import SingleEvent from "./components/SingleEvent";
+// import SingleEvent from "./components/SingleEvents/spacesc";
 import SingleEventRplay from "./components/SingleEvents/SingleEventRplay";
 import CultEvent from "./components/CultEvent";
 import Help from "./components/Help";
@@ -88,6 +89,7 @@ const App = (props) => {
                         <Route path="/login" component={Login} />
                         <Route path="/help" component={Help} />
                         <Route path="/our-team" component={OurTeam} />
+                        {/* <Route path="/astronomy-spacesc" component={} /> */}
                         {/* <Route exact path="/404" component={ErrorPage} /> */}
                         {/* <Route exact path="/events/rplay" component={SingleEventRplay} /> */}
                         <Route path="/sponsors">
