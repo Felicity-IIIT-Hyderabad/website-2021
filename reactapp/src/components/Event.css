@@ -153,3 +153,9 @@
 .date-big{
 	font-size: larger;
 }
+
+.black-border{
+	border-color: black;
+	border-width: 3px;
+	border-radius: 10px;
+}

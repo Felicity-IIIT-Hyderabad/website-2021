@@ -102,6 +102,22 @@ class CultEvent extends React.Component {
     //     cultEvents = {};
     // });
 
+    renderIconColor(obj){
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
+        var today = new Date();
+        if(startDate > today){
+            return { background: "dc3545", color: "#fff" };
+        }
+        else if(startDate <= today && endDate > today){
+            return { background: "ffc107", color: "#fff" };
+        }
+        else{
+            return { background: "28a745", color: "#fff" };
+        }
+
+    }
+
     checkLiveOrNot = (obj) => {
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.end_date);
@@ -120,22 +136,40 @@ class CultEvent extends React.Component {
         if(startDate > today){
             return(
                 <>
-                    <Button onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
+                    <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
                 </>
             );
         }
         else if(startDate <= today && endDate > today){
             return(
-                <Button onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
+                <Button className="black-border" onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
             );
         }
         else{
             return(
-                <Button color="success">Over</Button>
+                <Button  className="black-border" color="success">Over</Button>
             );
         }
     }
     
+    renderContentColor2(ind){
+        var mod = ind % 5;
+        if(mod == 0){
+            return { background: "#696969", color: "#fff" };
+        }
+        else if(mod == 1){
+            return { background: "#4056a1", color: "#fff" };
+        }
+        else if(mod == 2){
+            return { background: "rgb(33, 150, 243)", color: "#fff" };
+        }
+        else if(mod == 3){
+            return { background: "#41b3a3", color: "#fff" };
+        }
+        else if(mod == 4){
+            return { background: "#c1c8e4", color: "#000" };
+        }        
+    }    
 
     render() {
         return (
@@ -166,9 +200,9 @@ class CultEvent extends React.Component {
                         {this.state.cultEvents.map((event, idx) => (
                             <VerticalTimelineElement
                                 className="vertical-timeline-element--work"
-                                contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                                contentStyle={this.renderContentColor2(idx)}
                                 contentArrowStyle={{ borderRight: "20px solid  rgb(33, 150, 243)" }}
-                                iconStyle={{ background: "rgb(133, 150, 243)", color: "#fff" }}
+                                iconStyle={this.renderIconColor(obj)}
                                 date={this.dateToString(event["start_date"], event["end_date"])}
                                 dateClassName={"my-date text-white date-big"}
                                 key={idx}
@@ -184,7 +218,7 @@ class CultEvent extends React.Component {
                                         </Col>
                                         <Col md={4} xs={1}></Col>                                 
                                         <Col md={4} xs={2}>
-                                            <Button onClick={() => window.open("/event/" + event.code.toString())} color="warning">More Details</Button>
+                                            <Button className="black-border" onClick={() => window.open("/event/" + event.code.toString())} color="warning">More Details</Button>
                                         </Col>
                                     </Row>                                    
                                 </p>
