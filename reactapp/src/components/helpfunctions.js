@@ -142,6 +142,7 @@ export function checkUndef(string) {
         if(date < todayDate){
           // log him out please
           logoutUser();
+          window.location.href="/login";
         }
       }
     }
