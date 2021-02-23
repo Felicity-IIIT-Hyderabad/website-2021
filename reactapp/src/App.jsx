@@ -11,7 +11,7 @@ import CultEvent from "./components/CultEvent";
 // import Help from "./components/Help";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
-import MyTeams from "./components/MyTeams";
+import MyTeams from "./components/MyyTeams";
 import Help from "./components/Help";
 import Navbar from "./components/Navbar";
 import OurTeam from "./components/OurTeam";
