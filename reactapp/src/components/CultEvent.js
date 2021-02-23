@@ -9,61 +9,8 @@ import "./Event.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
 import { eventsCulturalApi, eventsRegisteredApi, eventsBaseApi } from "../api/";
+import { formatDate,formatDate2,checkUndef,checkExpired, checkLiveOrNot ,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
 
-function addSuperScript(number){
-    if((number % 10 >= 4) || (number % 10 == 0)){
-        return "th"
-    }
-    else if(number % 10 == 3){
-        return "rd"
-    }
-    else if(number % 10 == 2){
-        return "nd"
-    }
-    else if(number % 10 == 1){
-        return "st"
-    }        
-}
-
-function amOrPM(hours){
-    if(hours > 12){
-        return "\t PM"
-    }
-    else{
-        return "\t AM"
-    }
-}
-
-function formatDate(num1){
-    // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-    var startDate = new Date(num1);
-    // var endDate = new Date(num2);
-    var day = startDate.getDate();
-    var mon = startDate.getMonth();
-    // Hours part from the timestamp
-    var hours = startDate.getHours();
-    // Minutes part from the timestamp
-    var minutes = "0" + startDate.getMinutes();
-
-    var month = new Array();
-    month[0] = "Jan";
-    month[1] = "Feb";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "Aug";
-    month[8] = "Sept";
-    month[9] = "Oct";
-    month[10] = "Nov";
-    month[11] = "Dec";
-
-    // Will display time in 10:30:23 format
-    var formattedTime = day + addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);
-    return formattedTime;
-}
 
 class CultEvent extends React.Component {
 
@@ -140,63 +87,6 @@ class CultEvent extends React.Component {
         );
     }
 
-    showModalEvent = async (event) => {
-        if(event.registration_link != ""){
-            window.open(event.registration_link);
-        }
-        else{            
-            const { value: text } = await Swal.fire({
-                title:  event["name"],
-                input: 'textarea',
-                inputLabel: event["description"] + "\n Enter your team name below",
-                inputPlaceholder: 'Should not exceed 32 characters...',
-                inputAttributes: {
-                  'aria-label': 'Type your message here',
-                  'height': '10'
-                },
-                customClass: {
-                    title: " error-message",
-                    content: "error-message",
-                    confirmButton: "game-button bg-danger",
-                    image: "error-image-swal",
-                    footer: "text-danger error-message"
-                },                
-                width: "40vw",
-                background: "white",
-                confirmButtonText: "Register Now",
-                showCloseButton: true,
-                showCancelButton: true,
-                cancelButtonText: "Not Now"           
-            })
-            if(true){
-                console.log("AAAAAAAAAAAA");
-                console.log(text);
-                console.log("BBBBBBB");
-                if(text == ""){
-                    axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
-                        headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                    }).then((res)=>{
-                        window.location.reload();
-                    }).catch((error)=>
-                        console.log(error)
-                    );                
-                }
-
-                else{
-                    if (true) {
-                        axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
-                            headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                        }).then((res)=>{
-                            window.location.reload();
-                        }).catch((error)=>
-                            console.log(error)
-                        );
-                    }
-                    }
-            }   
-        } 
-    }
-
     changeDay = async (dayNum) => {
         await this.setState({
             selectedDay: "Day"+dayNum
@@ -206,40 +96,6 @@ class CultEvent extends React.Component {
     dateToString = (num1, num2) => {
         return formatDate(num1) + "\t To \t" + formatDate(num2);
     };
-
-    checkLiveOrNot = (obj) => {
-        var startDate = new Date(obj.start_date);
-        var endDate = new Date(obj.end_date);
-        var today = new Date();
-        var flag = 1;
-        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
-            if(this.state.myEvents[ind]["code"] == obj.code){
-                flag = 0;
-            }
-        }
-        if(!flag){
-            return(
-                <Button color="success">Registered</Button>
-            )
-        }        
-        if(startDate > today){
-            return(
-                <>
-                    <Button onClick={() => this.showModalEvent(obj)} color="danger">Register Now</Button>
-                </>
-            );
-        }
-        else if(startDate <= today && endDate > today){
-            return(
-                <Button onClick={() => this.showModalEvent(obj)} color="warning">Join Now</Button>
-            );
-        }
-        else{
-            return(
-                <Button color="success">Over</Button>
-            );
-        }
-    }
 
     // axios.get(eventsCulturalApi).then((response)=>{
     //     console.log(response);
@@ -289,7 +145,7 @@ class CultEvent extends React.Component {
                                     <br/>
                                     <Row>
                                         <Col md={4} xs={3}>
-                                            {this.checkLiveOrNot(event)}
+                                            {checkLiveOrNot(event)}
                                         </Col>
                                         <Col md={4} xs={1}></Col>                                 
                                         <Col md={4} xs={2}>

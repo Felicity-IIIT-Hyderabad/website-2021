@@ -9,123 +9,9 @@ import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
 import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
-
-const showModalEventOne = async (event) => {
-    if(event.registration_link != ""){
-        window.open(event.registration_link);
-    }
-    else{            
-        const { value: text } = await Swal.fire({
-            title:  event["name"],
-            input: 'textarea',
-            inputLabel: event["description"] + "\n Enter your team name below",
-            inputPlaceholder: 'Should not exceed 32 characters...',
-            inputAttributes: {
-              'aria-label': 'Type your message here',
-              'height': '10'
-            },
-            customClass: {
-                title: " error-message",
-                content: "error-message",
-                confirmButton: "game-button bg-danger",
-                image: "error-image-swal",
-                footer: "text-danger error-message"
-            },                
-            width: "40vw",
-            background: "white",
-            confirmButtonText: "Register Now",
-            showCloseButton: true,
-            showCancelButton: true,
-            cancelButtonText: "Not Now"           
-        })
-        if(true){
-            console.log(text);
-            if(text == ""){
-                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
-                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                }).then((res)=>{
-                    window.location.reload();
-                }).catch((error)=>
-                    console.log(error)
-                );                
-            }            
-            else{
-                if (true) {
-                    axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
-                        headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
-                    }).then((res)=>{
-                        window.location.reload();
-                    }).catch((error)=>
-                        console.log(error)
-                    );
-                }
-            }
-        }   
-    } 
-};
-
-function amOrPM(hours){
-    if(hours >= 12){
-        return "\t PM"
-    }
-    else{
-        return "\t AM"
-    }
-}
-
-function addSuperScript(number){
-    if(number % 10 >= 4 || (number % 10 == 0)){
-        return "th"
-    }
-    else if(number % 10 == 3){
-        return "rd"
-    }
-    else if(number % 10 == 2){
-        return "nd"
-    }
-    else if(number % 10 == 1){
-        return "st"
-    }        
-}
+import { formatDate,formatDate2,checkUndef, checkLiveOrNot ,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalEventUnregister, dateToString, showModalEvent } from "./helpfunctions";
 
 
-function formatDate(num1){
-    // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-    var startDate = new Date(num1);
-    // var endDate = new Date(num2);
-    var day = startDate.getDate();
-    var mon = startDate.getMonth();
-    // Hours part from the timestamp
-    var hours = startDate.getHours();
-    // Minutes part from the timestamp
-    var minutes = "0" + startDate.getMinutes();
-
-    var month = new Array();
-    month[0] = "Jan";
-    month[1] = "Feb";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "Aug";
-    month[8] = "Sept";
-    month[9] = "Oct";
-    month[10] = "Nov";
-    month[11] = "Dec";
-
-    // Will display time in 10:30:23 format
-    var formattedTime = day + addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);;
-    return formattedTime;
-}
-
-const dateToString = (num1, num2) => {
-    if(num1 == null || num2 == null){
-        return "Coming Soon!";
-    }
-    return formatDate(num1) + "\t To \t" + formatDate(num2);
-};
 
 class TechEvent extends React.Component {
 
@@ -200,44 +86,6 @@ class TechEvent extends React.Component {
         this.getEvents();
     }
 
-    checkLiveOrNot = (obj) => {
-        if(obj.start_date == null || obj.start_date == null ){
-            console.log("null");
-            return(
-                <Button color="secondary">Coming Soon</Button>
-            );            
-        }
-        var startDate = new Date(obj.start_date);
-        var endDate = new Date(obj.end_date);
-        var today = new Date();
-        var flag = 1;
-        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
-            if(this.state.myEvents[ind]["code"] == obj.code){
-                flag = 0;
-            }
-        }
-        if(!flag){
-            return(
-                <Button color="success">Registered</Button>
-            )
-        }        
-        if(startDate > today){
-            return(
-                <Button onClick={() => showModalEventOne(obj)} color="danger">Register Now</Button>
-            );
-        }
-        else if(startDate <= today && endDate > today){
-            return(
-                <Button onClick={() => showModalEventOne(obj)} color="warning">Join Now</Button>
-            );
-        }
-        else{
-            return(
-                <Button color="secondary">Over</Button>
-            );
-        }
-    }
-
     render() {
         return (
             <div>
@@ -277,7 +125,7 @@ class TechEvent extends React.Component {
                                         <br/>
                                         <Row>
                                             <Col md={4} xs={3}>
-                                                {this.checkLiveOrNot(obj)}
+                                                {checkLiveOrNot(obj)}
                                             </Col>
                                             <Col md={4} xs={1}></Col>                                 
                                             <Col md={4} xs={2}>
