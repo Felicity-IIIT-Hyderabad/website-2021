@@ -46,7 +46,7 @@ class ErrorPage extends React.Component{
         {
           Swal.fire({title: "Oops! Error",
                   icon: 'error',
-                  html: error.response.message,
+                  text: error.response.message,
                   footer: "The above error popped up while joining the team.",
                   customClass: {
                     title: 'text-danger',
