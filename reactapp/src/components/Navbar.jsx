@@ -78,6 +78,7 @@ function logInOrOut(props) {
     try {
         if (props.props.userInfo.loginReducer.authenticated) {
             // window.location.href="/";
+            localStorage.setItem("want","yes");
             logoutUser();
             window.location.href = "/";
         } else {
