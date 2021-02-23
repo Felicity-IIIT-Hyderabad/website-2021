@@ -21,11 +21,28 @@ class MyTeams extends React.Component{
     }
 
     postTeam = () => {
+      if( localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
+        localStorage.setItem("prevURL",window.location.href);
+        window.location.href="/login";            
+        // localStorage.setItem("prevURL",window.location.href);
+    }      
+      if(this.state.eventId != "" && this.state.code != ""){
       axios.get(eventsBaseApi + "/" + this.state.eventId + "/teams",{
         headers:{
           Authorization:this.state.code
         }
       }).then((response)=>{
+        Swal.fire({title: "Teams Fetched!",
+        icon: 'success',
+        text: "Scroll down",
+        footer: "At bottom.",
+        customClass: {
+          title: 'text-success',
+          content: 'text-white',
+          confirmButton: 'bg-danger',
+        },
+        background: `rgba(0,0,0,1)`
+      });              
         this.setState({
           teams:response.data
         })
@@ -44,6 +61,20 @@ class MyTeams extends React.Component{
                 });
         }      
       )
+      }
+      else{
+              Swal.fire({title: "Oops! Error",
+              icon: 'error',
+              text: "Enter na",
+              footer: "Incomplete fields.",
+              customClass: {
+                title: 'text-danger',
+                content: 'text-white',
+                confirmButton: 'bg-danger',
+              },
+              background: `rgba(0,0,0,1)`
+            });        
+      }
     }
 
     changeCode = (event) => {
@@ -69,7 +100,7 @@ class MyTeams extends React.Component{
                   <input type="text" className="invite-input p-2 w-50" value={this.state.eventId} onChange={(event) => this.changeEventId(event) } /> <br/><br/><br/>
                   <h1>Please Enter Secret Key:</h1>
                   <input type="text" className="invite-input p-2 w-50" value={this.state.code} onChange={(event) => this.changeCode(event) } /> <br/><br/><br/>
-                  <button className="btn btn-info px-5 py-2 join-button" onClick={() => this.postTeam()}> JOIN TEAM </button>                  
+                  <button className="btn btn-info px-5 py-2 join-button" onClick={() => this.postTeam()}> SHOW TEAMS </button>                  
                 </div>
               </div>
               <div className="mt-5 pt-5" style={{ paddingTop: "15rem" ,color: "white" }}>

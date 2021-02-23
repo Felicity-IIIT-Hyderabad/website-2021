@@ -23,6 +23,11 @@ class InvitePage extends React.Component{
     }
 
     postTeam = () => {
+      if( localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
+        localStorage.setItem("prevURL",window.location.href);
+        window.location.href="/login";
+        // localStorage.setItem("prevURL",window.location.href);
+    }
       axios.post(eventsBaseApi + "/" + this.state.eventId + "/register?team_code=" + this.state.code,{},{
         headers:{
           Authorization:JSON.parse(localStorage["user"])["token"]
