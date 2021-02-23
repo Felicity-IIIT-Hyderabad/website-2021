@@ -16,8 +16,7 @@ import "./SingleEvent.css";
 function checkUndef(string){
     if(string == undefined){
         return [];
-    }
-    else{
+    } else {
         return string.split(",");
     }
 }
@@ -341,22 +340,21 @@ class SingleEvent extends React.Component{
         }
         return(
             <div>
-                <h1 className="mt-3"><strong>Invite Code </strong></h1>                            
+                <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
+                <ul className="single-event-details text-primary">
+                {this.state.teamDetails.members.map((obj,ind)=>
+                    <li key={ind}>
+                    {obj}
+                    </li>
+                )}
+                </ul>
+                <h1 className="mt-3"><strong>Invite Code</strong></h1>                            
                 <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
                     {this.state.eventCode}
                 </div>
                 <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
                     Click to copy code
                 </div>
-                <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
-                <ul className="single-event-details text-primary">
-                    <li></li>
-                    {this.state.teamDetails.members.map((obj,ind)=>
-                        <li key={ind}>
-                            {obj}
-                        </li>
-                    )}
-                </ul>
             </div>
         )
     }
