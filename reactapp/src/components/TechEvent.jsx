@@ -9,7 +9,7 @@ import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
 import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
-import { formatDate,formatDate2,checkUndef, checkLiveOrNot ,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalEventUnregister, dateToString, showModalEvent } from "./helpfunctions";
+import { formatDate,formatDate2,checkUndef, checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalEventUnregister, dateToString, showModalEvent } from "./helpfunctions";
 
 
 
@@ -86,6 +86,41 @@ class TechEvent extends React.Component {
         this.getEvents();
     }
 
+    checkLiveOrNot = (obj) => {
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
+        var today = new Date();
+        var flag = 1;
+        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
+            if(this.state.myEvents[ind]["code"] == obj.code){
+                flag = 0;
+            }
+        }
+        if(!flag){
+            return(
+                <Button color="success">Registered</Button>
+            )
+        }        
+        if(startDate > today){
+            return(
+                <>
+                    <Button onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
+                </>
+            );
+        }
+        else if(startDate <= today && endDate > today){
+            return(
+                <Button onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
+            );
+        }
+        else{
+            return(
+                <Button color="success">Over</Button>
+            );
+        }
+    }
+    
+
     render() {
         return (
             <div>
@@ -125,7 +160,7 @@ class TechEvent extends React.Component {
                                         <br/>
                                         <Row>
                                             <Col md={4} xs={3}>
-                                                {checkLiveOrNot(obj)}
+                                                {this.checkLiveOrNot(obj)}
                                             </Col>
                                             <Col md={4} xs={1}></Col>                                 
                                             <Col md={4} xs={2}>

@@ -305,40 +305,6 @@ export function checkUndef(string) {
     } 
 }
 
-export const checkLiveOrNot = (obj) => {
-    var startDate = new Date(obj.start_date);
-    var endDate = new Date(obj.end_date);
-    var today = new Date();
-    var flag = 1;
-    for (let ind = 0; ind < this.state.myEvents.length; ind++) {
-        if(this.state.myEvents[ind]["code"] == obj.code){
-            flag = 0;
-        }
-    }
-    if(!flag){
-        return(
-            <Button color="success">Registered</Button>
-        )
-    }        
-    if(startDate > today){
-        return(
-            <>
-                <Button onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
-            </>
-        );
-    }
-    else if(startDate <= today && endDate > today){
-        return(
-            <Button onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
-        );
-    }
-    else{
-        return(
-            <Button color="success">Over</Button>
-        );
-    }
-}
-
 export function checkSpecific(obj){
     if(obj["non_iiit_allowed"]){
         return "Open to All";

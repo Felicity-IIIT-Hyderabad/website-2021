@@ -9,7 +9,7 @@ import "./Event.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
 import { eventsCulturalApi, eventsRegisteredApi, eventsBaseApi } from "../api/";
-import { formatDate,formatDate2,checkUndef,checkExpired, checkLiveOrNot ,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
+import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
 
 
 class CultEvent extends React.Component {
@@ -102,6 +102,41 @@ class CultEvent extends React.Component {
     //     cultEvents = {};
     // });
 
+    checkLiveOrNot = (obj) => {
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
+        var today = new Date();
+        var flag = 1;
+        for (let ind = 0; ind < this.state.myEvents.length; ind++) {
+            if(this.state.myEvents[ind]["code"] == obj.code){
+                flag = 0;
+            }
+        }
+        if(!flag){
+            return(
+                <Button color="success">Registered</Button>
+            )
+        }        
+        if(startDate > today){
+            return(
+                <>
+                    <Button onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
+                </>
+            );
+        }
+        else if(startDate <= today && endDate > today){
+            return(
+                <Button onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
+            );
+        }
+        else{
+            return(
+                <Button color="success">Over</Button>
+            );
+        }
+    }
+    
+
     render() {
         return (
             <div>
@@ -145,7 +180,7 @@ class CultEvent extends React.Component {
                                     <br/>
                                     <Row>
                                         <Col md={4} xs={3}>
-                                            {checkLiveOrNot(event)}
+                                            {this.checkLiveOrNot(event)}
                                         </Col>
                                         <Col md={4} xs={1}></Col>                                 
                                         <Col md={4} xs={2}>
