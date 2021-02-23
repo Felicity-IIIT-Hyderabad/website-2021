@@ -107,13 +107,13 @@ class CultEvent extends React.Component {
         var endDate = new Date(obj.end_date);
         var today = new Date();
         if(startDate > today){
-            return { background: "dc3545", color: "#fff" };
+            return { background: "#dc3545", color: "#fff" };
         }
         else if(startDate <= today && endDate > today){
-            return { background: "ffc107", color: "#fff" };
+            return { background: "#ffc107", color: "#fff" };
         }
         else{
-            return { background: "28a745", color: "#fff" };
+            return { background: "#28a745", color: "#fff" };
         }
 
     }
@@ -136,7 +136,7 @@ class CultEvent extends React.Component {
         if(startDate > today){
             return(
                 <>
-                    <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
+                    <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register</Button>
                 </>
             );
         }
@@ -201,7 +201,6 @@ class CultEvent extends React.Component {
                             <VerticalTimelineElement
                                 className="vertical-timeline-element--work"
                                 contentStyle={this.renderContentColor2(idx)}
-                                contentArrowStyle={{ borderRight: "20px solid  rgb(33, 150, 243)" }}
                                 iconStyle={this.renderIconColor(event)}
                                 date={this.dateToString(event["start_date"], event["end_date"])}
                                 dateClassName={"my-date text-white date-big"}

@@ -104,7 +104,7 @@ class TechEvent extends React.Component {
         if(startDate > today){
             return(
                 <>
-                    <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
+                    <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register</Button>
                 </>
             );
         }

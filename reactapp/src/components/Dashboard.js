@@ -27,6 +27,7 @@ class Dashboard extends React.Component {
         super(props);
         this.state = {
             events: [],
+            actualEvents: []
         };
     }
 
@@ -50,6 +51,18 @@ class Dashboard extends React.Component {
         return array.sort(this.compare)
     }
 
+    getActualEvents(){
+        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
+        axios.get(eventsApi).then(async (response)=>{
+            var cultEventsData = this.sortDateWise(response.data);
+            this.setState({
+                actualEvents: cultEventsData,
+            });
+        }).catch((error)=>
+            console.log(error)
+        );
+    }
+
     getEvents(){
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
         axios.get(eventsRegisteredApi,{
@@ -71,6 +84,7 @@ class Dashboard extends React.Component {
             key = 0;   
             getUser();
         }
+        this.getActualEvents();
         this.getEvents();
     }
 
@@ -78,7 +92,10 @@ class Dashboard extends React.Component {
         var today = new Date();
         var todayEvents = array.filter((obj) => {
             var date = new Date(obj.start_date);
-            return date == today
+            if(date - today >=0 && date - today <= 1000 * 3600 * 24){
+                return true;
+            }
+            return false;
         })
         return todayEvents;
     }
@@ -134,7 +151,7 @@ class Dashboard extends React.Component {
                             <div className="carousel-holder">
                                 <div className="mt-4 event-carousel" id="event1">
                                     <div className="empty-space mx-4 desktop-only"></div>
-                                    {this.todayDate(this.state.events).map((event, idx) => (
+                                    {this.todayDate(this.state.actualEvents).map((event, idx) => (
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/event/" + event["code"])}  style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}>
                                                 <div>
                                                     {event["name"]}
@@ -150,7 +167,7 @@ class Dashboard extends React.Component {
                         <div className="container-fluid mb-5">
                             <div>
                                 {/* <div className="feature-image my-4 mr-2"></div> */}
-                                <div className="event-type-title mt-3 mx-3">Upcoming Events</div>
+                                <div className="event-type-title mt-3 mx-3">Your Events</div>
                                 <div className="carousel-holder">
                                     <div className="mt-4 event-carousel" id="event2">
                                         <div className="empty-space mx-4 desktop-only"></div>
