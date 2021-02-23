@@ -8,7 +8,7 @@ import TechEvent from "./components/TechEvent";
 import SingleEvent from "./components/SingleEvent";
 import SingleEventRplay from "./components/SingleEvents/SingleEventRplay";
 import CultEvent from "./components/CultEvent";
-// import Help from "./components/Help";
+import Help from "./components/Help";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
 import MyTeams from "./components/MyyTeams";
