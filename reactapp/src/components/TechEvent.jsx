@@ -125,13 +125,13 @@ class TechEvent extends React.Component {
         var endDate = new Date(obj.end_date);
         var today = new Date();
         if(startDate > today){
-            return { background: "dc3545", color: "#fff" };
+            return { background: "#dc3545", color: "#fff" };
         }
         else if(startDate <= today && endDate > today){
-            return { background: "ffc107", color: "#fff" };
+            return { background: "#ffc107", color: "#fff" };
         }
         else{
-            return { background: "28a745", color: "#fff" };
+            return { background: "#28a745", color: "#fff" };
         }
 
     }
