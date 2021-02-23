@@ -63,11 +63,11 @@ const Help = (props) => {
                 aria-controls="panel3a-content"
                 id="panel3a-header"
                 >
-                My friend has registered for an event. How do I join his team?
+                My friend has registered for an event. How do I join their team?
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Ask for the invite code from your teammate. Click on the "Join Team" button in the event details page to join his/her team.
+                    Ask for the invite code from your teammate. Click on the "Join Team" button in the event details page to join their team.
                 </Typography>
                 </AccordionDetails>                
             </Accordion>
