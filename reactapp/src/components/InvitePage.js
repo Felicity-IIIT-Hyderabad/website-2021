@@ -4,7 +4,7 @@ import "./Invite.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
 
-class ErrorPage extends React.Component{
+class InvitePage extends React.Component{
 
     constructor(props){
       super(props);
@@ -82,4 +82,4 @@ class ErrorPage extends React.Component{
     }
 };
 
-export default ErrorPage;
+export default InvitePage;
