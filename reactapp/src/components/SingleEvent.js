@@ -145,6 +145,15 @@ const showModalEventOne = async (event) => {
         })
         if(text){
             console.log(text);
+            if(text == ""){
+                axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
+                    headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
+                }).then((res)=>{
+                    window.location.reload();
+                }).catch((error)=>
+                    console.log(error)
+                );                
+            }
             if (true) {
                 axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
@@ -249,6 +258,9 @@ class SingleEvent extends React.Component{
         );
         axios.get(eventsApi).then(async (response)=>{
             var myEvent = response.data.filter((obj) => obj.code == eventId);
+            if (myEvent.length == 0){
+                window.location.href="/404";
+            }
             this.setState({
                 event: myEvent[0] ? myEvent[0] : []
             });

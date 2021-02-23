@@ -81,6 +81,11 @@ function logInOrOut(props) {
             logoutUser();
             window.location.href = "/";
         } else {
+            if( localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
+                localStorage.setItem("prevURL",window.location.href);
+                window.location.href="/login";            
+                // localStorage.setItem("prevURL",window.location.href);
+            }            
             window.location.href = "/login";
         }
     } catch {
@@ -187,7 +192,9 @@ const Navbar = (props) => {
                     {renderEvents(props, isEventsOpen, toggleEvents)}
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
+                    <NavItem2 to="https://www.google.com/" title="Shop" />
                     <NavItem2 to="/our-team" title="Our Team" />
+                    <NavItem2 to="/help" title="Help" />
                     <div className="text-right">
                         <Button
                             type="button"

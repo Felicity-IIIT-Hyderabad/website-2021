@@ -104,7 +104,7 @@ const OurTeam = () => {
                                             </div> : ""
                                         
                                     ))}
-                                    <br/>
+                                    {/* <br/>
                                     {teamMembers.default[obj].map((teamMember, idx) => (
                                         teamMember["main"] ? "" : teamMember["core"] ? 
                                             <div className="featured d-inline-block mx-4">
@@ -129,7 +129,7 @@ const OurTeam = () => {
                                                 </div>
                                             </div>
                                         
-                                    ))}                                    
+                                    ))}                                  */}
                                 </div>
                             </> 
                         )}

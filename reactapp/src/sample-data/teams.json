@@ -21,10 +21,10 @@
         {
             "core": false,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "prateek.jpg",
             "linkedin": "",
             "main": true,
-            "name": "Prateek S."
+            "name": "Prateek Sancheti"
         },
         {
             "core": false,
@@ -37,10 +37,10 @@
         {
             "core": false,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "vedant.jpg",
             "linkedin": "",
             "main": true,
-            "name": "Vedant"
+            "name": "Vedant Mundheda"
         }
     ],
     "design": [
@@ -257,10 +257,10 @@
         {
             "core": false,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "brijesh.jpg",
             "linkedin": "",
             "main": true,
-            "name": "Brijesh"
+            "name": "Brijesh Singh"
         },
         {
             "core": false,
@@ -283,7 +283,7 @@
         {
             "core": false,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "grover.jpg",
             "linkedin": "",
             "main": true,
             "name": "Rohan Grover"
@@ -545,10 +545,10 @@
         {
             "core": true,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "palash.jpg",
             "linkedin": "",
             "main": true,
-            "name": "Palash"
+            "name": "Palash Sharma"
         },
         {
             "core": false,
@@ -618,7 +618,7 @@
             "image": "yoogottam.jpg",
             "linkedin": "",
             "main": true,
-            "name": "Yoogottam"
+            "name": "Yoogottam Khandelwal"
         },
         {
             "core": false,
@@ -641,7 +641,7 @@
         {
             "core": true,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "jaidev.jpg",
             "linkedin": "",
             "main": true,
             "name": "Jaidev Shriram"
@@ -691,7 +691,7 @@
         {
             "core": false,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "arpan.jpg",
             "linkedin": "",
             "main": true,
             "name": "Arpan Dasgupta"
@@ -718,7 +718,7 @@
             "image": "gaurang.jpg",
             "linkedin": "",
             "main": true,
-            "name": "Gaurang"
+            "name": "Gaurang Tandon"
         },
         {
             "core": true,
@@ -739,7 +739,7 @@
         {
             "core": false,
             "facebook": "",
-            "image": "a.jpg",
+            "image": "lad.jpg",
             "linkedin": "",
             "main": true,
             "name": "Tanish Lad"
