@@ -202,7 +202,7 @@ class CultEvent extends React.Component {
                                 className="vertical-timeline-element--work"
                                 contentStyle={this.renderContentColor2(idx)}
                                 contentArrowStyle={{ borderRight: "20px solid  rgb(33, 150, 243)" }}
-                                iconStyle={this.renderIconColor(obj)}
+                                iconStyle={this.renderIconColor(event)}
                                 date={this.dateToString(event["start_date"], event["end_date"])}
                                 dateClassName={"my-date text-white date-big"}
                                 key={idx}
