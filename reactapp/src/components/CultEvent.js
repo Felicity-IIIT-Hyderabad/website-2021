@@ -149,7 +149,7 @@ class CultEvent extends React.Component {
                 title:  event["name"],
                 input: 'textarea',
                 inputLabel: event["description"] + "\n Enter your team name below",
-                inputPlaceholder: 'Should not exceed 250 words...',
+                inputPlaceholder: 'Should not exceed 32 characters...',
                 inputAttributes: {
                   'aria-label': 'Type your message here',
                   'height': '10'
