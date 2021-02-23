@@ -306,7 +306,7 @@ export function checkUndef(string) {
 }
 
 export function checkSpecific(obj){
-    if(obj["non_iiit_allowed"]){
+    if(obj["non_iiith_allowed"]){
         return "Open to All";
     }
     else{

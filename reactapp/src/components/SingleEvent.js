@@ -236,7 +236,8 @@ class SingleEvent extends React.Component {
                 </div>
               }
               {this.checkIfRegistered()}
-
+              <h1 className="mt-3"><strong>Team Size Limit:</strong></h1>
+              {this.state.event == undefined ? "" : this.state.event.team_size_limit}
               <h1 className="mt-3"><strong>Organizers</strong></h1>
               <h3 className=" mt-2"><strong>
                 {this.state.event == undefined ? "" : this.state.event.organizer_clubs}
