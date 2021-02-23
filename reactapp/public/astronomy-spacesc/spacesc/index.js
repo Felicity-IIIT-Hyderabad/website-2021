@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
     $("#slider ul").hover(function() {
@@ -56,4 +55,5 @@ $(document).ready(function() {
         $(moveRight);
         rotate = setInterval(a, 7000);
     });
-}); 
+}); <
+/script>
