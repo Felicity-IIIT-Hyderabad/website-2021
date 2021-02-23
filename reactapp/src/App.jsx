@@ -11,6 +11,7 @@ import CultEvent from "./components/CultEvent";
 // import Help from "./components/Help";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
+import MyTeams from "./components/MyTeams";
 import Navbar from "./components/Navbar";
 import OurTeam from "./components/OurTeam";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -48,6 +49,7 @@ const App = (props) => {
                 return (
                     <>
                         <Route exact path="/invite/*" component={InvitePage} />
+                        <Route path="/myteams" component={MyTeams} />
                         <Route exact path="/404" component={ErrorPage} />
                         <Route exact path="/event/*" component={SingleEvent} />
                         <Route exact path="/events" component={Dashboard} />
@@ -62,6 +64,7 @@ const App = (props) => {
             return (
                 <>
                     <Route exact path="/invite" component={InvitePage} />
+                    <Route path="/myteams" component={MyTeams} />
                     <Route exact path="/event/*" component={SingleEvent} />
                     <Route exact path="/events" component={Dashboard} />
                     <Route path="/events-technical" component={TechEvent} />

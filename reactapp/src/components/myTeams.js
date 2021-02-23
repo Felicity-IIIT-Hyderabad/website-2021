@@ -1,10 +1,11 @@
 import React from "react";
+import  {Table} from "reactstrap"
 import axios from "axios";
 import "./Invite.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
 
-class ErrorPage extends React.Component{
+class MyTeams extends React.Component{
 
     constructor(props){
       super(props);
@@ -20,25 +21,28 @@ class ErrorPage extends React.Component{
     }
 
     postTeam = () => {
-      axios.post(eventsBaseApi + "/" + this.state.eventId + "/register?team_code=" + this.state.code,{},{
+      axios.get(eventsBaseApi + "/" + this.state.eventId + "/teams",{
         headers:{
-          Authorization:JSON.parse(localStorage["user"])["token"]
+          Authorization:this.state.code
         }
       }).then((response)=>{
-          Swal.fire({title: "Success",
-          icon: 'success',
-          footer: "Joined Team !",
-          customClass: {
-            title: 'text-success',
-            content: 'text-white',
-            confirmButton: 'bg-success',
-          },
-          background: `rgba(0,0,0,1)`
-        }).then(()=>
-          {
-            window.location.href="/event/" + this.state.eventId;
-          }
-        );
+        this.setState({
+          teams:response.data
+        })
+        //   Swal.fire({title: "Success",
+        //   icon: 'success',
+        //   footer: "Joined Team !",
+        //   customClass: {
+        //     title: 'text-success',
+        //     content: 'text-white',
+        //     confirmButton: 'bg-success',
+        //   },
+        //   background: `rgba(0,0,0,1)`
+        // }).then(()=>
+        //   {
+        //     window.location.href="/event/" + this.state.eventId;
+        //   }
+        // );
       }).catch((error) => 
         {
           Swal.fire({title: "Oops! Error",
@@ -62,19 +66,47 @@ class ErrorPage extends React.Component{
       })
     }
 
+    changeEventId = (event) => {
+      this.setState({
+        eventId: event.target.value
+      })
+    }
+
+
     render(){
     return (
         <>
           <div className="invite-container pt-5">
-              <div class="d-flex justify-content-center">
+              <div className="d-flex justify-content-center">
                 <div className="frosted-card">
-                  <h1>Please Enter Invite Code:</h1>
-                  <input type="text" className="invite-input p-2 w-50" value={this.state.code} onChange={(event) => this.changeCode(event) } /> <br/><br/><br/>
-                  <button className="btn btn-info px-5 py-2 join-button" onClick={() => this.postTeam()}> JOIN TEAM </button>
-                  <h1>Please Enter Invite Code:</h1>
+                  <h1>Please Enter Event Code:</h1>
+                  <input type="text" className="invite-input p-2 w-50" value={this.state.eventId} onChange={(event) => this.changeEventId(event) } /> <br/><br/><br/>
+                  <h1>Please Enter Secret Key:</h1>
                   <input type="text" className="invite-input p-2 w-50" value={this.state.code} onChange={(event) => this.changeCode(event) } /> <br/><br/><br/>
                   <button className="btn btn-info px-5 py-2 join-button" onClick={() => this.postTeam()}> JOIN TEAM </button>                  
                 </div>
+              </div>
+              <div className="invite-container pt-5" style={{ color: "white" }}>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Number</th>
+                    <th>Team Name</th>
+                    <th>Users</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.teams.map((obj)=>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{obj.name}</td>
+                      <td>{obj.users.map((obj2)=>
+                          <div>{obj2.name}</div>
+                      )}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </Table>
               </div>
           </div> 
         </>
@@ -82,4 +114,4 @@ class ErrorPage extends React.Component{
     }
 };
 
-export default ErrorPage;
+export default MyTeams;
