@@ -19,9 +19,9 @@ class createTeam extends React.Component{
 
                     <h2>List of team members</h2>
                     <ul>
-                        {% for member in members %}
+                        {/* {% for member in members %}
                             <li>{{ member }}</li>
-                        {% endfor %}
+                        {% endfor %} */}
                     </ul>
             </>
         );
