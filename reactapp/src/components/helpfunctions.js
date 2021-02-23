@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Row, Col, Button } from "reactstrap";
 import {eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi} from "../api/";
+import { logoutUser } from "../actions/login";
 
 export function fireSuccess(doFunc){
     Swal.fire({title: "Success",
@@ -140,7 +141,7 @@ export function checkUndef(string) {
         var todayDate = new Date();
         if(date < todayDate){
           // log him out please
-          window.location.href="/logout";
+          logoutUser();
         }
       }
     }
