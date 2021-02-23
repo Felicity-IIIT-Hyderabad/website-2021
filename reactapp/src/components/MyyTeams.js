@@ -1,7 +1,7 @@
 import React from "react";
 import  {Table} from "reactstrap"
 import axios from "axios";
-import "./Invite.css";
+import "./MyTeam.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
 
@@ -63,8 +63,8 @@ class MyTeams extends React.Component{
     return (
         <>
           <div className="invite-container pt-5">
-              <div className="d-flex justify-content-center">
-                <div className="frosted-card">
+              <div className="d-flex justify-content-center mb-5">
+                <div id="myteamsss" className="frosted-card mb-5" style={{ paddingBottom: "15rem" }}>
                   <h1>Please Enter Event Code:</h1>
                   <input type="text" className="invite-input p-2 w-50" value={this.state.eventId} onChange={(event) => this.changeEventId(event) } /> <br/><br/><br/>
                   <h1>Please Enter Secret Key:</h1>
@@ -72,7 +72,7 @@ class MyTeams extends React.Component{
                   <button className="btn btn-info px-5 py-2 join-button" onClick={() => this.postTeam()}> JOIN TEAM </button>                  
                 </div>
               </div>
-              <div className="invite-container pt-5" style={{ color: "white" }}>
+              <div className="mt-5 pt-5" style={{ paddingTop: "15rem" ,color: "white" }}>
               <Table>
                 <thead>
                   <tr>

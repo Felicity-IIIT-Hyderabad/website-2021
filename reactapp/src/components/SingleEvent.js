@@ -143,7 +143,7 @@ const showModalEventOne = async (event) => {
             showCancelButton: true,
             cancelButtonText: "Not Now"           
         })
-        if(text){
+        if(true){
             console.log(text);
             if(text == ""){
                 axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{

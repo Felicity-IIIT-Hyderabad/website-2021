@@ -168,7 +168,7 @@ class CultEvent extends React.Component {
                 showCancelButton: true,
                 cancelButtonText: "Not Now"           
             })
-            if(text){
+            if(true){
                 console.log("AAAAAAAAAAAA");
                 console.log(text);
                 console.log("BBBBBBB");
