@@ -107,6 +107,23 @@ function formatDate2(num1) {
   return formattedTime;
 }
 
+checkExpired = () => {
+  if(localStorage.getItem("user") != null){
+    var ifAuth = JSON.parse(localStorage.getItem("user"));
+    if(ifAuth["authenticated"]){
+      let unix_timestamp = parseInt(ifAuth["tokenParsed"]["exp"]);
+      // Create a new JavaScript Date object based on the timestamp
+      // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+      var date = new Date(unix_timestamp * 1000);
+      var todayDate = new Date();
+      if(date < todayDate){
+        // log him out please
+        window.location.href="/logout";
+      }
+    }
+  }
+}
+
 
 const showModalEventOne = async (event) => {
   if (event.registration_link != "") {
@@ -119,6 +136,7 @@ const showModalEventOne = async (event) => {
       window.location.href = "/login";
       // localStorage.setItem("prevURL",window.location.href);
     }
+    this.checkExpired();
     const {value: text} = await Swal.fire({
       title: event["name"],
       input: 'textarea',
