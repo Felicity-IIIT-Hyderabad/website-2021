@@ -398,7 +398,7 @@ class SingleEvent extends React.Component{
                                 <p id="monthName">End</p>
                                 <p id="dayNumber">{formatDate2(this.state.event.end_date).slice(0, 4)}</p>
                                 <p id="year">2021</p>
-                                <p id="dayName">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(31, 36)}</p>
+                                <p id="dayName">{this.dateToString(this.state.event.start_date,this.state.event.end_date).slice(30, 36)}</p>
                             </div>
                         </div>
 
