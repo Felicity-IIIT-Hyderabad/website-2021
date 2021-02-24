@@ -26,7 +26,7 @@ export function fireFailure(error){
     console.log(error);
     Swal.fire({title: "Oops! Error",
     icon: 'error',
-    text: error.response.message,
+    text: error.message,
     footer: "Error message",
     customClass: {
       title: 'text-danger',
@@ -349,7 +349,8 @@ export function checkUndef(string) {
                 }).then((res)=>{
                     window.location.reload();
                 }).catch((error)=>
-                    console.log(error)
+                    {console.log(error);
+                    fireFailure(error);}
                 );                
             }
 
@@ -360,7 +361,7 @@ export function checkUndef(string) {
                     }).then((res)=>{
                         window.location.reload();
                     }).catch((error)=>
-                        console.log(error)
+                        {console.log(error); fireFailure(error);}
                     );
                 }
                 }
