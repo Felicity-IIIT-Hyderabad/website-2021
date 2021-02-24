@@ -322,7 +322,8 @@ export function checkUndef(string) {
     if(event.registration_link != ""){
         window.open(event.registration_link);
     }
-    else{            
+    else{
+        checkExpired(); 
         const { value: text } = await Swal.fire({
             title:  event["name"],
             input: 'textarea',

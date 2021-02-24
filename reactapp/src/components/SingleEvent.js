@@ -58,6 +58,7 @@ class SingleEvent extends React.Component {
   componentDidMount = () => {
     document.getElementById(this.props.match.params["0"] + "myid").style.backgroundImage = 'url(/myEvents/' + this.props.match.params["0"] + '.png)';
     var eventId = this.props.match.params["0"];
+    checkExpired();
     axios.get(eventsRegisteredApi, {
       headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")) ? JSON.parse(window.localStorage.getItem("user")).token : ""}
     }).then((res) => {
