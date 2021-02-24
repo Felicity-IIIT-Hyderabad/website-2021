@@ -10,6 +10,8 @@ import Chip from '@material-ui/core/Chip';
 import {eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi} from "../api/";
 import {Button} from "reactstrap";
 import { formatDate,formatDate2,check42, checkUndef, checkSpecific,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalSubmit, showModalEventUnregister } from "./helpfunctions";
+import * as extraInfo from "../sample-data/extra-info.json"
+
 
 import "./SingleEvent.css";
 
@@ -22,6 +24,7 @@ class SingleEvent extends React.Component {
       myEvents: [],
       event: [],
       eventCode: "",
+      actualEvents:[],
       teamDetails: {
         "name": "",
         "teamcode": "",
@@ -74,6 +77,9 @@ class SingleEvent extends React.Component {
       if (myEvent.length == 0) {
         window.location.href = "/404";
       }
+      this.setState({
+        actualEvents: response.data
+      })
       this.setState({
         event: myEvent[0] ? myEvent[0] : []
       });
@@ -185,6 +191,21 @@ class SingleEvent extends React.Component {
     }
   }
 
+  afterRegistration(string){
+    var flag = 1;
+    this.state.myEvents.map((obj) => {
+      if (obj.code == this.props.match.params["0"]) {
+        flag = 0;
+      }
+    })
+    if (flag) {
+      return string;
+    }
+    if(extraInfo.default[this.props.match.params["0"]] != undefined)
+      return string + "\n\n" + extraInfo.default[this.props.match.params["0"]];
+    return string;
+  }
+
   render() {
     return (
       <div className="container-fluid" style={{marginTop: "6rem", backgroundColor: "white", color: "black"}}>
@@ -197,7 +218,7 @@ class SingleEvent extends React.Component {
         <div className="row mt-5 mx-2">
           <div className="col-md-8 single-event-contain">
             <h1 className=""><strong>{this.state.event.name}  <Chip label={checkSpecific(this.state.event)} /></strong></h1>
-            <p className="mt-3">{this.state.event == undefined ? "" : this.state.event.description}</p>
+            <p className="mt-3">{this.afterRegistration(this.state.event)}</p>
 
             <div class="d-flex justify-content-center">
               <div class="calendar mx-2" style={{backgroundColor: "#2dfa52"}}>

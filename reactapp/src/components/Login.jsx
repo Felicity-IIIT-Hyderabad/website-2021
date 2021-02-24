@@ -69,7 +69,8 @@ class Login extends React.Component {
                 ); else return (<div>Unable to authenticate!</div>);
         }
         return (
-            <div className="text-center text-white">Initializing Keycloak...
+            <div className="text-center text-white"> Plogging you in, please wait ..... 
+            <br/>Initializing Keycloak...
                 <Button onClick={ () => this.logOut() }> LOGOUT</Button>
             </div>
         );

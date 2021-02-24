@@ -17,6 +17,8 @@ import { getUser } from "../actions/login";
 import { eventsApi, eventsRegisteredApi } from "../api/";
 // import { Link } from "react-router-dom";
 
+import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
+
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 var key = 1;
@@ -86,6 +88,7 @@ class Dashboard extends React.Component {
         }
         this.getActualEvents();
         this.getEvents();
+        checkExpired();
     }
 
     todayDate = (array) => {
