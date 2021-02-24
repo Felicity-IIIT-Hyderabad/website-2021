@@ -231,7 +231,7 @@ export function checkUndef(string) {
             }).then((res) => {
               window.location.reload();
             }).catch((error) =>
-              {console.log(error);}
+              {console.log(error);fireFailure(error);}
             );
           }
         }
@@ -291,7 +291,7 @@ export function checkUndef(string) {
             }).then((res) => {
               window.location.reload();
             }).catch((error) =>
-              {fireFailure(error);}
+              {fireFailure(error);fireFailure(error);}
             );
           }
         }
@@ -418,7 +418,7 @@ export function checkUndef(string) {
                     }).then((res)=>{
                         window.location.reload();
                     }).catch((error)=>
-                        {console.log(error); }
+                        {console.log(error);fireFailure(error); }
                     );
                 }
                 }
