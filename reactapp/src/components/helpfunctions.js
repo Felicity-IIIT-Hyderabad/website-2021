@@ -185,7 +185,7 @@ export function checkUndef(string) {
             }).then((res) => {
               window.location.reload();
             }).catch((error) =>
-              {console.log(error);}
+              {console.log(error);fireFailure(error);}
             );
           }
         });        
@@ -215,7 +215,7 @@ export function checkUndef(string) {
         cancelButtonText: "Not Now"
       })
       if (true) {
-        if (text == "" || text == undefined) {
+        if (text == "" && text != undefined) {
           axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
             headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
           }).then((res) => {
@@ -225,7 +225,7 @@ export function checkUndef(string) {
           );
         }
         else {
-          if (true) {
+          if (text != undefined) {
             axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text, {}, {
               headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res) => {
@@ -275,7 +275,7 @@ export function checkUndef(string) {
         cancelButtonText: "Not Now"
       })
       if (true) {
-        if (text == "" || text == undefined) {
+        if (text == "" && text == undefined) {
         fireFailure({
           "data":{
             "response":{
@@ -285,7 +285,7 @@ export function checkUndef(string) {
         })
         }
         else {
-          if (true) {
+          if (text != undefined) {
             axios.post(eventsBaseApi + "/" + event["code"] + "/change_team_custom?newcustom=" + text, {}, {
               headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
             }).then((res) => {
@@ -401,7 +401,7 @@ export function checkUndef(string) {
             cancelButtonText: "Not Now"           
         })
         if(true){
-            if(text == "" || text == undefined){
+            if(text == "" && text != undefined){
                 axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                 }).then((res)=>{
@@ -412,7 +412,7 @@ export function checkUndef(string) {
             }
 
             else{
-                if (true) {
+                if (text != undefined) {
                     axios.post(eventsBaseApi + "/" + event["code"] + "/register?name=" + text,{},{
                         headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                     }).then((res)=>{
