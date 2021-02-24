@@ -186,7 +186,7 @@ class SingleEvent extends React.Component {
     }
   }
 
-  afterRegistration(){
+  afterRegistration(string){
     var flag = 1;
     this.state.myEvents.map((obj) => {
       if (obj.code == this.props.match.params["0"]) {
@@ -214,7 +214,7 @@ class SingleEvent extends React.Component {
         <div className="row mt-5 mx-2">
           <div className="col-md-8 single-event-contain">
             <h1 className=""><strong>{this.state.event.name}  <Chip label={checkSpecific(this.state.event)} /></strong></h1>
-            <p className="mt-3">{this.afterRegistration()}</p>
+            <p className="mt-3">{this.afterRegistration(this.state.event.description)}</p>
 
             <div class="d-flex justify-content-center">
               <div class="calendar mx-2" style={{backgroundColor: "#2dfa52"}}>
