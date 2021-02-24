@@ -221,7 +221,7 @@ export function checkUndef(string) {
           }).then((res) => {
             window.location.reload();
           }).catch((error) =>
-            {fireFailure(error);}
+            {console.log(error);}
           );
         }
         else {
@@ -231,7 +231,7 @@ export function checkUndef(string) {
             }).then((res) => {
               window.location.reload();
             }).catch((error) =>
-              {fireFailure(error);}
+              {console.log(error);}
             );
           }
         }
@@ -276,17 +276,12 @@ export function checkUndef(string) {
       })
       if (true) {
         if (text == "") {
-        //   axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
-        //     headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
-        //   }).then((res) => {
-        //     window.location.reload();
-        //   }).catch((error) =>
-        //     {fireFailure(error);}
-        //   );
         fireFailure({
+          "data":{
             "response":{
                 "message": "Bhai kuch daal to sahi"
             }
+          }
         })
         }
         else {
@@ -376,7 +371,7 @@ export function checkUndef(string) {
               }).then((res) => {
                 window.location.reload();
               }).catch((error) =>
-                {fireFailure(error);}
+              {console.log(error);}
               );
             }
           });            
@@ -412,8 +407,7 @@ export function checkUndef(string) {
                 }).then((res)=>{
                     window.location.reload();
                 }).catch((error)=>
-                    {console.log(error);
-                    fireFailure(error);}
+                    {console.log(error);}
                 );                
             }
 
@@ -424,7 +418,7 @@ export function checkUndef(string) {
                     }).then((res)=>{
                         window.location.reload();
                     }).catch((error)=>
-                        {console.log(error); fireFailure(error);}
+                        {console.log(error); }
                     );
                 }
                 }
