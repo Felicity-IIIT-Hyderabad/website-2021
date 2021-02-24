@@ -199,7 +199,7 @@ class SingleEvent extends React.Component {
     if(extraInfo.default[this.props.match.params["0"]] == undefined){
       return string;
     }
-    return string + "\n\n\n" + extraInfo.default[this.props.match.params["0"]];
+    return string + "\n \n \n" + extraInfo.default[this.props.match.params["0"]];
   }
 
   render() {
