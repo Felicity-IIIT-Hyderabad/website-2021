@@ -47,7 +47,7 @@ sortDateWise(array){
   getEvents(){
     axios.get(eventsApi).then(async (response)=>{
 
-        var cultEventsData = this.sortDateWise(response.data).filter((obj)=> obj.tagline == "megaevents");
+        var cultEventsData = this.sortDateWise(response.data).filter((obj)=> obj.tagline == "tag00");
 
         this.setState({
             events: response.data,

@@ -160,6 +160,37 @@ export function checkUndef(string) {
         window.location.href = "/login";
       }
       checkExpired();
+      if(event["tagline"] == "tag00" || event["tagline"] == "tag01"){
+        // show the without text box vala modal
+        Swal.fire({
+          title: event["name"],
+          text: event["description"],
+          footer: "Deadline:" + formatDate(event["end_date"]),
+          customClass: {
+            title: " error-message",
+            content: "error-message",
+            confirmButton: "game-button bg-danger",
+            footer: "text-danger error-message"
+          },
+          width: "64em",
+          background: "white",
+          confirmButtonText: "Register",
+          showCloseButton: true,
+          showCancelButton: true,
+          cancelButtonText: "Cancel",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
+              headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
+            }).then((res) => {
+              window.location.reload();
+            }).catch((error) =>
+              {fireFailure(error);}
+            );
+          }
+        });        
+      }
+      else{
       const {value: text} = await Swal.fire({
         title: event["name"],
         input: 'textarea',
@@ -205,6 +236,7 @@ export function checkUndef(string) {
           }
         }
       }
+    }
     }
   };
   
@@ -319,6 +351,37 @@ export function checkUndef(string) {
     }
     else{
         checkExpired(); 
+        if(event["tagline"] == "tag00" || event["tagline"] == "tag01"){
+          // show the without text box vala modal
+          Swal.fire({
+            title: event["name"],
+            text: event["description"],
+            footer: "Deadline:" + formatDate(event["end_date"]),
+            customClass: {
+              title: " error-message",
+              content: "error-message",
+              confirmButton: "game-button bg-danger",
+              footer: "text-danger error-message"
+            },
+            width: "64em",
+            background: "white",
+            confirmButtonText: "Register",
+            showCloseButton: true,
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
+                headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
+              }).then((res) => {
+                window.location.reload();
+              }).catch((error) =>
+                {fireFailure(error);}
+              );
+            }
+          });            
+        } 
+        else{      
         const { value: text } = await Swal.fire({
             title:  event["name"],
             input: 'textarea',
@@ -366,6 +429,7 @@ export function checkUndef(string) {
                 }
                 }
         }   
+      }
     } 
 }
 

@@ -54,7 +54,7 @@ class MegaEvent extends React.Component {
 
             this.setState({
                 events: response.data,
-                cultEvents: cultEventsData.filter((obj) => obj.tagline == "megaevents")
+                cultEvents: cultEventsData.filter((obj) => obj.tagline == "tag00")
             });
         });
     }

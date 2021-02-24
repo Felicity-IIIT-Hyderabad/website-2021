@@ -111,6 +111,7 @@ class SingleEvent extends React.Component {
           <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
           <button onClick={() => showModalEventUnregister(obj)} className="btn btn-danger rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>UNREGISTER</strong></button>
           <button onClick={() => showModalSubmit(obj)} className="btn btn-primary rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>SUBMIT INFO</strong></button>
+          <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
         </>
       );
     }
@@ -118,12 +119,16 @@ class SingleEvent extends React.Component {
       return (
         <>
           <button onClick={() => showModalEventOne(obj)} className="btn btn-danger rounded-pill single-event-details text-white py-2 w-100"><strong>REGISTER</strong></button>
+          <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
         </>
       );
     }
     else if (startDate < today && endDate > today) {
       return (
+        <>
         <button onClick={() => showModalEventOne(obj)} className="btn btn-warning single-event-details text-white rounded-pill py-2 w-100"><strong>JOIN NOW</strong></button>
+        <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
+        </>
       );
     }
     else {
@@ -136,6 +141,50 @@ class SingleEvent extends React.Component {
   dateToString = (num1, num2) => {
     return formatDate(num1) + "\t To \t" + formatDate(num2);
   };
+
+  displayInviteCodeOrNot = () => {
+    var tagline = this.state.event.tagline;
+    if(tagline == "tag00" || tagline == "tag10"){
+      return (<div></div>)
+    }
+    else{
+      return (
+        <>
+        <h1 className="mt-3"><strong>Invite Code</strong></h1>
+        <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
+          {this.state.eventCode}
+        </div>
+        <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
+          Click to copy code
+        </div>        
+        </>
+      );
+    }
+  }
+
+  displayTeamNameOrNot(){
+    var tagline = this.state.event.tagline;
+    if(tagline == "tag00" || tagline == "tag01"){
+      return (<div></div>)
+    }
+    else{
+      return (
+      <>
+      <div>
+        <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
+        <ul className="single-event-details text-primary">
+          {this.state.teamDetails.members.map((obj, ind) =>
+            <li key={ind}>
+              {obj}
+            </li>
+          )}
+        </ul>
+        {this.displayInviteCodeOrNot()}
+      </div>      
+        </>
+      );
+    }    
+  }
 
   checkIfRegistered = () => {
     var flag = 1;
@@ -161,13 +210,7 @@ class SingleEvent extends React.Component {
             </li>
           )}
         </ul>
-        <h1 className="mt-3"><strong>Invite Code</strong></h1>
-        <div className="passcode w-100" id="room_passcode" onClick={this.copyClipboard}>
-          {this.state.eventCode}
-        </div>
-        <div className="copy-display mx-3" id="copy_info" onClick={this.copyClipboard}>
-          Click to copy code
-                </div>
+        {this.displayInviteCodeOrNot()}
       </div>
     )
   }
@@ -248,23 +291,21 @@ class SingleEvent extends React.Component {
   }
 
   displayTeamSizeLimitOrNot = () => {
-    var string = this.state.event.registration_link;
-    if(string == undefined || string == null || string == ""){
+    var string = this.state.event.tagline;
+    if(string == "tag10" || string == "tag00"){
       return (<div></div>)
     }
     else{
       return (
         <>
-          <h1 className="mt-3"><strong>Custom Info</strong></h1>
-          <h3 className=" mt-2"><strong>
-            {this.state.event == undefined ? "" : this.state.teamDetails.custom_info}
-          </strong>
-          </h3>              
+          <h1 className="mt-3"><strong>Team Size Limit:</strong></h1>
+          <div className="single-event-details text-primary" >
+          {this.state.event == undefined ? "" : this.state.event.team_size_limit}
+          </div>
         </>
       );
     }    
   }
-
 
   render() {
     return (
@@ -302,14 +343,10 @@ class SingleEvent extends React.Component {
             <div className="round-card px-5 py-5 my-4">
               <div className="text-center">
                 {this.checkLiveOrNot(this.state.event)}
-                <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
               </div>
               {this.displayPrizesOrNot()}
               {this.checkIfRegistered()}
-              <h1 className="mt-3"><strong>Team Size Limit:</strong></h1>
-              <div className="single-event-details text-primary" >
-              {this.state.event == undefined ? "" : this.state.event.team_size_limit}
-              </div>
+              {this.displayTeamSizeLimitOrNot()}
               {this.displayCustomInfoOrNot()}
               <h1 className="mt-3"><strong>Organizers</strong></h1>
               <h3 className=" mt-2"><strong>
