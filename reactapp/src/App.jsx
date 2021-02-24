@@ -9,6 +9,8 @@ import SingleEvent from "./components/SingleEvent";
 // import SingleEvent from "./components/SingleEvents/spacesc";
 import SingleEventRplay from "./components/SingleEvents/SingleEventRplay";
 import CultEvent from "./components/CultEvent";
+import MegaEvent from "./components/MegaEvent";
+// import MegaEventPage from "./components/MegaEventPage";
 import Help from "./components/Help";
 import Workshop from "./components/Workshop";
 import Dashboard from "./components/Dashboard";
@@ -22,6 +24,7 @@ import InvitePage from "./components/InvitePage";
 import { loginUser } from "./actions/login";
 
 import { getUser } from "./actions/login";
+import MegaEventPage from "./components/MegaEventPage";
 
 var userKey = true;
 
@@ -40,6 +43,8 @@ const App = (props) => {
                         <Route exact path="/404" component={ErrorPage} />
                         <Route path="/event/*" component={SingleEvent} />
                         <Route exact path="/events" component={Home} />
+                        <Route exact path="/events-mega" component={MegaEvent} />
+                        <Route exact path="/events-megapage" component={MegaEventPage} />
                         <Route exact path="/events-technical" component={Home} />
                         <Route exact path="/events-cultural" component={Home} />
                         <Route exact path="/" component={Home} />
@@ -54,6 +59,8 @@ const App = (props) => {
                         <Route exact path="/404" component={ErrorPage} />
                         <Route exact path="/event/*" component={SingleEvent} />
                         <Route exact path="/events" component={Dashboard} />
+                        <Route exact path="/events-mega" component={MegaEvent} />
+                        <Route exact path="/events-megapage" component={MegaEventPage} />
                         <Route path="/events-technical" component={TechEvent} />
                         <Route path="/events-cultural" component={CultEvent} />
                         {/* <Route path="/" component={Home} /> */}
@@ -68,6 +75,8 @@ const App = (props) => {
                     <Route path="/myteams" component={MyTeams} />
                     <Route exact path="/event/*" component={SingleEvent} />
                     <Route exact path="/events" component={Dashboard} />
+                    <Route exact path="/events-mega" component={MegaEvent} />
+                    <Route exact path="/events-megapage" component={MegaEventPage} />
                     <Route path="/events-technical" component={TechEvent} />
                     <Route path="/events-cultural" component={CultEvent} />
                     {/* <Route path="/" component={Home} /> */}

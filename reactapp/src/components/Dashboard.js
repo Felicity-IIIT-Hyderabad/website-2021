@@ -142,8 +142,9 @@ class Dashboard extends React.Component {
                 <div className="container-fluid mt-5">
                     <div className="row">
                         <div className="col-3 left-display">
-                            <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
+                            <h2 className="text-center my-3 text-white"><strong>View Timelines</strong></h2>
                             <div className="event-days text-center mt-4">
+                                <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-mega")}> MEGA </Button><br/>
                                 <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
                                 <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
                             </div>
