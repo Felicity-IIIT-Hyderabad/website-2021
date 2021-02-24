@@ -14,7 +14,7 @@ export function fireSuccess(doFunc){
       content: 'text-white',
       confirmButton: 'bg-success',
     },
-    background: `rgba(0,0,0,1)`
+    background: `#222831`
   }).then(()=>
     {
       doFunc();
@@ -33,7 +33,7 @@ export function fireFailure(error){
       content: 'text-white',
       confirmButton: 'bg-danger',
     },
-    background: `rgba(0,0,0,1)`
+    background: `#222831`
   });
 }
 
@@ -380,9 +380,12 @@ export function checkSpecific(obj){
 
 export function check42(string){
     if(string == "42" || string == 42){
-        return "To be Announced";
+        return " To be Announced";
+    }
+    else if(string == "43" || string == 43){
+      return "No Prizes";
     }
     else{
-        return string;
+        return "\u20B9 " + string;
     }
-}
+} 

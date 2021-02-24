@@ -142,11 +142,11 @@ class Dashboard extends React.Component {
                 <div className="container-fluid mt-5">
                     <div className="row">
                         <div className="col-3 left-display">
-                            <h2 className="text-center my-3 text-white"><strong>View Timelines</strong></h2>
-                            <div className="event-days text-center mt-4">
+                            <h2 className="text-center my-3 text-white mt-4"><strong>View Timelines</strong></h2>
+                            <div className="event-days text-center mt-5">
                                 <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-mega")}> MEGA </Button><br/>
-                                <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
-                                <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
+                                <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
+                                <Button className="btn event-button mt-4 event-blue" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
                             </div>
                         </div>
                         
@@ -157,7 +157,7 @@ class Dashboard extends React.Component {
                                     <div className="empty-space mx-4 desktop-only"></div>
                                     {this.todayDate(this.state.actualEvents).map((event, idx) => (
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/event/" + event["code"])}  style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}>
-                                                <div>
+                                                <div className="event-carousel-item-text">
                                                     {event["name"]}
                                                 </div>
                                             </div>

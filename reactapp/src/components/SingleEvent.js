@@ -27,7 +27,8 @@ class SingleEvent extends React.Component {
         "name": "",
         "teamcode": "",
         "members": [],
-        "teamInfo": ""
+        "teamInfo": "",
+        "custom_info": ""
       }
     };
   }
@@ -201,6 +202,70 @@ class SingleEvent extends React.Component {
     return string + "\n \n \n" + extraInfo.default[this.props.match.params["0"]];
   }
 
+  displayPrizesOrNot = () => {
+    var string = this.state.event.prizes;
+    if(string == null || string == ""){
+      return (<div></div>)
+    }
+    else{
+      return (
+        <>
+          <h1 className="mt-3"><strong>Prizes</strong></h1>
+          {checkUndef(this.state.event.prizes).length > 1 ?
+            <ol className="single-event-details text-primary">
+              {checkUndef(this.state.event.prizes).map((obj, ind) =>
+                <li key={ind}>
+                  {obj}
+                </li>
+              )}
+            </ol>
+            :
+            <div className="single-event-details text-primary bold">
+              {check42(checkUndef(this.state.event.prizes)[0])}
+            </div>
+          }        
+        </>
+      );
+    }
+  }
+
+  displayCustomInfoOrNot = () => {
+    var string = this.state.teamDetails.custom_info;
+    if(string == undefined || string == null || string == ""){
+      return (<div></div>)
+    }
+    else{
+      return (
+        <>
+          <h1 className="mt-3"><strong>Custom Info</strong></h1>
+          <h3 className=" mt-2"><strong>
+            {this.state.event == undefined ? "" : this.state.teamDetails.custom_info}
+          </strong>
+          </h3>              
+        </>
+      );
+    }    
+  }
+
+  displayTeamSizeLimitOrNot = () => {
+    var string = this.state.event.registration_link;
+    if(string == undefined || string == null || string == ""){
+      return (<div></div>)
+    }
+    else{
+      return (
+        <>
+          <h1 className="mt-3"><strong>Custom Info</strong></h1>
+          <h3 className=" mt-2"><strong>
+            {this.state.event == undefined ? "" : this.state.teamDetails.custom_info}
+          </strong>
+          </h3>              
+        </>
+      );
+    }    
+  }
+
+
   render() {
     return (
       <div className="container-fluid" style={{marginTop: "6rem", backgroundColor: "white", color: "black"}}>
@@ -216,7 +281,7 @@ class SingleEvent extends React.Component {
             <p className="mt-3">{this.afterRegistration(this.state.event.description)}</p>
 
             <div class="d-flex justify-content-center">
-              <div class="calendar mx-2" style={{backgroundColor: "#2dfa52"}}>
+              <div class="calendar mx-2" style={{backgroundColor: "#6ef56e"}}>
                 <p id="monthName">Start</p>
                 <p id="dayNumber">{formatDate2(this.state.event.start_date).slice(0, 4)}</p>
                 <p id="year">2021</p>
@@ -239,28 +304,13 @@ class SingleEvent extends React.Component {
                 {this.checkLiveOrNot(this.state.event)}
                 <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
               </div>
-              <h1 className="mt-3"><strong>Prizes</strong></h1>
-              {checkUndef(this.state.event.prizes).length > 1 ?
-                <ol className="single-event-details text-primary">
-                  {checkUndef(this.state.event.prizes).map((obj, ind) =>
-                    <li key={ind}>
-                      {obj}
-                    </li>
-                  )}
-                </ol>
-                :
-                <div className="single-event-details text-primary bold">
-                  &#8377; {check42(checkUndef(this.state.event.prizes)[0])}
-                </div>
-              }
+              {this.displayPrizesOrNot()}
               {this.checkIfRegistered()}
               <h1 className="mt-3"><strong>Team Size Limit:</strong></h1>
+              <div className="single-event-details text-primary" >
               {this.state.event == undefined ? "" : this.state.event.team_size_limit}
-              <h1 className="mt-3"><strong>Custom Info</strong></h1>
-              <h3 className=" mt-2"><strong>
-                {this.state.event == undefined ? "" : this.state.teamDetails.custom_info}
-              </strong>
-              </h3>              
+              </div>
+              {this.displayCustomInfoOrNot()}
               <h1 className="mt-3"><strong>Organizers</strong></h1>
               <h3 className=" mt-2"><strong>
                 {this.state.event == undefined ? "" : this.state.event.organizer_clubs}

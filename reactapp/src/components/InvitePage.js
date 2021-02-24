@@ -4,6 +4,8 @@ import "./Invite.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
 
+import { formatDate,formatDate2,check42, checkUndef, checkSpecific,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalSubmit, showModalEventUnregister } from "./helpfunctions";
+
 class InvitePage extends React.Component{
 
     constructor(props){
@@ -48,17 +50,7 @@ class InvitePage extends React.Component{
         );
       }).catch((error) => 
         {
-          Swal.fire({title: "Oops! Error",
-                  icon: 'error',
-                  text: error.response.message,
-                  footer: "The above error popped up while joining the team.",
-                  customClass: {
-                    title: 'text-danger',
-                    content: 'text-white',
-                    confirmButton: 'bg-danger',
-                  },
-                  background: `rgba(0,0,0,1)`
-                });
+          {fireFailure(error);}
         }      
       )
     }
