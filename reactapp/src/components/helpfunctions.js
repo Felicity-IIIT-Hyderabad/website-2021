@@ -163,7 +163,7 @@ export function checkUndef(string) {
       const {value: text} = await Swal.fire({
         title: event["name"],
         input: 'textarea',
-        inputLabel: event["description"] + "\n Enter your team name below",
+        inputLabel: event["description"] + "\n Enter your team name below. Leave Blank in case team name is not applicable or if in doubt.",
         inputPlaceholder: 'Should not exceed 32 characters...',
         inputAttributes: {
           'aria-label': 'Type your message here',
@@ -322,7 +322,7 @@ export function checkUndef(string) {
         const { value: text } = await Swal.fire({
             title:  event["name"],
             input: 'textarea',
-            inputLabel: event["description"] + "\n Enter your team name below",
+            inputLabel: event["description"] + "\n Enter your team name below. Leave blank in case team name is not applicable or if in doubt.",
             inputPlaceholder: 'Should not exceed 32 characters...',
             inputAttributes: {
               'aria-label': 'Type your message here',
