@@ -215,7 +215,7 @@ export function checkUndef(string) {
         cancelButtonText: "Not Now"
       })
       if (true) {
-        if (text == "") {
+        if (text == "" || text == undefined) {
           axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
             headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
           }).then((res) => {
@@ -275,7 +275,7 @@ export function checkUndef(string) {
         cancelButtonText: "Not Now"
       })
       if (true) {
-        if (text == "") {
+        if (text == "" || text == undefined) {
         fireFailure({
           "data":{
             "response":{
@@ -401,7 +401,7 @@ export function checkUndef(string) {
             cancelButtonText: "Not Now"           
         })
         if(true){
-            if(text == ""){
+            if(text == "" || text == undefined){
                 axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}
                 }).then((res)=>{
