@@ -99,9 +99,6 @@ class SingleEvent extends React.Component {
     var endDate = new Date(obj.end_date);
     var today = new Date();
     var flag = 1;
-    console.log(startDate);
-    console.log(endDate);
-    console.log(today);
     for (let ind = 0; ind < this.state.myEvents.length; ind++) {
       if (this.state.myEvents[ind]["code"] == obj.code) {
         flag = 0;

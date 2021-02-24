@@ -39,10 +39,6 @@ class Login extends React.Component {
             else{
                 window.location.href = localStorage.getItem("prevURL");
             }
-            
-            // console.log(window.history);
-            // window.history.go(-1 * window.history.length);
-            // window.location.href="/events";
         });
     }
 

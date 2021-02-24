@@ -44,9 +44,7 @@ class TechEvent extends React.Component {
                 filteredArray.push(array[ind]);
             }
         }
-        console.log(filteredArray);
         filteredArray =  filteredArray.concat(dirt);
-        console.log(dirt);        
         return filteredArray;
     }
 
@@ -65,12 +63,10 @@ class TechEvent extends React.Component {
     getEvents(){
         axios.get(eventsTechnicalApi).then(async (response)=>{
             var array = this.sortDateWise(response.data);
-            console.log(array);
             var filteredArray = this.filterArray(array);
             this.setState({
                 events: filteredArray
             });
-            // console.log(this.sortDateWise(response.data));
         });
     }
 

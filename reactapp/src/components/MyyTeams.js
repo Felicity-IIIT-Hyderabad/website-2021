@@ -97,7 +97,6 @@ class MyTeams extends React.Component{
     }
 
     checkTeamsSize(){
-      console.log(this.state.teams.length);
       if(this.state.teams.length > 0){
         return(
           <div className="text-center">
@@ -127,12 +126,10 @@ class MyTeams extends React.Component{
       var maxi = -1;
       for (let ind = 0; ind < array.length; ind++) {
         var tems  = array[ind]["users"];
-        console.log(tems);
         if(tems.length > maxi){
           maxi = tems.length;
         }
       }
-      console.log(maxi);
       headers.push({
         label: "Team Name",
         key: "team_name"
@@ -147,10 +144,8 @@ class MyTeams extends React.Component{
           key: "details.email" + (ind + 1).toString()
         })        
       }
-      console.log(headers);
       var data = [];
       for (let ind = 0; ind < array.length; ind++) {
-        console.log(array[ind]);
         var dic = {
           "team_name": array[ind]["name"],
           "details":{}
@@ -161,8 +156,6 @@ class MyTeams extends React.Component{
         }
         data.push(dic);
       }
-      console.log(headers);
-      console.log(data);
       return {
         "headers":headers,
         "array":data

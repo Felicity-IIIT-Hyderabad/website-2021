@@ -97,11 +97,6 @@ class CultEvent extends React.Component {
         return formatDate(num1) + "\t To \t" + formatDate(num2);
     };
 
-    // axios.get(eventsCulturalApi).then((response)=>{
-    //     console.log(response);
-    //     cultEvents = {};
-    // });
-
     renderIconColor(obj){
         var startDate = new Date(obj.start_date);
         var endDate = new Date(obj.end_date);

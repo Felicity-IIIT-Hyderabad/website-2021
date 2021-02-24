@@ -155,11 +155,9 @@ export function checkUndef(string) {
       window.open(event.registration_link);
     }
     else {
-      // console.log(JSON.parse(localStorage.getItem("user")));
       if (localStorage.getItem("user") == null || localStorage.getItem("user") == undefined || !JSON.parse(localStorage.getItem("user"))["authenticated"]) {
         localStorage.setItem("prevURL", window.location.href);
         window.location.href = "/login";
-        // localStorage.setItem("prevURL",window.location.href);
       }
       checkExpired();
       const {value: text} = await Swal.fire({
@@ -186,7 +184,6 @@ export function checkUndef(string) {
         cancelButtonText: "Not Now"
       })
       if (true) {
-        console.log(text);
         if (text == "") {
           axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
             headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
@@ -203,7 +200,7 @@ export function checkUndef(string) {
             }).then((res) => {
               window.location.reload();
             }).catch((error) =>
-              {console.log(error); fireFailure(error);}
+              {fireFailure(error);}
             );
           }
         }
@@ -216,7 +213,6 @@ export function checkUndef(string) {
       window.open(event.registration_link);
     }
     else {
-      // console.log(JSON.parse(localStorage.getItem("user")));
       if (localStorage.getItem("user") == null || localStorage.getItem("user") == undefined || !JSON.parse(localStorage.getItem("user"))["authenticated"]) {
         localStorage.setItem("prevURL", window.location.href);
         window.location.href = "/login";
@@ -247,7 +243,6 @@ export function checkUndef(string) {
         cancelButtonText: "Not Now"
       })
       if (true) {
-        console.log(text);
         if (text == "") {
         //   axios.post(eventsBaseApi + "/" + event["code"] + "/register", {}, {
         //     headers: {"Authorization": JSON.parse(window.localStorage.getItem("user")).token}
@@ -269,7 +264,7 @@ export function checkUndef(string) {
             }).then((res) => {
               window.location.reload();
             }).catch((error) =>
-              {console.log(error); fireFailure(error);}
+              {fireFailure(error);}
             );
           }
         }
@@ -303,7 +298,7 @@ export function checkUndef(string) {
         }).then((res) => {
           window.location.reload();
         }).catch((error) =>
-          {console.log(error); fireFailure(error);}
+          {fireFailure(error);}
         );
       }
     });
@@ -348,9 +343,6 @@ export function checkUndef(string) {
             cancelButtonText: "Not Now"           
         })
         if(true){
-            console.log("AAAAAAAAAAAA");
-            console.log(text);
-            console.log("BBBBBBB");
             if(text == ""){
                 axios.post(eventsBaseApi + "/" + event["code"] + "/register",{},{
                     headers: {"Authorization":JSON.parse(window.localStorage.getItem("user")).token}

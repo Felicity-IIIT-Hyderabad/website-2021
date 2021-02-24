@@ -29,7 +29,6 @@ const App = (props) => {
     if (userKey != props.userInfo.authenticated) {
         userKey = props.userInfo.authenticated;
         getUser();
-        // console.log(props);
     }
 
     function renderEvents(){

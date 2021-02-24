@@ -16,7 +16,6 @@ class InvitePage extends React.Component{
 
     componentDidMount = () => {
       var eventId = this.props.match.params["0"];
-      console.log(eventId);
       this.setState({
         eventId: eventId
       })
