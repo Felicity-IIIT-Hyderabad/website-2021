@@ -182,6 +182,7 @@ class SingleEvent extends React.Component {
       // localStorage.setItem("prevURL",window.location.href);
     }
     else {
+      checkExpired();
       window.location.href = string;
     }
   }
