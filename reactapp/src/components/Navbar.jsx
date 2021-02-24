@@ -78,15 +78,14 @@ function logInOrOut(props) {
     try {
         if (props.props.userInfo.loginReducer.authenticated) {
             // window.location.href="/";
-            localStorage.setItem("want","yes");
             logoutUser();
-            window.location.href = "/";
+            window.location.href = "https://felicity.iiit.ac.in/auth/realms/master/protocol/openid-connect/logout?redirect_uri=https%3A%2F%2Ffelicity.iiit.ac.in";
         } else {
             if( localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
                 localStorage.setItem("prevURL",window.location.href);
                 window.location.href="/login";            
                 // localStorage.setItem("prevURL",window.location.href);
-            }            
+            }
             window.location.href = "/login";
         }
     } catch {

@@ -147,7 +147,7 @@ class Dashboard extends React.Component {
                         </div>
                         
                         <div className="col-md-9 right-display">
-                            <div className="event-type-title mt-3 mx-3">Upcoming - Today</div>
+                            <div className="event-type-title mt-3 mx-3">Upcoming - Next 24 Hours</div>
                             <div className="carousel-holder">
                                 <div className="mt-4 event-carousel" id="event1">
                                     <div className="empty-space mx-4 desktop-only"></div>
