@@ -202,14 +202,7 @@ class SingleEvent extends React.Component {
     }
     return (
       <div>
-        <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
-        <ul className="single-event-details text-primary">
-          {this.state.teamDetails.members.map((obj, ind) =>
-            <li key={ind}>
-              {obj}
-            </li>
-          )}
-        </ul>
+        {this.displayTeamNameOrNot()}
         {this.displayInviteCodeOrNot()}
       </div>
     )
