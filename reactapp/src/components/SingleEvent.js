@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import Chip from '@material-ui/core/Chip';
 import {eventsBaseApi, eventsRegisteredApi, eventsRegisterApi, eventsApi} from "../api/";
 import {Button} from "reactstrap";
-import { formatDate,formatDate2,check42, checkUndef, checkSpecific,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalSubmit, showModalEventUnregister } from "./helpfunctions";
+import { formatDate,formatDate2,formatDate3,check42, checkUndef, checkSpecific,checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalSubmit, showModalEventUnregister } from "./helpfunctions";
 
 import * as extraInfo from "../sample-data/extra-info.json";
 import "./SingleEvent.css";
@@ -319,14 +319,14 @@ class SingleEvent extends React.Component {
                 <p id="monthName">Start</p>
                 <p id="dayNumber">{formatDate2(this.state.event.start_date).slice(0, 4)}</p>
                 <p id="year">2021</p>
-                <p id="dayName">{this.dateToString(this.state.event.start_date, this.state.event.end_date).slice(9, 14)}</p>
+                <p id="dayName">{formatDate3(this.state.event.start_date)}</p>
               </div>
 
               <div class="calendar mx-2" style={{backgroundColor: "#f56e6e"}}>
                 <p id="monthName">End</p>
-                <p id="dayNumber">{formatDate2(this.state.event.end_date).slice(0, 4)}</p>
+                <p id="dayNumber">{formatDate2(this.state.event.start_date)}</p>
                 <p id="year">2021</p>
-                <p id="dayName">{this.dateToString(this.state.event.start_date, this.state.event.end_date).slice(30, 36)}</p>
+                <p id="dayName">{formatDate3(this.state.event.end_date)}</p>
               </div>
             </div>
 

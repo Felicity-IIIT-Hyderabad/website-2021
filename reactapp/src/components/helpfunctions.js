@@ -131,6 +131,37 @@ export function checkUndef(string) {
     return formattedTime;
   }
 
+  export function formatDate3(num1) {
+    // Create a new JavaScript Date object based on the timestamp
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var startDate = new Date(num1);
+    // var endDate = new Date(num2);
+    var day = startDate.getDate();
+    var mon = startDate.getMonth();
+    // Hours part from the timestamp
+    var hours = startDate.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + startDate.getMinutes();
+  
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "Aug";
+    month[8] = "Sept";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+  
+    // Will display time in 10:30:23 format
+    var formattedTime = hours + ":" + minutes;// addSuperScript(day) +  "\t" + month[mon] + "\t" +  hours + ":" + minutes.substr(-2) + amOrPM(hours);
+    return formattedTime;
+  }  
+
   export function checkExpired(){
     if(localStorage.getItem("user") != null){
       var ifAuth = JSON.parse(localStorage.getItem("user"));
