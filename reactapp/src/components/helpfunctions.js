@@ -23,10 +23,10 @@ export function fireSuccess(doFunc){
 }
 
 export function fireFailure(error){
-    console.log(error);
+    console.log(error.response);
     Swal.fire({title: "Oops! Error",
     icon: 'error',
-    text: error.message,
+    text: error.response.data.message,
     footer: "Error message",
     customClass: {
       title: 'text-danger',
