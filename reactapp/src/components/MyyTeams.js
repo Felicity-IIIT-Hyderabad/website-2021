@@ -5,6 +5,8 @@ import "./MyTeam.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
 import { CSVLink } from "react-csv";
+import { Clipboard_CopyToOkNa } from "./helpfunctions";
+
 
 class MyTeams extends React.Component{
 
@@ -96,15 +98,30 @@ class MyTeams extends React.Component{
       return this.state.eventId + "_" + (date.getTime()).toString() + ".csv";
     }
 
+    prepareEmails(){
+      var string = "";
+      this.state.teams.map((obj)=>{
+        obj["users"].map((obj2)=>{
+          string += obj2.email;
+          string += ";";
+        })
+      })
+      console.log(string);
+      return string;
+    }
+
     checkTeamsSize(){
       if(this.state.teams.length > 0){
         return(
           <div className="text-center">
           <button className="btn btn-success rounded-pill py-2 w-50 mb-5">
           <CSVLink className="btn btn btn-success rounded-pill py-2 w-100 btn-round btn-primary text-center"  filename={this.getFileName()} data={this.prepareArray(this.state.teams)["array"]} headers={this.prepareArray(this.state.teams)["headers"]}>
-          Download data
+          Download as CSV
           </CSVLink>
           </button>
+          <button className="btn btn btn-success rounded-pill  py-2 w-50 mb-5 py-2 btn-round btn-primary text-center" onClick={() => Clipboard_CopyToOkNa(this.prepareEmails())}>
+          Copy all Emails
+          </button>          
           </div>
         );
       }
@@ -113,9 +130,13 @@ class MyTeams extends React.Component{
           <div className="text-center">
           <button className="btn btn-success rounded-pill py-2 w-50 mb-5">
           <CSVLink className="btn btn btn-success rounded-pill py-2 w-100 btn-round btn-primary text-center" data={this.state.teams} separator={";"}>
-          Download data
+          Download as CSV
           </CSVLink>
           </button>
+          <br/>
+          <button className="btn btn btn-success rounded-pill  py-2 w-50 mb-5 py-2 btn-round btn-primary text-center" onClick={() => Clipboard_CopyToOkNa(this.prepareEmails())}>
+          Copy all Emails
+          </button>          
           </div>
         );
       }

@@ -478,3 +478,12 @@ export function check42(string){
         return "\u20B9 " + string;
     }
 } 
+
+export function Clipboard_CopyToOkNa(value) {
+  var tempInput = document.createElement("input");
+  tempInput.value = value;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+}
