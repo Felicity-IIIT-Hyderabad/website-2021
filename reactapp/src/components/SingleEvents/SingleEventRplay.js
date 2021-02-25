@@ -186,7 +186,6 @@ class SingleEventRplay extends React.Component{
     componentDidMount = () => {
         var eventId = "rplay";
         axios.get(eventsApi).then(async (response)=>{
-            console.log(response.data);
             var myEvent = response.data.filter((obj) => obj.code == eventId);
             this.setState({
                 event:myEvent[0]
@@ -209,7 +208,6 @@ class SingleEventRplay extends React.Component{
         var endDate = new Date(obj.start_date);
         var today = new Date();
         var flag = 1;
-        console.log(obj);
         for (let ind = 0; ind < this.state.myEvents.length; ind++) {
             if(this.state.myEvents[ind]["code"] == obj.code){
                 flag = 0;

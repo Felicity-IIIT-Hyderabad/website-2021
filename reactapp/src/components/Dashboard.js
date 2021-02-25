@@ -17,6 +17,8 @@ import { getUser } from "../actions/login";
 import { eventsApi, eventsRegisteredApi } from "../api/";
 // import { Link } from "react-router-dom";
 
+import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister, formatDate3 } from "./helpfunctions";
+
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 var key = 1;
@@ -27,6 +29,7 @@ class Dashboard extends React.Component {
         super(props);
         this.state = {
             events: [],
+            actualEvents: []
         };
     }
 
@@ -50,6 +53,18 @@ class Dashboard extends React.Component {
         return array.sort(this.compare)
     }
 
+    getActualEvents(){
+        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
+        axios.get(eventsApi).then(async (response)=>{
+            var cultEventsData = this.sortDateWise(response.data);
+            this.setState({
+                actualEvents: cultEventsData,
+            });
+        }).catch((error)=>
+            console.log(error)
+        );
+    }
+
     getEvents(){
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
         axios.get(eventsRegisteredApi,{
@@ -71,14 +86,19 @@ class Dashboard extends React.Component {
             key = 0;   
             getUser();
         }
+        this.getActualEvents();
         this.getEvents();
+        checkExpired();
     }
 
     todayDate = (array) => {
         var today = new Date();
         var todayEvents = array.filter((obj) => {
             var date = new Date(obj.start_date);
-            return date == today
+            if(date - today >=0 && date - today <= 1000 * 3600 * 24){
+                return true;
+            }
+            return false;
         })
         return todayEvents;
     }
@@ -103,7 +123,7 @@ class Dashboard extends React.Component {
                                 cancelOnInteraction={false} // should stop playing on user interaction
                                 interval={2000}>
                                 {bigEvents.default.urls.map((obj,ind)=>
-                                    <div className="header-carousel-item" style={{  backgroundImage: "url('/bigEvents/" + obj + ".jpg')", backgroundSize: "100% 100%" }}>
+                                    <div className="header-carousel-item" style={{  backgroundImage: "url('/myEvents/" + obj + ".png')", backgroundSize: "100% 100%" }} onClick={() => window.open("/event/" + obj)}>
                                     </div>
                                 )}                                          
                                     {/* <div className="header-carousel-title text-left">
@@ -122,22 +142,23 @@ class Dashboard extends React.Component {
                 <div className="container-fluid mt-5">
                     <div className="row">
                         <div className="col-3 left-display">
-                            <h2 className="text-center my-3 text-white"><strong>View All Events</strong></h2>
-                            <div className="event-days text-center mt-4">
-                                <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
-                                <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
+                            <h2 className="text-center my-3 text-white mt-4"><strong>View Timelines</strong></h2>
+                            <div className="event-days text-center mt-5">
+                                <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-mega")}> MEGA </Button><br/>
+                                <Button className="btn event-button mt-4 event-green" onClick={() => window.open("/events-cultural")}> CULTURAL </Button><br/>
+                                <Button className="btn event-button mt-4 event-blue" onClick={() => window.open("/events-technical")}> TECHNICAL </Button><br/>
                             </div>
                         </div>
                         
                         <div className="col-md-9 right-display">
-                            <div className="event-type-title mt-3 mx-3">Upcoming - Today</div>
+                            <div className="event-type-title mt-3 mx-3">Upcoming - Next 24 Hours</div>
                             <div className="carousel-holder">
-                                <div className="mt-4 event-carousel" id="event1">
+                                <div className="event-carousel" id="event1">
                                     <div className="empty-space mx-4 desktop-only"></div>
-                                    {this.todayDate(this.state.events).map((event, idx) => (
+                                    {this.todayDate(this.state.actualEvents).map((event, idx) => (
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/event/" + event["code"])}  style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}>
-                                                <div>
-                                                    {event["name"]}
+                                                <div className="event-carousel-item-text">
+                                                {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["start_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
                                                 </div>
                                             </div>
                                     ))}
@@ -150,15 +171,15 @@ class Dashboard extends React.Component {
                         <div className="container-fluid mb-5">
                             <div>
                                 {/* <div className="feature-image my-4 mr-2"></div> */}
-                                <div className="event-type-title mt-3 mx-3">Upcoming Events</div>
+                                <div className="event-type-title mt-3 mx-3">Your Events</div>
                                 <div className="carousel-holder">
-                                    <div className="mt-4 event-carousel" id="event2">
+                                    <div className="event-carousel" id="event2">
                                         <div className="empty-space mx-4 desktop-only"></div>
                                         {this.afterToday(this.state.events).map((event, idx) => (
                                         
                                                 <div className="event-carousel-item mt-4 mx-2" style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}  key={idx} onClick={() => window.open("/event/" + event["code"])}>
-                                                    <div>
-                                                        {event["name"]}
+                                                    <div className="event-carousel-item-text">
+                                                        {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["start_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
                                                     </div>
                                                 </div>
 

@@ -39,10 +39,6 @@ class Login extends React.Component {
             else{
                 window.location.href = localStorage.getItem("prevURL");
             }
-            
-            // console.log(window.history);
-            // window.history.go(-1 * window.history.length);
-            // window.location.href="/events";
         });
     }
 
@@ -69,7 +65,8 @@ class Login extends React.Component {
                 ); else return (<div>Unable to authenticate!</div>);
         }
         return (
-            <div className="text-center text-white">Initializing Keycloak...
+            <div className="text-center text-white"> Plogging you in, please wait ..... 
+            <br/>Initializing Keycloak...
                 <Button onClick={ () => this.logOut() }> LOGOUT</Button>
             </div>
         );

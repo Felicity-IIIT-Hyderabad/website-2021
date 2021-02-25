@@ -4,6 +4,9 @@ import axios from "axios";
 import "./MyTeam.css";
 import { eventsBaseApi } from "../api";
 import Swal from "sweetalert2";
+import { CSVLink } from "react-csv";
+import { Clipboard_CopyToOkNa } from "./helpfunctions";
+
 
 class MyTeams extends React.Component{
 
@@ -42,7 +45,8 @@ class MyTeams extends React.Component{
           confirmButton: 'bg-danger',
         },
         background: `rgba(0,0,0,1)`
-      });              
+      });
+      console.log(this.prepareArray(response.data));
         this.setState({
           teams:response.data
         })
@@ -89,6 +93,95 @@ class MyTeams extends React.Component{
       })
     }
 
+    getFileName(){
+      var date = new Date();
+      return this.state.eventId + "_" + (date.getTime()).toString() + ".csv";
+    }
+
+    prepareEmails(){
+      var string = "";
+      this.state.teams.map((obj)=>{
+        obj["users"].map((obj2)=>{
+          string += obj2.email;
+          string += ";";
+        })
+      })
+      console.log(string);
+      return string;
+    }
+
+    checkTeamsSize(){
+      if(this.state.teams.length > 0){
+        return(
+          <div className="text-center">
+          <button className="btn btn-success rounded-pill py-2 w-50 mb-5">
+          <CSVLink className="btn btn btn-success rounded-pill py-2 w-100 btn-round btn-primary text-center"  filename={this.getFileName()} data={this.prepareArray(this.state.teams)["array"]} headers={this.prepareArray(this.state.teams)["headers"]}>
+          Download as CSV
+          </CSVLink>
+          </button>
+          <button className="btn btn btn-success rounded-pill  py-2 w-50 mb-5 py-2 btn-round btn-primary text-center" onClick={() => Clipboard_CopyToOkNa(this.prepareEmails())}>
+          Copy all Emails
+          </button>          
+          </div>
+        );
+      }
+      else{
+        return(
+          <div className="text-center">
+          <button className="btn btn-success rounded-pill py-2 w-50 mb-5">
+          <CSVLink className="btn btn btn-success rounded-pill py-2 w-100 btn-round btn-primary text-center" data={this.state.teams} separator={";"}>
+          Download as CSV
+          </CSVLink>
+          </button>
+          <br/>
+          <button className="btn btn btn-success rounded-pill  py-2 w-50 mb-5 py-2 btn-round btn-primary text-center" onClick={() => Clipboard_CopyToOkNa(this.prepareEmails())}>
+          Copy all Emails
+          </button>          
+          </div>
+        );
+      }
+    }
+
+    prepareArray(array){
+      var headers = [];
+      var maxi = -1;
+      for (let ind = 0; ind < array.length; ind++) {
+        var tems  = array[ind]["users"];
+        if(tems.length > maxi){
+          maxi = tems.length;
+        }
+      }
+      headers.push({
+        label: "Team Name",
+        key: "team_name"
+      }) 
+      for (let ind = 0; ind < maxi; ind++) {
+        headers.push({
+          label: "Member " + (ind + 1).toString() + " Name",
+          key: "details.name" + (ind + 1).toString()
+        })
+        headers.push({
+          label: "Member " + (ind + 1).toString() + " Email",
+          key: "details.email" + (ind + 1).toString()
+        })        
+      }
+      var data = [];
+      for (let ind = 0; ind < array.length; ind++) {
+        var dic = {
+          "team_name": array[ind]["name"],
+          "details":{}
+        }
+        for (let indd = 0; indd < array[ind]["users"].length; indd++) {
+          dic["details"]["name" + (indd + 1).toString()] = array[ind]["users"][indd]["name"];
+          dic["details"]["email" + (indd + 1).toString()] = array[ind]["users"][indd]["email"];
+        }
+        data.push(dic);
+      }
+      return {
+        "headers":headers,
+        "array":data
+      }
+    }
 
     render(){
     return (
@@ -104,22 +197,27 @@ class MyTeams extends React.Component{
                 </div>
               </div>
               <div className="mt-5 pt-5" style={{ paddingTop: "15rem" ,color: "white" }}>
+              {this.checkTeamsSize()}
               <Table>
                 <thead>
                   <tr>
                     <th>Number</th>
                     <th>Team Name</th>
-                    <th>Users</th>
+                    <th>Users</th>   
+                    <th>Email</th>                    
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.teams.map((obj)=>
+                  {this.state.teams.map((obj,ind)=>
                     <tr>
-                      <th scope="row">1</th>
+                      <th scope="row">{ind + 1}</th>
                       <td>{obj.name}</td>
                       <td>{obj.users.map((obj2)=>
                           <div>{obj2.name}</div>
                       )}</td>
+                      <td>{obj.users.map((obj2)=>
+                          <div>{obj2.email}</div>
+                      )}</td>                      
                     </tr>
                   )}
                 </tbody>

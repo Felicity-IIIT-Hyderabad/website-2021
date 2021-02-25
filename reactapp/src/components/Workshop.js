@@ -171,7 +171,7 @@ const Workshop = () => {
                             <p className="text-date text-white">Date: 26<sup>th</sup>-27<sup>th</sup> Feb @ 1 PM </p>
                             <p className="text-bullets text-white">
                                 <ul>
-                                    <li>Ever heard of Kaggle? Curious about GPT-3?</li>
+                                    <li>Ever heard of AIcrowd? Curious about GPT-3?</li>
                                     <li>Thought of building your own GAN application?</li>
                                     <li>Join us to learn concepts of ML, in an interactive workshop.</li>
                                     <li style={{ fontWeight: "bold" }}>Also get a certificate for attending the workshop from IIIT Hyderabads side.</li>

@@ -44,9 +44,7 @@ class TechEvent extends React.Component {
                 filteredArray.push(array[ind]);
             }
         }
-        console.log(filteredArray);
         filteredArray =  filteredArray.concat(dirt);
-        console.log(dirt);        
         return filteredArray;
     }
 
@@ -65,12 +63,10 @@ class TechEvent extends React.Component {
     getEvents(){
         axios.get(eventsTechnicalApi).then(async (response)=>{
             var array = this.sortDateWise(response.data);
-            console.log(array);
             var filteredArray = this.filterArray(array);
             this.setState({
                 events: filteredArray
             });
-            // console.log(this.sortDateWise(response.data));
         });
     }
 
@@ -98,28 +94,82 @@ class TechEvent extends React.Component {
         }
         if(!flag){
             return(
-                <Button color="success">Registered</Button>
+                <Button className="black-border" color="success">Registered</Button>
             )
         }        
         if(startDate > today){
             return(
                 <>
-                    <Button onClick={() => showModalEvent(obj)} color="danger">Register Now</Button>
+                    <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register</Button>
                 </>
             );
         }
         else if(startDate <= today && endDate > today){
             return(
-                <Button onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
+                <Button  className="black-border" onClick={() => showModalEvent(obj)} color="warning">Join Now</Button>
             );
         }
         else{
             return(
-                <Button color="success">Over</Button>
+                <Button className="black-border" color="success">Over</Button>
             );
         }
     }
     
+    renderIconColor(obj){
+        var startDate = new Date(obj.start_date);
+        var endDate = new Date(obj.end_date);
+        var today = new Date();
+        if(startDate > today){
+            return { background: "#dc3545", color: "#fff" };
+        }
+        else if(startDate <= today && endDate > today){
+            return { background: "#ffc107", color: "#fff" };
+        }
+        else{
+            return { background: "#28a745", color: "#fff" };
+        }
+
+    }
+
+    renderContentColor(ind){
+        var mod = ind % 5;
+        if(mod == 0){
+            return { background: "#e68f76", color: "#fff" };
+        }
+        else if(mod == 1){
+            return { background: "#85dcbe", color: "#fff" };
+        }
+        else if(mod == 2){
+            return { background: "#e8a87c", color: "#fff" };
+        }
+        else if(mod == 3){
+            return { background: "#c38d93", color: "#fff" };
+        }
+        else if(mod == 4){
+            return { background: "#41b343", color: "#fff" };
+        }        
+    }
+
+    renderContentColor2(ind){
+        var mod = ind % 5;
+        var colorr = "#272727";
+        if(mod == 0){
+            return { background: colorr, color: "#ff652f" };
+        }
+        else if(mod == 1){
+            return { background: colorr, color: "#ffe400" };
+        }
+        else if(mod == 2){
+            return { background: colorr, color: "#d5f7d5" };
+        }
+        else if(mod == 3){
+            return { background: colorr, color: "#ff652f" };
+        }
+        else if(mod == 4){
+            return { background: colorr, color: "#ffe400" };
+        }        
+    }
 
     render() {
         return (
@@ -148,9 +198,9 @@ class TechEvent extends React.Component {
                             return(
                                 <VerticalTimelineElement
                                     className="vertical-timeline-element--work"
-                                    contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}                                    
+                                    contentStyle={this.renderContentColor2(ind)}                                    
                                     date={dateToString(obj.start_date,obj.end_date)}
-                                    iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                                    iconStyle={this.renderIconColor(obj)}
                                     key={ind}
                                     dateClassName={"my-date text-white date-big"}
                                 >
@@ -164,7 +214,7 @@ class TechEvent extends React.Component {
                                             </Col>
                                             <Col md={4} xs={1}></Col>                                 
                                             <Col md={4} xs={2}>
-                                                <Button onClick={() => window.open("/event/" + obj.code.toString())} color="warning">More Details</Button>
+                                                <Button className="black-border" onClick={() => window.open("/event/" + obj.code.toString())} color="warning">More Details</Button>
                                             </Col>
                                         </Row>
                                     </p>

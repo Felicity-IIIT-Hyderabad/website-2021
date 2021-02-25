@@ -77,13 +77,13 @@ const Help = (props) => {
                 aria-controls="panel3a-content"
                 id="panel3a-header"
                 >
-                I am a club organizer. I want to check all the teams registered for my event. What should I do?
+                I am an event organizer. I want to check all the teams registered for my event. What should I do?
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
                     Navigate to My Teams page here: <a  target="_blank" href="/myteams/">here</a>. Enter your event code and secret key to view the teams registered for your event. To get secret key, contact Shivaan Sehgal: 8529473299.
                     <br/>
-                    Please do NOT share it to anyone else.
+                    Please do NOT share with anyone else.
                 </Typography>
                 </AccordionDetails>                
             </Accordion>            

@@ -78,9 +78,8 @@ function logInOrOut(props) {
     try {
         if (props.props.userInfo.loginReducer.authenticated) {
             // window.location.href="/";
-            localStorage.setItem("want", "yes");
             logoutUser();
-            window.location.href = "/";
+            window.location.href = "https://felicity.iiit.ac.in/auth/realms/master/protocol/openid-connect/logout?redirect_uri=https%3A%2F%2Ffelicity.iiit.ac.in";
         } else {
             if (
                 localStorage.getItem("user") == null ||
@@ -120,24 +119,10 @@ function renderEvents(props, isEventsOpen, toggleEvents) {
                                 Events
                             </DropdownToggle>
                             <DropdownMenu style={{ backgroundColor: "white" }}>
-                                <DropdownItem
-                                    style={{ color: "black" }}
-                                    onClick={() => (window.location.href = "/events")}
-                                >
-                                    Home
-                                </DropdownItem>
-                                <DropdownItem
-                                    style={{ color: "black" }}
-                                    onClick={() => (window.location.href = "/events-technical")}
-                                >
-                                    Technical
-                                </DropdownItem>
-                                <DropdownItem
-                                    style={{ color: "black" }}
-                                    onClick={() => (window.location.href = "/events-cultural")}
-                                >
-                                    Cultural
-                                </DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-megapage"}>Mega Events</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-technical"}>Technical Timeline</DropdownItem>
+                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-cultural"}>Cultural Timeline</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </NavLink>
@@ -212,7 +197,8 @@ const Navbar = (props) => {
                     {renderEvents(props, isEventsOpen, toggleEvents)}
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
-                    <NavItem2 to="https://www.meraevents.com/dashboard/home/239820" title="Shop" />
+                    <NavItem2 to="https://www.meraevents.com/event/felicity-tshirt" title="Shop" />
+                    <NavItem2 to="/myteams" title="Check Responses" />
                     <NavItem2 to="/our-team" title="Our Team" />
                     <NavItem2 to="/help" title="Help" />
                     <div className="text-right">

@@ -5,14 +5,14 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Row, Col, Button } from "reactstrap";
 
-import "./Event.css";
+import "./MegaEvent.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
 import { eventsCulturalApi, eventsRegisteredApi, eventsBaseApi } from "../api/";
 import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
 
 
-class CultEvent extends React.Component {
+class MegaEvent extends React.Component {
 
     constructor(props){
         super(props);
@@ -54,7 +54,7 @@ class CultEvent extends React.Component {
 
             this.setState({
                 events: response.data,
-                cultEvents: cultEventsData
+                cultEvents: cultEventsData.filter((obj) => obj.tagline == "tag00")
             });
         });
     }
@@ -174,17 +174,17 @@ class CultEvent extends React.Component {
                     <div id="cult-circle3"></div>
                     <div id="cult-circle2"></div>
                     <div id="cult-circle1"></div>
-                    <div id="cult-circle-image"></div>
+                    <div id="cult-circle-image-mega"></div>
                 </div>
 
-                <div className="font-weight-bold infopage-title my-5 mx-5 event-heading text-white"> CULTURAL </div>
+                <div className="font-weight-bold infopage-title my-5 mx-5 event-heading text-white"> MEGA EVENTS </div>
 
                 <div className="container event-list">
                     <div className="text-center mt-5">
                         <div className="text-white font-weight-bold d-flex justify-content-center days">
                         </div>
                         <div className="text-white my-3 main-description">
-                            The days events are fascinating, they are full of surprises hidden. Stay tuned to find out.
+                            This year, we have the best of the best !!
                         </div>
                     </div>
                 </div>
@@ -229,4 +229,4 @@ class CultEvent extends React.Component {
     }
 }
 
-export default CultEvent;
+export default MegaEvent;

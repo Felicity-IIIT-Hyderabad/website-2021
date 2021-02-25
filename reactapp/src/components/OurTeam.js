@@ -74,7 +74,6 @@ const OurTeam = () => {
             <div className="container-fluid mt-5 no-scroll">
                 <div className="row">
 
-                    {/* {console.log(teamMembers.default)} */}
                     <div className="col-md-12 right-display-team" onScroll={() => changeTeamToScroll()} id="scroll-container">                        
                         {/* <div id="overall" className={selectedTeam==="overall" ? "font-weight-bold details-header ml-5 mr-3 text-left text-white right-category" : "font-weight-bold details-header ml-5 mr-3 text-left text-secondary right-category" } style={{ fontSize: "4rem" }}>Overall</div>
                         <div className="text-center">
