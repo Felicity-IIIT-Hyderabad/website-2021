@@ -95,6 +95,9 @@ class SingleEvent extends React.Component {
   }
 
   displayUnregisterOrNot(obj){
+    if(obj.start_date != undefined){
+
+
     var startDate = new Date(obj.start_date);
     var endDate = new Date(obj.end_date);
     var today = new Date();
@@ -115,6 +118,10 @@ class SingleEvent extends React.Component {
       return (
         <></>
       );
+    }
+    }
+    else{
+      return <div></div>
     }
   }
 
