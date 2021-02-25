@@ -25,6 +25,8 @@ import { loginUser } from "./actions/login";
 
 import { getUser } from "./actions/login";
 import MegaEventPage from "./components/MegaEventPage";
+import "./components/overallStyles.css";
+
 
 var userKey = true;
 

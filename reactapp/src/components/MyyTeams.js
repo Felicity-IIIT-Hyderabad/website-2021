@@ -182,7 +182,8 @@ class MyTeams extends React.Component{
                   <tr>
                     <th>Number</th>
                     <th>Team Name</th>
-                    <th>Users</th>                    
+                    <th>Users</th>   
+                    <th>Email</th>                    
                   </tr>
                 </thead>
                 <tbody>
@@ -193,6 +194,9 @@ class MyTeams extends React.Component{
                       <td>{obj.users.map((obj2)=>
                           <div>{obj2.name}</div>
                       )}</td>
+                      <td>{obj.users.map((obj2)=>
+                          <div>{obj2.email}</div>
+                      )}</td>                      
                     </tr>
                   )}
                 </tbody>

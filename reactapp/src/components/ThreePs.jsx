@@ -13,11 +13,13 @@ const PItem = ({ text }) => {
 const ThreePs = ({ id }) => {
     return (
         <div fluid id={id} className="full-page text-light vignette">
-            <img width="600px" height="400px" src="/crowd22.jpeg" alt="" className="bg-media" />
+            <img width="600px" height="400px" src="/crowd22.jpeg" alt="" className="bg-media home-threeP" />
             <Container className="d-flex flex-column justify-content-center threep-container">
-                <PItem text="Participants: 20,000+" />
-                <PItem text="Partners: 30+ " />
-                <PItem text="Prizes worth: &#8377; 400K   " />
+                <div className="home-threeP-text">
+                <PItem text="Participants: 20,000+" className="home-threeP-text" />
+                <PItem text="Partners: 30+ "  className="home-threeP-text"/>
+                <PItem text="Prizes worth: &#8377; 400K   " className="home-threeP-text" />
+                </div>
             </Container>
         </div>
     );
