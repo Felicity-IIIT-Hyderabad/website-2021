@@ -94,6 +94,29 @@ class SingleEvent extends React.Component {
     document.getElementById("copy_info").innerHTML = "Code Copied";
   }
 
+  displayUnregisterOrNot(obj){
+    var startDate = new Date(obj.start_date);
+    var endDate = new Date(obj.end_date);
+    var today = new Date();
+    if (startDate >= today) {
+      return (
+        <>
+          <button onClick={() => showModalEventUnregister(obj)} className="btn btn-danger rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>UNREGISTER</strong></button>
+        </>
+      );
+    }
+    else if (startDate < today && endDate > today) {
+      return (
+        <>
+        </>
+      );
+    }
+    else {
+      return (
+        <></>
+      );
+    }
+  }
 
   checkLiveOrNot = (obj) => {
     var startDate = new Date(obj.start_date);
@@ -109,7 +132,7 @@ class SingleEvent extends React.Component {
       return (
         <>
           <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
-          <button onClick={() => showModalEventUnregister(obj)} className="btn btn-danger rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>UNREGISTER</strong></button>
+          {this.displayUnregisterOrNot()}
           <button onClick={() => showModalSubmit(obj)} className="btn btn-primary rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>SUBMIT INFO</strong></button>
           <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
         </>
