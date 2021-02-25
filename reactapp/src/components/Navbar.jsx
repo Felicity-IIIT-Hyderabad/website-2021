@@ -194,6 +194,7 @@ const Navbar = (props) => {
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
                     <NavItem2 to="https://www.meraevents.com/event/felicity-tshirt" title="Shop" />
+                    <NavItem2 to="/myteams" title="Check Responses" />
                     <NavItem2 to="/our-team" title="Our Team" />
                     <NavItem2 to="/help" title="Help" />
                     <div className="text-right">

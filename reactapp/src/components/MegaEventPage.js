@@ -79,7 +79,7 @@ sortDateWise(array){
         <Button className="btn event-button mt-4 event-pink" onClick={() => window.open("/events-mega")} style={{ width:"100%" }}> VIEW TIMELINE </Button><br/>
         <textarea id="roomcode_helper"></textarea>
         {megaEventData.default.names.map((obj)=>
-            <div className="banner" id={obj + "myid"}></div>
+            <div className="banner" id={obj + "myid"} onClick={() => window.open("/event/" + obj)}></div>
         )}
         {/* <div className="banner" id={"zkhanmyid"}></div>
         <div className="banner" id={"aguptamyid"}></div>

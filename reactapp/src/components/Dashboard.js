@@ -17,7 +17,7 @@ import { getUser } from "../actions/login";
 import { eventsApi, eventsRegisteredApi } from "../api/";
 // import { Link } from "react-router-dom";
 
-import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
+import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister, formatDate3 } from "./helpfunctions";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -123,7 +123,7 @@ class Dashboard extends React.Component {
                                 cancelOnInteraction={false} // should stop playing on user interaction
                                 interval={2000}>
                                 {bigEvents.default.urls.map((obj,ind)=>
-                                    <div className="header-carousel-item" style={{  backgroundImage: "url('/bigEvents/" + obj + ".jpg')", backgroundSize: "100% 100%" }}>
+                                    <div className="header-carousel-item" style={{  backgroundImage: "url('/myEvents/" + obj + ".png')", backgroundSize: "100% 100%" }} onClick={() => window.open("/event/" + obj)}>
                                     </div>
                                 )}                                          
                                     {/* <div className="header-carousel-title text-left">
@@ -153,12 +153,12 @@ class Dashboard extends React.Component {
                         <div className="col-md-9 right-display">
                             <div className="event-type-title mt-3 mx-3">Upcoming - Next 24 Hours</div>
                             <div className="carousel-holder">
-                                <div className="mt-4 event-carousel" id="event1">
+                                <div className="event-carousel" id="event1">
                                     <div className="empty-space mx-4 desktop-only"></div>
                                     {this.todayDate(this.state.actualEvents).map((event, idx) => (
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/event/" + event["code"])}  style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}>
                                                 <div className="event-carousel-item-text">
-                                                    {event["name"]}
+                                                {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["start_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
                                                 </div>
                                             </div>
                                     ))}
@@ -173,13 +173,13 @@ class Dashboard extends React.Component {
                                 {/* <div className="feature-image my-4 mr-2"></div> */}
                                 <div className="event-type-title mt-3 mx-3">Your Events</div>
                                 <div className="carousel-holder">
-                                    <div className="mt-4 event-carousel" id="event2">
+                                    <div className="event-carousel" id="event2">
                                         <div className="empty-space mx-4 desktop-only"></div>
-                                        {this.afterToday(this.state.events).map((event, idx) => (
+                                        {this.afterToday(this.state.actualEvents).map((event, idx) => (
                                         
                                                 <div className="event-carousel-item mt-4 mx-2" style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}  key={idx} onClick={() => window.open("/event/" + event["code"])}>
-                                                    <div>
-                                                        {event["name"]}
+                                                    <div className="event-carousel-item-text">
+                                                        {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["start_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
                                                     </div>
                                                 </div>
 

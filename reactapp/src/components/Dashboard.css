@@ -230,7 +230,7 @@
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 400px) {
 	.left-display{
 		display: none;
 	}
@@ -247,7 +247,7 @@
 	}
 	.event-carousel-item{
 		height: 6rem;
-		flex: 0 0 50%;
+		flex: 0 0 70%;
 		text-align: center;
 		transition: transform 300ms ease 100ms;
 		color: green;
@@ -268,7 +268,93 @@
 	}	
 	.event-carousel-item-text{
 		color: white;
-		font-size: small;
+		font-size: 10px;
+		background-color: rgba(81, 81, 81, 0.47);
+	}	
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px){
+	.left-display{
+		display: none;
+	}
+	.desktop-only{
+		display: none;
+	}
+	.header-carousel{
+		height: 8rem;
+	}
+	.event-type-title{
+		font-size: 1.3rem;
+		margin-bottom: 0rem;
+		font-weight: bolder;
+	}
+	.event-carousel-item{
+		height: 10rem;
+		flex: 0 0 70%;
+		text-align: center;
+		transition: transform 300ms ease 100ms;
+		color: green;
+		border-radius: 8px;
+		background-image: url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+		background-size: 100% 100%;
+	}	
+	.event-carousel{
+		scroll-behavior: smooth;
+		position: relative;
+		height: 14rem;
+		display: flex;
+		border-radius: 8px;
+		color: 	white;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		scrollbar-width: none;
+	}	
+	.event-carousel-item-text{
+		color: white;
+		font-size: 10px;
+		background-color: rgba(81, 81, 81, 0.47);
+	}	
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+	.left-display{
+		display: none;
+	}
+	.desktop-only{
+		display: none;
+	}
+	.header-carousel{
+		height: 8rem;
+	}
+	.event-type-title{
+		font-size: 1.3rem;
+		margin-bottom: 0rem;
+		font-weight: bolder;
+	}
+	.event-carousel-item{
+		height: 10rem;
+		flex: 0 0 70%;
+		text-align: center;
+		transition: transform 300ms ease 100ms;
+		color: green;
+		border-radius: 8px;
+		background-image: url('https://i.ibb.co/vP7XyVW/Rectangle-1.png');
+		background-size: 100% 100%;
+	}	
+	.event-carousel{
+		scroll-behavior: smooth;
+		position: relative;
+		height: 14rem;
+		display: flex;
+		border-radius: 8px;
+		color: 	white;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		scrollbar-width: none;
+	}	
+	.event-carousel-item-text{
+		color: white;
+		font-size: 10px;
 		background-color: rgba(81, 81, 81, 0.47);
 	}	
 }
