@@ -179,7 +179,6 @@ class SingleEvent extends React.Component {
             </li>
           )}
         </ul>
-        {this.displayInviteCodeOrNot()}
       </div>      
         </>
       );
