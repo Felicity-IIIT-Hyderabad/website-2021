@@ -139,7 +139,7 @@ class SingleEvent extends React.Component {
       return (
         <>
           <button className="btn btn-success rounded-pill py-2 w-100">Registered</button>
-          {this.displayUnregisterOrNot()}
+          {this.displayUnregisterOrNot(obj)}
           <button onClick={() => showModalSubmit(obj)} className="btn btn-primary rounded-pill single-event-details mt-5 text-white py-2 w-100"><strong>SUBMIT INFO</strong></button>
           <button onClick={() => this.checkLogin("/invite/" + this.state.event.code)} className="btn btn-warning rounded-pill single-event-details mt-3 text-white py-2 w-100"><strong>JOIN TEAM</strong></button>
         </>
