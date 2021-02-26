@@ -58,7 +58,6 @@ const App = (props) => {
                 return (
                     <>
                         <Route exact path="/invite/*" component={InvitePage} />
-                        <Route path="/myteams" component={MyTeams} />
                         <Route exact path="/404" component={ErrorPage} />
                         <Route exact path="/event/*" component={SingleEvent} />
                         <Route exact path="/events" component={Dashboard} />
@@ -75,7 +74,6 @@ const App = (props) => {
             return (
                 <>
                     <Route exact path="/invite" component={InvitePage} />
-                    <Route path="/myteams" component={MyTeams} />
                     <Route exact path="/event/*" component={SingleEvent} />
                     <Route exact path="/events" component={Dashboard} />
                     <Route exact path="/events-mega" component={MegaEvent} />
@@ -99,6 +97,7 @@ const App = (props) => {
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/login" component={Login} />
                         <Route path="/help" component={Help} />
+                        <Route path="/myteams" component={MyTeams} />
                         <Route path="/our-team" component={OurTeam} />
                         {/* <Route path="/astronomy-spacesc" component={} /> */}
                         {/* <Route exact path="/404" component={ErrorPage} /> */}

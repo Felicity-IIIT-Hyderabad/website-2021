@@ -25,10 +25,11 @@ class Home extends React.Component {
 
     getEvents(){
         var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
+        fireInfo("hi");
         // axios.get(eventsApi).then(async (response)=>{
         //     var today = new Date();
         //     var eventsData = this.sortDateWise(response.data).filter((obj)=> {
-        //         var date = obj.start_date;
+        //         var date = new Date(obj.start_date);
         //         return date > today;
         //     });
         //     var string = "";
