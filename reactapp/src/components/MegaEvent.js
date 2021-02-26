@@ -9,7 +9,7 @@ import "./MegaEvent.css";
 // import * as culturalEvents from "../sample-data/cultural-events.json";
 // import * as culturalEventsBackend from "../sample-data/cultural-events-backend.json";
 import { eventsCulturalApi, eventsRegisteredApi, eventsBaseApi } from "../api/";
-import { formatDate,formatDate2,checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
+import { formatDate,formatDate2, compareFunc, checkUndef,checkExpired,fireSuccess,fireFailure, showModalEvent, showModalEventOne, showModalEventUnregister } from "./helpfunctions";
 
 
 class MegaEvent extends React.Component {
@@ -32,7 +32,7 @@ class MegaEvent extends React.Component {
     }
 
     sortDateWise(array){
-        return array.sort(this.compare)
+        return array.sort(compareFunc)
     }
 
     getRegisteredEvents(){

@@ -27,6 +27,7 @@ import { getUser } from "./actions/login";
 import MegaEventPage from "./components/MegaEventPage";
 import "./components/overallStyles.css";
 
+import { fireInfo } from "./components/helpfunctions";
 
 var userKey = true;
 

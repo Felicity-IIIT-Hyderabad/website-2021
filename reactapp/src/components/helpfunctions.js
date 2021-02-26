@@ -487,3 +487,34 @@ export function Clipboard_CopyToOkNa(value) {
   document.execCommand("copy");
   document.body.removeChild(tempInput);
 }
+
+export function compareFunc (a, b) {
+  var reg = /-|:|T|\+/; //The regex on which matches the string should be split (any used delimiter) -> could also be written like /[.:T\+]/
+  var parsed = [ //an array which holds the date parts for a and b
+      a.start_date.split(reg), //Split the datestring by the regex to get an array like [Year,Month,Day,Hour,...]
+      b.start_date.split(reg)
+  ];
+  var dates = [ //Create an array of dates for a and b
+      new Date(parsed[0][0], parsed[0][1], parsed[0][2], parsed[0][3], parsed[0][4], parsed[0][5]),//Constructs an date of the above parsed parts (Year,Month...
+      new Date(parsed[1][0], parsed[1][1], parsed[1][2], parsed[1][3], parsed[1][4], parsed[1][5])
+  ];
+  return dates[0] - dates[1]; //Returns the difference between the date (if b > a then a - b < 0)
+};
+
+export function fireInfo(string){
+  Swal.fire({
+  title: "Today's events",
+  content:"aa",
+  text:string,
+  footer: "Join us live !",
+  customClass: {
+    title: 'text-success',
+    content: 'text-black',
+  },
+  background: `white`,
+}).then(()=>
+  {
+    console.log("hii");
+  }
+);
+}

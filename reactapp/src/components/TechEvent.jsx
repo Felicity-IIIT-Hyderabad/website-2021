@@ -9,7 +9,7 @@ import "./Event.css";
 // import * as data from "../sample-data/technical-events.json";
 // import * as technicalBackend from "../sample-data/events-technical-backend.json";
 import { eventsTechnicalApi, eventsRegisteredApi, eventsRegisterApi, eventsBaseApi } from "../api/";
-import { formatDate,formatDate2,checkUndef, checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalEventUnregister, dateToString, showModalEvent } from "./helpfunctions";
+import { formatDate,formatDate2,compareFunc , checkUndef, checkExpired,fireSuccess,fireFailure, showModalEventOne, showModalEventUnregister, dateToString, showModalEvent } from "./helpfunctions";
 
 
 
@@ -30,7 +30,7 @@ class TechEvent extends React.Component {
     }
 
     sortDateWise(array){
-        return array.sort(this.compare)
+        return array.sort(compareFunc)
     }
 
     filterArray(array){
