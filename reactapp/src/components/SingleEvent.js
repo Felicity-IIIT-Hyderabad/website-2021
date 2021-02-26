@@ -353,7 +353,7 @@ class SingleEvent extends React.Component {
 
               <div class="calendar mx-2" style={{backgroundColor: "#f56e6e"}}>
                 <p id="monthName">End</p>
-                <p id="dayNumber">{formatDate2(this.state.event.start_date)}</p>
+                <p id="dayNumber">{formatDate2(this.state.event.end_date)}</p>
                 <p id="year">2021</p>
                 <p id="dayName">{formatDate3(this.state.event.end_date)}</p>
               </div>
