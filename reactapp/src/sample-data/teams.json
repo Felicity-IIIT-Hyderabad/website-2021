@@ -33,14 +33,6 @@
             "linkedin": "varun-chhangani",
             "main": true,
             "name": "Varun Chhangani"
-        },
-        {
-            "core": false,
-            "facebook": "",
-            "image": "vedant.jpg",
-            "linkedin": "",
-            "main": true,
-            "name": "Vedant Mundheda"
         }
     ],
     "design": [
@@ -543,14 +535,6 @@
             "name": "Vamshi"
         },
         {
-            "core": true,
-            "facebook": "",
-            "image": "palash.jpg",
-            "linkedin": "",
-            "main": true,
-            "name": "Palash Sharma"
-        },
-        {
             "core": false,
             "facebook": "",
             "image": "a.jpg",
@@ -601,16 +585,6 @@
             "name": "Keshav Bajaj"
         }
     ],
-    "pronites": [
-        {
-            "core": false,
-            "facebook": "tanmay.garg.520",
-            "image": "Tanmay.jpeg",
-            "linkedin": "tanmay-garg01",
-            "main": true,
-            "name": "Tanmay Garg"
-        }
-    ],
     "system": [
         {
             "core": false,
@@ -638,14 +612,6 @@
             "main": true,
             "name": "Vikrant Dewangan"
         },
-        {
-            "core": true,
-            "facebook": "",
-            "image": "jaidev.jpg",
-            "linkedin": "",
-            "main": true,
-            "name": "Jaidev Shriram"
-        },        
         {
             "core": true,
             "facebook": "",
@@ -735,14 +701,6 @@
             "linkedin": "",
             "main": false,
             "name": "shashwat goel"
-        },
-        {
-            "core": false,
-            "facebook": "",
-            "image": "lad.jpg",
-            "linkedin": "",
-            "main": true,
-            "name": "Tanish Lad"
         },
         {
             "core": true,
