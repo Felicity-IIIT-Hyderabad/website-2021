@@ -81,9 +81,13 @@ function logInOrOut(props) {
             logoutUser();
             window.location.href = "https://felicity.iiit.ac.in/auth/realms/master/protocol/openid-connect/logout?redirect_uri=https%3A%2F%2Ffelicity.iiit.ac.in";
         } else {
-            if( localStorage.getItem("user") == null || localStorage.getItem("user") == undefined ||  !JSON.parse(localStorage.getItem("user"))["authenticated"]){
-                localStorage.setItem("prevURL",window.location.href);
-                window.location.href="/login";            
+            if (
+                localStorage.getItem("user") == null ||
+                localStorage.getItem("user") == undefined ||
+                !JSON.parse(localStorage.getItem("user"))["authenticated"]
+            ) {
+                localStorage.setItem("prevURL", window.location.href);
+                window.location.href = "/login";
                 // localStorage.setItem("prevURL",window.location.href);
             }
             window.location.href = "/login";
@@ -94,19 +98,19 @@ function logInOrOut(props) {
     }
 }
 
-function renderEvents(props, isEventsOpen, toggleEvents){
-    try{
+function renderEvents(props, isEventsOpen, toggleEvents) {
+    try {
         if (!props.props.userInfo.loginReducer.authenticated) {
-            return(
-                <></>
-            );
-        }
-        else{
-            return(
-                <RSNavItem style={{ color:"white" }}>
-                    <NavLink
-                    >
-                        <Dropdown isOpen={isEventsOpen} toggle={toggleEvents}>
+            return <></>;
+        } else {
+            return (
+                <RSNavItem style={{ color: "white" }}>
+                    <NavLink>
+                        <Dropdown
+                            isOpen={isEventsOpen}
+                            toggle={toggleEvents}
+                            className="d-flex justify-content-end mr-1"
+                        >
                             <DropdownToggle
                                 tag="span"
                                 data-toggle="dropdown"
@@ -121,15 +125,12 @@ function renderEvents(props, isEventsOpen, toggleEvents){
                                 <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-cultural"}>Cultural Timeline</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
-                    </NavLink>                     
+                    </NavLink>
                 </RSNavItem>
             );
         }
-    }
-    catch{
-        return(
-            <></>
-        );
+    } catch {
+        return <></>;
     }
 }
 
@@ -154,17 +155,15 @@ const Navbar = (props) => {
         });
     }, []);
 
-    function renderHome(props){
+    function renderHome(props) {
         var str = "https://felicity.iiit.ac.in/";
-        if(window.location.href.split("/").length >= 4 && window.location.href.split("/")[3] != ""){
-            return (
-                <NavItem2 to="/" title="Home" />                
-            );
-        }
-        else{
-            return (
-                <></>
-            );
+        if (
+            window.location.href.split("/").length >= 4 &&
+            window.location.href.split("/")[3] != ""
+        ) {
+            return <NavItem2 to="/" title="Home" />;
+        } else {
+            return <></>;
         }
     }
 
@@ -186,10 +185,15 @@ const Navbar = (props) => {
                 />
             </NavbarBrand>
             <NavbarToggler onClick={toggle} className="border-0" />
-            <Collapse isOpen={isOpen} navbar className="mt-3 px-3 pb-1 w-100 mt-md-0" style={{ fontSize:"1.5rem", color:"#000000" }}>
+            <Collapse
+                isOpen={isOpen}
+                navbar
+                className="mt-3 px-3 pb-1 w-100 mt-md-0"
+                style={{ fontSize: "1.5rem", color: "#000000" }}
+            >
                 <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
                     <NavItem title={func(props)} />
-                    {renderHome(props)}                    
+                    {renderHome(props)}
                     {renderEvents(props, isEventsOpen, toggleEvents)}
                     <NavItem2 to="/workshop" title="Workshop" />
                     <NavItem2 to="/sponsors" title="Sponsors" />
