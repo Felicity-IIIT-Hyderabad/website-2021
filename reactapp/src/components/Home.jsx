@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import RetroHitCounter from 'react-retro-hit-counter';
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import Intro from "./Intro";
 import About from "./About";
@@ -12,7 +13,7 @@ import ThreePs from "./ThreePs";
 import { getUser } from "../actions/login";
 
 import { eventsApi, eventsRegisteredApi, eventsBaseApi } from "../api/";
-import { fireInfo, formatDate3 } from "./helpfunctions";
+import { fireInfo, formatDate3, compareFunc } from "./helpfunctions";
 
 class Home extends React.Component {
 
@@ -23,30 +24,7 @@ class Home extends React.Component {
         };
     }
 
-    getEvents(){
-        var tempCultEvents = { "Day1":[],"Day2":[],"Day3":[] };        
-        fireInfo("hi");
-        // axios.get(eventsApi).then(async (response)=>{
-        //     var today = new Date();
-        //     var eventsData = this.sortDateWise(response.data).filter((obj)=> {
-        //         var date = new Date(obj.start_date);
-        //         return date > today;
-        //     });
-        //     var string = "";
-        //     eventsData.map((obj)=>{
-        //         string += "\n";
-        //         string += obj.name;
-        //         string += ":";
-        //         string += formatDate3(obj.start_date);
-        //         string += "\t to \t";
-        //         string += formatDate3(obj.end_date);
-        //     });
-        //     fireInfo(string);
-        // });
-    }    
-
-    componentDidMount = () => {
-        this.getEvents();
+    componentDidMount = () => { 
         getUser();
     }
 
