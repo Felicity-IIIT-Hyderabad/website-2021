@@ -158,7 +158,7 @@ class Dashboard extends React.Component {
                                     {this.todayDate(this.state.actualEvents).map((event, idx) => (
                                             <div className="event-carousel-item mt-4 mx-2" key={idx} onClick={() => window.open("/event/" + event["code"])}  style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}>
                                                 <div className="event-carousel-item-text">
-                                                {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["start_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
+                                                {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
                                                 </div>
                                             </div>
                                     ))}
@@ -179,7 +179,7 @@ class Dashboard extends React.Component {
                                         
                                                 <div className="event-carousel-item mt-4 mx-2" style={{backgroundImage: "url('/myEvents/" + event["code"] + ".png')"}}  key={idx} onClick={() => window.open("/event/" + event["code"])}>
                                                     <div className="event-carousel-item-text">
-                                                        {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["start_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
+                                                        {event["name"] + ": \t"  + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"]) + "\t to \t" + formatDate2(event["start_date"]) + "\t" + formatDate3(event["end_date"])}
                                                     </div>
                                                 </div>
 
