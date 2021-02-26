@@ -145,7 +145,7 @@ const Sponsors = ({ id }) => {
                                     <CardImg top className="past-sponsor-logo" src="/logos/redfm.png" alt="Card image cap" />
                                 </Card>
                             </Col>
-                        </Row>s
+                        </Row>
                         <div className="horizontal-margin" />
                         <Row className="d-flex align-items-center">
                             <Col md={4} className="my-border-right">
