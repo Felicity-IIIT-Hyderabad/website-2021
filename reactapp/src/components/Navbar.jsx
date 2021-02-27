@@ -118,11 +118,11 @@ function renderEvents(props, isEventsOpen, toggleEvents) {
                             >
                                 Events
                             </DropdownToggle>
-                            <DropdownMenu style={{ backgroundColor: "white" }}>
-                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
-                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-megapage"}>Mega Events</DropdownItem>
-                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-technical"}>Technical Timeline</DropdownItem>
-                                <DropdownItem style={{ color: "black" }} onClick={() => window.location.href="/events-cultural"}>Cultural Timeline</DropdownItem>
+                            <DropdownMenu style={{ backgroundColor: "black", color:"white" }}>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events-megapage"}>Mega Events</DropdownItem>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events-technical"}>Technical Timeline</DropdownItem>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events-cultural"}>Cultural Timeline</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </NavLink>
