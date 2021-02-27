@@ -61,8 +61,7 @@ class TechEvent extends React.Component {
 
     getEvents(){
         axios.get(eventsTechnicalApi).then(async (response)=>{
-            var array = this.sortDateWise(this.filterArray(response.data).filtered).concat(this.filterArray(response.data).dirt);
-            var filteredArray = this.filterArray(array);
+            var filteredArray = this.sortDateWise(this.filterArray(response.data).filtered).concat(this.filterArray(response.data).dirt);
             this.setState({
                 events: filteredArray
             });
