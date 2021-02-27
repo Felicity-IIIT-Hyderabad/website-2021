@@ -145,7 +145,12 @@ class SingleEvent extends React.Component {
         </>
       );
     }
-    if (startDate >= today) {
+    if(obj.start_date == null || obj.end_date == null  || obj.start_date == undefined ||  obj.end_date == undefined ){
+      return (
+        <Button  className="black-border" color="secondary">Coming Soon</Button>
+      )
+    }
+    else if (startDate >= today) {
       return (
         <>
           <button onClick={() => showModalEventOne(obj)} className="btn btn-danger rounded-pill single-event-details text-white py-2 w-100"><strong>REGISTER</strong></button>

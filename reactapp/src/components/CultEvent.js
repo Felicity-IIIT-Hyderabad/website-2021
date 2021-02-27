@@ -127,8 +127,13 @@ class CultEvent extends React.Component {
             return(
                 <Button color="success">Registered</Button>
             )
-        }        
-        if(startDate > today){
+        }    
+        if(obj.start_date == null || obj.end_date == null  || obj.start_date == undefined ||  obj.end_date == undefined ){
+            return (
+                <Button  className="black-border" color="secondary">Coming Soon</Button>
+            )
+        }            
+        else if(startDate > today){
             return(
                 <>
                     <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register</Button>
