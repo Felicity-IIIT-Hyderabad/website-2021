@@ -329,6 +329,51 @@ class SingleEvent extends React.Component {
     }    
   }
 
+  renderCalenderOrNot(){
+    if(this.state.event.start_date == null || this.state.event.end_date == null  || this.state.event.start_date == undefined ||  this.state.event.end_date == undefined ){
+      return (
+        <>
+          <div class="d-flex justify-content-center">
+          <div class="calendar mx-2" style={{backgroundColor: "#6ef56e"}}>
+            <p id="monthName">Start</p>
+            <p id="dayNumber">--</p>
+            <p id="year">2021</p>
+            <p id="dayName">--</p>
+          </div>
+
+          <div class="calendar mx-2" style={{backgroundColor: "#f56e6e"}}>
+            <p id="monthName">End</p>
+            <p id="dayNumber">--</p>
+            <p id="year">2021</p>
+            <p id="dayName">--</p>
+          </div>
+        </div>
+      </>
+      )
+    }
+    else{
+      return(
+        <>
+          <div class="d-flex justify-content-center">
+          <div class="calendar mx-2" style={{backgroundColor: "#6ef56e"}}>
+            <p id="monthName">Start</p>
+            <p id="dayNumber">{formatDate2(this.state.event.start_date).slice(0, 4)}</p>
+            <p id="year">2021</p>
+            <p id="dayName">{formatDate3(this.state.event.start_date)}</p>
+          </div>
+
+          <div class="calendar mx-2" style={{backgroundColor: "#f56e6e"}}>
+            <p id="monthName">End</p>
+            <p id="dayNumber">{formatDate2(this.state.event.end_date)}</p>
+            <p id="year">2021</p>
+            <p id="dayName">{formatDate3(this.state.event.end_date)}</p>
+          </div>
+        </div>
+      </>        
+      )
+    }
+  }
+
   render() {
     return (
       <div className="container-fluid" style={{marginTop: "6rem", backgroundColor: "white", color: "black"}}>
@@ -343,22 +388,7 @@ class SingleEvent extends React.Component {
             <h1 className=""><strong>{this.state.event.name}  <Chip label={checkSpecific(this.state.event)} /></strong></h1>
             <p className="mt-3">{this.afterRegistration(this.state.event.description)}</p>
 
-            <div class="d-flex justify-content-center">
-              <div class="calendar mx-2" style={{backgroundColor: "#6ef56e"}}>
-                <p id="monthName">Start</p>
-                <p id="dayNumber">{formatDate2(this.state.event.start_date).slice(0, 4)}</p>
-                <p id="year">2021</p>
-                <p id="dayName">{formatDate3(this.state.event.start_date)}</p>
-              </div>
-
-              <div class="calendar mx-2" style={{backgroundColor: "#f56e6e"}}>
-                <p id="monthName">End</p>
-                <p id="dayNumber">{formatDate2(this.state.event.end_date)}</p>
-                <p id="year">2021</p>
-                <p id="dayName">{formatDate3(this.state.event.end_date)}</p>
-              </div>
-            </div>
-
+            {this.renderCalenderOrNot()}
 
           </div>
           <div className="col-md-4">
