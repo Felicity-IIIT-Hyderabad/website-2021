@@ -142,7 +142,7 @@ class MegaEvent extends React.Component {
         }
         else{
             return(
-                <Button  className="black-border" color="success">Over</Button>
+                <Button  className="black-border" color="secondary">Over</Button>
             );
         }
     }
