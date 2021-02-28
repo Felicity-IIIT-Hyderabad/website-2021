@@ -225,7 +225,7 @@ export function checkUndef(string) {
       const {value: text} = await Swal.fire({
         title: event["name"],
         input: 'textarea',
-        inputLabel: event["description"] + displayCdhf(event),
+        html: event["description"] + displayCdhf(event),
         inputPlaceholder: 'Should not exceed 32 characters...',
         inputAttributes: {
           'aria-label': 'Type your message here',
@@ -392,7 +392,7 @@ export function displayCdhf(event){
           // show the without text box vala modal
           Swal.fire({
             title: event["name"],
-            text: event["description"],
+            html: event["description"],
             footer: "Deadline:" + formatDate(event["end_date"]),
             customClass: {
               title: " error-message",
@@ -422,7 +422,7 @@ export function displayCdhf(event){
         const { value: text } = await Swal.fire({
             title:  event["name"],
             input: 'textarea',
-            inputLabel: event["description"] + displayCdhf(event),
+            html: event["description"] + displayCdhf(event),
             inputPlaceholder: 'Should not exceed 32 characters...',
             inputAttributes: {
               'aria-label': 'Type your message here',
