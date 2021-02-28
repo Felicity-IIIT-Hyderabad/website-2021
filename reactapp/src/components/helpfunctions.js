@@ -225,7 +225,7 @@ export function checkUndef(string) {
       const {value: text} = await Swal.fire({
         title: event["name"],
         input: 'textarea',
-        inputLabel: event["description"] + "\n Enter your team name below. Leave Blank in case team name is not applicable or if in doubt.",
+        inputLabel: event["description"] + displayCdhf(event),
         inputPlaceholder: 'Should not exceed 32 characters...',
         inputAttributes: {
           'aria-label': 'Type your message here',
@@ -370,6 +370,18 @@ export function checkUndef(string) {
     return formatDate(num1) + "\t To \t" + formatDate(num2);
 };
 
+export function displayCdhf(event){
+  if(event.code == "decode" || event == "codec"){
+    return(
+      "\n Please enter your codechef username below, make sure that it is valid"
+    );
+  }
+  else{
+    return(
+      "\n Enter your team name below. Leave blank in case team name is not applicable or if in doubt."
+    );
+  }
+}
 
  export const showModalEvent = async (event) => {
     if(event.registration_link != ""){
@@ -411,7 +423,7 @@ export function checkUndef(string) {
         const { value: text } = await Swal.fire({
             title:  event["name"],
             input: 'textarea',
-            inputLabel: event["description"] + "\n Enter your team name below. Leave blank in case team name is not applicable or if in doubt.",
+            inputLabel: event["description"] + displayCdhf(event),
             inputPlaceholder: 'Should not exceed 32 characters...',
             inputAttributes: {
               'aria-label': 'Type your message here',
