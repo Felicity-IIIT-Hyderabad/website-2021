@@ -198,7 +198,7 @@ class SingleEvent extends React.Component {
   }
 
   displayTeamOrUser(){
-    if(event.code == "decode" || event == "codec"){
+    if(this.state.event.code == "decode" || this.state.event == "codec"){
       return(
         "User"
       );
