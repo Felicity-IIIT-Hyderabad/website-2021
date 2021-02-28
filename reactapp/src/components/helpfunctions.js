@@ -371,10 +371,9 @@ export function checkUndef(string) {
 };
 
 export function displayCdhf(event){
+  var string = "\n Please enter your codechef username below, make sure that it is valid";
   if(event.code == "decode" || event == "codec"){
-    return(
-      "\n Please enter your codechef username below, make sure that it is valid"
-    );
+    return string.bold();
   }
   else{
     return(
