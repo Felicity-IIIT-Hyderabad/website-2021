@@ -197,6 +197,19 @@ class SingleEvent extends React.Component {
     }
   }
 
+  displayTeamOrUser(){
+    if(event.code == "decode" || event == "codec"){
+      return(
+        "User"
+      );
+    }
+    else{
+      return(
+        "Team"
+      );
+    }
+  }
+
   displayTeamNameOrNot(){
     var tagline = this.state.event.tagline;
     if(tagline == "tag00" || tagline == "tag01"){
@@ -206,7 +219,7 @@ class SingleEvent extends React.Component {
       return (
       <>
       <div>
-        <h1 className="mt-3"><strong>Team {this.state.teamDetails.name}</strong></h1>
+        <h1 className="mt-3"><strong>{this.displayTeamOrUser()} {this.state.teamDetails.name}</strong></h1>
         <ul className="single-event-details text-primary">
           {this.state.teamDetails.members.map((obj, ind) =>
             <li key={ind}>
