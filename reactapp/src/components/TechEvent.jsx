@@ -95,12 +95,12 @@ class TechEvent extends React.Component {
                 <Button className="black-border" color="success">Registered</Button>
             )
         }    
-        if(obj.start_date == null || obj.end_date == null  || obj.start_date == undefined ||  obj.end_date == undefined ){
+        if(obj.code != "decode" && (obj.start_date == null || obj.end_date == null  || obj.start_date == undefined ||  obj.end_date == undefined )){
             return (
                 <Button  className="black-border" color="secondary">Coming Soon</Button>
             )
         }            
-        else if(startDate > today || obj.start_date == null || obj.start_date == undefined || obj.end_date == null || obj.end_date == undefined){
+        else if(obj.code != "decode" ||  startDate > today || obj.start_date == null || obj.start_date == undefined || obj.end_date == null || obj.end_date == undefined){
             return(
                 <>
                     <Button className="black-border" onClick={() => showModalEvent(obj)} color="danger">Register</Button>
