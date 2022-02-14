@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route,Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Home from "./components/Home";
@@ -22,10 +22,12 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import ErrorPage from "./components/ErrorPage";
 import InvitePage from "./components/InvitePage";
 import { loginUser } from "./actions/login";
+import StandIn from "./components/StandIn";
 
 import { getUser } from "./actions/login";
 import MegaEventPage from "./components/MegaEventPage";
 import "./components/overallStyles.css";
+import { useEffect } from "react";
 
 import { fireInfo } from "./components/helpfunctions";
 
@@ -37,9 +39,9 @@ const App = (props) => {
         getUser();
     }
 
-    function renderEvents(){
-        try{
-            if(!props.userInfo.loginReducer.authenticated){
+    function renderEvents() {
+        try {
+            if (!props.userInfo.loginReducer.authenticated) {
                 return (
                     <>
                         <Route exact path="/invite/*" component={InvitePage} />
@@ -51,10 +53,10 @@ const App = (props) => {
                         <Route exact path="/events-technical" component={Home} />
                         <Route exact path="/events-cultural" component={Home} />
                         <Route exact path="/" component={Home} />
-                    </>                
+                    </>
                 );
             }
-            else{
+            else {
                 return (
                     <>
                         <Route exact path="/invite/*" component={InvitePage} />
@@ -70,7 +72,7 @@ const App = (props) => {
                 );
             }
         }
-        catch{
+        catch {
             return (
                 <>
                     <Route exact path="/invite" component={InvitePage} />
@@ -88,11 +90,12 @@ const App = (props) => {
 
     return (
         <>
-            <Navbar props={props} loginUser={loginUser}/>
             <div id="main">
                 <Router>
+                    <Navbar props={props} loginUser={loginUser} />
                     <Switch>
-                        <Route exact path="/" component={Home} />                        
+                        <Route exact path="/" component={StandIn} />
+                        <Route path="/2021" component={Home} />
                         <Route path="/privacy-policy" component={PrivacyPolicy} />
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/login" component={Login} />
@@ -106,7 +109,7 @@ const App = (props) => {
                             <Sponsors id="sponsors" />
                         </Route>
                         {renderEvents()}
-                        <Redirect from="*" to="/404"/>
+                        <Redirect from="*" to="/404" />
                     </Switch>
                 </Router>
             </div>
@@ -119,8 +122,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    loginUser:  (keycloak) => dispatch({ type: "LOGIN", keycloak }),
-    logoutUser:  () => dispatch({ type: "LOGOUT" }),
+    loginUser: (keycloak) => dispatch({ type: "LOGIN", keycloak }),
+    logoutUser: () => dispatch({ type: "LOGOUT" }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
