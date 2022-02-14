@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { Link } from "react-scroll";
+import { withRouter } from "react-router-dom";
 
 import { logoutUser } from "../actions/login";
 
@@ -118,11 +119,11 @@ function renderEvents(props, isEventsOpen, toggleEvents) {
                             >
                                 Events
                             </DropdownToggle>
-                            <DropdownMenu style={{ backgroundColor: "black", color:"white" }}>
-                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events"}>Home</DropdownItem>
-                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events-megapage"}>Mega Events</DropdownItem>
-                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events-technical"}>Technical Timeline</DropdownItem>
-                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href="/events-cultural"}>Cultural Timeline</DropdownItem>
+                            <DropdownMenu style={{ backgroundColor: "black", color: "white" }}>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href = "/events"}>Home</DropdownItem>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href = "/events-megapage"}>Mega Events</DropdownItem>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href = "/events-technical"}>Technical Timeline</DropdownItem>
+                                <DropdownItem style={{ color: "white" }} onClick={() => window.location.href = "/events-cultural"}>Cultural Timeline</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </NavLink>
@@ -140,11 +141,21 @@ const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isEventsOpen, setIsEventsOpen] = useState(false);
     const [isTransparent, setIsTransparent] = useState(false);
+    const [visible, setVisible] = useState(true);
 
     const toggle = () => setIsOpen(!isOpen);
     const toggleEvents = () => setIsEventsOpen(!isEventsOpen);
 
     useEffect(() => {
+        if (
+            window.location.href.split("/").length >= 4 &&
+            window.location.href.split("/")[3] === ""
+        ) {
+            setVisible(false)
+            console.log("here")
+            console.log(window.location.href)
+        }
+        
         document.addEventListener("scroll", () => {
             let scrolled = document.scrollingElement.scrollTop;
             if (scrolled >= window.innerHeight / 10000) {
@@ -153,68 +164,70 @@ const Navbar = (props) => {
                 setIsTransparent(false);
             }
         });
-    }, []);
+    });
 
     function renderHome(props) {
         var str = "https://felicity.iiit.ac.in/";
         if (
             window.location.href.split("/").length >= 4 &&
-            window.location.href.split("/")[3] != ""
+            window.location.href.split("/")[3] != "2021"
         ) {
-            return <NavItem2 to="/" title="Home" />;
+            return <NavItem2 to="/2021" title="Home" />;
         } else {
             return <></>;
         }
     }
 
     return (
-        <RSNavbar
-            ref={navRef}
-            color="dark"
-            dark
-            expand="md"
-            className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semi"}`}
-            fixed="top"
-        >
-            <div className={`navbar-shade shade-${isOpen ? "visible" : "invisible"}`} />
-            <NavbarBrand href="/">
-                <img
-                    src="/felicity.png"
-                    alt="Felicity '21"
-                    className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
-                />
-            </NavbarBrand>
-            <NavbarToggler onClick={toggle} className="border-0" />
-            <Collapse
-                isOpen={isOpen}
-                navbar
-                className="mt-3 px-3 pb-1 w-100 mt-md-0"
-                style={{ fontSize: "1.5rem", color: "#000000" }}
+        <div>
+            {visible && <RSNavbar
+                ref={navRef}
+                color="dark"
+                dark
+                expand="md"
+                className={`navbar-sticky ${!isTransparent ? "navbar-transparent" : "navbar-semi"}`}
+                fixed="top"
             >
-                <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
-                    <NavItem title={func(props)} />
-                    {renderHome(props)}
-                    {renderEvents(props, isEventsOpen, toggleEvents)}
-                    <NavItem2 to="/workshop" title="Workshop" />
-                    <NavItem2 to="/sponsors" title="Sponsors" />
-                    <NavItem2 to="https://www.meraevents.com/event/felicity-tshirt" title="Shop" />
-                    <NavItem2 to="/myteams" title="Check Responses" />
-                    <NavItem2 to="/our-team" title="Our Team" />
-                    <NavItem2 to="/help" title="Help" />
-                    <div className="text-right">
-                        <Button
-                            type="button"
-                            color="dark"
-                            onClick={() => logInOrOut(props)}
-                            className="ml-2 font-weight-bold px-3 mt-4 mt-md-0"
-                            style={{ fontSize: "0.9em" }}
-                        >
-                            {displayInOrOut(props)}
-                        </Button>
-                    </div>
-                </Nav>
-            </Collapse>
-        </RSNavbar>
+                <div className={`navbar-shade shade-${isOpen ? "visible" : "invisible"}`} />
+                <NavbarBrand href="/">
+                    <img
+                        src="/felicity.png"
+                        alt="Felicity '21"
+                        className={`navbar-logo navbar-logo-${!isTransparent ? "hidden" : "visible"}`}
+                    />
+                </NavbarBrand>
+                <NavbarToggler onClick={toggle} className="border-0" />
+                <Collapse
+                    isOpen={isOpen}
+                    navbar
+                    className="mt-3 px-3 pb-1 w-100 mt-md-0"
+                    style={{ fontSize: "1.5rem", color: "#000000" }}
+                >
+                    <Nav className="ml-auto text-uppercase nav-mobile-big" navbar>
+                        <NavItem title={func(props)} />
+                        {renderHome(props)}
+                        {renderEvents(props, isEventsOpen, toggleEvents)}
+                        <NavItem2 to="/workshop" title="Workshop" />
+                        <NavItem2 to="/sponsors" title="Sponsors" />
+                        <NavItem2 to="https://www.meraevents.com/event/felicity-tshirt" title="Shop" />
+                        <NavItem2 to="/myteams" title="Check Responses" />
+                        <NavItem2 to="/our-team" title="Our Team" />
+                        <NavItem2 to="/help" title="Help" />
+                        <div className="text-right">
+                            <Button
+                                type="button"
+                                color="dark"
+                                onClick={() => logInOrOut(props)}
+                                className="ml-2 font-weight-bold px-3 mt-4 mt-md-0"
+                                style={{ fontSize: "0.9em" }}
+                            >
+                                {displayInOrOut(props)}
+                            </Button>
+                        </div>
+                    </Nav>
+                </Collapse>
+            </RSNavbar>}
+        </div>
     );
 };
 
