@@ -13,6 +13,8 @@
 
 .felicity-website-link:hover {
     background-color: rgba(255, 255, 255, 0.123);
+    color: white;
+    text-decoration: none;
 }
 
 .felicity-2022-logo {
@@ -27,8 +29,15 @@
 }
 
 .coming-soon-message {
-    font-family: 'Neucha', cursive;
+    font-family: Helvetica;
     font-size: calc(10px + 3vmin);
+}
+
+.about-us-message {
+    font-family: Helvetica;
+    font-size: calc(10px + 1vmin);
+    width: 60%;
+    margin: calc(10px + 3vmin) auto;
 }
 
 .footer-container {
@@ -45,13 +54,13 @@
 }
 
 .contact-message {
-    font-family: 'Neucha', cursive;
+    font-family: Helvetica;
     font-size: calc(10px + 0.5vmin);
     margin-right: calc(10px + 4vmin);
 }
 
 .contact-details {
-    font-family: 'Neucha', cursive;
+    font-family: Helvetica;
     font-size: calc(10px + 0.5vmin);
     margin: 0 calc(10px + 2vmin);
 }
@@ -61,9 +70,12 @@ hr {
 }
 
 .link {
-    font-family: 'Neucha', cursive;
+    font-family: Helvetica;
     color: white;
-    text-decoration: none;
+}
+
+.link:hover {
+    color: white;
 }
 
 .contact-chevron {
@@ -71,6 +83,10 @@ hr {
 }
 
 @media only screen and (max-width: 600px) {
+    .about-us-message {
+        font-size: calc(10px + 0.1vmin);
+    }
+
     .contact-section {
         flex-direction: column;
         align-items: center;
@@ -96,12 +112,6 @@ hr {
         bottom: calc(10px + 2vmin);
         cursor: pointer;
     }
-}
-
-.app-wrapper {
-    text-align: center;
-    background-image: url("../images/images/background.png");
-    background-size: cover;
 }
 
 .wrapper {
