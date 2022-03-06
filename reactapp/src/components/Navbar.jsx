@@ -152,8 +152,6 @@ const Navbar = (props) => {
             window.location.href.split("/")[3] === ""
         ) {
             setVisible(false)
-            console.log("here")
-            console.log(window.location.href)
         }
         
         document.addEventListener("scroll", () => {
